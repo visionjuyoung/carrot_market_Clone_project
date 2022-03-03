@@ -9,10 +9,14 @@
 /* Begin PBXBuildFile section */
 		4BB9655E27D08F4600E41D0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9655D27D08F4600E41D0C /* AppDelegate.swift */; };
 		4BB9656027D08F4600E41D0C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9655F27D08F4600E41D0C /* SceneDelegate.swift */; };
-		4BB9656227D08F4600E41D0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9656127D08F4600E41D0C /* ViewController.swift */; };
 		4BB9656527D08F4600E41D0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB9656327D08F4600E41D0C /* Main.storyboard */; };
 		4BB9656727D08F4800E41D0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BB9656627D08F4800E41D0C /* Assets.xcassets */; };
 		4BB9656A27D08F4800E41D0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB9656827D08F4800E41D0C /* LaunchScreen.storyboard */; };
+		4BB9657327D0BCF700E41D0C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9657227D0BCF700E41D0C /* HomeViewController.swift */; };
+		4BB9657527D0BD8D00E41D0C /* TownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9657427D0BD8D00E41D0C /* TownViewController.swift */; };
+		4BB9657727D0BD9800E41D0C /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9657627D0BD9800E41D0C /* NearbyViewController.swift */; };
+		4BB9657927D0BDAB00E41D0C /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9657827D0BDAB00E41D0C /* ChattingViewController.swift */; };
+		4BB9657B27D0BDBB00E41D0C /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9657A27D0BDBB00E41D0C /* MyViewController.swift */; };
 		AB17B22F38F6024D96EB0A14 /* Pods_carrot_market_clona_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DA35772DE1445F08CEC289 /* Pods_carrot_market_clona_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,11 +25,15 @@
 		4BB9655A27D08F4600E41D0C /* carrot_market_clona_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carrot_market_clona_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB9655D27D08F4600E41D0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BB9655F27D08F4600E41D0C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4BB9656127D08F4600E41D0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4BB9656427D08F4600E41D0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4BB9656627D08F4800E41D0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BB9656927D08F4800E41D0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BB9656B27D08F4800E41D0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BB9657227D0BCF700E41D0C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4BB9657427D0BD8D00E41D0C /* TownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TownViewController.swift; sourceTree = "<group>"; };
+		4BB9657627D0BD9800E41D0C /* NearbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyViewController.swift; sourceTree = "<group>"; };
+		4BB9657827D0BDAB00E41D0C /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
+		4BB9657A27D0BDBB00E41D0C /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		64DA35772DE1445F08CEC289 /* Pods_carrot_market_clona_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carrot_market_clona_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B156CE90733864C60C1AB560 /* Pods-carrot_market_clona_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carrot_market_clona_ios.debug.xcconfig"; path = "Target Support Files/Pods-carrot_market_clona_ios/Pods-carrot_market_clona_ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,13 +73,25 @@
 			children = (
 				4BB9655D27D08F4600E41D0C /* AppDelegate.swift */,
 				4BB9655F27D08F4600E41D0C /* SceneDelegate.swift */,
-				4BB9656127D08F4600E41D0C /* ViewController.swift */,
+				4BB9657127D0BC3B00E41D0C /* viewcontroller */,
 				4BB9656327D08F4600E41D0C /* Main.storyboard */,
-				4BB9656627D08F4800E41D0C /* Assets.xcassets */,
 				4BB9656827D08F4800E41D0C /* LaunchScreen.storyboard */,
+				4BB9656627D08F4800E41D0C /* Assets.xcassets */,
 				4BB9656B27D08F4800E41D0C /* Info.plist */,
 			);
 			path = carrot_market_clona_ios;
+			sourceTree = "<group>";
+		};
+		4BB9657127D0BC3B00E41D0C /* viewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				4BB9657227D0BCF700E41D0C /* HomeViewController.swift */,
+				4BB9657427D0BD8D00E41D0C /* TownViewController.swift */,
+				4BB9657627D0BD9800E41D0C /* NearbyViewController.swift */,
+				4BB9657827D0BDAB00E41D0C /* ChattingViewController.swift */,
+				4BB9657A27D0BDBB00E41D0C /* MyViewController.swift */,
+			);
+			path = viewcontroller;
 			sourceTree = "<group>";
 		};
 		B6496F0F3BF30E55E042045C /* Frameworks */ = {
@@ -88,7 +108,6 @@
 				B156CE90733864C60C1AB560 /* Pods-carrot_market_clona_ios.debug.xcconfig */,
 				00AD4E91B3E7F1BFC09913F5 /* Pods-carrot_market_clona_ios.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -189,9 +208,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BB9656227D08F4600E41D0C /* ViewController.swift in Sources */,
+				4BB9657927D0BDAB00E41D0C /* ChattingViewController.swift in Sources */,
 				4BB9655E27D08F4600E41D0C /* AppDelegate.swift in Sources */,
 				4BB9656027D08F4600E41D0C /* SceneDelegate.swift in Sources */,
+				4BB9657B27D0BDBB00E41D0C /* MyViewController.swift in Sources */,
+				4BB9657727D0BD9800E41D0C /* NearbyViewController.swift in Sources */,
+				4BB9657527D0BD8D00E41D0C /* TownViewController.swift in Sources */,
+				4BB9657327D0BCF700E41D0C /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
