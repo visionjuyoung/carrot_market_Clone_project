@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B9123F227D6030C0052D546 /* MyViewFirstSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9123F027D6030C0052D546 /* MyViewFirstSectionTableViewCell.swift */; };
+		4B9123F327D6030C0052D546 /* MyViewFirstSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B9123F127D6030C0052D546 /* MyViewFirstSectionTableViewCell.xib */; };
+		4B9123F627D6031D0052D546 /* MyViewSecondSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9123F427D6031D0052D546 /* MyViewSecondSectionTableViewCell.swift */; };
+		4B9123F727D6031D0052D546 /* MyViewSecondSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B9123F527D6031D0052D546 /* MyViewSecondSectionTableViewCell.xib */; };
+		4B9123FA27D603320052D546 /* MyViewThirdSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9123F827D603320052D546 /* MyViewThirdSectionTableViewCell.swift */; };
+		4B9123FB27D603320052D546 /* MyViewThirdSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B9123F927D603320052D546 /* MyViewThirdSectionTableViewCell.xib */; };
+		4B9123FE27D6034D0052D546 /* MyViewfirthSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9123FC27D6034D0052D546 /* MyViewfirthSectionTableViewCell.swift */; };
+		4B9123FF27D6034D0052D546 /* MyViewfirthSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B9123FD27D6034D0052D546 /* MyViewfirthSectionTableViewCell.xib */; };
+		4B91240227D6035F0052D546 /* MyViewFifthSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91240027D6035F0052D546 /* MyViewFifthSectionTableViewCell.swift */; };
+		4B91240327D6035F0052D546 /* MyViewFifthSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B91240127D6035F0052D546 /* MyViewFifthSectionTableViewCell.xib */; };
+		4B91240627D6036E0052D546 /* MyViewSixthSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91240427D6036E0052D546 /* MyViewSixthSectionTableViewCell.swift */; };
+		4B91240727D6036E0052D546 /* MyViewSixthSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B91240527D6036E0052D546 /* MyViewSixthSectionTableViewCell.xib */; };
+		4B91240A27D604870052D546 /* MyCarrotCellList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91240927D604870052D546 /* MyCarrotCellList.swift */; };
 		4BA63E8727D33976003DDEF0 /* HomeViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA63E8527D33976003DDEF0 /* HomeViewTableViewCell.swift */; };
 		4BA63E8827D33976003DDEF0 /* HomeViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BA63E8627D33976003DDEF0 /* HomeViewTableViewCell.xib */; };
 		4BA63E8C27D33F27003DDEF0 /* TownViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA63E8A27D33F27003DDEF0 /* TownViewTableViewCell.swift */; };
@@ -28,6 +41,19 @@
 
 /* Begin PBXFileReference section */
 		00AD4E91B3E7F1BFC09913F5 /* Pods-carrot_market_clona_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carrot_market_clona_ios.release.xcconfig"; path = "Target Support Files/Pods-carrot_market_clona_ios/Pods-carrot_market_clona_ios.release.xcconfig"; sourceTree = "<group>"; };
+		4B9123F027D6030C0052D546 /* MyViewFirstSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewFirstSectionTableViewCell.swift; sourceTree = "<group>"; };
+		4B9123F127D6030C0052D546 /* MyViewFirstSectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyViewFirstSectionTableViewCell.xib; sourceTree = "<group>"; };
+		4B9123F427D6031D0052D546 /* MyViewSecondSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewSecondSectionTableViewCell.swift; sourceTree = "<group>"; };
+		4B9123F527D6031D0052D546 /* MyViewSecondSectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyViewSecondSectionTableViewCell.xib; sourceTree = "<group>"; };
+		4B9123F827D603320052D546 /* MyViewThirdSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewThirdSectionTableViewCell.swift; sourceTree = "<group>"; };
+		4B9123F927D603320052D546 /* MyViewThirdSectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyViewThirdSectionTableViewCell.xib; sourceTree = "<group>"; };
+		4B9123FC27D6034D0052D546 /* MyViewfirthSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewfirthSectionTableViewCell.swift; sourceTree = "<group>"; };
+		4B9123FD27D6034D0052D546 /* MyViewfirthSectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyViewfirthSectionTableViewCell.xib; sourceTree = "<group>"; };
+		4B91240027D6035F0052D546 /* MyViewFifthSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewFifthSectionTableViewCell.swift; sourceTree = "<group>"; };
+		4B91240127D6035F0052D546 /* MyViewFifthSectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyViewFifthSectionTableViewCell.xib; sourceTree = "<group>"; };
+		4B91240427D6036E0052D546 /* MyViewSixthSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewSixthSectionTableViewCell.swift; sourceTree = "<group>"; };
+		4B91240527D6036E0052D546 /* MyViewSixthSectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyViewSixthSectionTableViewCell.xib; sourceTree = "<group>"; };
+		4B91240927D604870052D546 /* MyCarrotCellList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCarrotCellList.swift; sourceTree = "<group>"; };
 		4BA63E8527D33976003DDEF0 /* HomeViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewTableViewCell.swift; sourceTree = "<group>"; };
 		4BA63E8627D33976003DDEF0 /* HomeViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewTableViewCell.xib; sourceTree = "<group>"; };
 		4BA63E8A27D33F27003DDEF0 /* TownViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TownViewTableViewCell.swift; sourceTree = "<group>"; };
@@ -62,12 +88,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B9123EF27D602730052D546 /* MyViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4B9123F027D6030C0052D546 /* MyViewFirstSectionTableViewCell.swift */,
+				4B9123F127D6030C0052D546 /* MyViewFirstSectionTableViewCell.xib */,
+				4B9123F427D6031D0052D546 /* MyViewSecondSectionTableViewCell.swift */,
+				4B9123F527D6031D0052D546 /* MyViewSecondSectionTableViewCell.xib */,
+				4B9123F827D603320052D546 /* MyViewThirdSectionTableViewCell.swift */,
+				4B9123F927D603320052D546 /* MyViewThirdSectionTableViewCell.xib */,
+				4B9123FC27D6034D0052D546 /* MyViewfirthSectionTableViewCell.swift */,
+				4B9123FD27D6034D0052D546 /* MyViewfirthSectionTableViewCell.xib */,
+				4B91240027D6035F0052D546 /* MyViewFifthSectionTableViewCell.swift */,
+				4B91240127D6035F0052D546 /* MyViewFifthSectionTableViewCell.xib */,
+				4B91240427D6036E0052D546 /* MyViewSixthSectionTableViewCell.swift */,
+				4B91240527D6036E0052D546 /* MyViewSixthSectionTableViewCell.xib */,
+			);
+			path = MyViewController;
+			sourceTree = "<group>";
+		};
+		4B91240827D6046D0052D546 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4B91240927D604870052D546 /* MyCarrotCellList.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4BA63E8327D33927003DDEF0 /* xib */ = {
 			isa = PBXGroup;
 			children = (
 				4BA63E8427D33941003DDEF0 /* HomeViewController */,
 				4BA63E8927D33EFD003DDEF0 /* TownViewController */,
 				4BA63E8E27D35A86003DDEF0 /* ChattingViewController */,
+				4B9123EF27D602730052D546 /* MyViewController */,
 			);
 			path = xib;
 			sourceTree = "<group>";
@@ -122,6 +176,7 @@
 			children = (
 				4BB9655D27D08F4600E41D0C /* AppDelegate.swift */,
 				4BB9655F27D08F4600E41D0C /* SceneDelegate.swift */,
+				4B91240827D6046D0052D546 /* Model */,
 				4BB9657127D0BC3B00E41D0C /* viewcontroller */,
 				4BA63E8327D33927003DDEF0 /* xib */,
 				4BB9656327D08F4600E41D0C /* Main.storyboard */,
@@ -222,8 +277,14 @@
 			files = (
 				4BB9656A27D08F4800E41D0C /* LaunchScreen.storyboard in Resources */,
 				4BA63E8827D33976003DDEF0 /* HomeViewTableViewCell.xib in Resources */,
+				4B9123FF27D6034D0052D546 /* MyViewfirthSectionTableViewCell.xib in Resources */,
+				4B91240327D6035F0052D546 /* MyViewFifthSectionTableViewCell.xib in Resources */,
+				4B9123F727D6031D0052D546 /* MyViewSecondSectionTableViewCell.xib in Resources */,
+				4B9123F327D6030C0052D546 /* MyViewFirstSectionTableViewCell.xib in Resources */,
 				4BA63E9227D35AAB003DDEF0 /* ChattingViewTableViewCell.xib in Resources */,
+				4B9123FB27D603320052D546 /* MyViewThirdSectionTableViewCell.xib in Resources */,
 				4BB9656727D08F4800E41D0C /* Assets.xcassets in Resources */,
+				4B91240727D6036E0052D546 /* MyViewSixthSectionTableViewCell.xib in Resources */,
 				4BB9656527D08F4600E41D0C /* Main.storyboard in Resources */,
 				4BA63E8D27D33F27003DDEF0 /* TownViewTableViewCell.xib in Resources */,
 			);
@@ -262,14 +323,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BB9657927D0BDAB00E41D0C /* ChattingViewController.swift in Sources */,
+				4B91240227D6035F0052D546 /* MyViewFifthSectionTableViewCell.swift in Sources */,
+				4B91240A27D604870052D546 /* MyCarrotCellList.swift in Sources */,
 				4BB9655E27D08F4600E41D0C /* AppDelegate.swift in Sources */,
+				4B9123F627D6031D0052D546 /* MyViewSecondSectionTableViewCell.swift in Sources */,
 				4BA63E9127D35AAB003DDEF0 /* ChattingViewTableViewCell.swift in Sources */,
 				4BB9656027D08F4600E41D0C /* SceneDelegate.swift in Sources */,
 				4BB9657B27D0BDBB00E41D0C /* MyViewController.swift in Sources */,
 				4BA63E8C27D33F27003DDEF0 /* TownViewTableViewCell.swift in Sources */,
+				4B9123F227D6030C0052D546 /* MyViewFirstSectionTableViewCell.swift in Sources */,
+				4B91240627D6036E0052D546 /* MyViewSixthSectionTableViewCell.swift in Sources */,
+				4B9123FA27D603320052D546 /* MyViewThirdSectionTableViewCell.swift in Sources */,
 				4BB9657727D0BD9800E41D0C /* NearbyViewController.swift in Sources */,
 				4BA63E8727D33976003DDEF0 /* HomeViewTableViewCell.swift in Sources */,
 				4BB9657527D0BD8D00E41D0C /* TownViewController.swift in Sources */,
+				4B9123FE27D6034D0052D546 /* MyViewfirthSectionTableViewCell.swift in Sources */,
 				4BB9657327D0BCF700E41D0C /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

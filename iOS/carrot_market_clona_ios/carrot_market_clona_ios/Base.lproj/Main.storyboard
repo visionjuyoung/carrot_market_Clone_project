@@ -82,7 +82,7 @@
                                     <constraint firstAttribute="height" constant="1" id="swP-JY-QPV"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zMe-KF-GyP">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zMe-KF-GyP">
                                 <rect key="frame" x="0.0" y="95" width="414" height="717"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
@@ -496,22 +496,33 @@
                                     <constraint firstAttribute="height" constant="1" id="jIS-gm-Ho8"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="5" estimatedSectionHeaderHeight="-1" sectionFooterHeight="5" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ilB-C2-aNH">
+                                <rect key="frame" x="0.0" y="95" width="414" height="717"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="68G-rN-emX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="68G-rN-emX" firstAttribute="trailing" secondItem="J32-HL-PjA" secondAttribute="trailing" id="49c-DJ-Vhf"/>
+                            <constraint firstItem="ilB-C2-aNH" firstAttribute="leading" secondItem="68G-rN-emX" secondAttribute="leading" id="A5Q-2U-Efk"/>
                             <constraint firstItem="68G-rN-emX" firstAttribute="trailing" secondItem="8ud-Vj-1Zh" secondAttribute="trailing" id="QgA-t3-qri"/>
+                            <constraint firstItem="ilB-C2-aNH" firstAttribute="top" secondItem="8ud-Vj-1Zh" secondAttribute="bottom" id="RUM-F3-3od"/>
+                            <constraint firstItem="J32-HL-PjA" firstAttribute="top" secondItem="ilB-C2-aNH" secondAttribute="bottom" id="SbQ-FO-p6V"/>
                             <constraint firstItem="68G-rN-emX" firstAttribute="bottom" secondItem="J32-HL-PjA" secondAttribute="bottom" id="TOX-UZ-137"/>
                             <constraint firstItem="8ud-Vj-1Zh" firstAttribute="top" secondItem="RX3-f6-PZI" secondAttribute="bottom" id="Uv7-BH-gh5"/>
                             <constraint firstItem="68G-rN-emX" firstAttribute="trailing" secondItem="RX3-f6-PZI" secondAttribute="trailing" id="bgE-Qv-63G"/>
                             <constraint firstItem="J32-HL-PjA" firstAttribute="leading" secondItem="68G-rN-emX" secondAttribute="leading" id="df3-8D-cKl"/>
+                            <constraint firstItem="68G-rN-emX" firstAttribute="trailing" secondItem="ilB-C2-aNH" secondAttribute="trailing" id="f6H-Wf-lxu"/>
                             <constraint firstItem="RX3-f6-PZI" firstAttribute="leading" secondItem="68G-rN-emX" secondAttribute="leading" id="iSh-pL-W7P"/>
                             <constraint firstItem="8ud-Vj-1Zh" firstAttribute="leading" secondItem="68G-rN-emX" secondAttribute="leading" id="kTy-Ux-Aar"/>
                             <constraint firstItem="RX3-f6-PZI" firstAttribute="top" secondItem="68G-rN-emX" secondAttribute="top" id="kmE-Nn-81u"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="나의 당근" image="myViewImg" selectedImage="selectedMyViewImg" id="4rV-T4-DCA"/>
+                    <connections>
+                        <outlet property="tableView" destination="ilB-C2-aNH" id="yvW-3r-X1o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="74V-jh-fWp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
