@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4BA63E8727D33976003DDEF0 /* HomeViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA63E8527D33976003DDEF0 /* HomeViewTableViewCell.swift */; };
+		4BA63E8827D33976003DDEF0 /* HomeViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BA63E8627D33976003DDEF0 /* HomeViewTableViewCell.xib */; };
+		4BA63E8C27D33F27003DDEF0 /* TownViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA63E8A27D33F27003DDEF0 /* TownViewTableViewCell.swift */; };
+		4BA63E8D27D33F27003DDEF0 /* TownViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BA63E8B27D33F27003DDEF0 /* TownViewTableViewCell.xib */; };
+		4BA63E9127D35AAB003DDEF0 /* ChattingViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA63E8F27D35AAB003DDEF0 /* ChattingViewTableViewCell.swift */; };
+		4BA63E9227D35AAB003DDEF0 /* ChattingViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BA63E9027D35AAB003DDEF0 /* ChattingViewTableViewCell.xib */; };
 		4BB9655E27D08F4600E41D0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9655D27D08F4600E41D0C /* AppDelegate.swift */; };
 		4BB9656027D08F4600E41D0C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9655F27D08F4600E41D0C /* SceneDelegate.swift */; };
 		4BB9656527D08F4600E41D0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB9656327D08F4600E41D0C /* Main.storyboard */; };
@@ -22,6 +28,12 @@
 
 /* Begin PBXFileReference section */
 		00AD4E91B3E7F1BFC09913F5 /* Pods-carrot_market_clona_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carrot_market_clona_ios.release.xcconfig"; path = "Target Support Files/Pods-carrot_market_clona_ios/Pods-carrot_market_clona_ios.release.xcconfig"; sourceTree = "<group>"; };
+		4BA63E8527D33976003DDEF0 /* HomeViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewTableViewCell.swift; sourceTree = "<group>"; };
+		4BA63E8627D33976003DDEF0 /* HomeViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewTableViewCell.xib; sourceTree = "<group>"; };
+		4BA63E8A27D33F27003DDEF0 /* TownViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TownViewTableViewCell.swift; sourceTree = "<group>"; };
+		4BA63E8B27D33F27003DDEF0 /* TownViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TownViewTableViewCell.xib; sourceTree = "<group>"; };
+		4BA63E8F27D35AAB003DDEF0 /* ChattingViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewTableViewCell.swift; sourceTree = "<group>"; };
+		4BA63E9027D35AAB003DDEF0 /* ChattingViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChattingViewTableViewCell.xib; sourceTree = "<group>"; };
 		4BB9655A27D08F4600E41D0C /* carrot_market_clona_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carrot_market_clona_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB9655D27D08F4600E41D0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BB9655F27D08F4600E41D0C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +62,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4BA63E8327D33927003DDEF0 /* xib */ = {
+			isa = PBXGroup;
+			children = (
+				4BA63E8427D33941003DDEF0 /* HomeViewController */,
+				4BA63E8927D33EFD003DDEF0 /* TownViewController */,
+				4BA63E8E27D35A86003DDEF0 /* ChattingViewController */,
+			);
+			path = xib;
+			sourceTree = "<group>";
+		};
+		4BA63E8427D33941003DDEF0 /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4BA63E8527D33976003DDEF0 /* HomeViewTableViewCell.swift */,
+				4BA63E8627D33976003DDEF0 /* HomeViewTableViewCell.xib */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		4BA63E8927D33EFD003DDEF0 /* TownViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4BA63E8A27D33F27003DDEF0 /* TownViewTableViewCell.swift */,
+				4BA63E8B27D33F27003DDEF0 /* TownViewTableViewCell.xib */,
+			);
+			path = TownViewController;
+			sourceTree = "<group>";
+		};
+		4BA63E8E27D35A86003DDEF0 /* ChattingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4BA63E8F27D35AAB003DDEF0 /* ChattingViewTableViewCell.swift */,
+				4BA63E9027D35AAB003DDEF0 /* ChattingViewTableViewCell.xib */,
+			);
+			path = ChattingViewController;
+			sourceTree = "<group>";
+		};
 		4BB9655127D08F4600E41D0C = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +123,7 @@
 				4BB9655D27D08F4600E41D0C /* AppDelegate.swift */,
 				4BB9655F27D08F4600E41D0C /* SceneDelegate.swift */,
 				4BB9657127D0BC3B00E41D0C /* viewcontroller */,
+				4BA63E8327D33927003DDEF0 /* xib */,
 				4BB9656327D08F4600E41D0C /* Main.storyboard */,
 				4BB9656827D08F4800E41D0C /* LaunchScreen.storyboard */,
 				4BB9656627D08F4800E41D0C /* Assets.xcassets */,
@@ -171,8 +221,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BB9656A27D08F4800E41D0C /* LaunchScreen.storyboard in Resources */,
+				4BA63E8827D33976003DDEF0 /* HomeViewTableViewCell.xib in Resources */,
+				4BA63E9227D35AAB003DDEF0 /* ChattingViewTableViewCell.xib in Resources */,
 				4BB9656727D08F4800E41D0C /* Assets.xcassets in Resources */,
 				4BB9656527D08F4600E41D0C /* Main.storyboard in Resources */,
+				4BA63E8D27D33F27003DDEF0 /* TownViewTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,9 +263,12 @@
 			files = (
 				4BB9657927D0BDAB00E41D0C /* ChattingViewController.swift in Sources */,
 				4BB9655E27D08F4600E41D0C /* AppDelegate.swift in Sources */,
+				4BA63E9127D35AAB003DDEF0 /* ChattingViewTableViewCell.swift in Sources */,
 				4BB9656027D08F4600E41D0C /* SceneDelegate.swift in Sources */,
 				4BB9657B27D0BDBB00E41D0C /* MyViewController.swift in Sources */,
+				4BA63E8C27D33F27003DDEF0 /* TownViewTableViewCell.swift in Sources */,
 				4BB9657727D0BD9800E41D0C /* NearbyViewController.swift in Sources */,
+				4BA63E8727D33976003DDEF0 /* HomeViewTableViewCell.swift in Sources */,
 				4BB9657527D0BD8D00E41D0C /* TownViewController.swift in Sources */,
 				4BB9657327D0BCF700E41D0C /* HomeViewController.swift in Sources */,
 			);
