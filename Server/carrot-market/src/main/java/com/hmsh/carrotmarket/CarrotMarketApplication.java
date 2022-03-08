@@ -8,6 +8,7 @@ public class CarrotMarketApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(CarrotMarketApplication.class, args);
+
     }
 
 }
