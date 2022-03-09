@@ -1,6 +1,6 @@
 package CarrotJwt.Handler;
 
-import CarrotJwt.SecurityConfiguration.ErrorCode;
+import JwtService.ErrorCode;
 import lombok.RequiredArgsConstructor;
 import org.json.simple.JSONObject;
 import org.springframework.security.core.AuthenticationException;

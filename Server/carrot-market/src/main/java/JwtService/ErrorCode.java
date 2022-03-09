@@ -1,4 +1,4 @@
-package CarrotJwt.SecurityConfiguration;
+package JwtService;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

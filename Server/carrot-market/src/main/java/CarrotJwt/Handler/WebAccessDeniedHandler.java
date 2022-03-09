@@ -1,6 +1,6 @@
 package CarrotJwt.Handler;
 
-import CarrotJwt.SecurityConfiguration.ErrorCode;
+import JwtService.ErrorCode;
 import org.json.simple.JSONObject;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
