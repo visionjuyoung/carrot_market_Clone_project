@@ -20,6 +20,11 @@
 		4B91240627D6036E0052D546 /* MyViewSixthSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91240427D6036E0052D546 /* MyViewSixthSectionTableViewCell.swift */; };
 		4B91240727D6036E0052D546 /* MyViewSixthSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B91240527D6036E0052D546 /* MyViewSixthSectionTableViewCell.xib */; };
 		4B91240A27D604870052D546 /* MyCarrotCellList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91240927D604870052D546 /* MyCarrotCellList.swift */; };
+		4B91240C27D746EA0052D546 /* SetLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91240B27D746EA0052D546 /* SetLocationViewController.swift */; };
+		4B91241027D9BCF00052D546 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91240F27D9BCF00052D546 /* StartViewController.swift */; };
+		4B91241227D9BD080052D546 /* PhoneAutentificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91241127D9BD080052D546 /* PhoneAutentificationViewController.swift */; };
+		4B91241627D9E7DE0052D546 /* SetLocationViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91241427D9E7DE0052D546 /* SetLocationViewTableViewCell.swift */; };
+		4B91241727D9E7DE0052D546 /* SetLocationViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B91241527D9E7DE0052D546 /* SetLocationViewTableViewCell.xib */; };
 		4BA63E8727D33976003DDEF0 /* HomeViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA63E8527D33976003DDEF0 /* HomeViewTableViewCell.swift */; };
 		4BA63E8827D33976003DDEF0 /* HomeViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BA63E8627D33976003DDEF0 /* HomeViewTableViewCell.xib */; };
 		4BA63E8C27D33F27003DDEF0 /* TownViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA63E8A27D33F27003DDEF0 /* TownViewTableViewCell.swift */; };
@@ -54,6 +59,11 @@
 		4B91240427D6036E0052D546 /* MyViewSixthSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewSixthSectionTableViewCell.swift; sourceTree = "<group>"; };
 		4B91240527D6036E0052D546 /* MyViewSixthSectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyViewSixthSectionTableViewCell.xib; sourceTree = "<group>"; };
 		4B91240927D604870052D546 /* MyCarrotCellList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCarrotCellList.swift; sourceTree = "<group>"; };
+		4B91240B27D746EA0052D546 /* SetLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLocationViewController.swift; sourceTree = "<group>"; };
+		4B91240F27D9BCF00052D546 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		4B91241127D9BD080052D546 /* PhoneAutentificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAutentificationViewController.swift; sourceTree = "<group>"; };
+		4B91241427D9E7DE0052D546 /* SetLocationViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLocationViewTableViewCell.swift; sourceTree = "<group>"; };
+		4B91241527D9E7DE0052D546 /* SetLocationViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetLocationViewTableViewCell.xib; sourceTree = "<group>"; };
 		4BA63E8527D33976003DDEF0 /* HomeViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewTableViewCell.swift; sourceTree = "<group>"; };
 		4BA63E8627D33976003DDEF0 /* HomeViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewTableViewCell.xib; sourceTree = "<group>"; };
 		4BA63E8A27D33F27003DDEF0 /* TownViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TownViewTableViewCell.swift; sourceTree = "<group>"; };
@@ -115,6 +125,37 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		4B91240D27D9BC900052D546 /* TabbarControllerPage */ = {
+			isa = PBXGroup;
+			children = (
+				4BB9657227D0BCF700E41D0C /* HomeViewController.swift */,
+				4BB9657427D0BD8D00E41D0C /* TownViewController.swift */,
+				4BB9657627D0BD9800E41D0C /* NearbyViewController.swift */,
+				4BB9657827D0BDAB00E41D0C /* ChattingViewController.swift */,
+				4BB9657A27D0BDBB00E41D0C /* MyViewController.swift */,
+			);
+			path = TabbarControllerPage;
+			sourceTree = "<group>";
+		};
+		4B91240E27D9BCAA0052D546 /* StartPage */ = {
+			isa = PBXGroup;
+			children = (
+				4B91240B27D746EA0052D546 /* SetLocationViewController.swift */,
+				4B91240F27D9BCF00052D546 /* StartViewController.swift */,
+				4B91241127D9BD080052D546 /* PhoneAutentificationViewController.swift */,
+			);
+			path = StartPage;
+			sourceTree = "<group>";
+		};
+		4B91241327D9E7A70052D546 /* SetLocationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4B91241427D9E7DE0052D546 /* SetLocationViewTableViewCell.swift */,
+				4B91241527D9E7DE0052D546 /* SetLocationViewTableViewCell.xib */,
+			);
+			path = SetLocationViewController;
+			sourceTree = "<group>";
+		};
 		4BA63E8327D33927003DDEF0 /* xib */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +163,7 @@
 				4BA63E8927D33EFD003DDEF0 /* TownViewController */,
 				4BA63E8E27D35A86003DDEF0 /* ChattingViewController */,
 				4B9123EF27D602730052D546 /* MyViewController */,
+				4B91241327D9E7A70052D546 /* SetLocationViewController */,
 			);
 			path = xib;
 			sourceTree = "<group>";
@@ -190,11 +232,8 @@
 		4BB9657127D0BC3B00E41D0C /* viewcontroller */ = {
 			isa = PBXGroup;
 			children = (
-				4BB9657227D0BCF700E41D0C /* HomeViewController.swift */,
-				4BB9657427D0BD8D00E41D0C /* TownViewController.swift */,
-				4BB9657627D0BD9800E41D0C /* NearbyViewController.swift */,
-				4BB9657827D0BDAB00E41D0C /* ChattingViewController.swift */,
-				4BB9657A27D0BDBB00E41D0C /* MyViewController.swift */,
+				4B91240D27D9BC900052D546 /* TabbarControllerPage */,
+				4B91240E27D9BCAA0052D546 /* StartPage */,
 			);
 			path = viewcontroller;
 			sourceTree = "<group>";
@@ -281,6 +320,7 @@
 				4B91240327D6035F0052D546 /* MyViewFifthSectionTableViewCell.xib in Resources */,
 				4B9123F727D6031D0052D546 /* MyViewSecondSectionTableViewCell.xib in Resources */,
 				4B9123F327D6030C0052D546 /* MyViewFirstSectionTableViewCell.xib in Resources */,
+				4B91241727D9E7DE0052D546 /* SetLocationViewTableViewCell.xib in Resources */,
 				4BA63E9227D35AAB003DDEF0 /* ChattingViewTableViewCell.xib in Resources */,
 				4B9123FB27D603320052D546 /* MyViewThirdSectionTableViewCell.xib in Resources */,
 				4BB9656727D08F4800E41D0C /* Assets.xcassets in Resources */,
@@ -326,6 +366,7 @@
 				4B91240227D6035F0052D546 /* MyViewFifthSectionTableViewCell.swift in Sources */,
 				4B91240A27D604870052D546 /* MyCarrotCellList.swift in Sources */,
 				4BB9655E27D08F4600E41D0C /* AppDelegate.swift in Sources */,
+				4B91241627D9E7DE0052D546 /* SetLocationViewTableViewCell.swift in Sources */,
 				4B9123F627D6031D0052D546 /* MyViewSecondSectionTableViewCell.swift in Sources */,
 				4BA63E9127D35AAB003DDEF0 /* ChattingViewTableViewCell.swift in Sources */,
 				4BB9656027D08F4600E41D0C /* SceneDelegate.swift in Sources */,
@@ -336,8 +377,11 @@
 				4B9123FA27D603320052D546 /* MyViewThirdSectionTableViewCell.swift in Sources */,
 				4BB9657727D0BD9800E41D0C /* NearbyViewController.swift in Sources */,
 				4BA63E8727D33976003DDEF0 /* HomeViewTableViewCell.swift in Sources */,
+				4B91241027D9BCF00052D546 /* StartViewController.swift in Sources */,
+				4B91241227D9BD080052D546 /* PhoneAutentificationViewController.swift in Sources */,
 				4BB9657527D0BD8D00E41D0C /* TownViewController.swift in Sources */,
 				4B9123FE27D6034D0052D546 /* MyViewfirthSectionTableViewCell.swift in Sources */,
+				4B91240C27D746EA0052D546 /* SetLocationViewController.swift in Sources */,
 				4BB9657327D0BCF700E41D0C /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +532,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HLBTHMRT3P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = carrot_market_clona_ios/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -516,6 +561,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HLBTHMRT3P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = carrot_market_clona_ios/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
