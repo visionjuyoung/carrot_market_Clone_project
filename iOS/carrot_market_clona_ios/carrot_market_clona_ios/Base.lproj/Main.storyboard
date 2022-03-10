@@ -532,7 +532,6 @@
         <!--Start View Controller-->
         <scene sceneID="ABX-f0-iNf">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uxV-9z-KC0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="StartViewController" id="s4P-0T-F2N" customClass="StartViewController" customModule="carrot_market_clona_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HlB-yP-WTD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -594,6 +593,7 @@
                         <outlet property="startCarrot" destination="72t-KQ-Nx7" id="XE3-tR-kyC"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uxV-9z-KC0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138" y="871"/>
         </scene>
@@ -698,6 +698,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="rZL-ow-ZSB"/>
                     <connections>
+                        <outlet property="presentLocationSearchButton" destination="e8w-S1-dfY" id="0sa-nX-C9M"/>
                         <outlet property="tableView" destination="lmF-xy-kkp" id="H5F-jI-GBv"/>
                     </connections>
                 </viewController>
@@ -708,7 +709,6 @@
         <!--Phone Autentification View Controller-->
         <scene sceneID="Xwj-IY-sdv">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="i7H-Qk-HCg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="PhoneAutentificationViewController" modalPresentationStyle="fullScreen" id="3vk-RV-gDk" customClass="PhoneAutentificationViewController" customModule="carrot_market_clona_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wgo-Mk-pqp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -832,7 +832,7 @@
                                     </attributedString>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="pressGetCert:" destination="3vk-RV-gDk" eventType="touchUpInside" id="57u-yu-bp2"/>
+                                    <action selector="confirmCert:" destination="3vk-RV-gDk" eventType="touchUpInside" id="Cy1-3x-RbX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -882,6 +882,7 @@
                         <outlet property="stacks" destination="ZEB-vx-HsL" id="ERs-HP-mIf"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i7H-Qk-HCg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1611.5942028985507" y="883.92857142857144"/>
         </scene>
@@ -936,7 +937,7 @@
         <image name="startPage" width="860" height="1372"/>
         <image name="townViewImg" width="26" height="25"/>
         <namedColor name="carrotMarketColor">
-            <color red="0.92666077609999997" green="0.51730173830000004" blue="0.28227877620000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.92699998617172241" green="0.51700001955032349" blue="0.28200000524520874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -11,6 +11,7 @@ import CoreLocation
 class SetLocationViewController: UIViewController, CLLocationManagerDelegate{
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var presentLocationSearchButton: UIButton!
     
     var locationMagager = CLLocationManager()
     var nearbyLocation: [String] = []
@@ -33,6 +34,8 @@ class SetLocationViewController: UIViewController, CLLocationManagerDelegate{
             locationMagager.startUpdatingLocation()
             //print(locationMagager.location?.coordinate)
         }
+        
+        presentLocationSearchButton.layer.cornerRadius = 5
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

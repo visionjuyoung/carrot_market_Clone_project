@@ -20,10 +20,10 @@ class PhoneAutentificationViewController: UIViewController {
     @IBOutlet weak var certNotionLabel: UILabel!
     @IBOutlet weak var certConfirmButton: UIButton!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setInit()
-        phoneNumberTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
     }
     
     func setInit() {
@@ -31,15 +31,25 @@ class PhoneAutentificationViewController: UIViewController {
         attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range:
             NSRange.init(location: 0, length: attributedString.length));
         emailLabel.attributedText = attributedString
-    }
-    
-    @objc func textFieldDidChange(_ sender: Any?) {
+        
+        certButton.layer.cornerRadius = 5
+        certConfirmButton.layer.cornerRadius = 5
+        
+        self.phoneNumberTextField.addAction(UIAction(handler: { _ in
             if self.phoneNumberTextField.text?.count == 11 {
-                certButton.layer.borderColor = UIColor.darkGray.cgColor
-        }
+                self.certButton.backgroundColor = UIColor.darkGray
+            }
+        }), for: .editingChanged)
+        
+        self.certTextField.addAction(UIAction(handler: { _ in
+            if self.certTextField.text?.count == 6 {
+                self.certConfirmButton.backgroundColor = UIColor.darkGray
+            }
+        }), for: .editingChanged)
     }
     
     @IBAction func pressGetCert(_ sender: UIButton) {
+        //인증번호 요청 api 사용 코드 작성
         label1.isHidden = true
         label2.isHidden = true
         stacks.isHidden = true
@@ -52,6 +62,9 @@ class PhoneAutentificationViewController: UIViewController {
         })
     }
     
+    @IBAction func confirmCert(_ sender: UIButton) {
+        //인증번호 확인 api 사용 후 성공시 이동 코드 작성
+    }
     
     @IBAction func pressBack(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
