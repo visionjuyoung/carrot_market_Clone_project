@@ -706,6 +706,193 @@
             </objects>
             <point key="canvasLocation" x="913.04347826086962" y="883.92857142857144"/>
         </scene>
+        <!--Phone Autentification Sign In State View Controller-->
+        <scene sceneID="Ajn-yf-EWU">
+            <objects>
+                <viewController storyboardIdentifier="PhoneAutentificationSignInStateViewController" modalPresentationStyle="fullScreen" id="Tvm-Nf-Lnq" customClass="PhoneAutentificationSignInStateViewController" customModule="carrot_market_clona_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hbW-TT-3Y1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="ldf-mi-LSt">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cSB-BL-vyJ">
+                                        <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oKV-9I-EK4">
+                                                <rect key="frame" x="10" y="0.0" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="6YJ-ja-79J"/>
+                                                    <constraint firstAttribute="width" constant="40" id="zHr-38-KeS"/>
+                                                </constraints>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="arrow.backward" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="19"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="pressBack:" destination="Tvm-Nf-Lnq" eventType="touchUpInside" id="Dgu-Wd-5sK"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="휴대폰 번호 인증" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOu-N1-wr4">
+                                                <rect key="frame" x="148" y="4.5" width="118" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="oKV-9I-EK4" firstAttribute="leading" secondItem="cSB-BL-vyJ" secondAttribute="leading" constant="10" id="IYr-RU-mfu"/>
+                                            <constraint firstItem="oKV-9I-EK4" firstAttribute="top" secondItem="cSB-BL-vyJ" secondAttribute="top" id="cbl-bq-A6Y"/>
+                                            <constraint firstItem="TOu-N1-wr4" firstAttribute="centerX" secondItem="cSB-BL-vyJ" secondAttribute="centerX" id="iEE-Zk-Mvw"/>
+                                            <constraint firstAttribute="height" constant="50" id="lVK-rR-9iU"/>
+                                            <constraint firstItem="TOu-N1-wr4" firstAttribute="centerY" secondItem="cSB-BL-vyJ" secondAttribute="centerY" constant="-10" id="r6g-Ac-xYv"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="안녕하세요! 휴대폰 번호로 로그인해주세요." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ro-Sq-CeQ">
+                                        <rect key="frame" x="20" y="104" width="344" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="휴대폰 번호는 안전하게 보관되며 이웃들에게 공개되지 않아요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ju7-ic-aQ0">
+                                        <rect key="frame" x="20" y="179" width="344" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" 휴대폰 번호(- 없이 숫자만 입력)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="umd-wp-7eS">
+                                        <rect key="frame" x="20" y="216" width="344" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="hfs-7Z-InX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qrm-A7-HbT">
+                                        <rect key="frame" x="20" y="286" width="344" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="인증문자 받기">
+                                                    <attributes>
+                                                        <font key="NSFont" size="18" name="AppleSDGothicNeo-Bold"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="getCert:" destination="Tvm-Nf-Lnq" eventType="touchUpInside" id="m5K-k9-Jmq"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1y5-9w-CLD">
+                                        <rect key="frame" x="81" y="366" width="252" height="14.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="휴대폰 번호가 변경되었나요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esS-Mq-Wjx">
+                                                <rect key="frame" x="0.0" y="0.0" width="147.5" height="14.5"/>
+                                                <fontDescription key="fontDescription" name=".SFNS-Regular" family=".AppleSystemUIFont" pointSize="13"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이메일로 계정 찾기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAO-oT-sVT">
+                                                <rect key="frame" x="155.5" y="0.0" width="96.5" height="14.5"/>
+                                                <fontDescription key="fontDescription" name=".SFNS-Regular" family=".AppleSystemUIFont" pointSize="13"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="인증번호 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CCt-W5-adr">
+                                        <rect key="frame" x="20" y="356" width="344" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="pob-hs-Tlf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                    </textField>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어떠한 경우에도 타인에게 공유하지 마세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxO-sN-GjC">
+                                        <rect key="frame" x="20" y="411" width="220" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wji-hX-bnO">
+                                        <rect key="frame" x="20" y="447" width="344" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="인증문자 확인">
+                                                    <attributes>
+                                                        <font key="NSFont" size="18" name="AppleSDGothicNeo-Bold"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="confirmCert:" destination="Tvm-Nf-Lnq" eventType="touchUpInside" id="40a-9f-jfQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="w2U-la-g8U"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="CCt-W5-adr" firstAttribute="trailing" secondItem="Qrm-A7-HbT" secondAttribute="trailing" id="1aA-WW-oKx"/>
+                                    <constraint firstItem="umd-wp-7eS" firstAttribute="trailing" secondItem="Ju7-ic-aQ0" secondAttribute="trailing" id="7Do-yU-9a2"/>
+                                    <constraint firstItem="umd-wp-7eS" firstAttribute="top" secondItem="Ju7-ic-aQ0" secondAttribute="bottom" constant="20" id="8jh-wB-iTT"/>
+                                    <constraint firstItem="CCt-W5-adr" firstAttribute="firstBaseline" secondItem="Qrm-A7-HbT" secondAttribute="baseline" constant="70" id="E5M-ta-mhi"/>
+                                    <constraint firstItem="wji-hX-bnO" firstAttribute="leading" secondItem="CCt-W5-adr" secondAttribute="leading" id="GpX-T2-uBH"/>
+                                    <constraint firstItem="9ro-Sq-CeQ" firstAttribute="top" secondItem="w2U-la-g8U" secondAttribute="top" constant="60" id="Hjz-8X-XQ6"/>
+                                    <constraint firstItem="1y5-9w-CLD" firstAttribute="centerX" secondItem="ldf-mi-LSt" secondAttribute="centerX" id="ID2-9k-qjW"/>
+                                    <constraint firstItem="mxO-sN-GjC" firstAttribute="leading" secondItem="CCt-W5-adr" secondAttribute="leading" id="Ja9-kQ-McJ"/>
+                                    <constraint firstItem="cSB-BL-vyJ" firstAttribute="trailing" secondItem="w2U-la-g8U" secondAttribute="trailing" id="JoT-fo-g6t"/>
+                                    <constraint firstItem="Qrm-A7-HbT" firstAttribute="height" secondItem="umd-wp-7eS" secondAttribute="height" id="NMY-iX-n8u"/>
+                                    <constraint firstItem="mxO-sN-GjC" firstAttribute="top" secondItem="CCt-W5-adr" secondAttribute="bottom" constant="5" id="Ozv-DF-jYn"/>
+                                    <constraint firstItem="Ju7-ic-aQ0" firstAttribute="leading" secondItem="9ro-Sq-CeQ" secondAttribute="leading" id="S5Z-cy-GOE"/>
+                                    <constraint firstItem="umd-wp-7eS" firstAttribute="leading" secondItem="Ju7-ic-aQ0" secondAttribute="leading" id="YMM-Nv-KSK"/>
+                                    <constraint firstItem="Ju7-ic-aQ0" firstAttribute="top" secondItem="9ro-Sq-CeQ" secondAttribute="bottom" constant="15" id="bhq-KI-W8l"/>
+                                    <constraint firstItem="CCt-W5-adr" firstAttribute="leading" secondItem="Qrm-A7-HbT" secondAttribute="leading" id="g1q-U4-cMh"/>
+                                    <constraint firstItem="cSB-BL-vyJ" firstAttribute="top" secondItem="w2U-la-g8U" secondAttribute="top" id="g6H-fw-hLe"/>
+                                    <constraint firstItem="wji-hX-bnO" firstAttribute="trailing" secondItem="CCt-W5-adr" secondAttribute="trailing" id="iSo-xb-sy4"/>
+                                    <constraint firstItem="wji-hX-bnO" firstAttribute="height" secondItem="CCt-W5-adr" secondAttribute="height" id="jBU-Mm-aRR"/>
+                                    <constraint firstItem="Ju7-ic-aQ0" firstAttribute="trailing" secondItem="9ro-Sq-CeQ" secondAttribute="trailing" id="kCE-7W-ApK"/>
+                                    <constraint firstItem="w2U-la-g8U" firstAttribute="trailing" secondItem="9ro-Sq-CeQ" secondAttribute="trailing" constant="50" id="leZ-Oo-HOG"/>
+                                    <constraint firstItem="wji-hX-bnO" firstAttribute="top" secondItem="mxO-sN-GjC" secondAttribute="bottom" constant="20" id="mPb-E6-l2S"/>
+                                    <constraint firstItem="Qrm-A7-HbT" firstAttribute="trailing" secondItem="umd-wp-7eS" secondAttribute="trailing" id="mf0-8T-vlU"/>
+                                    <constraint firstItem="Qrm-A7-HbT" firstAttribute="leading" secondItem="umd-wp-7eS" secondAttribute="leading" id="t5q-3K-shF"/>
+                                    <constraint firstItem="9ro-Sq-CeQ" firstAttribute="leading" secondItem="w2U-la-g8U" secondAttribute="leading" constant="20" id="vE0-xl-VvI"/>
+                                    <constraint firstItem="cSB-BL-vyJ" firstAttribute="leading" secondItem="w2U-la-g8U" secondAttribute="leading" id="wqk-F7-qmq"/>
+                                    <constraint firstItem="1y5-9w-CLD" firstAttribute="top" secondItem="Qrm-A7-HbT" secondAttribute="bottom" constant="30" id="x0Y-G6-Rif"/>
+                                    <constraint firstItem="Qrm-A7-HbT" firstAttribute="top" secondItem="umd-wp-7eS" secondAttribute="bottom" constant="20" id="ygU-Ud-Q3l"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="z6H-Ol-BOX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="certNotionLabel" destination="ldf-mi-LSt" id="EW4-50-05j"/>
+                        <outlet property="certTextField" destination="CCt-W5-adr" id="wg9-dW-MZf"/>
+                        <outlet property="confirmCertButton" destination="wji-hX-bnO" id="FkO-aT-r45"/>
+                        <outlet property="emailLabel" destination="HAO-oT-sVT" id="miX-aM-dqT"/>
+                        <outlet property="getCertButton" destination="Qrm-A7-HbT" id="XBG-nl-9wk"/>
+                        <outlet property="label1" destination="9ro-Sq-CeQ" id="0at-Km-IgG"/>
+                        <outlet property="label2" destination="Ju7-ic-aQ0" id="LdD-FG-C1U"/>
+                        <outlet property="movingConstraint" destination="Hjz-8X-XQ6" id="TcQ-kr-osO"/>
+                        <outlet property="phoneAutenticationTextField" destination="umd-wp-7eS" id="PSP-6x-W2X"/>
+                        <outlet property="stacks" destination="1y5-9w-CLD" id="mee-9e-OTC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WZ1-PQ-gPv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2341" y="884"/>
+        </scene>
         <!--Phone Autentification View Controller-->
         <scene sceneID="Xwj-IY-sdv">
             <objects>
@@ -889,7 +1076,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="nzM-k1-OTj">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="6bc-6T-0Iy" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabbarController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="6bc-6T-0Iy" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xWj-PW-amh">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

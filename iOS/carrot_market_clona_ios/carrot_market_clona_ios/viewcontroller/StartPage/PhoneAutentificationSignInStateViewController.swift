@@ -1,5 +1,5 @@
 //
-//  PhoneAutentificationViewController.swift
+//  PhoneAutentificationSignInStateViewController.swift
 //  carrot_market_clona_ios
 //
 //  Created by 김주영 on 2022/03/10.
@@ -7,19 +7,21 @@
 
 import UIKit
 
-class PhoneAutentificationViewController: UIViewController {
-
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var phoneNumberTextField: UITextField!
-    @IBOutlet weak var certButton: UIButton!
-    @IBOutlet weak var movingConstraint: NSLayoutConstraint!
+class PhoneAutentificationSignInStateViewController: UIViewController {
+    
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var label2: UILabel!
-    @IBOutlet weak var certTextField: UITextField!
     @IBOutlet weak var stacks: UIStackView!
-    @IBOutlet weak var certNotionLabel: UILabel!
-    @IBOutlet weak var certConfirmButton: UIButton!
+    @IBOutlet weak var certNotionLabel: UIView!
+    @IBOutlet weak var emailLabel: UILabel!
     
+    @IBOutlet weak var phoneAutenticationTextField: UITextField!
+    @IBOutlet weak var certTextField: UITextField!
+    
+    @IBOutlet weak var getCertButton: UIButton!
+    @IBOutlet weak var confirmCertButton: UIButton!
+    
+    @IBOutlet weak var movingConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,31 +34,29 @@ class PhoneAutentificationViewController: UIViewController {
             NSRange.init(location: 0, length: attributedString.length));
         emailLabel.attributedText = attributedString
         
-        certButton.layer.cornerRadius = 5
-        certConfirmButton.layer.cornerRadius = 5
+        getCertButton.layer.cornerRadius = 5
+        confirmCertButton.layer.cornerRadius = 5
         
-        self.phoneNumberTextField.addAction(UIAction(handler: { _ in
-            if self.phoneNumberTextField.text?.count == 11 {
-                self.certButton.backgroundColor = UIColor.darkGray
+        self.phoneAutenticationTextField.addAction(UIAction(handler: { _ in
+            if self.phoneAutenticationTextField.text?.count == 11 {
+                self.getCertButton.backgroundColor = UIColor.darkGray
             }
         }), for: .editingChanged)
         
         self.certTextField.addAction(UIAction(handler: { _ in
             if self.certTextField.text?.count == 6 {
-                self.certConfirmButton.backgroundColor = UIColor.darkGray
+                self.confirmCertButton.backgroundColor = UIColor.darkGray
             }
         }), for: .editingChanged)
     }
-    
-    @IBAction func pressGetCert(_ sender: UIButton) {
-        //인증번호 요청 api 사용 코드 작성
-        //핸드폰 번호 입력하고 인증문자 받을때 핸드폰 번호에서 등록된 사용자 전화번호인지 확인해야함
+
+    @IBAction func getCert(_ sender: UIButton) {
         label1.isHidden = true
         label2.isHidden = true
         stacks.isHidden = true
         certTextField.isHidden = false
         certNotionLabel.isHidden = false
-        certConfirmButton.isHidden = false
+        confirmCertButton.isHidden = false
         movingConstraint.constant -= 130
         UIView.animate(withDuration: 0.1, animations: {
             self.view.layoutSubviews()
@@ -64,7 +64,8 @@ class PhoneAutentificationViewController: UIViewController {
     }
     
     @IBAction func confirmCert(_ sender: UIButton) {
-        //인증번호 확인 api 사용 후 성공시 닉네임 설정 이동 코드 작성
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "TabbarController") else { return }
+        present(vc, animated: true, completion: nil)
     }
     
     @IBAction func pressBack(_ sender: UIButton) {

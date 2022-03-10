@@ -30,7 +30,7 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func pressLogIn(_ sender: UIButton) {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "PhoneAutentificationViewController") else{
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "PhoneAutentificationSignInStateViewController") else{
             return
         }
         present(vc, animated: true, completion: nil)

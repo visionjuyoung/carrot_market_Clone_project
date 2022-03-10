@@ -25,6 +25,7 @@
 		4B91241227D9BD080052D546 /* PhoneAutentificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91241127D9BD080052D546 /* PhoneAutentificationViewController.swift */; };
 		4B91241627D9E7DE0052D546 /* SetLocationViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91241427D9E7DE0052D546 /* SetLocationViewTableViewCell.swift */; };
 		4B91241727D9E7DE0052D546 /* SetLocationViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B91241527D9E7DE0052D546 /* SetLocationViewTableViewCell.xib */; };
+		4B91241927D9F80F0052D546 /* PhoneAutentificationSignInStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91241827D9F80F0052D546 /* PhoneAutentificationSignInStateViewController.swift */; };
 		4BA63E8727D33976003DDEF0 /* HomeViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA63E8527D33976003DDEF0 /* HomeViewTableViewCell.swift */; };
 		4BA63E8827D33976003DDEF0 /* HomeViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BA63E8627D33976003DDEF0 /* HomeViewTableViewCell.xib */; };
 		4BA63E8C27D33F27003DDEF0 /* TownViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA63E8A27D33F27003DDEF0 /* TownViewTableViewCell.swift */; };
@@ -64,6 +65,7 @@
 		4B91241127D9BD080052D546 /* PhoneAutentificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAutentificationViewController.swift; sourceTree = "<group>"; };
 		4B91241427D9E7DE0052D546 /* SetLocationViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLocationViewTableViewCell.swift; sourceTree = "<group>"; };
 		4B91241527D9E7DE0052D546 /* SetLocationViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetLocationViewTableViewCell.xib; sourceTree = "<group>"; };
+		4B91241827D9F80F0052D546 /* PhoneAutentificationSignInStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAutentificationSignInStateViewController.swift; sourceTree = "<group>"; };
 		4BA63E8527D33976003DDEF0 /* HomeViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewTableViewCell.swift; sourceTree = "<group>"; };
 		4BA63E8627D33976003DDEF0 /* HomeViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewTableViewCell.xib; sourceTree = "<group>"; };
 		4BA63E8A27D33F27003DDEF0 /* TownViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TownViewTableViewCell.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				4B91240B27D746EA0052D546 /* SetLocationViewController.swift */,
 				4B91240F27D9BCF00052D546 /* StartViewController.swift */,
 				4B91241127D9BD080052D546 /* PhoneAutentificationViewController.swift */,
+				4B91241827D9F80F0052D546 /* PhoneAutentificationSignInStateViewController.swift */,
 			);
 			path = StartPage;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				4BB9657927D0BDAB00E41D0C /* ChattingViewController.swift in Sources */,
 				4B91240227D6035F0052D546 /* MyViewFifthSectionTableViewCell.swift in Sources */,
 				4B91240A27D604870052D546 /* MyCarrotCellList.swift in Sources */,
+				4B91241927D9F80F0052D546 /* PhoneAutentificationSignInStateViewController.swift in Sources */,
 				4BB9655E27D08F4600E41D0C /* AppDelegate.swift in Sources */,
 				4B91241627D9E7DE0052D546 /* SetLocationViewTableViewCell.swift in Sources */,
 				4B9123F627D6031D0052D546 /* MyViewSecondSectionTableViewCell.swift in Sources */,
