@@ -16,8 +16,14 @@ public class MemberServiceImpl implements MemberService {
     private final MemberRepository memberRepository;
 
     @Override
-    public Member get(String phoneNumber) {
-        Optional<Member> optionalMember = memberRepository.findById(phoneNumber);
-        return optionalMember.orElse(null);
+    public Optional<Member> get(String phoneNumber) {
+        return memberRepository.findByPhoneNumber(phoneNumber);
     }
+
+    @Override
+    public String register(Member member) {
+        Member save = memberRepository.save(member);
+        return save.getPhoneNumber();
+    }
+
 }

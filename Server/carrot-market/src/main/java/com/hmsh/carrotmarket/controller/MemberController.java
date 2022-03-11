@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Optional;
+
 @RestController
 @Slf4j
 @RequiredArgsConstructor
@@ -22,8 +24,14 @@ public class MemberController {
 
     @GetMapping(value = "/{phoneNumber}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Member> getMember(@PathVariable String phoneNumber) {
-        Member member = memberService.get(phoneNumber);
-        log.info("phoneNumber = {}, member = {}", phoneNumber, member);
-        return new ResponseEntity<>(member, HttpStatus.OK);
+
+        Optional<Member> optionalMember = memberService.get(phoneNumber);
+
+        if (optionalMember.isPresent()) {
+            log.info("phoneNumber = {}, member = {}", phoneNumber, optionalMember);
+            return new ResponseEntity<>(optionalMember.get(), HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
