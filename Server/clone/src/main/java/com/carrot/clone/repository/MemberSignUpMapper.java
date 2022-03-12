@@ -12,7 +12,7 @@ public interface MemberSignUpMapper extends JpaRepository<Member, String> {
 
     void signupMember(MemberDAO memberDAO);
 
-    @EntityGraph(type = EntityGraph.EntityGraphType)
+    @EntityGraph(type = EntityGraph.EntityGraphType.LOAD)
     @Query("SELECT town, phoneNumber FROM user")
     MemberDAO select();
 }
