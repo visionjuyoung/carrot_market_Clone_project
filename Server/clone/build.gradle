@@ -16,7 +16,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	compileOnly 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
-	compileOnly group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.7.0' // mariadb
+	compileOnly group: 'org.amariadb.jdbc', name: 'mariadb-java-client', version: '2.7.0' // mariadb
 	compileOnly 'mysql:mysql-connector-java' //mysql
 
 	annotationProcessor 'org.projectlombok:lombok'
