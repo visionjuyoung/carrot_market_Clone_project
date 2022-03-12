@@ -1,0 +1,47 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.4'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.carrot'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	compileOnly 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+	compileOnly group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.7.0' // mariadb
+	compileOnly 'mysql:mysql-connector-java' //mysql
+
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	implementation 'mysql:mysql-connector-java:8.0.28'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	// Validation
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	// Swagger
+	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+
+	// BCrypt 사용
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	// Jwt 사용
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
+
+	// JSONParser, JSONObject 설정
+	implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
