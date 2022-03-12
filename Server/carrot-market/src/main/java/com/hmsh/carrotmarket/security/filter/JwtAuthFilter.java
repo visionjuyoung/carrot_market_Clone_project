@@ -1,6 +1,8 @@
 package com.hmsh.carrotmarket.security.filter;
 
+import com.hmsh.carrotmarket.util.JwtUtil;
 import lombok.extern.slf4j.Slf4j;
+import net.minidev.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.util.StringUtils;
@@ -11,22 +13,22 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @Slf4j
 public class JwtAuthFilter extends OncePerRequestFilter {
 
     private final AntPathMatcher antPathMatcher;
     private final String pattern;
-//    private final JwtUtil jwtUtil;
+    private final JwtUtil jwtUtil;
 
-    @Value("${jwt.secret-key}")
-    private String secretKey;
-//
-    public JwtAuthFilter(String pattern) {
+
+    public JwtAuthFilter(String pattern, JwtUtil jwtUtil) {
         this.antPathMatcher = new AntPathMatcher();
         this.pattern = pattern;
-//        this.jwtUtil = jwtUtil;
+        this.jwtUtil = jwtUtil;
     }
+
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
@@ -39,8 +41,24 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
             String authHeader = request.getHeader("Authorization");
 
-            if (StringUtils.hasText(authHeader) && authHeader.equals(secretKey)) {
-                filterChain.doFilter(request, response);
+            if (StringUtils.hasText(authHeader) && authHeader.startsWith("Bearer ")) {
+
+                String subject = jwtUtil.getSubject(authHeader.substring(7));
+                log.info("subject = {}", subject);
+                if (subject.length() > 0) {
+                    filterChain.doFilter(request, response);
+                } else {
+                    response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+                    response.setContentType("application/json;charset=utf-8");
+                    JSONObject json = new JSONObject();
+                    String message = "FAIL CHECK API TOKEN";
+                    json.put("code", "403");
+                    json.put("message", message);
+
+                    PrintWriter out = response.getWriter();
+                    out.print(json);
+                }
+
             }
 
             return;

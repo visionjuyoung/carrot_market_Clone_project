@@ -8,7 +8,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
 import java.util.Collection;
-import java.util.Map;
 
 @Slf4j
 @Getter
@@ -18,8 +17,6 @@ public class AuthMemberDTO extends User {
 
     private String phoneNumber;
 
-    private String password;
-
     private String name;
 
     private String address;
@@ -27,10 +24,12 @@ public class AuthMemberDTO extends User {
 
     public AuthMemberDTO(String username,
                          String password,
+                         String name,
                          String address,
                          Collection<? extends GrantedAuthority> authorities) {
         super(username, password, authorities);
         this.phoneNumber = username;
+        this.name = name;
         this.address = address;
     }
 }

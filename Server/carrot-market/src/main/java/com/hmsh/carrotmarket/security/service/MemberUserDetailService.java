@@ -36,6 +36,7 @@ public class MemberUserDetailService implements UserDetailsService {
         return new AuthMemberDTO(
                 member.getPhoneNumber(),
                 member.getPassword(),
+                member.getName(),
                 member.getAddress(),
                 member.getRoleSet().stream()
                         .map(role -> new SimpleGrantedAuthority("ROLE_" + role.name()))

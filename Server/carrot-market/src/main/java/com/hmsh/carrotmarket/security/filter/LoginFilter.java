@@ -1,25 +1,30 @@
 package com.hmsh.carrotmarket.security.filter;
 
-import lombok.RequiredArgsConstructor;
+import com.hmsh.carrotmarket.dto.AuthMemberDTO;
+import com.hmsh.carrotmarket.util.JwtUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.authentication.BadCredentialsException;
+import net.minidev.json.JSONObject;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @Slf4j
 public class LoginFilter extends AbstractAuthenticationProcessingFilter {
 
-    public LoginFilter(String defaultFilterProcessesUrl) {
+    private final JwtUtil jwtUtil;
+
+    public LoginFilter(String defaultFilterProcessesUrl, JwtUtil jwtUtil) {
         super(defaultFilterProcessesUrl);
+        this.jwtUtil = jwtUtil;
     }
 
     @Override
@@ -41,6 +46,22 @@ public class LoginFilter extends AbstractAuthenticationProcessingFilter {
                                             FilterChain chain,
                                             Authentication authResult) throws IOException, ServletException {
         log.info("successfulAuthentication!!");
-        log.info("result = {}", authResult.getPrincipal());
+        String phoneNumber = ((AuthMemberDTO) authResult.getPrincipal()).getPhoneNumber();
+        String token;
+
+        try {
+            token = jwtUtil.generateToken(phoneNumber);
+
+            response.setContentType("application/json;charset=utf-8");
+            JSONObject json = new JSONObject();
+            json.put("token", token);
+
+            PrintWriter out = response.getWriter();
+            out.print(json);
+
+            log.info(token);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

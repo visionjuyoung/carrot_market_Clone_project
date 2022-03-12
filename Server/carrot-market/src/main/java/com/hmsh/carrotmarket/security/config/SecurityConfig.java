@@ -1,7 +1,9 @@
 package com.hmsh.carrotmarket.security.config;
 
+import com.hmsh.carrotmarket.security.LoginFailureHandler;
 import com.hmsh.carrotmarket.security.filter.JwtAuthFilter;
 import com.hmsh.carrotmarket.security.filter.LoginFilter;
+import com.hmsh.carrotmarket.util.JwtUtil;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,19 +16,25 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
+    PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
-    public JwtAuthFilter jwtAuthenticationFilter() {
-        return new JwtAuthFilter("/member/**/*");
+    JwtUtil jwtUtil() {
+        return new JwtUtil();
     }
 
     @Bean
-    public LoginFilter loginFilter() throws Exception {
-        LoginFilter loginFilter = new LoginFilter("/api/login");
+    JwtAuthFilter jwtAuthenticationFilter() {
+        return new JwtAuthFilter("/member/**/*", jwtUtil());
+    }
+
+    @Bean
+    LoginFilter loginFilter() throws Exception {
+        LoginFilter loginFilter = new LoginFilter("/api/login", jwtUtil());
         loginFilter.setAuthenticationManager(authenticationManager());
+        loginFilter.setAuthenticationFailureHandler(new LoginFailureHandler());
         return loginFilter;
     }
 

@@ -2,12 +2,16 @@ package com.hmsh.carrotmarket.util;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.impl.DefaultClaims;
+import io.jsonwebtoken.impl.DefaultJws;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.nio.charset.StandardCharsets;
 import java.sql.Date;
 import java.time.ZonedDateTime;
 
+@Slf4j
 public class JwtUtil {
 
     @Value("${jwt.secret-key}")
@@ -20,6 +24,19 @@ public class JwtUtil {
                 .claim("sub", content)
                 .signWith(SignatureAlgorithm.HS256, secretKey.getBytes(StandardCharsets.UTF_8))
                 .compact();
+    }
+
+    public String getSubject(String token) {
+
+        DefaultJws defaultJws = (DefaultJws) Jwts.parser()
+                .setSigningKey(secretKey.getBytes(StandardCharsets.UTF_8))
+                .parseClaimsJws(token);
+        DefaultClaims defaultClaims = (DefaultClaims) defaultJws.getBody();
+
+        log.info("defaultJws = {}", defaultJws);
+        log.info("defaultClaims = {}", defaultClaims);
+
+        return defaultClaims.getSubject();
     }
 
 }
