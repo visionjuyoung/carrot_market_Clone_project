@@ -1,5 +1,6 @@
 package com.hmsh.carrotmarket.security.filter;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hmsh.carrotmarket.dto.AuthMemberDTO;
 import com.hmsh.carrotmarket.util.JwtUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -8,7 +9,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
-import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map;
 
 @Slf4j
 public class LoginFilter extends AbstractAuthenticationProcessingFilter {
@@ -31,8 +32,11 @@ public class LoginFilter extends AbstractAuthenticationProcessingFilter {
     public Authentication attemptAuthentication(HttpServletRequest request,
                                                 HttpServletResponse response)
             throws AuthenticationException, IOException, ServletException {
-        String phoneNumber = request.getParameter("phoneNumber");
-        String password = request.getParameter("password");
+
+        Map<String, String> requestMap = new ObjectMapper().readValue(request.getInputStream(), Map.class);
+
+        String phoneNumber = requestMap.get("phoneNumber");
+        String password = requestMap.get("password");
 
         UsernamePasswordAuthenticationToken authenticationToken =
                 new UsernamePasswordAuthenticationToken(phoneNumber, password);
