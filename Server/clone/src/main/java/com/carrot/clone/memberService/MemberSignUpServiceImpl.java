@@ -1,14 +1,16 @@
 package com.carrot.clone.memberService;
 
 import com.carrot.clone.memberDao.MemberDAO;
+import com.carrot.clone.repository.MemberSignUpMapper;
 import lombok.RequiredArgsConstructor;
-import org.mybatis.spring.annotation.MapperScan;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class MemberSignUpServiceImpl implements MemberSignUpService{
-    private MemberSignUpMapper memberSignUpMapper;
+    private final MemberSignUpMapper memberSignUpMapper;
 
     public MemberDAO registerMember(MemberDAO memberDAO){
         memberSignUpMapper.signupMember(memberDAO);
