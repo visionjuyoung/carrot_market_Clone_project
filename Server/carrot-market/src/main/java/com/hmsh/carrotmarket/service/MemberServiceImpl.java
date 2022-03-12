@@ -1,5 +1,7 @@
 package com.hmsh.carrotmarket.service;
 
+import com.hmsh.carrotmarket.Converter.MemberConverter;
+import com.hmsh.carrotmarket.dto.MemberDTO;
 import com.hmsh.carrotmarket.entity.Member;
 import com.hmsh.carrotmarket.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +16,12 @@ import java.util.Optional;
 public class MemberServiceImpl implements MemberService {
 
     private final MemberRepository memberRepository;
+
+    @Override
+    public MemberDTO getDTO(String phoneNumber) {
+        Optional<Member> optionalMember = memberRepository.findByPhoneNumber(phoneNumber);
+        return optionalMember.map(MemberConverter::memberToMemberDTO).orElse(null);
+    }
 
     @Override
     public Optional<Member> get(String phoneNumber) {

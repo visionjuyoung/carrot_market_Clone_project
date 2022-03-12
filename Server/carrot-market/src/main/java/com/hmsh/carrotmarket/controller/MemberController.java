@@ -1,6 +1,6 @@
 package com.hmsh.carrotmarket.controller;
 
-import com.hmsh.carrotmarket.entity.Member;
+import com.hmsh.carrotmarket.dto.MemberDTO;
 import com.hmsh.carrotmarket.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Optional;
-
 @RestController
 @Slf4j
 @RequiredArgsConstructor
@@ -23,15 +21,10 @@ public class MemberController {
     private final MemberService memberService;
 
     @GetMapping(value = "/{phoneNumber}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Member> getMember(@PathVariable String phoneNumber) {
+    public ResponseEntity<MemberDTO> getMember(@PathVariable String phoneNumber) {
 
-        Optional<Member> optionalMember = memberService.get(phoneNumber);
-
-        if (optionalMember.isPresent()) {
-            log.info("phoneNumber = {}, member = {}", phoneNumber, optionalMember);
-            return new ResponseEntity<>(optionalMember.get(), HttpStatus.OK);
-        }
-
-        return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        MemberDTO memberDTO = memberService.getDTO(phoneNumber);
+        log.info("phoneNumber = {}, memberDTO = {}", phoneNumber, memberDTO);
+        return new ResponseEntity<>(memberDTO, HttpStatus.OK);
     }
 }

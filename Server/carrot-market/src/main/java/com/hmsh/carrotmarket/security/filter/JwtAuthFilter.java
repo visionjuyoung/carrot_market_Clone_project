@@ -43,14 +43,13 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             if (StringUtils.hasText(authHeader) && authHeader.startsWith("Bearer ")) {
 
                 String subject = jwtUtil.getSubject(authHeader.substring(7));
-                log.info("subject = {}", subject);
                 if (subject.length() > 0) {
                     filterChain.doFilter(request, response);
                 } else {
                     response.setStatus(HttpServletResponse.SC_FORBIDDEN);
                     response.setContentType("application/json;charset=utf-8");
                     JSONObject json = new JSONObject();
-                    String message = "FAIL CHECK API TOKEN";
+                    String message = "유효하지 않은 토큰";
                     json.put("code", "403");
                     json.put("message", message);
 
