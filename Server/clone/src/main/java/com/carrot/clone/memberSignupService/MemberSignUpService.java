@@ -1,4 +1,4 @@
-package com.carrot.clone.memberService;
+package com.carrot.clone.memberSignupService;
 
 import com.carrot.clone.memberDao.MemberDAO;
 

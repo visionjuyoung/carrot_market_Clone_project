@@ -1,9 +1,8 @@
 package com.carrot.clone.controller;
 
 import com.carrot.clone.memberDao.MemberDAO;
-import com.carrot.clone.memberService.MemberSignUpService;
-import com.carrot.clone.memberService.MemberSignUpServiceImpl;
 import lombok.RequiredArgsConstructor;
+import com.carrot.clone.memberSignupService.MemberSignUpService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
