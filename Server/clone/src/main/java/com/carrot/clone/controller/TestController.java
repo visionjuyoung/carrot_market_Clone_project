@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
@@ -19,7 +21,7 @@ public class TestController {
 //    }
 
     @RequestMapping(value = "/select", method = RequestMethod.GET)
-    public MemberDAO select(){
+    public Optional<MemberDAO> select(){
         return memberSignUpService.selectMember();
     }
 

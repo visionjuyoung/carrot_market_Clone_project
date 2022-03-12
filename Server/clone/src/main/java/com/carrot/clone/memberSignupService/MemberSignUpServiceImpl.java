@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @Slf4j
 @RequiredArgsConstructor
@@ -17,8 +19,8 @@ public class MemberSignUpServiceImpl implements MemberSignUpService{
 //        return memberDAO;
 //    }
     
-    public MemberDAO selectMember(){
-        MemberDAO memberDAO = memberSignUpMapper.select();
+    public Optional<MemberDAO> selectMember(){
+        Optional<MemberDAO> memberDAO = memberSignUpMapper.select();
         return memberDAO;
     }
 
