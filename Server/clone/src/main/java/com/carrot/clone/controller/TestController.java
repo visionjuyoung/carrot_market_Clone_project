@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
     private final MemberSignUpService memberSignUpService;
 
-    @RequestMapping(path = "/auth/phone", method = RequestMethod.POST)
-    public MemberDAO home(MemberDAO memberDAO){
-        return memberSignUpService.registerMember(memberDAO);
-    }
+//    @RequestMapping(path = "/auth/phone", method = RequestMethod.POST)
+//    public MemberDAO home(MemberDAO memberDAO){
+//        return memberSignUpService.registerMember(memberDAO);
+//    }
 
     @RequestMapping(value = "/select", method = RequestMethod.GET)
     public MemberDAO select(){
