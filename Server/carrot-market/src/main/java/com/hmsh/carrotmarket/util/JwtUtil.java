@@ -27,16 +27,20 @@ public class JwtUtil {
     }
 
     public String getSubject(String token) {
+        String subject = "";
+        try {
+            DefaultJws defaultJws = (DefaultJws) Jwts.parser()
+                    .setSigningKey(secretKey.getBytes(StandardCharsets.UTF_8))
+                    .parseClaimsJws(token);
+            DefaultClaims defaultClaims = (DefaultClaims) defaultJws.getBody();
+            subject = defaultClaims.getSubject();
+            log.info("defaultJws = {}", defaultJws);
+            log.info("defaultClaims = {}", defaultClaims);
+        } catch (Exception e) {
+            log.error("유효하지 않은 토큰");
+        }
 
-        DefaultJws defaultJws = (DefaultJws) Jwts.parser()
-                .setSigningKey(secretKey.getBytes(StandardCharsets.UTF_8))
-                .parseClaimsJws(token);
-        DefaultClaims defaultClaims = (DefaultClaims) defaultJws.getBody();
-
-        log.info("defaultJws = {}", defaultJws);
-        log.info("defaultClaims = {}", defaultClaims);
-
-        return defaultClaims.getSubject();
+        return subject;
     }
 
 }

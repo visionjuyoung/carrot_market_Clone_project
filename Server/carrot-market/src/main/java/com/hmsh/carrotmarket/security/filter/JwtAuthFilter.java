@@ -3,7 +3,6 @@ package com.hmsh.carrotmarket.security.filter;
 import com.hmsh.carrotmarket.util.JwtUtil;
 import lombok.extern.slf4j.Slf4j;
 import net.minidev.json.JSONObject;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
