@@ -21,10 +21,10 @@ class MemberServiceTest {
     @Test
     void register() {
         Member member = Member.builder()
-                .name("sunghoon")
-                .address("sunbu")
+                .name("Test1")
+                .address("Test1")
                 .password(passwordEncoder.encode("password"))
-                .phoneNumber("01093010512")
+                .phoneNumber("01046054229")
                 .build();
 
         member.addMemberRole(MemberRole.USER);
