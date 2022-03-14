@@ -893,6 +893,135 @@
             </objects>
             <point key="canvasLocation" x="2341" y="884"/>
         </scene>
+        <!--Set Profile View Controller-->
+        <scene sceneID="ac0-B8-pdM">
+            <objects>
+                <viewController storyboardIdentifier="SetProfileViewController" modalPresentationStyle="fullScreen" id="6Y7-mX-lQ5" customClass="SetProfileViewController" customModule="carrot_market_clona_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dwE-iy-HVn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="프로필 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPr-Tl-xCm">
+                                <rect key="frame" x="166" y="49" width="82.5" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="I1O-dN-ktd">
+                                <rect key="frame" x="134.5" y="112" width="145" height="142"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="I1O-dN-ktd" secondAttribute="height" multiplier="1:1" id="93o-Ve-FVQ"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f1X-7T-3Hk">
+                                <rect key="frame" x="20" y="280.5" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="CPg-rK-9TB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OU8-ek-LTm">
+                                <rect key="frame" x="236.5" y="215" width="33" height="33"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OU8-ek-LTm" secondAttribute="height" multiplier="1:1" id="d4R-QW-Bw6"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemGrayColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="camera.fill" catalog="system" symbolScale="small"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="setProfileImage:" destination="6Y7-mX-lQ5" eventType="touchUpInside" id="9QF-jC-qO4"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="프로필 사진과 닉네임을 입력해주세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYe-Nr-d23">
+                                <rect key="frame" x="20" y="350.5" width="374" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfz-pI-4VG">
+                                <rect key="frame" x="10" y="44" width="46" height="43"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="multiply" catalog="system" symbolScale="default"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="24"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="backButton:" destination="6Y7-mX-lQ5" eventType="touchUpInside" id="sxK-Y9-s4u"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQz-3J-G9Q">
+                                <rect key="frame" x="0.0" y="816" width="414" height="80"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="tH6-Pd-2l2"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="완료">
+                                            <attributes>
+                                                <font key="NSFont" size="18" name="AppleSDGothicNeo-Bold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="doneButton:" destination="6Y7-mX-lQ5" eventType="touchUpInside" id="rbU-zX-AiN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3v1-vd-zHH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="OU8-ek-LTm" firstAttribute="width" secondItem="dwE-iy-HVn" secondAttribute="width" multiplier="0.08" id="1S8-Eu-jMm"/>
+                            <constraint firstItem="3v1-vd-zHH" firstAttribute="trailing" secondItem="f1X-7T-3Hk" secondAttribute="trailing" constant="20" id="AGr-pw-KpF"/>
+                            <constraint firstItem="f1X-7T-3Hk" firstAttribute="leading" secondItem="3v1-vd-zHH" secondAttribute="leading" constant="20" id="CUY-zi-pTB"/>
+                            <constraint firstItem="3v1-vd-zHH" firstAttribute="trailing" secondItem="RQz-3J-G9Q" secondAttribute="trailing" id="E8G-8s-hkF"/>
+                            <constraint firstItem="hYe-Nr-d23" firstAttribute="trailing" secondItem="f1X-7T-3Hk" secondAttribute="trailing" id="Ggd-sa-gZT"/>
+                            <constraint firstItem="I1O-dN-ktd" firstAttribute="baseline" secondItem="OU8-ek-LTm" secondAttribute="firstBaseline" constant="-5" id="IfE-mA-612"/>
+                            <constraint firstItem="OU8-ek-LTm" firstAttribute="trailing" secondItem="I1O-dN-ktd" secondAttribute="trailing" constant="-10" id="Nzh-Lh-h0B"/>
+                            <constraint firstItem="JPr-Tl-xCm" firstAttribute="top" secondItem="3v1-vd-zHH" secondAttribute="top" constant="5" id="QqS-en-xew"/>
+                            <constraint firstItem="RQz-3J-G9Q" firstAttribute="leading" secondItem="3v1-vd-zHH" secondAttribute="leading" id="TgH-hK-4hA"/>
+                            <constraint firstItem="hYe-Nr-d23" firstAttribute="top" secondItem="f1X-7T-3Hk" secondAttribute="bottom" constant="20" id="Yjw-rU-7Hl"/>
+                            <constraint firstItem="f1X-7T-3Hk" firstAttribute="top" secondItem="I1O-dN-ktd" secondAttribute="bottom" constant="25" id="Yo6-HJ-xaU"/>
+                            <constraint firstItem="mfz-pI-4VG" firstAttribute="top" secondItem="3v1-vd-zHH" secondAttribute="top" id="cNF-L3-PIi"/>
+                            <constraint firstItem="mfz-pI-4VG" firstAttribute="leading" secondItem="3v1-vd-zHH" secondAttribute="leading" constant="10" id="eYj-76-tUB"/>
+                            <constraint firstItem="I1O-dN-ktd" firstAttribute="centerX" secondItem="dwE-iy-HVn" secondAttribute="centerX" id="ebI-DB-DKq"/>
+                            <constraint firstItem="JPr-Tl-xCm" firstAttribute="centerX" secondItem="dwE-iy-HVn" secondAttribute="centerX" id="etK-Mr-lCC"/>
+                            <constraint firstItem="I1O-dN-ktd" firstAttribute="width" secondItem="dwE-iy-HVn" secondAttribute="width" multiplier="0.35" id="k5f-ZO-FHF"/>
+                            <constraint firstAttribute="bottom" secondItem="RQz-3J-G9Q" secondAttribute="bottom" id="kW8-ip-nLr"/>
+                            <constraint firstItem="hYe-Nr-d23" firstAttribute="leading" secondItem="f1X-7T-3Hk" secondAttribute="leading" id="m4X-2m-qOK"/>
+                            <constraint firstItem="I1O-dN-ktd" firstAttribute="top" secondItem="JPr-Tl-xCm" secondAttribute="bottom" constant="40" id="qHQ-j7-H6k"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ICo-xX-lHo" appends="YES" id="JEj-kI-8jr"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="cameraButton" destination="OU8-ek-LTm" id="HrP-LT-8hp"/>
+                        <outlet property="nickNameTextField" destination="f1X-7T-3Hk" id="B7L-HK-yK3"/>
+                        <outlet property="profileImageView" destination="I1O-dN-ktd" id="Da8-pd-1Nq"/>
+                        <outlet property="setButton" destination="RQz-3J-G9Q" id="a72-Kz-AVb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yPM-zU-PQV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ICo-xX-lHo">
+                    <connections>
+                        <action selector="tapView:" destination="6Y7-mX-lQ5" id="bis-Zo-0Pc"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3063.768115942029" y="883.92857142857144"/>
+        </scene>
         <!--Phone Autentification View Controller-->
         <scene sceneID="Xwj-IY-sdv">
             <objects>
@@ -1101,6 +1230,7 @@
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="bell" catalog="system" width="128" height="124"/>
+        <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="chattingViewImg" width="26" height="25"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="homeViewImg" width="26" height="27"/>
@@ -1108,10 +1238,12 @@
         <image name="linestar" width="26" height="24"/>
         <image name="location.north" catalog="system" width="108" height="128"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="myViewImg" width="26" height="31"/>
         <image name="nearbyViewImg" width="26" height="29"/>
         <image name="noneChattingImage" width="1170" height="2010"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="qr" width="24" height="24"/>
         <image name="selectedChattingViewImg" width="26" height="25"/>
@@ -1137,6 +1269,12 @@
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

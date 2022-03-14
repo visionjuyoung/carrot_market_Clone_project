@@ -45,7 +45,7 @@ class PhoneAutentificationSignInStateViewController: UIViewController {
         
         self.certTextField.addAction(UIAction(handler: { _ in
             if self.certTextField.text?.count == 6 {
-                self.confirmCertButton.backgroundColor = UIColor.darkGray
+                self.confirmCertButton.backgroundColor = UIColor(named: "carrotMarketColor")
             }
         }), for: .editingChanged)
     }

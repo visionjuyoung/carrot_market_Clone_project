@@ -43,7 +43,7 @@ class PhoneAutentificationViewController: UIViewController {
         
         self.certTextField.addAction(UIAction(handler: { _ in
             if self.certTextField.text?.count == 6 {
-                self.certConfirmButton.backgroundColor = UIColor.darkGray
+                self.certConfirmButton.backgroundColor = UIColor(named: "carrotMarketColor")
             }
         }), for: .editingChanged)
     }
@@ -64,7 +64,11 @@ class PhoneAutentificationViewController: UIViewController {
     }
     
     @IBAction func confirmCert(_ sender: UIButton) {
-        //인증번호 확인 api 사용 후 성공시 닉네임 설정 이동 코드 작성
+        //인증번호 확인 api 사용 후 성공시 닉네임 설정 이동 코드 작성, 아래 코드 삭제
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "SetProfileViewController") as? SetProfileViewController else {
+            return
+        }
+        present(vc, animated: true, completion: nil)
     }
     
     @IBAction func pressBack(_ sender: UIButton) {
