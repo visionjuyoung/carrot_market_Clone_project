@@ -21,6 +21,11 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
+    public Optional<Member> getAddress(String address) {
+        return memberRepository.findByAddress(address);
+    }
+
+    @Override
     public String register(Member member) {
         Member save = memberRepository.save(member);
         return save.getPhoneNumber();

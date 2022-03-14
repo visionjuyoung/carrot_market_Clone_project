@@ -34,4 +34,18 @@ public class MemberController {
 
         return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    @GetMapping(value = "/{address}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Member> getAddress(@PathVariable String address) {
+
+        Optional<Member> optionalMember = memberService.get(address);
+
+        if (optionalMember.isPresent()) {
+            log.info("address = {}, member = {}", address, optionalMember);
+            return new ResponseEntity<>(optionalMember.get(), HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
 }
