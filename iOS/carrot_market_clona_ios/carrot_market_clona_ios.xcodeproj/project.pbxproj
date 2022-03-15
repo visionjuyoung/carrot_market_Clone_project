@@ -27,6 +27,8 @@
 		4B91241727D9E7DE0052D546 /* SetLocationViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B91241527D9E7DE0052D546 /* SetLocationViewTableViewCell.xib */; };
 		4B91241927D9F80F0052D546 /* PhoneAutentificationSignInStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91241827D9F80F0052D546 /* PhoneAutentificationSignInStateViewController.swift */; };
 		4B91241B27DF26180052D546 /* SetProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91241A27DF26180052D546 /* SetProfileViewController.swift */; };
+		4B91241E27E055740052D546 /* SelectHomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91241D27E055740052D546 /* SelectHomeDetailViewController.swift */; };
+		4B91242027E05E7E0052D546 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91241F27E05E7E0052D546 /* AddProductViewController.swift */; };
 		4BA63E8727D33976003DDEF0 /* HomeViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA63E8527D33976003DDEF0 /* HomeViewTableViewCell.swift */; };
 		4BA63E8827D33976003DDEF0 /* HomeViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BA63E8627D33976003DDEF0 /* HomeViewTableViewCell.xib */; };
 		4BA63E8C27D33F27003DDEF0 /* TownViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA63E8A27D33F27003DDEF0 /* TownViewTableViewCell.swift */; };
@@ -68,6 +70,8 @@
 		4B91241527D9E7DE0052D546 /* SetLocationViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetLocationViewTableViewCell.xib; sourceTree = "<group>"; };
 		4B91241827D9F80F0052D546 /* PhoneAutentificationSignInStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAutentificationSignInStateViewController.swift; sourceTree = "<group>"; };
 		4B91241A27DF26180052D546 /* SetProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileViewController.swift; sourceTree = "<group>"; };
+		4B91241D27E055740052D546 /* SelectHomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectHomeDetailViewController.swift; sourceTree = "<group>"; };
+		4B91241F27E05E7E0052D546 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		4BA63E8527D33976003DDEF0 /* HomeViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewTableViewCell.swift; sourceTree = "<group>"; };
 		4BA63E8627D33976003DDEF0 /* HomeViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewTableViewCell.xib; sourceTree = "<group>"; };
 		4BA63E8A27D33F27003DDEF0 /* TownViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TownViewTableViewCell.swift; sourceTree = "<group>"; };
@@ -132,7 +136,7 @@
 		4B91240D27D9BC900052D546 /* TabbarControllerPage */ = {
 			isa = PBXGroup;
 			children = (
-				4BB9657227D0BCF700E41D0C /* HomeViewController.swift */,
+				4B91241C27E055540052D546 /* HomeView */,
 				4BB9657427D0BD8D00E41D0C /* TownViewController.swift */,
 				4BB9657627D0BD9800E41D0C /* NearbyViewController.swift */,
 				4BB9657827D0BDAB00E41D0C /* ChattingViewController.swift */,
@@ -160,6 +164,16 @@
 				4B91241527D9E7DE0052D546 /* SetLocationViewTableViewCell.xib */,
 			);
 			path = SetLocationViewController;
+			sourceTree = "<group>";
+		};
+		4B91241C27E055540052D546 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				4BB9657227D0BCF700E41D0C /* HomeViewController.swift */,
+				4B91241D27E055740052D546 /* SelectHomeDetailViewController.swift */,
+				4B91241F27E05E7E0052D546 /* AddProductViewController.swift */,
+			);
+			path = HomeView;
 			sourceTree = "<group>";
 		};
 		4BA63E8327D33927003DDEF0 /* xib */ = {
@@ -380,12 +394,14 @@
 				4BB9657B27D0BDBB00E41D0C /* MyViewController.swift in Sources */,
 				4BA63E8C27D33F27003DDEF0 /* TownViewTableViewCell.swift in Sources */,
 				4B9123F227D6030C0052D546 /* MyViewFirstSectionTableViewCell.swift in Sources */,
+				4B91242027E05E7E0052D546 /* AddProductViewController.swift in Sources */,
 				4B91240627D6036E0052D546 /* MyViewSixthSectionTableViewCell.swift in Sources */,
 				4B91241B27DF26180052D546 /* SetProfileViewController.swift in Sources */,
 				4B9123FA27D603320052D546 /* MyViewThirdSectionTableViewCell.swift in Sources */,
 				4BB9657727D0BD9800E41D0C /* NearbyViewController.swift in Sources */,
 				4BA63E8727D33976003DDEF0 /* HomeViewTableViewCell.swift in Sources */,
 				4B91241027D9BCF00052D546 /* StartViewController.swift in Sources */,
+				4B91241E27E055740052D546 /* SelectHomeDetailViewController.swift in Sources */,
 				4B91241227D9BD080052D546 /* PhoneAutentificationViewController.swift in Sources */,
 				4BB9657527D0BD8D00E41D0C /* TownViewController.swift in Sources */,
 				4B9123FE27D6034D0052D546 /* MyViewfirthSectionTableViewCell.swift in Sources */,

@@ -23,6 +23,12 @@ class HomeViewController: UIViewController {
         tableView.register(UINib(nibName: "HomeViewTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeViewTableViewCell")
         addProductButton.layer.cornerRadius = 30
     }
+    
+    @IBAction func addProductMenu(_ sender: UIButton) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "SelectHomeDetailViewController") as? SelectHomeDetailViewController else { return }
+        present(vc, animated: false, completion: nil)
+    }
+    
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {

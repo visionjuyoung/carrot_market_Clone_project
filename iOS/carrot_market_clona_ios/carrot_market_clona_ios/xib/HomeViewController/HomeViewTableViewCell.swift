@@ -10,6 +10,10 @@ import UIKit
 class HomeViewTableViewCell: UITableViewCell {
 
     @IBOutlet weak var productImageView: UIImageView!
+    @IBOutlet weak var messageImage: UIImageView!
+    @IBOutlet weak var messageCount: UILabel!
+    @IBOutlet weak var heartImage: UIImageView!
+    @IBOutlet weak var heartCount: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,7 +23,6 @@ class HomeViewTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
 }
