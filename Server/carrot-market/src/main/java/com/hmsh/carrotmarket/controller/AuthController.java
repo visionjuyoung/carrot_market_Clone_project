@@ -1,5 +1,7 @@
 package com.hmsh.carrotmarket.controller;
 
+import com.hmsh.carrotmarket.CResponseEntity;
+import com.hmsh.carrotmarket.StatusCode;
 import com.hmsh.carrotmarket.dto.CertificationNumberDTO;
 import com.hmsh.carrotmarket.entity.SignUpMember;
 import com.hmsh.carrotmarket.service.CertificationNumberService;
@@ -22,9 +24,9 @@ public class AuthController {
     private final SignUpService signUpService;
 
     @GetMapping("/certification")
-    public ResponseEntity<String> getCertificationNumber(@RequestParam String phoneNumber) {
+    public CResponseEntity<String> getCertificationNumber(@RequestParam String phoneNumber) {
         String certificationNumber = certificationNumberService.register(phoneNumber);
-        return new ResponseEntity<>(certificationNumber, HttpStatus.OK);
+        return new CResponseEntity<>(true, StatusCode.OK, StatusCode.OK.getMessage(), certificationNumber);
     }
 
     @PostMapping("/certification")
@@ -32,6 +34,7 @@ public class AuthController {
         boolean result = certificationNumberService.validate(dto.getPhoneNumber(), dto.getNumber());
 
         if (result) {
+            //전화번호가 이미 있으면 그 전화번호의 회원정보 객체 전달, 없으면 회원가입 페이지 요청
             if(signUpService.memberCheck(dto.getPhoneNumber())){
                 Optional<SignUpMember> getMember = signUpService.getMember(dto.getPhoneNumber());
                 return new ResponseEntity<>(getMember, HttpStatus.OK);
