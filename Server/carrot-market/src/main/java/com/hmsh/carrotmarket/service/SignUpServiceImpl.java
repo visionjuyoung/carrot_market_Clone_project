@@ -46,7 +46,7 @@ public class SignUpServiceImpl implements SignUpService{
         try {
             SignUpMember signUpMember = SignUpMember.builder()
                     .phoneNumber(dto.getPhoneNumber())
-                    .townName(dto.getTownName())
+                    .address(dto.getAddress())
                     .name(dto.getName())
                     .uniqueNumber(result)
                     .build();

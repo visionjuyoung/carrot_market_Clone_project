@@ -17,7 +17,7 @@ public class SignUpMember {
     @Id
     private String phoneNumber;
 
-    private String townName;
+    private String address;
 
     private String name;
 
