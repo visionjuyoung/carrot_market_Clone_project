@@ -13,4 +13,6 @@ public class CertificationNumberDTO {
     private String phoneNumber;
 
     private String number;
+
+    private String address;
 }
