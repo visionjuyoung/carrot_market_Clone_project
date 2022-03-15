@@ -1,10 +1,12 @@
 package com.hmsh.carrotmarket.security.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.hmsh.carrotmarket.StatusCode;
 import com.hmsh.carrotmarket.dto.AuthMemberDTO;
 import com.hmsh.carrotmarket.util.JwtUtil;
 import lombok.extern.slf4j.Slf4j;
 import net.minidev.json.JSONObject;
+import org.springframework.http.codec.json.Jackson2JsonEncoder;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -58,7 +60,10 @@ public class LoginFilter extends AbstractAuthenticationProcessingFilter {
 
             response.setContentType("application/json;charset=utf-8");
             JSONObject json = new JSONObject();
-            json.put("token", token);
+            json.put("isSuccess", true);
+            json.put("code", StatusCode.OK.getCode());
+            json.put("message", StatusCode.OK.getMessage());
+            json.put("result", token);
 
             PrintWriter out = response.getWriter();
             out.print(json);
