@@ -9,6 +9,9 @@ import UIKit
 
 class PhoneAutentificationSignInStateViewController: UIViewController {
     
+    lazy var phoneAutentificationDatamanager: PhoneCertificationDataManager = PhoneCertificationDataManager()
+    lazy var phoneAutentificationConfirmDataManager: PhoneCertificationConfirmDataManager = PhoneCertificationConfirmDataManager()
+    
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var label2: UILabel!
     @IBOutlet weak var stacks: UIStackView!
@@ -70,5 +73,23 @@ class PhoneAutentificationSignInStateViewController: UIViewController {
     
     @IBAction func pressBack(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension PhoneAutentificationSignInStateViewController {
+    func didSuccessCertification(phoneCertificationresult: PhoneCertificationResponse) {
+        print(phoneCertificationresult)
+    }
+    
+    func didFailureCertification(phoneCertificationresult: PhoneCertificationResponse) {
+        print(phoneCertificationresult)
+    }
+    
+    func didSuccessConfirmCertification(phoneCertificationConfirmResult: PhoneCertificationConfirmResponse) {
+        print(phoneCertificationConfirmResult)
+    }
+    
+    func didFailureConfirmCertification(phoneCertificationConfirmResult: PhoneCertificationConfirmResponse) {
+        print(phoneCertificationConfirmResult)
     }
 }

@@ -45,6 +45,11 @@
 		4BB9657727D0BD9800E41D0C /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9657627D0BD9800E41D0C /* NearbyViewController.swift */; };
 		4BB9657927D0BDAB00E41D0C /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9657827D0BDAB00E41D0C /* ChattingViewController.swift */; };
 		4BB9657B27D0BDBB00E41D0C /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9657A27D0BDBB00E41D0C /* MyViewController.swift */; };
+		4BD6D2C827E1C690004B71B3 /* PhoneCertificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2C727E1C690004B71B3 /* PhoneCertificationResponse.swift */; };
+		4BD6D2CA27E1C718004B71B3 /* PhoneCertificationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2C927E1C718004B71B3 /* PhoneCertificationDataManager.swift */; };
+		4BD6D2CC27E1D3A2004B71B3 /* PhoneCertificationConfirmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2CB27E1D3A2004B71B3 /* PhoneCertificationConfirmDataManager.swift */; };
+		4BD6D2CE27E1D3B2004B71B3 /* PhoneCertificationConfirmResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2CD27E1D3B2004B71B3 /* PhoneCertificationConfirmResponse.swift */; };
+		4BD6D2D027E1D415004B71B3 /* PhoneCertificationConfirmRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2CF27E1D415004B71B3 /* PhoneCertificationConfirmRequest.swift */; };
 		AB17B22F38F6024D96EB0A14 /* Pods_carrot_market_clona_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DA35772DE1445F08CEC289 /* Pods_carrot_market_clona_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +95,11 @@
 		4BB9657627D0BD9800E41D0C /* NearbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyViewController.swift; sourceTree = "<group>"; };
 		4BB9657827D0BDAB00E41D0C /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
 		4BB9657A27D0BDBB00E41D0C /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		4BD6D2C727E1C690004B71B3 /* PhoneCertificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationResponse.swift; sourceTree = "<group>"; };
+		4BD6D2C927E1C718004B71B3 /* PhoneCertificationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationDataManager.swift; sourceTree = "<group>"; };
+		4BD6D2CB27E1D3A2004B71B3 /* PhoneCertificationConfirmDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationConfirmDataManager.swift; sourceTree = "<group>"; };
+		4BD6D2CD27E1D3B2004B71B3 /* PhoneCertificationConfirmResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationConfirmResponse.swift; sourceTree = "<group>"; };
+		4BD6D2CF27E1D415004B71B3 /* PhoneCertificationConfirmRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationConfirmRequest.swift; sourceTree = "<group>"; };
 		64DA35772DE1445F08CEC289 /* Pods_carrot_market_clona_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carrot_market_clona_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B156CE90733864C60C1AB560 /* Pods-carrot_market_clona_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carrot_market_clona_ios.debug.xcconfig"; path = "Target Support Files/Pods-carrot_market_clona_ios/Pods-carrot_market_clona_ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -238,6 +248,7 @@
 			children = (
 				4BB9655D27D08F4600E41D0C /* AppDelegate.swift */,
 				4BB9655F27D08F4600E41D0C /* SceneDelegate.swift */,
+				4BD6D2C327E1C5D6004B71B3 /* Network */,
 				4B91240827D6046D0052D546 /* Model */,
 				4BB9657127D0BC3B00E41D0C /* viewcontroller */,
 				4BA63E8327D33927003DDEF0 /* xib */,
@@ -256,6 +267,50 @@
 				4B91240E27D9BCAA0052D546 /* StartPage */,
 			);
 			path = viewcontroller;
+			sourceTree = "<group>";
+		};
+		4BD6D2C327E1C5D6004B71B3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4BD6D2C427E1C60E004B71B3 /* SignIn,LogIn */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		4BD6D2C427E1C60E004B71B3 /* SignIn,LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				4BD6D2C527E1C632004B71B3 /* SignIn */,
+			);
+			path = "SignIn,LogIn";
+			sourceTree = "<group>";
+		};
+		4BD6D2C527E1C632004B71B3 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				4BD6D2D227E1F785004B71B3 /* phoneCertificationConfirm */,
+				4BD6D2D127E1F773004B71B3 /* phoneCertificaition */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		4BD6D2D127E1F773004B71B3 /* phoneCertificaition */ = {
+			isa = PBXGroup;
+			children = (
+				4BD6D2C727E1C690004B71B3 /* PhoneCertificationResponse.swift */,
+				4BD6D2C927E1C718004B71B3 /* PhoneCertificationDataManager.swift */,
+			);
+			path = phoneCertificaition;
+			sourceTree = "<group>";
+		};
+		4BD6D2D227E1F785004B71B3 /* phoneCertificationConfirm */ = {
+			isa = PBXGroup;
+			children = (
+				4BD6D2CB27E1D3A2004B71B3 /* PhoneCertificationConfirmDataManager.swift */,
+				4BD6D2CD27E1D3B2004B71B3 /* PhoneCertificationConfirmResponse.swift */,
+				4BD6D2CF27E1D415004B71B3 /* PhoneCertificationConfirmRequest.swift */,
+			);
+			path = phoneCertificationConfirm;
 			sourceTree = "<group>";
 		};
 		B6496F0F3BF30E55E042045C /* Frameworks */ = {
@@ -286,6 +341,7 @@
 				4BB9655627D08F4600E41D0C /* Sources */,
 				4BB9655727D08F4600E41D0C /* Frameworks */,
 				4BB9655827D08F4600E41D0C /* Resources */,
+				202A6C2716AF3AFA047F5640 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -353,6 +409,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		202A6C2716AF3AFA047F5640 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-carrot_market_clona_ios/Pods-carrot_market_clona_ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-carrot_market_clona_ios/Pods-carrot_market_clona_ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-carrot_market_clona_ios/Pods-carrot_market_clona_ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3FB718D6569F2E89A92432D6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -384,11 +457,13 @@
 			files = (
 				4BB9657927D0BDAB00E41D0C /* ChattingViewController.swift in Sources */,
 				4B91240227D6035F0052D546 /* MyViewFifthSectionTableViewCell.swift in Sources */,
+				4BD6D2CC27E1D3A2004B71B3 /* PhoneCertificationConfirmDataManager.swift in Sources */,
 				4B91240A27D604870052D546 /* MyCarrotCellList.swift in Sources */,
 				4B91241927D9F80F0052D546 /* PhoneAutentificationSignInStateViewController.swift in Sources */,
 				4BB9655E27D08F4600E41D0C /* AppDelegate.swift in Sources */,
 				4B91241627D9E7DE0052D546 /* SetLocationViewTableViewCell.swift in Sources */,
 				4B9123F627D6031D0052D546 /* MyViewSecondSectionTableViewCell.swift in Sources */,
+				4BD6D2D027E1D415004B71B3 /* PhoneCertificationConfirmRequest.swift in Sources */,
 				4BA63E9127D35AAB003DDEF0 /* ChattingViewTableViewCell.swift in Sources */,
 				4BB9656027D08F4600E41D0C /* SceneDelegate.swift in Sources */,
 				4BB9657B27D0BDBB00E41D0C /* MyViewController.swift in Sources */,
@@ -396,6 +471,8 @@
 				4B9123F227D6030C0052D546 /* MyViewFirstSectionTableViewCell.swift in Sources */,
 				4B91242027E05E7E0052D546 /* AddProductViewController.swift in Sources */,
 				4B91240627D6036E0052D546 /* MyViewSixthSectionTableViewCell.swift in Sources */,
+				4BD6D2CA27E1C718004B71B3 /* PhoneCertificationDataManager.swift in Sources */,
+				4BD6D2CE27E1D3B2004B71B3 /* PhoneCertificationConfirmResponse.swift in Sources */,
 				4B91241B27DF26180052D546 /* SetProfileViewController.swift in Sources */,
 				4B9123FA27D603320052D546 /* MyViewThirdSectionTableViewCell.swift in Sources */,
 				4BB9657727D0BD9800E41D0C /* NearbyViewController.swift in Sources */,
@@ -406,6 +483,7 @@
 				4BB9657527D0BD8D00E41D0C /* TownViewController.swift in Sources */,
 				4B9123FE27D6034D0052D546 /* MyViewfirthSectionTableViewCell.swift in Sources */,
 				4B91240C27D746EA0052D546 /* SetLocationViewController.swift in Sources */,
+				4BD6D2C827E1C690004B71B3 /* PhoneCertificationResponse.swift in Sources */,
 				4BB9657327D0BCF700E41D0C /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

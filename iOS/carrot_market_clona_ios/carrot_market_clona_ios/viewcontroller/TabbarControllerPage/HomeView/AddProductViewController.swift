@@ -11,6 +11,7 @@ class AddProductViewController: UIViewController {
 
     @IBOutlet weak var cameraImage: UIView!
     
+    @IBOutlet weak var negoButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         setInit()
@@ -20,6 +21,9 @@ class AddProductViewController: UIViewController {
         cameraImage.layer.borderWidth = 1
         cameraImage.layer.borderColor = UIColor.systemGray4.cgColor
         cameraImage.layer.cornerRadius = 5
+        negoButton.layer.borderWidth = 1
+        negoButton.layer.borderColor = UIColor.systemGray4.cgColor
+        negoButton.layer.cornerRadius = 7
     }
     
     @IBAction func closeButton(_ sender: UIBarButtonItem) {
