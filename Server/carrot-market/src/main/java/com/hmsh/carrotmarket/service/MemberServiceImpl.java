@@ -1,6 +1,6 @@
 package com.hmsh.carrotmarket.service;
 
-import com.hmsh.carrotmarket.Converter.MemberConverter;
+import com.hmsh.carrotmarket.converter.MemberConverter;
 import com.hmsh.carrotmarket.dto.MemberDTO;
 import com.hmsh.carrotmarket.entity.Member;
 import com.hmsh.carrotmarket.repository.MemberRepository;
