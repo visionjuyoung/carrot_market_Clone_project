@@ -7,6 +7,7 @@ import com.hmsh.carrotmarket.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -26,8 +27,17 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional
     public ProductDTO get(Long id) {
         Optional<Product> optionalProduct = productRepository.findById(id);
-        return optionalProduct.map(ProductConverter::entityToDTO).orElse(null);
+
+        if (optionalProduct.isPresent()) {
+            Product product = optionalProduct.get();
+            product.setViews(product.getViews() + 1);
+            productRepository.save(product);
+            return ProductConverter.entityToDTO(product);
+        }
+        
+        return null;
     }
 }

@@ -21,10 +21,17 @@ class ProductServiceTest {
                 .content("주황 당근 당근")
                 .address("수지구")
                 .price(10000)
-                .memberDTO(MemberDTO.builder().phoneNumber("01093010512").build())
+                .phoneNumber("01093010512")
                 .build();
 
         Long register = productService.register(productDTO);
+    }
+
+    @Test
+    void get() {
+        ProductDTO productDTO = productService.get(1L);
+
+        System.out.println(productDTO);
     }
 
 }

@@ -7,6 +7,7 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
+@ToString
 public class ProductDTO {
 
     private String title;
@@ -20,6 +21,8 @@ public class ProductDTO {
     private int views;
 
     private int chatsCount;
+
+    private String phoneNumber;
 
     private MemberDTO memberDTO;
 

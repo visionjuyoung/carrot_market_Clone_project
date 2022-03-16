@@ -12,9 +12,10 @@ public class ProductConverter {
                 .title(productDTO.getTitle())
                 .content(productDTO.getContent())
                 .address(productDTO.getAddress())
+                .price(productDTO.getPrice())
                 .views(0)
                 .chatsCount(0)
-                .member(Member.builder().phoneNumber(productDTO.getMemberDTO().getPhoneNumber()).build())
+                .member(Member.builder().phoneNumber(productDTO.getPhoneNumber()).build())
                 .build();
     }
 
