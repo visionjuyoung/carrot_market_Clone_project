@@ -24,7 +24,7 @@ public class SignUpController {
     private final SignUpService signUpService;
 
     @PostMapping("/signup")
-    public ResponseEntity signUpMember(@RequestParam MultipartFile file, @RequestBody SignUpDTO dto) throws Exception{
+    public ResponseEntity signUpMember(@RequestParam MultipartFile file, SignUpDTO dto) throws Exception{
 
         if(!file.isEmpty()){
             FileDTO fileDTO = FileDTO.builder()

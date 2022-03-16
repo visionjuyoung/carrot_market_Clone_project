@@ -18,4 +18,6 @@ public class SignUpDTO {
     private String phoneNumber;
 
     private String address;
+
+    private String uniqueNumber;
 }
