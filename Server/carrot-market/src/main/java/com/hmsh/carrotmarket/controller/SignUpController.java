@@ -24,26 +24,20 @@ public class SignUpController {
     private final SignUpService signUpService;
 
     @PostMapping("/signup")
-    public ResponseEntity signUpMember(@RequestParam MultipartFile file, SignUpDTO dto) throws Exception{
+    public ResponseEntity signUpMember(@RequestPart(value = "dto") SignUpDTO dto,
+                                       @RequestPart(value = "file") MultipartFile file) throws Exception {
 
-        if(!file.isEmpty()){
-            FileDTO fileDTO = FileDTO.builder()
-                    .uuid(UUID.randomUUID().toString())
-                    .fileName(file.getOriginalFilename())
-                    .contentType(file.getContentType())
-                    .build();
+        FileDTO fileDTO = FileDTO.builder()
+                .uuid(UUID.randomUUID().toString())
+                .fileName(file.getOriginalFilename())
+                .contentType(file.getContentType())
+                .build();
 
-            File newFileName = new File(fileDTO.getUuid() + "_" + fileDTO.getFileName());
+        File newFileName = new File(fileDTO.getUuid() + "_" + fileDTO.getFileName());
+        file.transferTo(newFileName);
 
-            try{
-                file.transferTo(newFileName);
-            } catch (IOException e){
-                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(file.getOriginalFilename());
-            }
 
-        }
-
-        boolean result = signUpService.signUpMember(dto);
+        boolean result = signUpService.signUpMember(dto, newFileName);
 
         if (result) {
             return new ResponseEntity<>(true, HttpStatus.OK);

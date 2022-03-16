@@ -7,7 +7,9 @@ import com.hmsh.carrotmarket.repository.SignUpRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.util.Optional;
 
 @Service
@@ -37,7 +39,7 @@ public class SignUpServiceImpl implements SignUpService{
 
 
     @Override
-    public boolean signUpMember(SignUpDTO dto) {
+    public boolean signUpMember(SignUpDTO dto, File file) {
         int number = (int) (Math.random() * 10000);
         String randomNumber = String.format("%08d", number);
         String numberSign = "#";
@@ -49,6 +51,7 @@ public class SignUpServiceImpl implements SignUpService{
                     .address(dto.getAddress())
                     .name(dto.getName())
                     .uniqueNumber(result)
+                    .file(file)
                     .build();
 
             signUpRepository.save(signUpMember);

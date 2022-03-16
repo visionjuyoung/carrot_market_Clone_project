@@ -13,11 +13,9 @@ import lombok.extern.slf4j.Slf4j;
 @ToString
 @Builder
 public class SignUpDTO {
-    private String name;
-
     private String phoneNumber;
 
     private String address;
 
-    private String uniqueNumber;
+    private String name;
 }

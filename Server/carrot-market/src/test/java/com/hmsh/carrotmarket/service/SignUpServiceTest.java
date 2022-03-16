@@ -19,8 +19,9 @@ public class SignUpServiceTest {
                 .phoneNumber("01046054229")
                 .name("조현민")
                 .address("경기도 여주시")
+
                 .build();
 
-        signUpService.signUpMember(member);
+//        signUpService.signUpMember(member);
     }
 }

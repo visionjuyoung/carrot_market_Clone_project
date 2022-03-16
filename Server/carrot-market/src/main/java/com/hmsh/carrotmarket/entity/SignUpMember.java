@@ -4,9 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+import java.io.File;
 
 @Entity
 @NoArgsConstructor
@@ -22,4 +25,6 @@ public class SignUpMember {
     private String name;
 
     private String uniqueNumber;
+
+    private File file;
 }
