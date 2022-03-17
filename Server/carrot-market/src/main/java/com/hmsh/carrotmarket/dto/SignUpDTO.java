@@ -1,17 +1,14 @@
 package com.hmsh.carrotmarket.dto;
 
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Getter
 @Setter
 @ToString
-@Builder
+@NoArgsConstructor
 public class SignUpDTO {
     private String phoneNumber;
 

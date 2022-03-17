@@ -1,6 +1,7 @@
 package com.hmsh.carrotmarket.service;
 
 
+import com.hmsh.carrotmarket.dto.FileDTO;
 import com.hmsh.carrotmarket.dto.SignUpDTO;
 import com.hmsh.carrotmarket.entity.SignUpMember;
 import com.hmsh.carrotmarket.repository.SignUpRepository;
@@ -39,7 +40,7 @@ public class SignUpServiceImpl implements SignUpService{
 
 
     @Override
-    public boolean signUpMember(SignUpDTO dto, File file) {
+    public boolean signUpMember(SignUpDTO dto, File path) {
         int number = (int) (Math.random() * 10000);
         String randomNumber = String.format("%08d", number);
         String numberSign = "#";
@@ -51,7 +52,7 @@ public class SignUpServiceImpl implements SignUpService{
                     .address(dto.getAddress())
                     .name(dto.getName())
                     .uniqueNumber(result)
-                    .file(file)
+                    .filePath(path.getName())
                     .build();
 
             signUpRepository.save(signUpMember);

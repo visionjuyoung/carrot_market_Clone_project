@@ -26,5 +26,5 @@ public class SignUpMember {
 
     private String uniqueNumber;
 
-    private File file;
+    private String filePath;
 }
