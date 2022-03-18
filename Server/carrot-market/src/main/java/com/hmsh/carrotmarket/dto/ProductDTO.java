@@ -24,7 +24,9 @@ public class ProductDTO {
 
     private int views;
 
-    private int chatsCount;
+    private int likes;
+
+    private int chats;
 
     private String phoneNumber;
 

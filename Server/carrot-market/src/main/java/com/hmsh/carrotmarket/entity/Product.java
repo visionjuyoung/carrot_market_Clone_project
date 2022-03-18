@@ -26,9 +26,11 @@ public class Product extends BaseEntity {
     // TODO: 임시로 String 사용, 동네 카테고리 생성 후 변경
     private String address; // 동네
 
+    private int likes; // 관심
+
     private int views; // 조회수
 
-    private int chatsCount; // 채팅수
+    private int chats; // 채팅수
 
     // TODO: 이미지, 카테고리 추가
 
