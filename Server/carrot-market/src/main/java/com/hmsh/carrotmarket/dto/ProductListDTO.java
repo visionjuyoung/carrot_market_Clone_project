@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Setter
 @Builder
 @ToString
-public class ProductDTO {
+public class ProductListDTO {
 
     private Long id;
 
@@ -18,18 +18,12 @@ public class ProductDTO {
 
     private int price;
 
-    private String content;
-
     private String address;
 
     private int views;
 
     private int chatsCount;
 
-    private String phoneNumber;
-
     private LocalDateTime modDate;
-
-    private MemberDTO memberDTO;
 
 }
