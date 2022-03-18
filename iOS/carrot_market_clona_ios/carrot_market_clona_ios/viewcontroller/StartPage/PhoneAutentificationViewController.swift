@@ -11,6 +11,9 @@ class PhoneAutentificationViewController: UIViewController {
     
     lazy var phoneCertificationDataManager: PhoneCertificationDataManager = PhoneCertificationDataManager()
     lazy var phoneAutentificationConfirmDataManager: PhoneCertificationConfirmDataManager = PhoneCertificationConfirmDataManager()
+    lazy var logInDataManager: LogInDataManager = LogInDataManager()
+    
+    var tempAddress: String = ""
 
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var phoneNumberTextField: UITextField!
@@ -66,11 +69,9 @@ class PhoneAutentificationViewController: UIViewController {
     }
     
     @IBAction func confirmCert(_ sender: UIButton) {
-        //인증번호 확인 api 사용 후 성공시 닉네임 설정 이동 코드 작성, 아래 코드 삭제
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "SetProfileViewController") as? SetProfileViewController else {
-            return
-        }
-        present(vc, animated: true, completion: nil)
+        let param: PhoneCertificationConfirmRequest = PhoneCertificationConfirmRequest(phoneNumber: phoneNumberTextField.text!, number: certTextField.text!)
+        phoneAutentificationConfirmDataManager.certificatePhoneNum(delegate: self, parameter: param)
+        
     }
     
     @IBAction func pressBack(_ sender: UIButton) {
@@ -80,23 +81,32 @@ class PhoneAutentificationViewController: UIViewController {
 
 extension PhoneAutentificationViewController {
     func didSuccessCertification(phoneCertificationresult: PhoneCertificationResponse) {
-        let param: PhoneCertificationConfirmRequest = PhoneCertificationConfirmRequest(phoneNumber: phoneNumberTextField.text!, number: certTextField.text!)
-        phoneAutentificationConfirmDataManager.certificatePhoneNum(delegate: self, parameter: param)
+        print(phoneCertificationresult.result)
     }
     
     func didFailureCertification(phoneCertificationresult: PhoneCertificationResponse) {
-        print(phoneCertificationresult)
+        print(phoneCertificationresult.message)
     }
     
     func didSuccessConfirmCertification(phoneCertificationConfirmResult: PhoneCertificationConfirmResponse) { //200
-        //로그인 api 적용
-        //홈화면 이동
-        print(phoneCertificationConfirmResult)
+        let param: LogInRequest = LogInRequest(phoneNumber: phoneNumberTextField.text!, password: phoneNumberTextField.text!)
+        logInDataManager.LogIn(delegate: self, parameter: param)
     }
     
     func didFailureConfirmCertification(phoneCertificationConfirmResult: PhoneCertificationConfirmResponse) { //201
-        //회원가입 화면으로 이동
-        //프로필 정보 입력화면에서 로그인 api 적용
-        print(phoneCertificationConfirmResult)
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "SetProfileViewController") as? SetProfileViewController else {
+            return
+        }
+        vc.tempPhoneNum = phoneNumberTextField.text!
+        vc.tempAddress = tempAddress
+        present(vc, animated: true, completion: nil)
+    }
+    
+    func didSuccessLogIn(logInResult: LogInResponse) {
+        //로그인 결과 값을 싱글톤에 저장해야함
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "TabbarController") else {
+            return
+        }
+        present(vc, animated: true, completion: nil)
     }
 }

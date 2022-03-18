@@ -8,6 +8,12 @@
 import UIKit
 
 class SetProfileViewController: UIViewController {
+    
+    lazy var signUpDataManager: SignUpDataManager = SignUpDataManager()
+    lazy var logInDataManager: LogInDataManager = LogInDataManager()
+    
+    var tempPhoneNum: String = ""
+    var tempAddress: String = ""
 
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -65,11 +71,8 @@ class SetProfileViewController: UIViewController {
     }
     
     @IBAction func doneButton(_ sender: UIButton) {
-        //프로필 등록 API 사용 후 성공 시 화면 전환, 아래 코드 지워야함
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "TabbarController") else {
-            return
-        }
-        present(vc, animated: true, completion: nil)
+        let param: SignUpRequest = SignUpRequest(phoneNumber: tempPhoneNum, address: tempAddress, name: nickNameTextField.text!)
+        signUpDataManager.signUp(delegate: self, parameter: param)
     }
     
     
@@ -89,5 +92,20 @@ extension SetProfileViewController: UIImagePickerControllerDelegate, UINavigatio
             profileImageView.image = image
         }
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension SetProfileViewController {
+    func didSuccessSignUp(signUpResult: SignUpResponse) {
+        let param: LogInRequest = LogInRequest(phoneNumber: tempPhoneNum, password: tempPhoneNum)
+        logInDataManager.LogIn(delegate: self, parameter: param)
+    }
+    
+    func didSuccessLogIn(logInResult: LogInResponse) {
+        //싱글톤 객체에 로그인시 회원 관련 정보 모든 것 저장
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "TabbarController") else {
+            return
+        }
+        present(vc, animated: true, completion: nil)
     }
 }

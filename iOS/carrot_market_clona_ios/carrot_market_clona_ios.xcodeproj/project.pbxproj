@@ -50,6 +50,12 @@
 		4BD6D2CC27E1D3A2004B71B3 /* PhoneCertificationConfirmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2CB27E1D3A2004B71B3 /* PhoneCertificationConfirmDataManager.swift */; };
 		4BD6D2CE27E1D3B2004B71B3 /* PhoneCertificationConfirmResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2CD27E1D3B2004B71B3 /* PhoneCertificationConfirmResponse.swift */; };
 		4BD6D2D027E1D415004B71B3 /* PhoneCertificationConfirmRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2CF27E1D415004B71B3 /* PhoneCertificationConfirmRequest.swift */; };
+		4BD6D2D527E32C55004B71B3 /* LogInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2D427E32C55004B71B3 /* LogInRequest.swift */; };
+		4BD6D2D727E32C60004B71B3 /* LogInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2D627E32C60004B71B3 /* LogInResponse.swift */; };
+		4BD6D2D927E32C72004B71B3 /* LogInDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2D827E32C72004B71B3 /* LogInDataManager.swift */; };
+		4BD6D2DC27E486A6004B71B3 /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2DB27E486A6004B71B3 /* SignUpRequest.swift */; };
+		4BD6D2DE27E486EF004B71B3 /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2DD27E486EF004B71B3 /* SignUpResponse.swift */; };
+		4BD6D2E027E4870E004B71B3 /* SignUpDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2DF27E4870E004B71B3 /* SignUpDataManager.swift */; };
 		AB17B22F38F6024D96EB0A14 /* Pods_carrot_market_clona_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DA35772DE1445F08CEC289 /* Pods_carrot_market_clona_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +106,12 @@
 		4BD6D2CB27E1D3A2004B71B3 /* PhoneCertificationConfirmDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationConfirmDataManager.swift; sourceTree = "<group>"; };
 		4BD6D2CD27E1D3B2004B71B3 /* PhoneCertificationConfirmResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationConfirmResponse.swift; sourceTree = "<group>"; };
 		4BD6D2CF27E1D415004B71B3 /* PhoneCertificationConfirmRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationConfirmRequest.swift; sourceTree = "<group>"; };
+		4BD6D2D427E32C55004B71B3 /* LogInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInRequest.swift; sourceTree = "<group>"; };
+		4BD6D2D627E32C60004B71B3 /* LogInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInResponse.swift; sourceTree = "<group>"; };
+		4BD6D2D827E32C72004B71B3 /* LogInDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInDataManager.swift; sourceTree = "<group>"; };
+		4BD6D2DB27E486A6004B71B3 /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
+		4BD6D2DD27E486EF004B71B3 /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
+		4BD6D2DF27E4870E004B71B3 /* SignUpDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDataManager.swift; sourceTree = "<group>"; };
 		64DA35772DE1445F08CEC289 /* Pods_carrot_market_clona_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carrot_market_clona_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B156CE90733864C60C1AB560 /* Pods-carrot_market_clona_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carrot_market_clona_ios.debug.xcconfig"; path = "Target Support Files/Pods-carrot_market_clona_ios/Pods-carrot_market_clona_ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -288,6 +300,8 @@
 		4BD6D2C527E1C632004B71B3 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				4BD6D2DA27E48682004B71B3 /* SignUp */,
+				4BD6D2D327E32C39004B71B3 /* logIn */,
 				4BD6D2D227E1F785004B71B3 /* phoneCertificationConfirm */,
 				4BD6D2D127E1F773004B71B3 /* phoneCertificaition */,
 			);
@@ -311,6 +325,26 @@
 				4BD6D2CF27E1D415004B71B3 /* PhoneCertificationConfirmRequest.swift */,
 			);
 			path = phoneCertificationConfirm;
+			sourceTree = "<group>";
+		};
+		4BD6D2D327E32C39004B71B3 /* logIn */ = {
+			isa = PBXGroup;
+			children = (
+				4BD6D2D427E32C55004B71B3 /* LogInRequest.swift */,
+				4BD6D2D627E32C60004B71B3 /* LogInResponse.swift */,
+				4BD6D2D827E32C72004B71B3 /* LogInDataManager.swift */,
+			);
+			path = logIn;
+			sourceTree = "<group>";
+		};
+		4BD6D2DA27E48682004B71B3 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				4BD6D2DB27E486A6004B71B3 /* SignUpRequest.swift */,
+				4BD6D2DD27E486EF004B71B3 /* SignUpResponse.swift */,
+				4BD6D2DF27E4870E004B71B3 /* SignUpDataManager.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		B6496F0F3BF30E55E042045C /* Frameworks */ = {
@@ -464,6 +498,7 @@
 				4B91241627D9E7DE0052D546 /* SetLocationViewTableViewCell.swift in Sources */,
 				4B9123F627D6031D0052D546 /* MyViewSecondSectionTableViewCell.swift in Sources */,
 				4BD6D2D027E1D415004B71B3 /* PhoneCertificationConfirmRequest.swift in Sources */,
+				4BD6D2E027E4870E004B71B3 /* SignUpDataManager.swift in Sources */,
 				4BA63E9127D35AAB003DDEF0 /* ChattingViewTableViewCell.swift in Sources */,
 				4BB9656027D08F4600E41D0C /* SceneDelegate.swift in Sources */,
 				4BB9657B27D0BDBB00E41D0C /* MyViewController.swift in Sources */,
@@ -477,7 +512,11 @@
 				4B9123FA27D603320052D546 /* MyViewThirdSectionTableViewCell.swift in Sources */,
 				4BB9657727D0BD9800E41D0C /* NearbyViewController.swift in Sources */,
 				4BA63E8727D33976003DDEF0 /* HomeViewTableViewCell.swift in Sources */,
+				4BD6D2D927E32C72004B71B3 /* LogInDataManager.swift in Sources */,
+				4BD6D2DE27E486EF004B71B3 /* SignUpResponse.swift in Sources */,
+				4BD6D2D727E32C60004B71B3 /* LogInResponse.swift in Sources */,
 				4B91241027D9BCF00052D546 /* StartViewController.swift in Sources */,
+				4BD6D2DC27E486A6004B71B3 /* SignUpRequest.swift in Sources */,
 				4B91241E27E055740052D546 /* SelectHomeDetailViewController.swift in Sources */,
 				4B91241227D9BD080052D546 /* PhoneAutentificationViewController.swift in Sources */,
 				4BB9657527D0BD8D00E41D0C /* TownViewController.swift in Sources */,
@@ -485,6 +524,7 @@
 				4B91240C27D746EA0052D546 /* SetLocationViewController.swift in Sources */,
 				4BD6D2C827E1C690004B71B3 /* PhoneCertificationResponse.swift in Sources */,
 				4BB9657327D0BCF700E41D0C /* HomeViewController.swift in Sources */,
+				4BD6D2D527E32C55004B71B3 /* LogInRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

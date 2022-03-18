@@ -103,7 +103,8 @@ extension SetLocationViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "PhoneAutentificationViewController") else { return }
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "PhoneAutentificationViewController") as? PhoneAutentificationViewController else { return }
+        vc.tempAddress = nearbyLocation[indexPath.row]
         present(vc, animated: true, completion: nil)
     }
 }

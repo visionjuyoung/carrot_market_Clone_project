@@ -11,6 +11,7 @@ class PhoneAutentificationSignInStateViewController: UIViewController {
     
     lazy var phoneAutentificationDatamanager: PhoneCertificationDataManager = PhoneCertificationDataManager()
     lazy var phoneAutentificationConfirmDataManager: PhoneCertificationConfirmDataManager = PhoneCertificationConfirmDataManager()
+    lazy var logInDataManager: LogInDataManager = LogInDataManager()
     
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var label2: UILabel!
@@ -47,13 +48,14 @@ class PhoneAutentificationSignInStateViewController: UIViewController {
         }), for: .editingChanged)
         
         self.certTextField.addAction(UIAction(handler: { _ in
-            if self.certTextField.text?.count == 6 {
+            if self.certTextField.text?.count == 4 {
                 self.confirmCertButton.backgroundColor = UIColor(named: "carrotMarketColor")
             }
         }), for: .editingChanged)
     }
 
     @IBAction func getCert(_ sender: UIButton) {
+        phoneAutentificationDatamanager.certificatePhoneNum(delegate: self, phoneNum: phoneAutenticationTextField.text!)
         label1.isHidden = true
         label2.isHidden = true
         stacks.isHidden = true
@@ -67,8 +69,8 @@ class PhoneAutentificationSignInStateViewController: UIViewController {
     }
     
     @IBAction func confirmCert(_ sender: UIButton) {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "TabbarController") else { return }
-        present(vc, animated: true, completion: nil)
+        let param: PhoneCertificationConfirmRequest = PhoneCertificationConfirmRequest(phoneNumber: phoneAutenticationTextField.text!, number: certTextField.text!)
+        phoneAutentificationConfirmDataManager.certificatePhoneNum(delegate: self, parameter: param)
     }
     
     @IBAction func pressBack(_ sender: UIButton) {
@@ -85,11 +87,20 @@ extension PhoneAutentificationSignInStateViewController {
         print(phoneCertificationresult)
     }
     
-    func didSuccessConfirmCertification(phoneCertificationConfirmResult: PhoneCertificationConfirmResponse) {
+    func didSuccessConfirmCertification(phoneCertificationConfirmResult: PhoneCertificationConfirmResponse) { //200
+        let param: LogInRequest = LogInRequest(phoneNumber: phoneAutenticationTextField.text!, password: phoneAutenticationTextField.text!)
+        logInDataManager.LogIn(delegate: self, parameter: param)
+    }
+    
+    func didFailureConfirmCertification(phoneCertificationConfirmResult: PhoneCertificationConfirmResponse) { //201
         print(phoneCertificationConfirmResult)
     }
     
-    func didFailureConfirmCertification(phoneCertificationConfirmResult: PhoneCertificationConfirmResponse) {
-        print(phoneCertificationConfirmResult)
+    func didSuccessLogIn(logInResult: LogInResponse) {
+        //로그인 결과 값을 싱글톤에 저장해야함
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "TabbarController") else {
+            return
+        }
+        present(vc, animated: true, completion: nil)
     }
 }
