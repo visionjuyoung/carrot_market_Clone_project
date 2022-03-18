@@ -1,6 +1,7 @@
 package com.hmsh.carrotmarket.service;
 
 
+import com.hmsh.carrotmarket.dto.EditUserDTO;
 import com.hmsh.carrotmarket.dto.FileDTO;
 import com.hmsh.carrotmarket.dto.SignUpDTO;
 import com.hmsh.carrotmarket.entity.SignUpMember;
@@ -41,7 +42,7 @@ public class SignUpServiceImpl implements SignUpService{
 
     @Override
     public boolean signUpMember(SignUpDTO dto, File path) {
-        int number = (int) (Math.random() * 10000);
+        int number = (int) (Math.random() * 100000000);
         String randomNumber = String.format("%08d", number);
         String numberSign = "#";
         String result = numberSign.concat(randomNumber);
@@ -60,6 +61,27 @@ public class SignUpServiceImpl implements SignUpService{
         }catch (NullPointerException e){
             return false;
         }
+    }
 
+    @Override
+    public boolean editMember(EditUserDTO dto, File file) {
+        Optional<SignUpMember> signUpMember = signUpRepository.findById(dto.getPhoneNumber());
+
+        try {
+            if (signUpMember.isPresent()){
+                SignUpMember newMember = SignUpMember.builder()
+                        .phoneNumber(dto.getPhoneNumber())
+                        .address(dto.getAddress())
+                        .name(dto.getName())
+                        .uniqueNumber(dto.getUniqueNumber())
+                        .filePath(file.getName())
+                        .build();
+                signUpRepository.save(newMember);
+                return true;
+            }
+        }catch (NullPointerException e){
+            return false;
+        }
+        return false;
     }
 }

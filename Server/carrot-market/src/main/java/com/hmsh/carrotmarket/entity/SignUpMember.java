@@ -1,9 +1,6 @@
 package com.hmsh.carrotmarket.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.Entity;
@@ -14,8 +11,8 @@ import java.io.File;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
 @Builder
+@Data
 public class SignUpMember {
     @Id
     private String phoneNumber;
