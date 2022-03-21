@@ -3,6 +3,7 @@ package com.hmsh.carrotmarket.dto;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,11 +25,15 @@ public class ProductDTO {
 
     private int views;
 
-    private int chatsCount;
+    private int chats;
+
+    private int likes;
 
     private String phoneNumber;
 
     private LocalDateTime modDate;
+
+    private List<String> imagePathList;
 
     private MemberDTO memberDTO;
 

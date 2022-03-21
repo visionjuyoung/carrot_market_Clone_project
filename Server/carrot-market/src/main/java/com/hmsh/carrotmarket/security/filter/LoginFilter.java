@@ -52,11 +52,14 @@ public class LoginFilter extends AbstractAuthenticationProcessingFilter {
                                             FilterChain chain,
                                             Authentication authResult) throws IOException, ServletException {
         log.info("successfulAuthentication!!");
-        String phoneNumber = ((AuthMemberDTO) authResult.getPrincipal()).getPhoneNumber();
+        AuthMemberDTO principal = (AuthMemberDTO) authResult.getPrincipal();
         String token;
 
         try {
-            token = jwtUtil.generateToken(phoneNumber);
+            token = jwtUtil.generateToken(principal.getPhoneNumber());
+//            principal.getAddress(); // 주소
+//            principal.getPhoneNumber(); // 전화 번호
+//            principal.getName(); // 이름
 
             response.setContentType("application/json;charset=utf-8");
             JSONObject json = new JSONObject();
@@ -64,6 +67,8 @@ public class LoginFilter extends AbstractAuthenticationProcessingFilter {
             json.put("code", StatusCode.OK.getCode());
             json.put("message", StatusCode.OK.getMessage());
             json.put("result", token);
+
+
 
             PrintWriter out = response.getWriter();
             out.print(json);

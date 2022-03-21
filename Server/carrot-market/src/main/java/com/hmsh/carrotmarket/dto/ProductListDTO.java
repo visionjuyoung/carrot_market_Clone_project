@@ -22,7 +22,11 @@ public class ProductListDTO {
 
     private int views;
 
-    private int chatsCount;
+    private int chats;
+
+    private int likes;
+
+    private String imagePath;
 
     private LocalDateTime modDate;
 

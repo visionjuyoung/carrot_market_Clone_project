@@ -9,6 +9,7 @@ import com.hmsh.carrotmarket.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -21,8 +22,8 @@ public class ProductController {
     private final ProductService productService;
 
     @PostMapping("/register")
-    public CResponseEntity<String> register(@RequestBody ProductDTO productDTO) {
-        Long returnId = productService.register(productDTO);
+    public CResponseEntity<String> register(ProductDTO productDTO, MultipartFile[] files) {
+        Long returnId = productService.register(productDTO, files);
         boolean isSuccess = returnId != null;
         StatusCode code = returnId != null ? StatusCode.OK : StatusCode.INTERNAL_SERVER_ERROR;
         return new CResponseEntity<>(isSuccess, code, code.getMessage(), null);
