@@ -74,11 +74,23 @@ public class ProductController {
      * @return 처리 결과
      */
     @PutMapping("")
-    public CResponseEntity<String> modify(ProductDTO productDTO, MultipartFile[] files) {
+    public CResponseEntity<Object> modify(ProductDTO productDTO, MultipartFile[] files) {
+        log.info("상품 수정 productDTO = {}", productDTO);
         Boolean result = productService.modify(productDTO, files);
 
         if (result) return new CResponseEntity<>(true, StatusCode.OK, null);
         return new CResponseEntity<>(false, StatusCode.NOT_FOUND, null);
+    }
+
+
+    @DeleteMapping("/{id}")
+    public CResponseEntity<Boolean> delete(@PathVariable Long id) {
+        log.info("상품 삭제 id = {}", id);
+        Boolean result = productService.delete(id);
+
+        if (!result) return new CResponseEntity<>(false, StatusCode.NOT_FOUND, null);
+
+        return new CResponseEntity<>(true, StatusCode.OK, null);
     }
 
 }

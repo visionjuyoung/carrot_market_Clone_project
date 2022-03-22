@@ -100,12 +100,18 @@ public class ProductServiceImpl implements ProductService {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * 상품 정보 수정
+     * @param productDTO 수정된 상품 정보
+     * @param uploadFiles 수정된 이미지 파일
+     * @return 수정할 상품의 id 존재 여부
+     */
     @Override
     @Transactional
     public Boolean modify(ProductDTO productDTO, MultipartFile[] uploadFiles) {
         Optional<Product> optionalProduct = productRepository.findById(productDTO.getId());
 
-        if (!optionalProduct.isPresent()) return true;
+        if (!optionalProduct.isPresent()) return false;
 
         Product product = optionalProduct.get();
         product.setPrice(productDTO.getPrice());
@@ -123,4 +129,25 @@ public class ProductServiceImpl implements ProductService {
 
         return true;
     }
+
+    /**
+     * 상품 삭제
+     * @param id 삭제할 상품의 id
+     * @return 삭제 처리 성공 여부
+     */
+    @Override
+    @Transactional
+    public Boolean delete(Long id) {
+        Optional<Product> optionalProduct = productRepository.findById(id);
+
+        if (!optionalProduct.isPresent()) return false;
+
+        Product product = optionalProduct.get();
+        productImageRepository.deleteAllProductImageByProduct(product);
+        productRepository.delete(product);
+
+        return true;
+    }
+
+
 }

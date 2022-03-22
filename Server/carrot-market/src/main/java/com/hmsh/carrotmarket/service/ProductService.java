@@ -16,4 +16,6 @@ public interface ProductService {
     List<ProductListDTO> getList(PageRequestDTO pageRequestDTO, String address);
 
     Boolean modify(ProductDTO productDTO, MultipartFile[] uploadFiles);
+
+    Boolean delete(Long id);
 }
