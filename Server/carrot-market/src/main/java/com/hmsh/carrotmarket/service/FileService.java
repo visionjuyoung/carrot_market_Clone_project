@@ -10,5 +10,5 @@ public interface FileService {
 
     ResponseEntity<byte[]> getImage(String filename);
 
-    List<ImageDTO> uploadFiles(MultipartFile[] uploadFiles);
+    List<ImageDTO> uploadImageFiles(MultipartFile[] uploadFiles);
 }

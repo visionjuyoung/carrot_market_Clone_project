@@ -12,17 +12,14 @@ import com.hmsh.carrotmarket.repository.ProductImageRepository;
 import com.hmsh.carrotmarket.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
 @Slf4j
@@ -36,13 +33,19 @@ public class ProductServiceImpl implements ProductService {
     private final FileService fileService;
 
 
+    /**
+     * 상품 등록
+     * @param productDTO 상품 정보
+     * @param uploadFiles 이미지 파일
+     * @return 등록된 상품의 ID
+     */
     @Override
     @Transactional
     public Long register(ProductDTO productDTO, MultipartFile[] uploadFiles) {
         log.info("register, productDTO = {}", productDTO);
         Product product = ProductConverter.dtoToEntity(productDTO);
 
-        List<ImageDTO> imageDTOList = fileService.uploadFiles(uploadFiles);
+        List<ImageDTO> imageDTOList = fileService.uploadImageFiles(uploadFiles);
         List<ProductImage> productImageList = imageDTOList.stream()
                 .map(imageDTO -> ImageConverter.imageDTOToProductImage(imageDTO, product))
                 .collect(Collectors.toList());
@@ -55,6 +58,11 @@ public class ProductServiceImpl implements ProductService {
         return save.getId();
     }
 
+    /**
+     * 상품 조회
+     * @param id 조회할 상품의 ID
+     * @return 상품 정보
+     */
     @Override
     @Transactional
     public ProductDTO get(Long id) {
@@ -77,9 +85,15 @@ public class ProductServiceImpl implements ProductService {
         return null;
     }
 
+    /**
+     * address 와 같은 상품들을 최근 수정 날짜 순으로 정렬하고 20개씩 페이징해서 조회
+     * @param pageRequestDTO 페이징 정보
+     * @param address 주소
+     * @return 상품 정보 리스트
+     */
     @Override
     public List<ProductListDTO> getList(PageRequestDTO pageRequestDTO, String address) {
-        return productRepository.getListByAddress(
+        return productRepository.getProductListByAddress(
                 pageRequestDTO.getPageable(Sort.by("modDate").descending()), address).stream()
                 .map(ProductConverter::entityToListDTO)
                 .collect(Collectors.toList());

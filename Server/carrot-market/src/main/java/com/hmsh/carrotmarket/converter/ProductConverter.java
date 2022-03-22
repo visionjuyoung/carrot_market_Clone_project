@@ -1,13 +1,16 @@
 package com.hmsh.carrotmarket.converter;
 
 
+import com.hmsh.carrotmarket.dto.ImageDTO;
 import com.hmsh.carrotmarket.dto.ProductDTO;
 import com.hmsh.carrotmarket.dto.ProductListDTO;
 import com.hmsh.carrotmarket.entity.Member;
 import com.hmsh.carrotmarket.entity.Product;
+import com.hmsh.carrotmarket.entity.ProductImage;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 public class ProductConverter {
 
@@ -41,6 +44,13 @@ public class ProductConverter {
     }
 
     public static ProductListDTO entityToListDTO(Object[] objects) {
+        String imageURL = null;
+        ProductImage productImage = (ProductImage) objects[7];
+        if (!Objects.isNull(productImage)) {
+            ImageDTO imageDTO = ImageConverter.productImageToImageDTO(productImage);
+            imageURL = imageDTO.getImageURL();
+        }
+
         return ProductListDTO.builder()
                 .id((Long) objects[0])
                 .title((String) objects[1])
@@ -49,6 +59,7 @@ public class ProductConverter {
                 .modDate((LocalDateTime) objects[4])
                 .price((int) objects[5])
                 .likes((int) objects[6])
+                .imagePath(imageURL)
                 .build();
     }
 }
