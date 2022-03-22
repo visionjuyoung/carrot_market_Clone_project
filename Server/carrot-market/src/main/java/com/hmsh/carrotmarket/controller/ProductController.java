@@ -71,9 +71,9 @@ public class ProductController {
      * 상품 수정
      * @param productDTO 수정된 상품 정보
      * @param files 수정된 이미지
-     * @return 처리 결과
+     * @return 요청 결과
      */
-    @PutMapping("")
+    @PatchMapping("")
     public CResponseEntity<Object> modify(ProductDTO productDTO, MultipartFile[] files) {
         log.info("상품 수정 productDTO = {}", productDTO);
         Boolean result = productService.modify(productDTO, files);
@@ -83,6 +83,11 @@ public class ProductController {
     }
 
 
+    /**
+     * 상품 삭제
+     * @param id 삭제할 상품의 ID
+     * @return 요청 결과
+     */
     @DeleteMapping("/{id}")
     public CResponseEntity<Boolean> delete(@PathVariable Long id) {
         log.info("상품 삭제 id = {}", id);
