@@ -1,5 +1,7 @@
 package com.hmsh.carrotmarket.controller;
 
+import com.hmsh.carrotmarket.CResponseEntity;
+import com.hmsh.carrotmarket.StatusCode;
 import com.hmsh.carrotmarket.util.FileUtil;
 import com.hmsh.carrotmarket.dto.FileDTO;
 import com.hmsh.carrotmarket.dto.SignUpDTO;
@@ -23,7 +25,7 @@ public class SignUpController {
     private final FileUtil fileUtil;
 
     @PostMapping("/signup")
-    public ResponseEntity signUpMember(@RequestPart SignUpDTO dto,
+    public CResponseEntity<String> signUpMember(@RequestPart SignUpDTO dto,
                                        @RequestPart(required = false) MultipartFile file) throws Exception {
 
         File newFileName = fileUtil.makeNewFileName(file);
@@ -33,14 +35,12 @@ public class SignUpController {
         log.info("newFileName={}", newFileName);
         log.info("phoneNumber={}, address={}, name={}", dto.getPhoneNumber(), dto.getAddress(), dto.getName());
 
-
         boolean result = signUpService.signUpMember(dto, newFileName);
 
-
         if (result) {
-            return new ResponseEntity<>(newFileName, HttpStatus.OK);
+            return new CResponseEntity<>(true, StatusCode.OK, "회원가입 성공");
         } else {
-            return new ResponseEntity<>(false, HttpStatus.FORBIDDEN);
+            return new CResponseEntity<>(false, StatusCode.UNAUTHORIZED, null);
         }
     }
 }

@@ -26,6 +26,10 @@ public class Member {
 
     private String address;
 
+    private String uniqueNumber;
+
+    private String filePath;
+
     @ElementCollection(fetch = FetchType.LAZY)
     @Builder.Default
     private Set<MemberRole> roleSet = new HashSet<>();

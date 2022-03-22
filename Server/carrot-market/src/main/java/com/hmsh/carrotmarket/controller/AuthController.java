@@ -3,6 +3,7 @@ package com.hmsh.carrotmarket.controller;
 import com.hmsh.carrotmarket.CResponseEntity;
 import com.hmsh.carrotmarket.StatusCode;
 import com.hmsh.carrotmarket.dto.CertificationNumberDTO;
+import com.hmsh.carrotmarket.entity.Member;
 import com.hmsh.carrotmarket.entity.SignUpMember;
 import com.hmsh.carrotmarket.service.CertificationNumberService;
 import com.hmsh.carrotmarket.service.SignUpService;
@@ -36,7 +37,7 @@ public class AuthController {
         if (result) {
             //전화번호가 이미 있으면 그 전화번호의 회원정보 객체 전달, 없으면 회원가입 페이지 요청
             if(signUpService.memberCheck(dto.getPhoneNumber())){
-                Optional<SignUpMember> getMember = signUpService.getMember(dto.getPhoneNumber());
+                Optional<Member> getMember = signUpService.getMember(dto.getPhoneNumber());
                 return new CResponseEntity<>(true, StatusCode.OK, getMember.get());
             }
             else{

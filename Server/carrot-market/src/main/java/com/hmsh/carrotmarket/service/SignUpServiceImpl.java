@@ -2,14 +2,14 @@ package com.hmsh.carrotmarket.service;
 
 
 import com.hmsh.carrotmarket.dto.EditUserDTO;
-import com.hmsh.carrotmarket.dto.FileDTO;
 import com.hmsh.carrotmarket.dto.SignUpDTO;
+import com.hmsh.carrotmarket.entity.Member;
+import com.hmsh.carrotmarket.entity.MemberRole;
 import com.hmsh.carrotmarket.entity.SignUpMember;
-import com.hmsh.carrotmarket.repository.SignUpRepository;
+import com.hmsh.carrotmarket.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.util.Optional;
@@ -18,18 +18,18 @@ import java.util.Optional;
 @Slf4j
 @RequiredArgsConstructor
 public class SignUpServiceImpl implements SignUpService{
-    private final SignUpRepository signUpRepository;
+    private final MemberRepository memberRepository;
 
     @Override
-    public Optional<SignUpMember> getMember(String phoneNumber) {
-        Optional<SignUpMember> signUpDTO = signUpRepository.findById(phoneNumber);
+    public Optional<Member> getMember(String phoneNumber) {
+        Optional<Member> signUpDTO = memberRepository.findById(phoneNumber);
 
         return signUpDTO;
     }
 
     @Override
     public boolean memberCheck(String phoneNumber) {
-        Optional<SignUpMember> signUpDTO = signUpRepository.findById(phoneNumber);
+        Optional<Member> signUpDTO = memberRepository.findById(phoneNumber);
 
         if(signUpDTO.isPresent()){
             return true;
@@ -48,7 +48,7 @@ public class SignUpServiceImpl implements SignUpService{
         String result = numberSign.concat(randomNumber);
 
         try {
-            SignUpMember signUpMember = SignUpMember.builder()
+            Member signUpMember = Member.builder()
                     .phoneNumber(dto.getPhoneNumber())
                     .address(dto.getAddress())
                     .name(dto.getName())
@@ -56,7 +56,7 @@ public class SignUpServiceImpl implements SignUpService{
                     .filePath(path.getName())
                     .build();
 
-            signUpRepository.save(signUpMember);
+            memberRepository.save(signUpMember);
             return true;
         }catch (NullPointerException e){
             return false;
@@ -65,18 +65,20 @@ public class SignUpServiceImpl implements SignUpService{
 
     @Override
     public boolean editMember(EditUserDTO dto, File file) {
-        Optional<SignUpMember> signUpMember = signUpRepository.findById(dto.getPhoneNumber());
+        Optional<Member> signUpMember = memberRepository.findById(dto.getPhoneNumber());
 
         try {
             if (signUpMember.isPresent()){
-                SignUpMember newMember = SignUpMember.builder()
+                Member newMember = Member.builder()
                         .phoneNumber(dto.getPhoneNumber())
+                        .password(dto.getPhoneNumber())
                         .address(dto.getAddress())
                         .name(dto.getName())
                         .uniqueNumber(dto.getUniqueNumber())
                         .filePath(file.getName())
                         .build();
-                signUpRepository.save(newMember);
+                newMember.addMemberRole(MemberRole.USER);
+                memberRepository.save(newMember);
                 return true;
             }
         }catch (NullPointerException e){
