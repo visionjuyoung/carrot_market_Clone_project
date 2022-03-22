@@ -35,6 +35,6 @@ public class ProductDTO {
 
     private List<String> imagePathList;
 
-    private MemberDTO memberDTO;
+    private MemberDTO member;
 
 }

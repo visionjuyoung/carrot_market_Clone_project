@@ -39,7 +39,7 @@ public class ProductConverter {
                 .likes(product.getLikes())
                 .imagePathList(imagePathList)
                 .modDate(product.getModDate())
-                .memberDTO(MemberConverter.memberToMemberDTO(product.getMember()))
+                .member(MemberConverter.memberToMemberDTO(product.getMember()))
                 .build();
     }
 

@@ -29,12 +29,12 @@ public class ProductController {
      * @return 처리 결과
      */
     @PostMapping("/register")
-    public CResponseEntity<String> register(ProductDTO productDTO, MultipartFile[] files) {
-        log.info("상품 등록 productDTO = {}, image 개수 = {}", productDTO, files.length);
+    public CResponseEntity<Long> register(ProductDTO productDTO, MultipartFile[] files) {
+        log.info("상품 등록 productDTO = {}", productDTO);
         Long returnId = productService.register(productDTO, files);
         boolean isSuccess = returnId != null;
         StatusCode code = returnId != null ? StatusCode.OK : StatusCode.INTERNAL_SERVER_ERROR;
-        return new CResponseEntity<>(isSuccess, code, code.getMessage(), null);
+        return new CResponseEntity<>(isSuccess, code, code.getMessage(), returnId);
     }
 
     /**

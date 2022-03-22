@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -42,18 +43,18 @@ public class ProductServiceImpl implements ProductService {
     @Override
     @Transactional
     public Long register(ProductDTO productDTO, MultipartFile[] uploadFiles) {
-        log.info("register, productDTO = {}", productDTO);
         Product product = ProductConverter.dtoToEntity(productDTO);
 
-        List<ImageDTO> imageDTOList = fileService.uploadImageFiles(uploadFiles);
-        List<ProductImage> productImageList = imageDTOList.stream()
-                .map(imageDTO -> ImageConverter.imageDTOToProductImage(imageDTO, product))
-                .collect(Collectors.toList());
+        if (!Objects.isNull(uploadFiles)) {
+            List<ImageDTO> imageDTOList = fileService.uploadImageFiles(uploadFiles);
+            List<ProductImage> productImageList = imageDTOList.stream()
+                    .map(imageDTO -> ImageConverter.imageDTOToProductImage(imageDTO, product))
+                    .collect(Collectors.toList());
 
-        log.info("save images = {}", imageDTOList);
-
+            log.info("save images = {}", imageDTOList);
+            productImageRepository.saveAll(productImageList);
+        }
         Product save = productRepository.save(product);
-        productImageRepository.saveAll(productImageList);
 
         return save.getId();
     }
