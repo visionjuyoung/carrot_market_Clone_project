@@ -25,8 +25,8 @@ public class SignUpController {
     private final FileUtil fileUtil;
 
     @PostMapping("/signup")
-    public CResponseEntity<String> signUpMember(@RequestPart SignUpDTO dto,
-                                       @RequestPart(required = false) MultipartFile file) throws Exception {
+    public CResponseEntity<String> signUpMember(SignUpDTO dto,
+                                       MultipartFile file) throws Exception {
 
         File newFileName = fileUtil.makeNewFileName(file);
 
