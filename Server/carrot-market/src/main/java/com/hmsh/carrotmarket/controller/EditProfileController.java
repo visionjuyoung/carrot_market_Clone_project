@@ -3,6 +3,7 @@ package com.hmsh.carrotmarket.controller;
 
 import com.hmsh.carrotmarket.CResponseEntity;
 import com.hmsh.carrotmarket.StatusCode;
+import com.hmsh.carrotmarket.dto.EditUserDTO;
 import com.hmsh.carrotmarket.dto.SignUpDTO;
 import com.hmsh.carrotmarket.service.SignUpService;
 import com.hmsh.carrotmarket.util.FileUtil;
@@ -28,7 +29,7 @@ public class EditProfileController {
     private final FileUtil fileUtil;
 
     @PostMapping("/edit")
-    public CResponseEntity editProfile (SignUpDTO dto,
+    public CResponseEntity editProfile (EditUserDTO dto,
                                         MultipartFile file) throws Exception{
         File newFileName = fileUtil.makeNewFileName(file);
 
@@ -37,7 +38,7 @@ public class EditProfileController {
         log.info("newFileName={}", newFileName);
         log.info("phoneNumber={}, address={}, name={}", dto.getPhoneNumber(), dto.getAddress(), dto.getName());
 
-        boolean result = signUpService.signUpMember(dto, newFileName);
+        boolean result = signUpService.editMember(dto, newFileName);
 
 
         if (result) {

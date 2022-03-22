@@ -53,7 +53,7 @@ public class SignUpServiceImpl implements SignUpService{
                     .address(dto.getAddress())
                     .name(dto.getName())
                     .uniqueNumber(result)
-                    .filePath(path.getName())
+                    .filePath(path.getPath() + path.getName())
                     .build();
 
             memberRepository.save(signUpMember);
@@ -75,7 +75,7 @@ public class SignUpServiceImpl implements SignUpService{
                         .address(dto.getAddress())
                         .name(dto.getName())
                         .uniqueNumber(dto.getUniqueNumber())
-                        .filePath(file.getName())
+                        .filePath(file.getPath() + file.getName())
                         .build();
                 newMember.addMemberRole(MemberRole.USER);
                 memberRepository.save(newMember);
