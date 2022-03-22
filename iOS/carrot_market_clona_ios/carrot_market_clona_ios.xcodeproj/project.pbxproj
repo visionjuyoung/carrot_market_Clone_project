@@ -56,6 +56,7 @@
 		4BD6D2DC27E486A6004B71B3 /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2DB27E486A6004B71B3 /* SignUpRequest.swift */; };
 		4BD6D2DE27E486EF004B71B3 /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2DD27E486EF004B71B3 /* SignUpResponse.swift */; };
 		4BD6D2E027E4870E004B71B3 /* SignUpDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2DF27E4870E004B71B3 /* SignUpDataManager.swift */; };
+		4BD6D2E227E9DF3C004B71B3 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2E127E9DF3C004B71B3 /* UserInfo.swift */; };
 		AB17B22F38F6024D96EB0A14 /* Pods_carrot_market_clona_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DA35772DE1445F08CEC289 /* Pods_carrot_market_clona_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +113,7 @@
 		4BD6D2DB27E486A6004B71B3 /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
 		4BD6D2DD27E486EF004B71B3 /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
 		4BD6D2DF27E4870E004B71B3 /* SignUpDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDataManager.swift; sourceTree = "<group>"; };
+		4BD6D2E127E9DF3C004B71B3 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		64DA35772DE1445F08CEC289 /* Pods_carrot_market_clona_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carrot_market_clona_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B156CE90733864C60C1AB560 /* Pods-carrot_market_clona_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carrot_market_clona_ios.debug.xcconfig"; path = "Target Support Files/Pods-carrot_market_clona_ios/Pods-carrot_market_clona_ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				4B91240927D604870052D546 /* MyCarrotCellList.swift */,
+				4BD6D2E127E9DF3C004B71B3 /* UserInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				4B91241E27E055740052D546 /* SelectHomeDetailViewController.swift in Sources */,
 				4B91241227D9BD080052D546 /* PhoneAutentificationViewController.swift in Sources */,
 				4BB9657527D0BD8D00E41D0C /* TownViewController.swift in Sources */,
+				4BD6D2E227E9DF3C004B71B3 /* UserInfo.swift in Sources */,
 				4B9123FE27D6034D0052D546 /* MyViewfirthSectionTableViewCell.swift in Sources */,
 				4B91240C27D746EA0052D546 /* SetLocationViewController.swift in Sources */,
 				4BD6D2C827E1C690004B71B3 /* PhoneCertificationResponse.swift in Sources */,

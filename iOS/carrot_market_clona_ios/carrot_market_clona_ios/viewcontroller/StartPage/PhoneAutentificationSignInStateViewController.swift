@@ -80,11 +80,10 @@ class PhoneAutentificationSignInStateViewController: UIViewController {
 
 extension PhoneAutentificationSignInStateViewController {
     func didSuccessCertification(phoneCertificationresult: PhoneCertificationResponse) {
-        print(phoneCertificationresult)
-    }
-    
-    func didFailureCertification(phoneCertificationresult: PhoneCertificationResponse) {
-        print(phoneCertificationresult)
+        guard let tempCertResult: String = phoneCertificationresult.result else {
+            return
+        }
+        print("인증번호 : \(tempCertResult)")
     }
     
     func didSuccessConfirmCertification(phoneCertificationConfirmResult: PhoneCertificationConfirmResponse) { //200
@@ -94,13 +93,28 @@ extension PhoneAutentificationSignInStateViewController {
     
     func didFailureConfirmCertification(phoneCertificationConfirmResult: PhoneCertificationConfirmResponse) { //201
         print(phoneCertificationConfirmResult)
+        let alert = UIAlertController(title: "등록되지 않은 사용자", message: "회원가입이 필요합니다", preferredStyle: .alert)
+        let action = UIAlertAction(title: "확인", style: .cancel, handler: { _ in
+            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "SetLocationViewController") as? SetLocationViewController else {
+                return
+            }
+            self.present(vc, animated: true, completion: nil)
+        })
+        alert.addAction(action)
+        present(alert, animated: true)
     }
     
     func didSuccessLogIn(logInResult: LogInResponse) {
-        //로그인 결과 값을 싱글톤에 저장해야함
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "TabbarController") else {
+        guard let temploginResult: String = logInResult.result else {
             return
         }
-        present(vc, animated: true, completion: nil)
+        print(logInResult)
+        print(temploginResult)
+        //로그인 결과 값을 싱글톤에 저장해야함
+        
+//        guard let vc = storyboard?.instantiateViewController(withIdentifier: "TabbarController") else {
+//            return
+//        }
+//        present(vc, animated: true, completion: nil)
     }
 }

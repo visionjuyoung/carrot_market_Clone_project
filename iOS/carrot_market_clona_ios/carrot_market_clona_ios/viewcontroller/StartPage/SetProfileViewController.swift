@@ -72,7 +72,9 @@ class SetProfileViewController: UIViewController {
     
     @IBAction func doneButton(_ sender: UIButton) {
         let param: SignUpRequest = SignUpRequest(phoneNumber: tempPhoneNum, address: tempAddress, name: nickNameTextField.text!)
-        signUpDataManager.signUp(delegate: self, parameter: param)
+        let image = profileImageView.image
+        let data: Data = (image?.pngData())!
+        signUpDataManager.signUp(delegate: self, withRequest: param, imgData: data)
     }
     
     

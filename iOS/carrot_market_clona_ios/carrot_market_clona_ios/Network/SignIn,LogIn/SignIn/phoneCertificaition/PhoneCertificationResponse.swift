@@ -8,8 +8,8 @@
 import Foundation
 
 struct PhoneCertificationResponse: Decodable {
-    var isSucess: Bool
-    var code: Int
-    var message: String
-    var result: String
+    var isSucess: Bool?
+    var code: Int?
+    var message: String?
+    var result: String?
 }

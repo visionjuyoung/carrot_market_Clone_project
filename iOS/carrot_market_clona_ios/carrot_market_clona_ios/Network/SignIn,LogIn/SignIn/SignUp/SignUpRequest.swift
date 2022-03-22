@@ -10,4 +10,5 @@ struct SignUpRequest: Encodable {
     var phoneNumber: String
     var address: String
     var name: String
+    var images: Data?
 }

@@ -7,8 +7,18 @@
 
 import Foundation
 struct PhoneCertificationConfirmResponse: Decodable {
-    var isSuccess: Bool
-    var code: Int
-    var message: String
-    var result: Bool
+    var isSuccess: Bool?
+    var code: Int?
+    var message: String?
+    var result: PhoneCertificationConfirmresult?
+}
+
+struct PhoneCertificationConfirmresult: Decodable {
+    var phoneNumber: String
+    var password: String
+    var name: String
+    var address: String
+    var uniqueNumber: String?
+    var filePath: String?
+    var roleSet: [String]
 }

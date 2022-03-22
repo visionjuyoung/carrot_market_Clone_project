@@ -10,7 +10,7 @@ import Alamofire
 
 class PhoneCertificationDataManager {
     func certificatePhoneNum(delegate: PhoneAutentificationViewController, phoneNum: String) {
-        let url = "https://ec2-52-78-102-243.ap-northeast-2.compute.amazonaws.com"
+        let url = "http://ec2-52-78-102-243.ap-northeast-2.compute.amazonaws.com:8080"
         AF.request("\(url)/api/auth/certification?phoneNumber=\(phoneNum)", method: .get, parameters: nil, headers: nil).responseDecodable(of: PhoneCertificationResponse.self) { (response) in
             switch response.result {
             case .success(let response):
@@ -22,7 +22,7 @@ class PhoneCertificationDataManager {
     }
     
     func certificatePhoneNum(delegate: PhoneAutentificationSignInStateViewController, phoneNum: String) {
-        let url = "https://ec2-52-78-102-243.ap-northeast-2.compute.amazonaws.com"
+        let url = "http://ec2-52-78-102-243.ap-northeast-2.compute.amazonaws.com:8080"
         AF.request("\(url)/api/auth/certification?phoneNumber=\(phoneNum)", method: .get, parameters: nil, headers: nil).responseDecodable(of: PhoneCertificationResponse.self) { (response) in
             switch response.result {
             case .success(let response):
