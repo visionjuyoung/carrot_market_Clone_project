@@ -99,4 +99,28 @@ public class ProductServiceImpl implements ProductService {
                 .map(ProductConverter::entityToListDTO)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    @Transactional
+    public Boolean modify(ProductDTO productDTO, MultipartFile[] uploadFiles) {
+        Optional<Product> optionalProduct = productRepository.findById(productDTO.getId());
+
+        if (!optionalProduct.isPresent()) return true;
+
+        Product product = optionalProduct.get();
+        product.setPrice(productDTO.getPrice());
+        product.setContent(productDTO.getContent());
+        product.setTitle(productDTO.getTitle());
+
+        productRepository.save(product);
+        productImageRepository.deleteAllProductImageByProduct(product);
+
+        List<ImageDTO> imageDTOList = fileService.uploadImageFiles(uploadFiles);
+        List<ProductImage> productImageList = imageDTOList.stream()
+                .map(dto -> ImageConverter.imageDTOToProductImage(dto, product))
+                .collect(Collectors.toList());
+        productImageRepository.saveAll(productImageList);
+
+        return true;
+    }
 }

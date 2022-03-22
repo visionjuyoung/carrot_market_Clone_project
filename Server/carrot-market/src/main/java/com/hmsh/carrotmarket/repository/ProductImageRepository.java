@@ -9,4 +9,6 @@ import java.util.List;
 public interface ProductImageRepository extends JpaRepository<ProductImage, Long> {
 
     List<ProductImage> findProductImagesByProduct(Product product);
+
+    void deleteAllProductImageByProduct(Product product);
 }
