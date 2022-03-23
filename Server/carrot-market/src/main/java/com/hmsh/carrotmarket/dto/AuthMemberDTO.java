@@ -21,15 +21,22 @@ public class AuthMemberDTO extends User {
 
     private String address;
 
+    private String uniqueNumber;
+
+    private String filePath;
 
     public AuthMemberDTO(String username,
                          String password,
                          String name,
                          String address,
+                         String uniqueNumber,
+                         String filePath,
                          Collection<? extends GrantedAuthority> authorities) {
         super(username, password, authorities);
         this.phoneNumber = username;
         this.name = name;
         this.address = address;
+        this.uniqueNumber = uniqueNumber;
+        this.filePath = filePath;
     }
 }

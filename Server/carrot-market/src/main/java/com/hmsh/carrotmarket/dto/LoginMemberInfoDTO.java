@@ -9,16 +9,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuperBuilder
 @ToString
-public class MemberDTO {
+public class LoginMemberInfoDTO extends MemberDTO {
 
-    private String phoneNumber;
-
-    private String name;
-
-    private String address;
-
-    private String uniqueNumber;
-
-    private String filePath;
+    private String token;
 
 }

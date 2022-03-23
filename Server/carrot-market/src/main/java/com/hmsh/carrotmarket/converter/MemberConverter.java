@@ -10,6 +10,8 @@ public class MemberConverter {
                 .phoneNumber(member.getPhoneNumber())
                 .name(member.getName())
                 .address(member.getAddress())
+                .uniqueNumber(member.getUniqueNumber())
+                .filePath(member.getFilePath())
                 .build();
     }
 }
