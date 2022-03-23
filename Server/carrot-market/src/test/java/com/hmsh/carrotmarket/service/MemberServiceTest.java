@@ -18,18 +18,4 @@ class MemberServiceTest {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @Test
-    void register() {
-        Member member = Member.builder()
-                .name("sunghoon")
-                .address("sunbu")
-                .password(passwordEncoder.encode("password"))
-                .phoneNumber("01093010512")
-                .build();
-
-        member.addMemberRole(MemberRole.USER);
-
-        memberService.register(member);
-    }
-
 }

@@ -1,6 +1,6 @@
 package com.hmsh.carrotmarket.security.config;
 
-import com.hmsh.carrotmarket.security.LoginFailureHandler;
+import com.hmsh.carrotmarket.security.handler.LoginFailureHandler;
 import com.hmsh.carrotmarket.security.filter.JwtAuthFilter;
 import com.hmsh.carrotmarket.security.filter.LoginFilter;
 import com.hmsh.carrotmarket.util.JwtUtil;
