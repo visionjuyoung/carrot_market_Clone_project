@@ -1,6 +1,7 @@
 package com.hmsh.carrotmarket.security.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.hmsh.carrotmarket.dto.LoginMemberInfoDTO;
 import com.hmsh.carrotmarket.enumeration.StatusCode;
 import com.hmsh.carrotmarket.dto.AuthMemberDTO;
 import com.hmsh.carrotmarket.util.JwtUtil;
@@ -56,16 +57,23 @@ public class LoginFilter extends AbstractAuthenticationProcessingFilter {
 
         try {
             token = jwtUtil.generateToken(principal.getPhoneNumber());
-//            principal.getAddress(); // 주소
-//            principal.getPhoneNumber(); // 전화 번호
-//            principal.getName(); // 이름
+
+            LoginMemberInfoDTO loginMemberInfoDTO = LoginMemberInfoDTO.builder()
+                    .phoneNumber(principal.getPhoneNumber())
+                    .name(principal.getName())
+                    .address(principal.getAddress())
+                    .uniqueNumber(principal.getUniqueNumber())
+                    .filePath(principal.getFilePath())
+                    .token(token)
+                    .build();
 
             response.setContentType("application/json;charset=utf-8");
             JSONObject json = new JSONObject();
-            json.put("isSuccess", true);
-            json.put("code", StatusCode.OK.getCode());
+            json.put("result", loginMemberInfoDTO);
             json.put("message", StatusCode.OK.getMessage());
-            json.put("result", token);
+            json.put("code", StatusCode.OK.getCode());
+            json.put("isSuccess", true);
+
 
 
 

@@ -1,5 +1,6 @@
 package com.hmsh.carrotmarket.security.handler;
 
+import com.hmsh.carrotmarket.enumeration.StatusCode;
 import lombok.extern.slf4j.Slf4j;
 import net.minidev.json.JSONObject;
 import org.springframework.security.core.AuthenticationException;
@@ -23,9 +24,10 @@ public class LoginFailureHandler implements AuthenticationFailureHandler {
 
         response.setContentType("application/json;charset=utf-8");
         JSONObject json = new JSONObject();
-        String message = exception.getMessage();
-        json.put("code", 401);
-        json.put("message", message);
+        json.put("result", null);
+        json.put("message", StatusCode.UNAUTHORIZED.getMessage());
+        json.put("code", StatusCode.UNAUTHORIZED.getCode());
+        json.put("isSuccess", false);
 
         PrintWriter out = response.getWriter();
         out.print(json);

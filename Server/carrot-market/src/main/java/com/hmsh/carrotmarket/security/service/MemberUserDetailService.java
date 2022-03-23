@@ -38,6 +38,8 @@ public class MemberUserDetailService implements UserDetailsService {
                 member.getPassword(),
                 member.getName(),
                 member.getAddress(),
+                member.getUniqueNumber(),
+                member.getFilePath(),
                 member.getRoleSet().stream()
                         .map(role -> new SimpleGrantedAuthority("ROLE_" + role.name()))
                         .collect(Collectors.toList())

@@ -1,20 +1,16 @@
 package com.hmsh.carrotmarket.controller;
 
 import com.hmsh.carrotmarket.CResponseEntity;
-import com.hmsh.carrotmarket.StatusCode;
+import com.hmsh.carrotmarket.enumeration.StatusCode;
 import com.hmsh.carrotmarket.util.FileUtil;
-import com.hmsh.carrotmarket.dto.FileDTO;
 import com.hmsh.carrotmarket.dto.SignUpDTO;
 import com.hmsh.carrotmarket.service.SignUpService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
-import java.util.UUID;
 
 @RestController
 @Slf4j
