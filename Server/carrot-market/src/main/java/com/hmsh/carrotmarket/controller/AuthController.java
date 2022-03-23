@@ -1,7 +1,7 @@
 package com.hmsh.carrotmarket.controller;
 
 import com.hmsh.carrotmarket.CResponseEntity;
-import com.hmsh.carrotmarket.StatusCode;
+import com.hmsh.carrotmarket.enumeration.StatusCode;
 import com.hmsh.carrotmarket.dto.CertificationNumberDTO;
 import com.hmsh.carrotmarket.entity.SignUpMember;
 import com.hmsh.carrotmarket.service.CertificationNumberService;

@@ -1,5 +1,6 @@
 package com.hmsh.carrotmarket.dto;
 
+import com.hmsh.carrotmarket.enumeration.TradeStatus;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -27,6 +28,8 @@ public class ProductListDTO {
     private int likes;
 
     private String imagePath;
+
+    private TradeStatus tradeStatus;
 
     private LocalDateTime modDate;
 

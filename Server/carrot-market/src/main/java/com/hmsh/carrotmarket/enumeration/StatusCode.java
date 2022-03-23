@@ -1,4 +1,4 @@
-package com.hmsh.carrotmarket;
+package com.hmsh.carrotmarket.enumeration;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 

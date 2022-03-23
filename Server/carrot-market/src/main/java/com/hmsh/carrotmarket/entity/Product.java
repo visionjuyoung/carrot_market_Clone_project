@@ -1,5 +1,6 @@
 package com.hmsh.carrotmarket.entity;
 
+import com.hmsh.carrotmarket.enumeration.TradeStatus;
 import lombok.*;
 
 import javax.persistence.*;
@@ -39,7 +40,11 @@ public class Product extends BaseEntity {
     @Column(nullable = false)
     private int likes; // 좋아요
 
-    // TODO: 카테고리 추가, 거래 상태 추가
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private TradeStatus tradeStatus; // 거래 상태
+
+    // TODO: 카테고리 추가
     @ManyToOne(fetch = FetchType.LAZY)
     Member member; // 작성자
 }

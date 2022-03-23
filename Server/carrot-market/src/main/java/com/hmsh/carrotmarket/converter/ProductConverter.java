@@ -7,6 +7,7 @@ import com.hmsh.carrotmarket.dto.ProductListDTO;
 import com.hmsh.carrotmarket.entity.Member;
 import com.hmsh.carrotmarket.entity.Product;
 import com.hmsh.carrotmarket.entity.ProductImage;
+import com.hmsh.carrotmarket.enumeration.TradeStatus;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -23,6 +24,7 @@ public class ProductConverter {
                 .views(0)
                 .chats(0)
                 .likes(0)
+                .tradeStatus(TradeStatus.BEFORE_RESERVATION)
                 .member(Member.builder().phoneNumber(productDTO.getPhoneNumber()).build())
                 .build();
     }
@@ -39,6 +41,7 @@ public class ProductConverter {
                 .likes(product.getLikes())
                 .imagePathList(imagePathList)
                 .modDate(product.getModDate())
+                .tradeStatus(product.getTradeStatus())
                 .member(MemberConverter.memberToMemberDTO(product.getMember()))
                 .build();
     }
@@ -59,6 +62,7 @@ public class ProductConverter {
                 .modDate((LocalDateTime) objects[4])
                 .price((int) objects[5])
                 .likes((int) objects[6])
+                .tradeStatus((TradeStatus) objects[8])
                 .imagePath(imageURL)
                 .build();
     }

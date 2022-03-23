@@ -1,5 +1,6 @@
 package com.hmsh.carrotmarket.service;
 
+import com.hmsh.carrotmarket.CResponseEntity;
 import com.hmsh.carrotmarket.dto.ImageDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;

@@ -1,6 +1,7 @@
 package com.hmsh.carrotmarket;
 
 
+import com.hmsh.carrotmarket.enumeration.StatusCode;
 import lombok.Data;
 
 @Data

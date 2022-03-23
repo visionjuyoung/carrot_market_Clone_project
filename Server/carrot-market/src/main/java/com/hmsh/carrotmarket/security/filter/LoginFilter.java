@@ -1,12 +1,11 @@
 package com.hmsh.carrotmarket.security.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.hmsh.carrotmarket.StatusCode;
+import com.hmsh.carrotmarket.enumeration.StatusCode;
 import com.hmsh.carrotmarket.dto.AuthMemberDTO;
 import com.hmsh.carrotmarket.util.JwtUtil;
 import lombok.extern.slf4j.Slf4j;
 import net.minidev.json.JSONObject;
-import org.springframework.http.codec.json.Jackson2JsonEncoder;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
