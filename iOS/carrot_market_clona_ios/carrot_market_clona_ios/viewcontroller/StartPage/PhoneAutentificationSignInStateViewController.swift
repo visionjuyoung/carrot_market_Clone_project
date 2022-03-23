@@ -13,6 +13,8 @@ class PhoneAutentificationSignInStateViewController: UIViewController {
     lazy var phoneAutentificationConfirmDataManager: PhoneCertificationConfirmDataManager = PhoneCertificationConfirmDataManager()
     lazy var logInDataManager: LogInDataManager = LogInDataManager()
     
+    var userInfoManager = UserInfo.shared
+    
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var label2: UILabel!
     @IBOutlet weak var stacks: UIStackView!
@@ -105,16 +107,33 @@ extension PhoneAutentificationSignInStateViewController {
     }
     
     func didSuccessLogIn(logInResult: LogInResponse) {
-        guard let temploginResult: String = logInResult.result else {
+        guard let temploginResult: LogInResult = logInResult.result else {
             return
         }
-        print(logInResult)
-        print(temploginResult)
-        //로그인 결과 값을 싱글톤에 저장해야함
+        guard let name: String = temploginResult.name else {
+            return
+        }
+        guard let address: String = temploginResult.address else {
+            return
+        }
+        guard let phoneNumber: String = temploginResult.phoneNumber else {
+            return
+        }
+        guard let token: String = temploginResult.token else {
+            return
+        }
+        guard let uniqueNumber: String = temploginResult.uniqueNumber else {
+            return
+        }
+        userInfoManager.name = name
+        userInfoManager.address = address
+        userInfoManager.phoneNumber = phoneNumber
+        userInfoManager.jwt = token
+        userInfoManager.userCode = uniqueNumber
         
-//        guard let vc = storyboard?.instantiateViewController(withIdentifier: "TabbarController") else {
-//            return
-//        }
-//        present(vc, animated: true, completion: nil)
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "TabbarController") else {
+            return
+        }
+        present(vc, animated: true, completion: nil)
     }
 }

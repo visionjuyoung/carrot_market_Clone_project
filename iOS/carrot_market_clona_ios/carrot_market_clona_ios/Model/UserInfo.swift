@@ -13,6 +13,7 @@ class UserInfo {
     var address : String
     var userCode: String
     var jwt: String
+    var name: String
     //image 변수
     
     private init() {
@@ -20,5 +21,6 @@ class UserInfo {
         address = ""
         userCode = ""
         jwt = ""
+        name = ""
     }
 }

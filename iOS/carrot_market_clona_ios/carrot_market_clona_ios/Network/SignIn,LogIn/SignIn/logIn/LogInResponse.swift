@@ -7,8 +7,17 @@
 
 import Foundation
 struct LogInResponse: Decodable {
-    var result: String?
     var code: Int?
     var message: String?
     var isSuccess: Bool?
+    var result: LogInResult?
+}
+
+struct LogInResult: Decodable {
+    var phoneNumber: String?
+    var address: String?
+    var name: String?
+    var filePath: String?
+    var uniqueNumber : String?
+    var token: String?
 }
