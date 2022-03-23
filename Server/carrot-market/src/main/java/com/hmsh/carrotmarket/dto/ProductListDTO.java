@@ -17,11 +17,9 @@ public class ProductListDTO {
 
     private String title;
 
-    private int price;
-
     private String address;
 
-    private int views;
+    private int price;
 
     private int chats;
 

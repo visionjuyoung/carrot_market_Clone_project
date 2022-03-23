@@ -21,6 +21,7 @@ public class ProductConverter {
                 .content(productDTO.getContent())
                 .address(productDTO.getAddress())
                 .price(productDTO.getPrice())
+                .likes(0)
                 .views(0)
                 .chats(0)
                 .likes(0)
