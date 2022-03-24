@@ -23,18 +23,19 @@ public class EditProfileController {
 
     private final SignUpService signUpService;
     private final FileUtil fileUtil;
+    private boolean result;
 
     @PostMapping("/edit")
     public CResponseEntity editProfile (EditUserDTO dto,
                                         MultipartFile file) throws Exception{
-        File newFileName = fileUtil.makeNewFileName(file);
-
-        file.transferTo(newFileName);
-
-        log.info("newFileName={}", newFileName);
-        log.info("phoneNumber={}, address={}, name={}", dto.getPhoneNumber(), dto.getAddress(), dto.getName());
-
-        boolean result = signUpService.editMember(dto, newFileName);
+        try{
+            File newFileName = fileUtil.makeNewFileName(file);
+            file.transferTo(newFileName);
+            result = signUpService.editMember(dto, newFileName);
+        }catch (NullPointerException e){
+            File emptyFile = new File("null");
+            result = signUpService.editMember(dto, emptyFile);
+        }
 
 
         if (result) {

@@ -19,19 +19,19 @@ import java.io.File;
 public class SignUpController {
     private final SignUpService signUpService;
     private final FileUtil fileUtil;
-
+    private boolean result;
     @PostMapping("/signup")
     public CResponseEntity<String> signUpMember(SignUpDTO dto,
-                                       MultipartFile file) throws Exception {
+                                       @RequestPart(required = false) MultipartFile file) throws Exception {
 
-        File newFileName = fileUtil.makeNewFileName(file);
-
-        file.transferTo(newFileName);
-
-        log.info("newFileName={}", newFileName);
-        log.info("phoneNumber={}, address={}, name={}", dto.getPhoneNumber(), dto.getAddress(), dto.getName());
-
-        boolean result = signUpService.signUpMember(dto, newFileName);
+        try{
+            File newFileName = fileUtil.makeNewFileName(file);
+            file.transferTo(newFileName);
+            result = signUpService.signUpMember(dto, newFileName);
+        }catch (NullPointerException e){
+            File emptyFile = new File("null");
+            result = signUpService.signUpMember(dto, emptyFile);
+        }
 
         if (result) {
             return new CResponseEntity<>(true, StatusCode.OK, "회원가입 성공");

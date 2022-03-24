@@ -1,6 +1,7 @@
 package com.hmsh.carrotmarket.service;
 
 
+import com.hmsh.carrotmarket.converter.SignUpConverter;
 import com.hmsh.carrotmarket.dto.EditUserDTO;
 import com.hmsh.carrotmarket.dto.SignUpDTO;
 import com.hmsh.carrotmarket.entity.Member;
@@ -9,6 +10,7 @@ import com.hmsh.carrotmarket.entity.SignUpMember;
 import com.hmsh.carrotmarket.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -19,6 +21,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class SignUpServiceImpl implements SignUpService{
     private final MemberRepository memberRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public Optional<Member> getMember(String phoneNumber) {
@@ -48,14 +51,8 @@ public class SignUpServiceImpl implements SignUpService{
         String result = numberSign.concat(randomNumber);
 
         try {
-            Member signUpMember = Member.builder()
-                    .phoneNumber(dto.getPhoneNumber())
-                    .address(dto.getAddress())
-                    .name(dto.getName())
-                    .uniqueNumber(result)
-                    .filePath(path.getPath() + path.getName())
-                    .build();
-
+            String password = passwordEncoder.encode(dto.getPhoneNumber());
+            Member signUpMember = SignUpConverter.dtoToEntitySignUp(dto, result, password, path);
             memberRepository.save(signUpMember);
             return true;
         }catch (NullPointerException e){
@@ -69,14 +66,8 @@ public class SignUpServiceImpl implements SignUpService{
 
         try {
             if (signUpMember.isPresent()){
-                Member newMember = Member.builder()
-                        .phoneNumber(dto.getPhoneNumber())
-                        .password(dto.getPhoneNumber())
-                        .address(dto.getAddress())
-                        .name(dto.getName())
-                        .uniqueNumber(dto.getUniqueNumber())
-                        .filePath(file.getPath() + file.getName())
-                        .build();
+                String password = passwordEncoder.encode(dto.getPhoneNumber());
+                Member newMember = SignUpConverter.dtoToEntityEdit(dto, file, password);
                 newMember.addMemberRole(MemberRole.USER);
                 memberRepository.save(newMember);
                 return true;
