@@ -1,5 +1,6 @@
 package com.hmsh.carrotmarket.dto;
 
+import com.hmsh.carrotmarket.enumeration.Address;
 import lombok.*;
 
 @Getter
@@ -14,5 +15,5 @@ public class CertificationNumberDTO {
 
     private String number;
 
-    private String address;
+    private Address address;
 }

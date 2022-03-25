@@ -1,5 +1,6 @@
 package com.hmsh.carrotmarket.dto;
 
+import com.hmsh.carrotmarket.enumeration.Address;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -19,7 +20,7 @@ public class AuthMemberDTO extends User {
 
     private String name;
 
-    private String address;
+    private Address address;
 
     private String uniqueNumber;
 
@@ -28,7 +29,7 @@ public class AuthMemberDTO extends User {
     public AuthMemberDTO(String username,
                          String password,
                          String name,
-                         String address,
+                         Address address,
                          String uniqueNumber,
                          String filePath,
                          Collection<? extends GrantedAuthority> authorities) {

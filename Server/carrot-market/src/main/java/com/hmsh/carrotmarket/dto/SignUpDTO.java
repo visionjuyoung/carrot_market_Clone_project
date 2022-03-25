@@ -1,6 +1,7 @@
 package com.hmsh.carrotmarket.dto;
 
 
+import com.hmsh.carrotmarket.enumeration.Address;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 
@@ -12,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 public class SignUpDTO {
     private String phoneNumber;
 
-    private String address;
+    private Address address;
 
     private String name;
 }

@@ -1,6 +1,7 @@
 package com.hmsh.carrotmarket.controller;
 
 import com.hmsh.carrotmarket.CResponseEntity;
+import com.hmsh.carrotmarket.enumeration.Address;
 import com.hmsh.carrotmarket.enumeration.StatusCode;
 import com.hmsh.carrotmarket.dto.PageRequestDTO;
 import com.hmsh.carrotmarket.dto.ProductDTO;
@@ -61,7 +62,7 @@ public class ProductController {
      * @return 상품 리스트
      */
     @GetMapping("/list")
-    public CResponseEntity<List<ProductListDTO>> getList(@RequestParam String address, PageRequestDTO pageRequestDTO) {
+    public CResponseEntity<List<ProductListDTO>> getList(@RequestParam Address address, PageRequestDTO pageRequestDTO) {
         log.info("상품 리스트 조회 address = {}", address);
         List<ProductListDTO> list = productService.getList(pageRequestDTO, address);
         return new CResponseEntity<>(true, StatusCode.OK, list);

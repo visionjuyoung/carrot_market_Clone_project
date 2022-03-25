@@ -7,6 +7,7 @@ import com.hmsh.carrotmarket.dto.ProductListDTO;
 import com.hmsh.carrotmarket.entity.Member;
 import com.hmsh.carrotmarket.entity.Product;
 import com.hmsh.carrotmarket.entity.ProductImage;
+import com.hmsh.carrotmarket.enumeration.Address;
 import com.hmsh.carrotmarket.enumeration.TradeStatus;
 
 import java.time.LocalDateTime;
@@ -58,7 +59,7 @@ public class ProductConverter {
         return ProductListDTO.builder()
                 .id((Long) objects[0])
                 .title((String) objects[1])
-                .address((String) objects[2])
+                .address((Address) objects[2])
                 .chats((int) objects[3])
                 .modDate((LocalDateTime) objects[4])
                 .price((int) objects[5])

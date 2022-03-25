@@ -1,11 +1,9 @@
 package com.hmsh.carrotmarket.entity;
 
+import com.hmsh.carrotmarket.enumeration.Address;
 import lombok.*;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,7 +22,8 @@ public class Member {
 
     private String name;
 
-    private String address;
+    @Enumerated(EnumType.STRING)
+    private Address address;
 
     private String uniqueNumber;
 

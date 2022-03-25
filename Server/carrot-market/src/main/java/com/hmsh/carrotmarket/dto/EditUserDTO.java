@@ -1,5 +1,6 @@
 package com.hmsh.carrotmarket.dto;
 
+import com.hmsh.carrotmarket.enumeration.Address;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 public class EditUserDTO {
     private String phoneNumber;
 
-    private String address;
+    private Address address;
 
     private String name;
 

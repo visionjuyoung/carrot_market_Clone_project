@@ -1,5 +1,6 @@
 package com.hmsh.carrotmarket.dto;
 
+import com.hmsh.carrotmarket.enumeration.Address;
 import com.hmsh.carrotmarket.enumeration.TradeStatus;
 import lombok.*;
 
@@ -22,7 +23,7 @@ public class ProductDTO {
 
     private String content;
 
-    private String address;
+    private Address address;
 
     private int views;
 

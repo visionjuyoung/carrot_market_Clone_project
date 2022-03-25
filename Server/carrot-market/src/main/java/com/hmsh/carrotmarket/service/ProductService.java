@@ -3,6 +3,7 @@ package com.hmsh.carrotmarket.service;
 import com.hmsh.carrotmarket.dto.PageRequestDTO;
 import com.hmsh.carrotmarket.dto.ProductDTO;
 import com.hmsh.carrotmarket.dto.ProductListDTO;
+import com.hmsh.carrotmarket.enumeration.Address;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -13,7 +14,7 @@ public interface ProductService {
 
     ProductDTO get(Long id);
 
-    List<ProductListDTO> getList(PageRequestDTO pageRequestDTO, String address);
+    List<ProductListDTO> getList(PageRequestDTO pageRequestDTO, Address address);
 
     Boolean modify(ProductDTO productDTO, MultipartFile[] uploadFiles);
 

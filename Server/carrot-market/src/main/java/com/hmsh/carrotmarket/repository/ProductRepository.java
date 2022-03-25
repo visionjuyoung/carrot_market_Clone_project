@@ -1,6 +1,7 @@
 package com.hmsh.carrotmarket.repository;
 
 import com.hmsh.carrotmarket.entity.Product;
+import com.hmsh.carrotmarket.enumeration.Address;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,6 +15,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
             "left outer join ProductImage pi on p = pi.product " +
             "where p.address = :address " +
             "group by p")
-    List<Object[]> getProductListByAddress(Pageable pageable, String address);
+    List<Object[]> getProductListByAddress(Pageable pageable, Address address);
 
 }

@@ -1,5 +1,6 @@
 package com.hmsh.carrotmarket.entity;
 
+import com.hmsh.carrotmarket.enumeration.Address;
 import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -17,7 +18,7 @@ public class SignUpMember {
     @Id
     private String phoneNumber;
 
-    private String address;
+    private Address address;
 
     private String name;
 

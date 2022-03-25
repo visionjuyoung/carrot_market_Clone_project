@@ -8,6 +8,7 @@ import com.hmsh.carrotmarket.dto.ProductDTO;
 import com.hmsh.carrotmarket.dto.ProductListDTO;
 import com.hmsh.carrotmarket.entity.Product;
 import com.hmsh.carrotmarket.entity.ProductImage;
+import com.hmsh.carrotmarket.enumeration.Address;
 import com.hmsh.carrotmarket.repository.ProductImageRepository;
 import com.hmsh.carrotmarket.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -93,7 +94,7 @@ public class ProductServiceImpl implements ProductService {
      * @return 상품 정보 리스트
      */
     @Override
-    public List<ProductListDTO> getList(PageRequestDTO pageRequestDTO, String address) {
+    public List<ProductListDTO> getList(PageRequestDTO pageRequestDTO, Address address) {
         return productRepository.getProductListByAddress(
                 pageRequestDTO.getPageable(Sort.by("modDate").descending()), address).stream()
                 .map(ProductConverter::entityToListDTO)

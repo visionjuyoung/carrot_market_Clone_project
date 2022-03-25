@@ -1,5 +1,6 @@
 package com.hmsh.carrotmarket.entity;
 
+import com.hmsh.carrotmarket.enumeration.Address;
 import com.hmsh.carrotmarket.enumeration.TradeStatus;
 import lombok.*;
 
@@ -11,7 +12,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Builder
-@ToString
+@ToString(exclude = "member")
 public class Product extends BaseEntity {
 
     @Id
@@ -27,9 +28,9 @@ public class Product extends BaseEntity {
     @Column(nullable = false)
     private int price; // 가격
 
-    // TODO: 임시로 String 사용, 동네 카테고리 생성 후 변경
     @Column(nullable = false)
-    private String address; // 동네
+    @Enumerated(EnumType.STRING)
+    private Address address; // 동네
 
     @Column(nullable = false)
     private int views; // 조회수
@@ -45,6 +46,7 @@ public class Product extends BaseEntity {
     private TradeStatus tradeStatus; // 거래 상태
 
     // TODO: 카테고리 추가
+
     @ManyToOne(fetch = FetchType.LAZY)
     Member member; // 작성자
 }

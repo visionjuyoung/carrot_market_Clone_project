@@ -1,5 +1,6 @@
 package com.hmsh.carrotmarket.dto;
 
+import com.hmsh.carrotmarket.enumeration.Address;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -15,7 +16,7 @@ public class MemberDTO {
 
     private String name;
 
-    private String address;
+    private Address address;
 
     private String uniqueNumber;
 
