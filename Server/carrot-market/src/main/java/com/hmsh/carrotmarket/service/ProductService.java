@@ -19,4 +19,6 @@ public interface ProductService {
     Boolean modify(ProductDTO productDTO, MultipartFile[] uploadFiles);
 
     Boolean delete(Long id);
+
+    List<ProductListDTO> getLikesList(String phoneNumber);
 }

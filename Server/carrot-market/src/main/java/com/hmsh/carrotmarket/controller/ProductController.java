@@ -99,4 +99,16 @@ public class ProductController {
         return new CResponseEntity<>(true, StatusCode.OK, null);
     }
 
+    /**
+     * 좋아요 상품 조회
+     * @param phoneNumber 회원 전화번호
+     * @return 좋아요 상품 리스트
+     */
+    @GetMapping("/likes/{phoneNumber}")
+    public CResponseEntity<List<ProductListDTO>> getLikesProducts(@PathVariable String phoneNumber) {
+        log.info("좋아요 상품 리스트 phoneNumber = {}", phoneNumber);
+        List<ProductListDTO> likesList = productService.getLikesList(phoneNumber);
+        return new CResponseEntity<>(true, StatusCode.OK, likesList);
+    }
+
 }

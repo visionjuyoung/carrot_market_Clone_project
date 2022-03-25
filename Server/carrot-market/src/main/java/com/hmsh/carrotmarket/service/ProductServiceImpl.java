@@ -6,6 +6,7 @@ import com.hmsh.carrotmarket.dto.ImageDTO;
 import com.hmsh.carrotmarket.dto.PageRequestDTO;
 import com.hmsh.carrotmarket.dto.ProductDTO;
 import com.hmsh.carrotmarket.dto.ProductListDTO;
+import com.hmsh.carrotmarket.entity.Member;
 import com.hmsh.carrotmarket.entity.Product;
 import com.hmsh.carrotmarket.entity.ProductImage;
 import com.hmsh.carrotmarket.enumeration.Address;
@@ -95,7 +96,7 @@ public class ProductServiceImpl implements ProductService {
      */
     @Override
     public List<ProductListDTO> getList(PageRequestDTO pageRequestDTO, Address address) {
-        return productRepository.getProductListByAddress(
+        return productRepository.getProductsListByAddress(
                 pageRequestDTO.getPageable(Sort.by("modDate").descending()), address).stream()
                 .map(ProductConverter::entityToListDTO)
                 .collect(Collectors.toList());
@@ -150,5 +151,16 @@ public class ProductServiceImpl implements ProductService {
         return true;
     }
 
+    /**
+     * 좋아요 상품 리스트 반환
+     * @param phoneNumber 회원 전화번호
+     * @return 회원의 좋아요 상품 리스트
+     */
+    @Override
+    public List<ProductListDTO> getLikesList(String phoneNumber) {
+        return productRepository.getProductsByLikes(Member.builder().phoneNumber(phoneNumber).build()).stream()
+                .map(ProductConverter::entityToListDTO)
+                .collect(Collectors.toList());
+    }
 
 }
