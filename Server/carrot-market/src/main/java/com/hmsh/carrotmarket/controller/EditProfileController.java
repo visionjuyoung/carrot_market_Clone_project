@@ -24,6 +24,7 @@ public class EditProfileController {
 
     private final SignUpService signUpService;
     private final FileUtil fileUtil;
+    private boolean result;
 
     @PostMapping("/edit")
     public CResponseEntity editProfile (EditUserDTO dto,
@@ -39,7 +40,6 @@ public class EditProfileController {
         log.info("phoneNumber={}, address={}, name={}", dto.getPhoneNumber(), dto.getAddress(), dto.getName());
 
         boolean result = signUpService.editMember(dto, newFileName);
-
 
         if (result) {
             return new CResponseEntity<>(true, StatusCode.OK, "회원정보 수정 성공");

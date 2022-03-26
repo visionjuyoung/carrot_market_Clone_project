@@ -20,10 +20,9 @@ import java.util.Objects;
 public class SignUpController {
     private final SignUpService signUpService;
     private final FileUtil fileUtil;
-
+    private boolean result;
     @PostMapping("/signup")
-    public CResponseEntity<String> signUpMember(SignUpDTO dto,
-                                                MultipartFile file) throws Exception {
+    public CResponseEntity<String> signUpMember(SignUpDTO dto, MultipartFile file) throws Exception {
         File newFileName = null;
         if (!Objects.isNull(file) && !file.isEmpty()) {
             newFileName = fileUtil.makeNewFileName(file);
