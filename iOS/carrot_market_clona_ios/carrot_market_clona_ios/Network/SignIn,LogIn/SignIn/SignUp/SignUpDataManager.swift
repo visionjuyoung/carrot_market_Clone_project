@@ -11,7 +11,7 @@ import Alamofire
 class SignUpDataManager {
     func signUp(delegate: SetProfileViewController, withRequest: SignUpRequest) {
         print("회원가입 api 시작")
-        let url = "https://ec2-52-78-102-243.ap-northeast-2.compute.amazonaws.com/api/auth/signup"
+        let url = "http://ec2-52-78-102-243.ap-northeast-2.compute.amazonaws.com:8080/api/auth/signup"
         
         let header : HTTPHeaders = [
             "Content-Type" : "multipart/form-data",
@@ -23,16 +23,15 @@ class SignUpDataManager {
             multipartFormData.append(Data(withRequest.name.utf8), withName: "name")
             
             multipartFormData.append(withRequest.images!, withName: "file", fileName: "\(withRequest.name).png", mimeType: "image/png")
-        }, to: url, usingThreshold: UInt64.init(), method: .post, headers: header).responseJSON(completionHandler: {(response) in
+        }, to: url, usingThreshold: UInt64.init(), method: .post, headers: header).responseJSON{(response) in
             print(response)
+                       
             if let err = response.error{
                 print(err)
                 return
             }
+            delegate.didSuccessSignUp()
             print("success")
-            let json = response.data
-            if (json != nil){
-                print(json)
-            }})
+        }
     }
 }

@@ -12,9 +12,14 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addProductButton: UIButton!
     
+    var userInfoManager = UserInfo.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setInit()
+        print(userInfoManager.name)
+        print(userInfoManager.jwt)
+        
     }
     
     func setInit() {

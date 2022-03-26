@@ -12,6 +12,8 @@ class SetProfileViewController: UIViewController {
     lazy var signUpDataManager: SignUpDataManager = SignUpDataManager()
     lazy var logInDataManager: LogInDataManager = LogInDataManager()
     
+    var userInfoManager = UserInfo.shared
+    
     var tempPhoneNum: String = ""
     var tempAddress: String = ""
 
@@ -99,13 +101,37 @@ extension SetProfileViewController: UIImagePickerControllerDelegate, UINavigatio
 }
 
 extension SetProfileViewController {
-    func didSuccessSignUp(signUpResult: SignUpResponse) {
+    func didSuccessSignUp() {
         let param: LogInRequest = LogInRequest(phoneNumber: tempPhoneNum, password: tempPhoneNum)
         logInDataManager.LogIn(delegate: self, parameter: param)
     }
     
     func didSuccessLogIn(logInResult: LogInResponse) {
         //싱글톤 객체에 로그인시 회원 관련 정보 모든 것 저장
+        guard let temploginResult: LogInResult = logInResult.result else {
+            return
+        }
+        guard let name: String = temploginResult.name else {
+            return
+        }
+        guard let address: String = temploginResult.address else {
+            return
+        }
+        guard let phoneNumber: String = temploginResult.phoneNumber else {
+            return
+        }
+        guard let token: String = temploginResult.token else {
+            return
+        }
+        guard let uniqueNumber: String = temploginResult.uniqueNumber else {
+            return
+        }
+        userInfoManager.name = name
+        userInfoManager.address = address
+        userInfoManager.phoneNumber = phoneNumber
+        userInfoManager.jwt = token
+        userInfoManager.userCode = uniqueNumber
+        
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "TabbarController") else {
             return
         }
