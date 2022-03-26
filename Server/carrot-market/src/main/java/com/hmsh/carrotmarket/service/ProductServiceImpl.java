@@ -163,4 +163,16 @@ public class ProductServiceImpl implements ProductService {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * 나의 판매 목록 반환
+     * @param phoneNumber 회원 전화번호
+     * @return 나의 판매 목록
+     */
+    @Override
+    public List<ProductListDTO> getMyProducts(String phoneNumber) {
+        return productRepository.getAllByMember(Member.builder().phoneNumber(phoneNumber).build()).stream()
+                .map(ProductConverter::entityToListDTO)
+                .collect(Collectors.toList());
+    }
+
 }

@@ -26,4 +26,11 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
             "group by p")
     List<Object[]> getProductsByLikes(Member member);
 
+    @Query("select p.id, p.title, p.address, p.chats, p.modDate, p.price, p.likes, pi, p.tradeStatus " +
+            "from Product p " +
+            "left outer join ProductImage pi on p = pi.product " +
+            "where p.member = :member " +
+            "group by p")
+    List<Object[]> getAllByMember(Member member);
+
 }

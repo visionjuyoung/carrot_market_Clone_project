@@ -21,4 +21,6 @@ public interface ProductService {
     Boolean delete(Long id);
 
     List<ProductListDTO> getLikesList(String phoneNumber);
+
+    List<ProductListDTO> getMyProducts(String phoneNumber);
 }

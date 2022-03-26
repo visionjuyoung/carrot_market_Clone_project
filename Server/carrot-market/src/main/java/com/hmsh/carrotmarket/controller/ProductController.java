@@ -111,4 +111,15 @@ public class ProductController {
         return new CResponseEntity<>(true, StatusCode.OK, likesList);
     }
 
+    /**
+     * 나의 판매목록 조회
+     * @param phoneNumber 조회할 회원 전화번호
+     * @return 나의 판매 상품 리스트
+     */
+    @GetMapping("/{phoneNumber}/list")
+    public CResponseEntity<List<ProductListDTO>> getMyProducts(@PathVariable String phoneNumber) {
+        log.info("나의 판매목록 조회 phoneNumber = {}", phoneNumber);
+        List<ProductListDTO> myProductList = productService.getMyProducts(phoneNumber);
+        return new CResponseEntity<>(true, StatusCode.OK, myProductList);
+    }
 }
