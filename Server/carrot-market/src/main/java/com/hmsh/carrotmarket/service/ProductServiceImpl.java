@@ -6,8 +6,12 @@ import com.hmsh.carrotmarket.dto.ImageDTO;
 import com.hmsh.carrotmarket.dto.PageRequestDTO;
 import com.hmsh.carrotmarket.dto.ProductDTO;
 import com.hmsh.carrotmarket.dto.ProductListDTO;
+import com.hmsh.carrotmarket.entity.Likes;
+import com.hmsh.carrotmarket.entity.Member;
 import com.hmsh.carrotmarket.entity.Product;
 import com.hmsh.carrotmarket.entity.ProductImage;
+import com.hmsh.carrotmarket.enumeration.Address;
+import com.hmsh.carrotmarket.repository.LikesRepository;
 import com.hmsh.carrotmarket.repository.ProductImageRepository;
 import com.hmsh.carrotmarket.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +34,8 @@ public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
 
     private final ProductImageRepository productImageRepository;
+
+    private final LikesRepository likesRepository;
 
     private final FileService fileService;
 
@@ -62,28 +68,30 @@ public class ProductServiceImpl implements ProductService {
     /**
      * 상품 조회
      * @param id 조회할 상품의 ID
-     * @return 상품 정보
+     * @param phoneNumber 로그인 회원의 전화번호
+     * @return 상품정보
      */
     @Override
     @Transactional
-    public ProductDTO get(Long id) {
+    public ProductDTO get(Long id, String phoneNumber) {
         Optional<Product> optionalProduct = productRepository.findById(id);
 
-        if (optionalProduct.isPresent()) {
-            Product product = optionalProduct.get();
-            product.setViews(product.getViews() + 1);
-            productRepository.save(product);
+        if (!optionalProduct.isPresent()) return null;
 
-            List<ProductImage> imageList = productImageRepository.findProductImagesByProduct(product);
-            List<String> imagePathList = imageList.stream()
-                    .map(ImageConverter::productImageToImageDTO)
-                    .map(ImageDTO::getImageURL)
-                    .collect(Collectors.toList());
+        Product product = optionalProduct.get();
+        product.setViews(product.getViews() + 1);
+        productRepository.save(product);
 
-            return ProductConverter.entityToDTO(product, imagePathList);
-        }
+        List<ProductImage> imageList = productImageRepository.findProductImagesByProduct(product);
+        List<String> imagePathList = imageList.stream()
+                .map(ImageConverter::productImageToImageDTO)
+                .map(ImageDTO::getImageURL)
+                .collect(Collectors.toList());
 
-        return null;
+        Optional<Likes> optionalLikes = likesRepository
+                .getLikesByMemberAndProduct(Member.builder().phoneNumber(phoneNumber).build(), product);
+
+        return ProductConverter.entityToDTO(product, imagePathList, optionalLikes.isPresent());
     }
 
     /**
@@ -94,8 +102,8 @@ public class ProductServiceImpl implements ProductService {
      */
     @Override
     public List<ProductListDTO> getList(PageRequestDTO pageRequestDTO, String address) {
-        return productRepository.getProductListByAddress(
-                pageRequestDTO.getPageable(Sort.by("modDate").descending()), address).stream()
+        return productRepository.getProductsListByAddress(
+                pageRequestDTO.getPageable(Sort.by("modDate").descending()), Address.getByRegion(address)).stream()
                 .map(ProductConverter::entityToListDTO)
                 .collect(Collectors.toList());
     }
@@ -149,5 +157,28 @@ public class ProductServiceImpl implements ProductService {
         return true;
     }
 
+    /**
+     * 좋아요 상품 리스트 반환
+     * @param phoneNumber 회원 전화번호
+     * @return 회원의 좋아요 상품 리스트
+     */
+    @Override
+    public List<ProductListDTO> getLikesList(String phoneNumber) {
+        return productRepository.getProductsByLikes(Member.builder().phoneNumber(phoneNumber).build()).stream()
+                .map(ProductConverter::entityToListDTO)
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * 나의 판매 목록 반환
+     * @param phoneNumber 회원 전화번호
+     * @return 나의 판매 목록
+     */
+    @Override
+    public List<ProductListDTO> getMyProducts(String phoneNumber) {
+        return productRepository.getAllByMember(Member.builder().phoneNumber(phoneNumber).build()).stream()
+                .map(ProductConverter::entityToListDTO)
+                .collect(Collectors.toList());
+    }
 
 }

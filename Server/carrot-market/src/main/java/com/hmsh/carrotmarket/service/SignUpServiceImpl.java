@@ -7,6 +7,7 @@ import com.hmsh.carrotmarket.dto.SignUpDTO;
 import com.hmsh.carrotmarket.entity.Member;
 import com.hmsh.carrotmarket.entity.MemberRole;
 import com.hmsh.carrotmarket.entity.SignUpMember;
+import com.hmsh.carrotmarket.enumeration.Address;
 import com.hmsh.carrotmarket.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,6 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -53,6 +55,7 @@ public class SignUpServiceImpl implements SignUpService{
         try {
             String password = passwordEncoder.encode(dto.getPhoneNumber());
             Member signUpMember = SignUpConverter.dtoToEntitySignUp(dto, result, password, path);
+
             memberRepository.save(signUpMember);
             return true;
         }catch (NullPointerException e){
@@ -68,6 +71,7 @@ public class SignUpServiceImpl implements SignUpService{
             if (signUpMember.isPresent()){
                 String password = passwordEncoder.encode(dto.getPhoneNumber());
                 Member newMember = SignUpConverter.dtoToEntityEdit(dto, file, password);
+
                 newMember.addMemberRole(MemberRole.USER);
                 memberRepository.save(newMember);
                 return true;

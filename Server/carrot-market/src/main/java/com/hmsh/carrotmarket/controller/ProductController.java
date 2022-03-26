@@ -1,6 +1,7 @@
 package com.hmsh.carrotmarket.controller;
 
 import com.hmsh.carrotmarket.CResponseEntity;
+import com.hmsh.carrotmarket.enumeration.Address;
 import com.hmsh.carrotmarket.enumeration.StatusCode;
 import com.hmsh.carrotmarket.dto.PageRequestDTO;
 import com.hmsh.carrotmarket.dto.ProductDTO;
@@ -40,12 +41,13 @@ public class ProductController {
     /**
      * ID에 해당하는 상품 정보 조회
      * @param id 상품의 ID
+     * @param phoneNumber 로그인 회원의 전화번호
      * @return 상품 정보
      */
     @GetMapping("/{id}")
-    public CResponseEntity<ProductDTO> get(@PathVariable Long id) {
+    public CResponseEntity<ProductDTO> get(@PathVariable Long id, @RequestParam String phoneNumber) {
         log.info("상품 조회 id = {}", id);
-        ProductDTO productDTO = productService.get(id);
+        ProductDTO productDTO = productService.get(id, phoneNumber);
 
         if (Objects.isNull(productDTO)) {
             return new CResponseEntity<>(false, StatusCode.NOT_FOUND, null);
@@ -98,4 +100,27 @@ public class ProductController {
         return new CResponseEntity<>(true, StatusCode.OK, null);
     }
 
+    /**
+     * 좋아요 상품 조회
+     * @param phoneNumber 회원 전화번호
+     * @return 좋아요 상품 리스트
+     */
+    @GetMapping("/likes/{phoneNumber}")
+    public CResponseEntity<List<ProductListDTO>> getLikesProducts(@PathVariable String phoneNumber) {
+        log.info("좋아요 상품 리스트 phoneNumber = {}", phoneNumber);
+        List<ProductListDTO> likesList = productService.getLikesList(phoneNumber);
+        return new CResponseEntity<>(true, StatusCode.OK, likesList);
+    }
+
+    /**
+     * 나의 판매목록 조회
+     * @param phoneNumber 조회할 회원 전화번호
+     * @return 나의 판매 상품 리스트
+     */
+    @GetMapping("/{phoneNumber}/list")
+    public CResponseEntity<List<ProductListDTO>> getMyProducts(@PathVariable String phoneNumber) {
+        log.info("나의 판매목록 조회 phoneNumber = {}", phoneNumber);
+        List<ProductListDTO> myProductList = productService.getMyProducts(phoneNumber);
+        return new CResponseEntity<>(true, StatusCode.OK, myProductList);
+    }
 }

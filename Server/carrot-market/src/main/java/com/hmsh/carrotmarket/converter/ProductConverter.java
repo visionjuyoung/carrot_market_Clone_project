@@ -7,6 +7,7 @@ import com.hmsh.carrotmarket.dto.ProductListDTO;
 import com.hmsh.carrotmarket.entity.Member;
 import com.hmsh.carrotmarket.entity.Product;
 import com.hmsh.carrotmarket.entity.ProductImage;
+import com.hmsh.carrotmarket.enumeration.Address;
 import com.hmsh.carrotmarket.enumeration.TradeStatus;
 
 import java.time.LocalDateTime;
@@ -30,7 +31,7 @@ public class ProductConverter {
                 .build();
     }
 
-    public static ProductDTO entityToDTO(Product product, List<String> imagePathList) {
+    public static ProductDTO entityToDTO(Product product, List<String> imagePathList, Boolean isLike) {
         return ProductDTO.builder()
                 .id(product.getId())
                 .title(product.getTitle())
@@ -43,6 +44,7 @@ public class ProductConverter {
                 .imagePathList(imagePathList)
                 .modDate(product.getModDate())
                 .tradeStatus(product.getTradeStatus())
+                .isLike(isLike)
                 .member(MemberConverter.memberToMemberDTO(product.getMember()))
                 .build();
     }
@@ -58,7 +60,7 @@ public class ProductConverter {
         return ProductListDTO.builder()
                 .id((Long) objects[0])
                 .title((String) objects[1])
-                .address((String) objects[2])
+                .address((Address) objects[2])
                 .chats((int) objects[3])
                 .modDate((LocalDateTime) objects[4])
                 .price((int) objects[5])

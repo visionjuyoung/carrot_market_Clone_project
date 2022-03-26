@@ -1,6 +1,5 @@
 package com.hmsh.carrotmarket.dto;
 
-import com.hmsh.carrotmarket.enumeration.Address;
 import lombok.*;
 
 @Getter
@@ -9,11 +8,9 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @ToString
-public class CertificationNumberDTO {
+public class LikesDTO {
 
     private String phoneNumber;
 
-    private String number;
-
-    private Address address;
+    private Long productId;
 }

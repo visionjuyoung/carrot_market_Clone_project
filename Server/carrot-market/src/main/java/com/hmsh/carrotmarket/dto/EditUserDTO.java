@@ -1,5 +1,6 @@
 package com.hmsh.carrotmarket.dto;
 
+import com.hmsh.carrotmarket.enumeration.Address;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
