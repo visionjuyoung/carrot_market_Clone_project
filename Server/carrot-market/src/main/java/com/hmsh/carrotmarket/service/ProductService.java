@@ -12,9 +12,9 @@ public interface ProductService {
 
     Long register(ProductDTO productDTO, MultipartFile[] uploadFiles);
 
-    ProductDTO get(Long id);
+    ProductDTO get(Long id, String phoneNumber);
 
-    List<ProductListDTO> getList(PageRequestDTO pageRequestDTO, Address address);
+    List<ProductListDTO> getList(PageRequestDTO pageRequestDTO, String address);
 
     Boolean modify(ProductDTO productDTO, MultipartFile[] uploadFiles);
 

@@ -39,6 +39,8 @@ public class ProductDTO {
 
     private TradeStatus tradeStatus;
 
+    private Boolean isLike;
+
     private MemberDTO member;
 
 }

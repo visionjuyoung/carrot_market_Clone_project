@@ -31,7 +31,7 @@ public class ProductConverter {
                 .build();
     }
 
-    public static ProductDTO entityToDTO(Product product, List<String> imagePathList) {
+    public static ProductDTO entityToDTO(Product product, List<String> imagePathList, Boolean isLike) {
         return ProductDTO.builder()
                 .id(product.getId())
                 .title(product.getTitle())
@@ -44,6 +44,7 @@ public class ProductConverter {
                 .imagePathList(imagePathList)
                 .modDate(product.getModDate())
                 .tradeStatus(product.getTradeStatus())
+                .isLike(isLike)
                 .member(MemberConverter.memberToMemberDTO(product.getMember()))
                 .build();
     }

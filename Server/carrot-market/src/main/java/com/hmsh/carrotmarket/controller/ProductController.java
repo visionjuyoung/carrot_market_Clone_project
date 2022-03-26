@@ -41,12 +41,13 @@ public class ProductController {
     /**
      * ID에 해당하는 상품 정보 조회
      * @param id 상품의 ID
+     * @param phoneNumber 로그인 회원의 전화번호
      * @return 상품 정보
      */
     @GetMapping("/{id}")
-    public CResponseEntity<ProductDTO> get(@PathVariable Long id) {
+    public CResponseEntity<ProductDTO> get(@PathVariable Long id, @RequestParam String phoneNumber) {
         log.info("상품 조회 id = {}", id);
-        ProductDTO productDTO = productService.get(id);
+        ProductDTO productDTO = productService.get(id, phoneNumber);
 
         if (Objects.isNull(productDTO)) {
             return new CResponseEntity<>(false, StatusCode.NOT_FOUND, null);
@@ -62,7 +63,7 @@ public class ProductController {
      * @return 상품 리스트
      */
     @GetMapping("/list")
-    public CResponseEntity<List<ProductListDTO>> getList(@RequestParam Address address, PageRequestDTO pageRequestDTO) {
+    public CResponseEntity<List<ProductListDTO>> getList(@RequestParam String address, PageRequestDTO pageRequestDTO) {
         log.info("상품 리스트 조회 address = {}", address);
         List<ProductListDTO> list = productService.getList(pageRequestDTO, address);
         return new CResponseEntity<>(true, StatusCode.OK, list);
