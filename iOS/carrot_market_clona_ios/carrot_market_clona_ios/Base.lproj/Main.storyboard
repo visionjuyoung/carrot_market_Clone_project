@@ -423,14 +423,23 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6W-RQ-TjB">
+                                                <rect key="frame" x="0.0" y="0.0" width="74.5" height="75"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="YWL-SH-vJZ" firstAttribute="centerX" secondItem="dNo-em-g13" secondAttribute="centerX" id="LMz-NA-VRU"/>
                                             <constraint firstAttribute="trailing" secondItem="YWL-SH-vJZ" secondAttribute="trailing" constant="10" id="Umo-sQ-Otd"/>
+                                            <constraint firstItem="K6W-RQ-TjB" firstAttribute="top" secondItem="dNo-em-g13" secondAttribute="top" id="Uqm-ee-IGV"/>
+                                            <constraint firstItem="K6W-RQ-TjB" firstAttribute="leading" secondItem="dNo-em-g13" secondAttribute="leading" id="VQr-Y3-EU8"/>
                                             <constraint firstAttribute="bottom" secondItem="YWL-SH-vJZ" secondAttribute="bottom" constant="10" id="XR7-nc-n2X"/>
+                                            <constraint firstAttribute="bottom" secondItem="K6W-RQ-TjB" secondAttribute="bottom" id="Z9t-9x-ZFs"/>
                                             <constraint firstItem="YWL-SH-vJZ" firstAttribute="centerY" secondItem="dNo-em-g13" secondAttribute="centerY" id="h6e-kW-vla"/>
                                             <constraint firstItem="YWL-SH-vJZ" firstAttribute="leading" secondItem="dNo-em-g13" secondAttribute="leading" constant="10" id="lSh-31-qse"/>
+                                            <constraint firstAttribute="trailing" secondItem="K6W-RQ-TjB" secondAttribute="trailing" id="qIF-Y6-t6T"/>
                                             <constraint firstItem="YWL-SH-vJZ" firstAttribute="top" secondItem="dNo-em-g13" secondAttribute="top" constant="10" id="vPe-jl-JT1"/>
                                         </constraints>
                                     </view>

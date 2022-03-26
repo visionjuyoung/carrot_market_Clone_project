@@ -30,5 +30,5 @@ class AddProductViewController: UIViewController {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "TabbarController") else { return }
         present(vc, animated: true, completion: nil)
     }
-    
+     
 }

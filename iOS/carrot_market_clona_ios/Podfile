@@ -6,6 +6,7 @@ target 'carrot_market_clona_ios' do
   use_frameworks!
 
   pod 'Alamofire', '~> 5.5'
+  pod 'YPImagePicker'  
   # Pods for carrot_market_clona_ios
 
 end
