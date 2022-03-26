@@ -13,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -54,7 +55,7 @@ public class SignUpServiceImpl implements SignUpService{
                     .address(Address.getByRegion(dto.getAddress()))
                     .name(dto.getName())
                     .uniqueNumber(result)
-                    .filePath(path.getPath())
+                    .filePath(Objects.isNull(path) ? null : path.getPath())
                     .build();
 
             memberRepository.save(signUpMember);
@@ -76,7 +77,7 @@ public class SignUpServiceImpl implements SignUpService{
                         .address(dto.getAddress())
                         .name(dto.getName())
                         .uniqueNumber(dto.getUniqueNumber())
-                        .filePath(file.getPath())
+                        .filePath(Objects.isNull(file) ? null : file.getPath())
                         .build();
                 newMember.addMemberRole(MemberRole.USER);
                 memberRepository.save(newMember);

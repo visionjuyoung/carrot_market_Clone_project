@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.util.Objects;
 
 @RestController
 @Slf4j
@@ -22,13 +23,14 @@ public class SignUpController {
 
     @PostMapping("/signup")
     public CResponseEntity<String> signUpMember(SignUpDTO dto,
-                                       MultipartFile file) throws Exception {
+                                                MultipartFile file) throws Exception {
+        File newFileName = null;
+        if (!Objects.isNull(file) && !file.isEmpty()) {
+            newFileName = fileUtil.makeNewFileName(file);
+            file.transferTo(newFileName);
+            log.info("newFileName={}", newFileName);
+        }
 
-        File newFileName = fileUtil.makeNewFileName(file);
-
-        file.transferTo(newFileName);
-
-        log.info("newFileName={}", newFileName);
         log.info("phoneNumber={}, address={}, name={}", dto.getPhoneNumber(), dto.getAddress(), dto.getName());
 
         boolean result = signUpService.signUpMember(dto, newFileName);

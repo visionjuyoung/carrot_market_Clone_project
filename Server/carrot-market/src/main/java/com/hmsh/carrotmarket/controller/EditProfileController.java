@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.util.Objects;
 
 @RestController
 @Slf4j
@@ -27,11 +28,14 @@ public class EditProfileController {
     @PostMapping("/edit")
     public CResponseEntity editProfile (EditUserDTO dto,
                                         MultipartFile file) throws Exception{
-        File newFileName = fileUtil.makeNewFileName(file);
+        File newFileName = null;
 
-        file.transferTo(newFileName);
+        if (!Objects.isNull(file) && !file.isEmpty()) {
+            newFileName = fileUtil.makeNewFileName(file);
+            file.transferTo(newFileName);
+            log.info("newFileName={}", newFileName);
+        }
 
-        log.info("newFileName={}", newFileName);
         log.info("phoneNumber={}, address={}, name={}", dto.getPhoneNumber(), dto.getAddress(), dto.getName());
 
         boolean result = signUpService.editMember(dto, newFileName);
