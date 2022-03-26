@@ -6,6 +6,7 @@ import com.hmsh.carrotmarket.dto.SignUpDTO;
 import com.hmsh.carrotmarket.entity.Member;
 import com.hmsh.carrotmarket.entity.MemberRole;
 import com.hmsh.carrotmarket.entity.SignUpMember;
+import com.hmsh.carrotmarket.enumeration.Address;
 import com.hmsh.carrotmarket.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -50,7 +51,7 @@ public class SignUpServiceImpl implements SignUpService{
         try {
             Member signUpMember = Member.builder()
                     .phoneNumber(dto.getPhoneNumber())
-                    .address(dto.getAddress())
+                    .address(Address.getByRegion(dto.getAddress()))
                     .name(dto.getName())
                     .uniqueNumber(result)
                     .filePath(path.getPath())

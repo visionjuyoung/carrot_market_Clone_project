@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 public class SignUpDTO {
     private String phoneNumber;
 
-    private Address address;
+    private String address;
 
     private String name;
 }
