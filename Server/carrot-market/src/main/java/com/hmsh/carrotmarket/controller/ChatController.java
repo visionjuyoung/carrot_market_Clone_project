@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
@@ -19,7 +20,7 @@ public class ChatController {
     @PostMapping("/chat")
     public CResponseEntity<Object> sendMessage(ChatDTO chatDTO) throws IOException {
 
-            boolean result = chatService.sendMessage(chatDTO);
+        boolean result = chatService.sendMessage(chatDTO);
 
         if (result) {
             return new CResponseEntity<>(true, StatusCode.OK, "전송 성공");
@@ -29,7 +30,8 @@ public class ChatController {
     }
 
     @GetMapping("/chat")
-    public ChatListDTO getAllMessage(ChatDTO chatDTO){
-        return chatService.getMessage(chatDTO);
+    public CResponseEntity<Object> getAllMessage(ChatDTO chatDTO){
+        ChatListDTO chatListDTO = chatService.getMessage(chatDTO);
+        return new CResponseEntity<>(true, StatusCode.OK, chatListDTO);
     }
 }

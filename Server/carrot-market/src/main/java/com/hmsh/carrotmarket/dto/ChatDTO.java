@@ -11,9 +11,9 @@ import java.util.Date;
 @Builder
 public class ChatDTO {
 
-    private String sellerNumber;
+    private String title;
 
-    private String buyerNumber;
+    private String productId;
 
     private String message;
 

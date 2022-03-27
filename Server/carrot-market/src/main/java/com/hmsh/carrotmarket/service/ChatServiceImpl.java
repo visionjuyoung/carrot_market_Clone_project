@@ -28,16 +28,17 @@ public class ChatServiceImpl implements ChatService{
         int hour = now.getHour();
         int minute = now.getMinute();
 
+        log.info("chatDTO{}", chatDTO);
+
         if (Objects.isNull(chatDTO.getMessage())){
             return false;
         }
         else{
             BufferedWriter bw = null;
             try {
-                bw = new BufferedWriter(new FileWriter( uploadPath + File.separator + chatDTO.getSellerNumber() + chatDTO.getBuyerNumber(), true));
+                bw = new BufferedWriter(new FileWriter( uploadPath + File.separator + chatDTO.getTitle() + chatDTO.getProductId(), true));
                 PrintWriter pw = new PrintWriter(bw, true);
                 pw.write("[" + chatDTO.getName() + "]" + "\n" + chatDTO.getMessage() + " " + hour + ":" + minute + "\n");
-                pw.flush();
                 pw.close();
                 return true;
             } catch (IOException e) {
@@ -49,16 +50,18 @@ public class ChatServiceImpl implements ChatService{
 
     @Override
     public ChatListDTO getMessage(ChatDTO chatDTO) {
+        log.info("chatDTO : {}", chatDTO);
+        log.info("chatPath : {}", uploadPath + File.separator + chatDTO.getTitle() + chatDTO.getProductId());
         try {
-            byte[] message = Files.readAllBytes(Paths.get(uploadPath + File.separator + chatDTO.getSellerNumber() + chatDTO.getSellerNumber()));
+            byte[] message = Files.readAllBytes(Paths.get(uploadPath + File.separator + chatDTO.getTitle() + chatDTO.getProductId()));
                 ChatListDTO chatListDTO = ChatListDTO.builder()
-                        .chatId(chatDTO.getSellerNumber() + chatDTO.getBuyerNumber())
+                        .chatId(chatDTO.getTitle() + chatDTO.getProductId())
                         .message(new String(message))
                         .build();
                 return chatListDTO;
         } catch (NoSuchFileException e) {
             ChatListDTO chatListDTO = ChatListDTO.builder()
-                    .chatId(chatDTO.getSellerNumber() + chatDTO.getBuyerNumber())
+                    .chatId(chatDTO.getTitle() + chatDTO.getProductId())
                     .message("대화를 시작합니다")
                     .build();
             return chatListDTO;
