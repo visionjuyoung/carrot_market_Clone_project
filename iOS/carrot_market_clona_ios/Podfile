@@ -1,4 +1,4 @@
-# Uncomment the next line to define a global platform for your project
+#Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
 target 'carrot_market_clona_ios' do
@@ -7,6 +7,7 @@ target 'carrot_market_clona_ios' do
 
   pod 'Alamofire', '~> 5.5'
   pod 'YPImagePicker'  
-  # Pods for carrot_market_clona_ios
+  pod 'BSImagePicker', '~> 3.1' 
+ # Pods for carrot_market_clona_ios
 
 end

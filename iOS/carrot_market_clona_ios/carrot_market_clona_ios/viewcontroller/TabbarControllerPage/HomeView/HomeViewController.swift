@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
         setInit()
         print(userInfoManager.name)
         print(userInfoManager.jwt)
+        print(userInfoManager.imagePath)
         
     }
     

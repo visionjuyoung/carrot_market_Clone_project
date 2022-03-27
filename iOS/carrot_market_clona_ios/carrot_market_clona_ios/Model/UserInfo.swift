@@ -14,6 +14,7 @@ class UserInfo {
     var userCode: String
     var jwt: String
     var name: String
+    var imagePath: String
     //image 변수
     
     private init() {
@@ -22,5 +23,6 @@ class UserInfo {
         userCode = ""
         jwt = ""
         name = ""
+        imagePath = ""
     }
 }

@@ -6,12 +6,21 @@
 //
 
 import UIKit
+import BSImagePicker
+import Photos
 
 class AddProductViewController: UIViewController {
 
     @IBOutlet weak var cameraImage: UIView!
     
     @IBOutlet weak var negoButton: UIButton!
+    @IBOutlet weak var imageView1: UIImageView!
+    @IBOutlet weak var imageView2: UIImageView!
+    @IBOutlet weak var imageView3: UIImageView!
+    @IBOutlet weak var imageView4: UIImageView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setInit()
@@ -24,6 +33,56 @@ class AddProductViewController: UIViewController {
         negoButton.layer.borderWidth = 1
         negoButton.layer.borderColor = UIColor.systemGray4.cgColor
         negoButton.layer.cornerRadius = 7
+    }
+    
+    func convertAssetToImages(selectedAssets: [PHAsset]) {
+            
+        let images: [UIImageView] = [ imageView1, imageView2, imageView3, imageView4]
+        
+            if selectedAssets.count != 0 {
+                
+                for i in 0..<selectedAssets.count {
+                    
+                    let imageManager = PHImageManager.default()
+                    let option = PHImageRequestOptions()
+                    option.isSynchronous = true
+                    var thumbnail = UIImage()
+                    
+                    imageManager.requestImage(for: selectedAssets[i],
+                                              targetSize: CGSize(width: 200, height: 200),
+                                              contentMode: .aspectFit,
+                                              options: option) { (result, info) in
+                        thumbnail = result!
+                    }
+                    
+                    let data = thumbnail.jpegData(compressionQuality: 0.7)
+                    let newImage = UIImage(data: data!)
+                    
+                    images[i].image = newImage
+                }
+            }
+        }
+    
+    @IBAction func imagePick(_ sender: UIButton) {
+        let imagePicker = ImagePickerController()
+           imagePicker.settings.selection.max = 3
+           imagePicker.settings.fetch.assets.supportedMediaTypes = [.image]
+               
+        let vc = self.view.window?.rootViewController
+           vc?.presentImagePicker(imagePicker, select: { (asset) in
+                   // User selected an asset. Do something with it. Perhaps begin processing/upload?
+               print("select")
+           }, deselect: { (asset) in
+                   // User deselected an asset. Cancel whatever you did when asset was selected.
+               print("deselect")
+           }, cancel: { (assets) in
+                   // User canceled selection.
+               print("cancel")
+           }, finish: { (assets) in
+                   // User finished selection assets.
+               print("finish")
+               self.convertAssetToImages(selectedAssets: imagePicker.selectedAssets)
+            })
     }
     
     @IBAction func closeButton(_ sender: UIBarButtonItem) {

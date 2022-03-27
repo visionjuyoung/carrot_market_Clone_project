@@ -125,11 +125,15 @@ extension PhoneAutentificationSignInStateViewController {
         guard let uniqueNumber: String = temploginResult.uniqueNumber else {
             return
         }
+        guard let imagePath: String = temploginResult.filePath else {
+            return
+        }
         userInfoManager.name = name
         userInfoManager.address = address
         userInfoManager.phoneNumber = phoneNumber
         userInfoManager.jwt = token
         userInfoManager.userCode = uniqueNumber
+        userInfoManager.imagePath = imagePath
         
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "TabbarController") else {
             return

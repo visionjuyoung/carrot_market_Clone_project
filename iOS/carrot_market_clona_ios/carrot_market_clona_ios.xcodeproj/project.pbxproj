@@ -284,6 +284,13 @@
 			path = viewcontroller;
 			sourceTree = "<group>";
 		};
+		4BBE4EC227F027DD00E08165 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		4BD6D2C327E1C5D6004B71B3 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +310,7 @@
 		4BD6D2C527E1C632004B71B3 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				4BBE4EC227F027DD00E08165 /* Profile */,
 				4BD6D2DA27E48682004B71B3 /* SignUp */,
 				4BD6D2D327E32C39004B71B3 /* logIn */,
 				4BD6D2D227E1F785004B71B3 /* phoneCertificationConfirm */,
