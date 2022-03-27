@@ -8,6 +8,7 @@ import com.hmsh.carrotmarket.service.SignUpService;
 import com.hmsh.carrotmarket.util.FileUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,7 +27,7 @@ public class EditProfileController {
     private final FileUtil fileUtil;
     private boolean result;
 
-    @PostMapping("/edit")
+    @PatchMapping("/edit")
     public CResponseEntity editProfile (EditUserDTO dto,
                                         MultipartFile file) throws Exception{
         File newFileName = null;
