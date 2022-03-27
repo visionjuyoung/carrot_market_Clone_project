@@ -17,7 +17,8 @@ class AddProductViewController: UIViewController {
     @IBOutlet weak var imageView1: UIImageView!
     @IBOutlet weak var imageView2: UIImageView!
     @IBOutlet weak var imageView3: UIImageView!
-    @IBOutlet weak var imageView4: UIImageView!
+    @IBOutlet weak var picksImageCountLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
     
     
     
@@ -37,9 +38,10 @@ class AddProductViewController: UIViewController {
     
     func convertAssetToImages(selectedAssets: [PHAsset]) {
             
-        let images: [UIImageView] = [ imageView1, imageView2, imageView3, imageView4]
+        let images: [UIImageView] = [ imageView1, imageView2, imageView3]
         
             if selectedAssets.count != 0 {
+                picksImageCountLabel.text = "\(selectedAssets.count)/10"
                 
                 for i in 0..<selectedAssets.count {
                     
@@ -50,7 +52,7 @@ class AddProductViewController: UIViewController {
                     
                     imageManager.requestImage(for: selectedAssets[i],
                                               targetSize: CGSize(width: 200, height: 200),
-                                              contentMode: .aspectFit,
+                                              contentMode: .aspectFill,
                                               options: option) { (result, info) in
                         thumbnail = result!
                     }
@@ -61,11 +63,12 @@ class AddProductViewController: UIViewController {
                     images[i].image = newImage
                 }
             }
+            
         }
     
     @IBAction func imagePick(_ sender: UIButton) {
         let imagePicker = ImagePickerController()
-           imagePicker.settings.selection.max = 3
+           imagePicker.settings.selection.max = 10
            imagePicker.settings.fetch.assets.supportedMediaTypes = [.image]
                
         let vc = self.view.window?.rootViewController
@@ -83,6 +86,11 @@ class AddProductViewController: UIViewController {
                print("finish")
                self.convertAssetToImages(selectedAssets: imagePicker.selectedAssets)
             })
+    }
+    
+    @IBAction func selectCategory(_ sender: UIButton) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "SelectProductCategoryViewController") as? SelectProductCategoryViewController else { return }
+        present(vc, animated: true)
     }
     
     @IBAction func closeButton(_ sender: UIBarButtonItem) {

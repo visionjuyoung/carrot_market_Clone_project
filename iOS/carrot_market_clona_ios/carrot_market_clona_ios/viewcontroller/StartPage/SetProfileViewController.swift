@@ -73,7 +73,6 @@ class SetProfileViewController: UIViewController {
     }
     
     @IBAction func doneButton(_ sender: UIButton) {
-        print("회원가입 버튼눌림")
         let image = profileImageView.image
         let data: Data = (image?.pngData())!
         let param: SignUpRequest = SignUpRequest(phoneNumber: tempPhoneNum, address: tempAddress, name: nickNameTextField.text!, images: data)

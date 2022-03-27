@@ -45,6 +45,9 @@
 		4BB9657727D0BD9800E41D0C /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9657627D0BD9800E41D0C /* NearbyViewController.swift */; };
 		4BB9657927D0BDAB00E41D0C /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9657827D0BDAB00E41D0C /* ChattingViewController.swift */; };
 		4BB9657B27D0BDBB00E41D0C /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9657A27D0BDBB00E41D0C /* MyViewController.swift */; };
+		4BBE4EC427F03F4300E08165 /* SelectProductCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE4EC327F03F4300E08165 /* SelectProductCategoryViewController.swift */; };
+		4BBE4EC927F07B3A00E08165 /* ShowListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE4EC827F07B3A00E08165 /* ShowListResponse.swift */; };
+		4BBE4ECB27F07B4700E08165 /* ShowListDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE4ECA27F07B4700E08165 /* ShowListDataManager.swift */; };
 		4BD6D2C827E1C690004B71B3 /* PhoneCertificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2C727E1C690004B71B3 /* PhoneCertificationResponse.swift */; };
 		4BD6D2CA27E1C718004B71B3 /* PhoneCertificationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2C927E1C718004B71B3 /* PhoneCertificationDataManager.swift */; };
 		4BD6D2CC27E1D3A2004B71B3 /* PhoneCertificationConfirmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2CB27E1D3A2004B71B3 /* PhoneCertificationConfirmDataManager.swift */; };
@@ -102,6 +105,9 @@
 		4BB9657627D0BD9800E41D0C /* NearbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyViewController.swift; sourceTree = "<group>"; };
 		4BB9657827D0BDAB00E41D0C /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
 		4BB9657A27D0BDBB00E41D0C /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		4BBE4EC327F03F4300E08165 /* SelectProductCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProductCategoryViewController.swift; sourceTree = "<group>"; };
+		4BBE4EC827F07B3A00E08165 /* ShowListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListResponse.swift; sourceTree = "<group>"; };
+		4BBE4ECA27F07B4700E08165 /* ShowListDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListDataManager.swift; sourceTree = "<group>"; };
 		4BD6D2C727E1C690004B71B3 /* PhoneCertificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationResponse.swift; sourceTree = "<group>"; };
 		4BD6D2C927E1C718004B71B3 /* PhoneCertificationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationDataManager.swift; sourceTree = "<group>"; };
 		4BD6D2CB27E1D3A2004B71B3 /* PhoneCertificationConfirmDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationConfirmDataManager.swift; sourceTree = "<group>"; };
@@ -197,6 +203,7 @@
 				4BB9657227D0BCF700E41D0C /* HomeViewController.swift */,
 				4B91241D27E055740052D546 /* SelectHomeDetailViewController.swift */,
 				4B91241F27E05E7E0052D546 /* AddProductViewController.swift */,
+				4BBE4EC327F03F4300E08165 /* SelectProductCategoryViewController.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -291,9 +298,27 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		4BBE4EC527F07ABB00E08165 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				4BBE4EC727F07B1600E08165 /* ShowList */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		4BBE4EC727F07B1600E08165 /* ShowList */ = {
+			isa = PBXGroup;
+			children = (
+				4BBE4EC827F07B3A00E08165 /* ShowListResponse.swift */,
+				4BBE4ECA27F07B4700E08165 /* ShowListDataManager.swift */,
+			);
+			path = ShowList;
+			sourceTree = "<group>";
+		};
 		4BD6D2C327E1C5D6004B71B3 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				4BBE4EC527F07ABB00E08165 /* Product */,
 				4BD6D2C427E1C60E004B71B3 /* SignIn,LogIn */,
 			);
 			path = Network;
@@ -504,6 +529,7 @@
 				4B91240227D6035F0052D546 /* MyViewFifthSectionTableViewCell.swift in Sources */,
 				4BD6D2CC27E1D3A2004B71B3 /* PhoneCertificationConfirmDataManager.swift in Sources */,
 				4B91240A27D604870052D546 /* MyCarrotCellList.swift in Sources */,
+				4BBE4EC427F03F4300E08165 /* SelectProductCategoryViewController.swift in Sources */,
 				4B91241927D9F80F0052D546 /* PhoneAutentificationSignInStateViewController.swift in Sources */,
 				4BB9655E27D08F4600E41D0C /* AppDelegate.swift in Sources */,
 				4B91241627D9E7DE0052D546 /* SetLocationViewTableViewCell.swift in Sources */,
@@ -512,6 +538,7 @@
 				4BD6D2E027E4870E004B71B3 /* SignUpDataManager.swift in Sources */,
 				4BA63E9127D35AAB003DDEF0 /* ChattingViewTableViewCell.swift in Sources */,
 				4BB9656027D08F4600E41D0C /* SceneDelegate.swift in Sources */,
+				4BBE4EC927F07B3A00E08165 /* ShowListResponse.swift in Sources */,
 				4BB9657B27D0BDBB00E41D0C /* MyViewController.swift in Sources */,
 				4BA63E8C27D33F27003DDEF0 /* TownViewTableViewCell.swift in Sources */,
 				4B9123F227D6030C0052D546 /* MyViewFirstSectionTableViewCell.swift in Sources */,
@@ -528,6 +555,7 @@
 				4BD6D2D727E32C60004B71B3 /* LogInResponse.swift in Sources */,
 				4B91241027D9BCF00052D546 /* StartViewController.swift in Sources */,
 				4BD6D2DC27E486A6004B71B3 /* SignUpRequest.swift in Sources */,
+				4BBE4ECB27F07B4700E08165 /* ShowListDataManager.swift in Sources */,
 				4B91241E27E055740052D546 /* SelectHomeDetailViewController.swift in Sources */,
 				4B91241227D9BD080052D546 /* PhoneAutentificationViewController.swift in Sources */,
 				4BB9657527D0BD8D00E41D0C /* TownViewController.swift in Sources */,

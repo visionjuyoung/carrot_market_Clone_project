@@ -15,6 +15,7 @@ class SetLocationViewController: UIViewController, CLLocationManagerDelegate{
     
     var locationMagager = CLLocationManager()
     var nearbyLocation: [String] = []
+    var saveLocation: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +70,8 @@ class SetLocationViewController: UIViewController, CLLocationManagerDelegate{
                             }
                             
                             self.nearbyLocation.append("\(locality) \(sublocality) \(present)")
+                            self.saveLocation.append(sublocality)
+                            print(sublocality)
                         }
                 }
         }
@@ -104,7 +107,7 @@ extension SetLocationViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "PhoneAutentificationViewController") as? PhoneAutentificationViewController else { return }
-        vc.tempAddress = nearbyLocation[indexPath.row]
+        vc.tempAddress = saveLocation[indexPath.row]
         present(vc, animated: true, completion: nil)
     }
 }

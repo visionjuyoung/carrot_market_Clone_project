@@ -9,6 +9,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    lazy var showListDataManager: ShowListDataManager = ShowListDataManager()
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addProductButton: UIButton!
     
@@ -19,8 +21,14 @@ class HomeViewController: UIViewController {
         setInit()
         print(userInfoManager.name)
         print(userInfoManager.jwt)
-        print(userInfoManager.imagePath)
+        print("주소 : \(userInfoManager.address)")
+        print(" 이미지 주소 : \(userInfoManager.imagePath)")
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showListDataManager.ShowList(delegate: self, address: userInfoManager.address, page: 1)
     }
     
     func setInit() {
@@ -46,5 +54,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeViewTableViewCell", for: indexPath)
         
         return cell
+    }
+}
+
+extension HomeViewController {
+    func didSuccessShowList() {
+        print("success")
     }
 }

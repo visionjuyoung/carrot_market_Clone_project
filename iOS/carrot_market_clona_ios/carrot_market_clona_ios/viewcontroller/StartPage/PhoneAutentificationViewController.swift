@@ -88,12 +88,6 @@ extension PhoneAutentificationViewController {
     }
     
     func didSuccessConfirmCertification(phoneCertificationConfirmResult: PhoneCertificationConfirmresult?) { //200
-        guard let temp : PhoneCertificationConfirmresult = phoneCertificationConfirmResult else {
-            return
-        }
-        
-        
-        
         let param: LogInRequest = LogInRequest(phoneNumber: phoneNumberTextField.text!, password: phoneNumberTextField.text!)
         logInDataManager.LogIn(delegate: self, parameter: param)
     }
