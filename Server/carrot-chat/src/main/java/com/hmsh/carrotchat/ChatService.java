@@ -20,8 +20,15 @@ public class ChatService {
                 .subscribeOn(Schedulers.boundedElastic());
     }
 
-    public Mono<Chat> saveMessage(Chat chat) {
-        chat.setCreatedAt(LocalDateTime.now());
+    public Mono<Chat> saveMessage(ChatDTO chatDTO) {
+        Chat chat = Chat.builder()
+                .productId(chatDTO.getProductId())
+                .sender(chatDTO.getSender())
+                .receiver(chatDTO.getReceiver())
+                .message(chatDTO.getMessage())
+                .createdAt(LocalDateTime.now())
+                .build();
+
         return chatRepository.save(chat);
     }
 

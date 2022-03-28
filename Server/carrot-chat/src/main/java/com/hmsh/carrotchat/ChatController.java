@@ -21,8 +21,8 @@ public class ChatController {
     }
 
     @PostMapping("/send")
-    public Mono<Chat> saveMessage(@RequestBody Chat chat) {
-        return chatService.saveMessage(chat);
+    public Mono<Chat> saveMessage(@RequestBody ChatDTO chatDTO) {
+        return chatService.saveMessage(chatDTO);
     }
 
     @GetMapping(value = "/list/user/{user}", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
