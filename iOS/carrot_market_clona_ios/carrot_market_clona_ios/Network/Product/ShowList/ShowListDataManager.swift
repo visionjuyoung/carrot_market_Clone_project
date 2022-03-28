@@ -9,17 +9,20 @@ import Foundation
 import Alamofire
 
 class ShowListDataManager {
-    func ShowList(delegate: HomeViewController, address: String, page: Int) {
+    func ShowList(delegate: HomeViewController, address: String) {
         
         let userInfoManager = UserInfo.shared
-        let url = "http://ec2-52-78-102-243.ap-northeast-2.compute.amazonaws.com:8080"
+        
+        let urlString = "http://ec2-52-78-102-243.ap-northeast-2.compute.amazonaws.com:8080/api/product/list?address=\(address)"
+        let encodedString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let url = URL(string: encodedString)!
+        
         let headers : HTTPHeaders = ["Authorization" : userInfoManager.jwt]
         
-        AF.request("\(url)/api/product/list?address=\(address)&page=\(page)", method: .get, parameters: nil, headers: headers).responseDecodable(of: ShowListResponse.self) { (response) in
+        AF.request(url, method: .get, encoding: URLEncoding.queryString, headers: headers).responseDecodable(of: ShowListResponse.self) { (response) in
             switch response.result {
             case .success(let response):
-                print(response.result)
-                delegate.didSuccessShowList()
+                delegate.didSuccessShowList(showListResult: response)
             case .failure(let error):
                 print(error)
             }

@@ -41,10 +41,8 @@ class PhoneCertificationConfirmDataManager {
                 if check {
                     switch response.code {
                     case 200: //기존에 존재하는 유저
-                        print("200")
                         delegate.didSuccessConfirmCertification(phoneCertificationConfirmResult: response)
                     case 201: //기존에 존재하지 않는 유저
-                        print("201")
                         //로그인 페이지에서 회원이 존재하지 않는 경우여서 주소에 대한 처리 논의가 필요
                         delegate.didFailureConfirmCertification(phoneCertificationConfirmResult: response)
                     default: print("error")

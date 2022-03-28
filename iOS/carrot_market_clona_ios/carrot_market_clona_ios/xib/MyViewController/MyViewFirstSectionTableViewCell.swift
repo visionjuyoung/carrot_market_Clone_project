@@ -8,10 +8,14 @@
 import UIKit
 
 class MyViewFirstSectionTableViewCell: UITableViewCell {
-
+    
+    
+    @IBOutlet weak var profileImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        profileImage.layer.cornerRadius = 15
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
