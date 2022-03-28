@@ -16,7 +16,7 @@ public class MemberDTO {
 
     private String name;
 
-    private Address address;
+    private String address;
 
     private String uniqueNumber;
 

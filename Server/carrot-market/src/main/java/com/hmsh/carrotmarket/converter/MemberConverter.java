@@ -9,7 +9,7 @@ public class MemberConverter {
         return MemberDTO.builder()
                 .phoneNumber(member.getPhoneNumber())
                 .name(member.getName())
-                .address(member.getAddress())
+                .address(member.getAddress().getRegion())
                 .uniqueNumber(member.getUniqueNumber())
                 .filePath(member.getFilePath())
                 .build();
