@@ -14,6 +14,12 @@ class HomeViewTableViewCell: UITableViewCell {
     @IBOutlet weak var messageCount: UILabel!
     @IBOutlet weak var heartImage: UIImageView!
     @IBOutlet weak var heartCount: UILabel!
+    @IBOutlet weak var productName: UILabel!
+    @IBOutlet weak var addressWithTime: UILabel!
+    @IBOutlet weak var price: UILabel!
+    
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

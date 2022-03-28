@@ -16,19 +16,16 @@ class HomeViewController: UIViewController {
     
     var userInfoManager = UserInfo.shared
     
+    var tempListResult: [ShowListResult] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setInit()
-        print(userInfoManager.name)
-        print(userInfoManager.jwt)
-        print("주소 : \(userInfoManager.address)")
-        print(" 이미지 주소 : \(userInfoManager.imagePath)")
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        showListDataManager.ShowList(delegate: self, address: userInfoManager.address, page: 1)
+        showListDataManager.ShowList(delegate: self, address: userInfoManager.address)
     }
     
     func setInit() {
@@ -47,18 +44,23 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 50
+        return tempListResult.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeViewTableViewCell", for: indexPath)
-        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HomeViewTableViewCell", for: indexPath) as? HomeViewTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.price.text = "\(tempListResult[indexPath.row].price ?? 0)"
+        cell.productName.text = "\(tempListResult[indexPath.row].title ?? "" )"
+        cell.addressWithTime.text = "\(tempListResult[indexPath.row].address ?? "" )"
         return cell
     }
 }
 
 extension HomeViewController {
-    func didSuccessShowList() {
-        print("success")
+    func didSuccessShowList(showListResult: ShowListResponse) {
+        tempListResult = showListResult.result
+        tableView.reloadData()
     }
 }

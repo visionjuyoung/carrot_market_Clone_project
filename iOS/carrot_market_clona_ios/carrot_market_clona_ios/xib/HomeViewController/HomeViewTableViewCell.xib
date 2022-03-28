@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -86,11 +86,14 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="addressWithTime" destination="gMM-Vh-2aN" id="bmG-7F-RgD"/>
                 <outlet property="heartCount" destination="3G1-bM-tHU" id="FXw-wR-QAK"/>
                 <outlet property="heartImage" destination="Gzu-IL-jZ4" id="uHm-uW-B6e"/>
                 <outlet property="messageCount" destination="37o-O9-9hy" id="CWX-cc-19o"/>
                 <outlet property="messageImage" destination="lcI-Fx-su4" id="aXp-G0-Q1g"/>
+                <outlet property="price" destination="U2d-wo-chN" id="ywl-8E-4h1"/>
                 <outlet property="productImageView" destination="Xxk-6S-jw9" id="Pco-05-FPD"/>
+                <outlet property="productName" destination="ReS-W5-8LI" id="cAm-ZJ-so8"/>
             </connections>
             <point key="canvasLocation" x="205.79710144927537" y="166.07142857142856"/>
         </tableViewCell>

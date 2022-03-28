@@ -12,6 +12,8 @@ class SetProfileViewController: UIViewController {
     lazy var signUpDataManager: SignUpDataManager = SignUpDataManager()
     lazy var logInDataManager: LogInDataManager = LogInDataManager()
     
+    lazy var loadImageDataManager: LoadImageDataManager = LoadImageDataManager()
+    
     var userInfoManager = UserInfo.shared
     
     var tempPhoneNum: String = ""
@@ -26,6 +28,11 @@ class SetProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setInit()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadImageDataManager.loadImage(delegate: self, filepath: userInfoManager.imagePath)
     }
     
     func setInit() {

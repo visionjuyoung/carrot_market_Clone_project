@@ -71,7 +71,6 @@ class SetLocationViewController: UIViewController, CLLocationManagerDelegate{
                             
                             self.nearbyLocation.append("\(locality) \(sublocality) \(present)")
                             self.saveLocation.append(sublocality)
-                            print(sublocality)
                         }
                 }
         }
