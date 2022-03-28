@@ -61,7 +61,7 @@ public class LoginFilter extends AbstractAuthenticationProcessingFilter {
             LoginMemberInfoDTO loginMemberInfoDTO = LoginMemberInfoDTO.builder()
                     .phoneNumber(principal.getPhoneNumber())
                     .name(principal.getName())
-                    .address(principal.getAddress())
+                    .address(principal.getAddress().getRegion())
                     .uniqueNumber(principal.getUniqueNumber())
                     .filePath(principal.getFilePath())
                     .token(token)
