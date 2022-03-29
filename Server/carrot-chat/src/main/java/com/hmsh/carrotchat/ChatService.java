@@ -7,6 +7,9 @@ import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -32,8 +35,12 @@ public class ChatService {
         return chatRepository.save(chat);
     }
 
-    public Flux<Chat> getUserChats(String user) {
-        return chatRepository.getChatsByUser(user)
+    public Map<Long, List<Chat>> getUserChats(String user) {
+        Flux<Chat> chat = chatRepository.getChatsByUser(user)
                 .subscribeOn(Schedulers.boundedElastic());
+
+       Map<Long, List<Chat>> userChat = chat.toStream().collect(Collectors.groupingBy(Chat::getProductId));
+
+        return userChat;
     }
 }

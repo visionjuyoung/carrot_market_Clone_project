@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.List;
+import java.util.Map;
+
 @RestController
 @RequiredArgsConstructor
 public class ChatController {
@@ -26,7 +29,7 @@ public class ChatController {
     }
 
     @GetMapping(value = "/list/user/{user}", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    public Flux<Chat> getUserChats(@PathVariable String user) {
+    public Map<Long, List<Chat>> getUserChats(@PathVariable String user) {
         return chatService.getUserChats(user);
     }
 }

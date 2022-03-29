@@ -5,5 +5,10 @@ spring:
       port: 27017
       database: chatdb
 
+mongodb+srv://chatdb:<1q2w3e4r!><chatdb>@cluster0:
+  ll2vm:
+    mongodb:
+      net/chatdb?retryWrites=true&w=majority:
+
 server:
   port: 8888
