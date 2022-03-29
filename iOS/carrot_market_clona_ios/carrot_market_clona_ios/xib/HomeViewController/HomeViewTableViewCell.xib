@@ -43,24 +43,24 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lVw-DR-q8m">
-                        <rect key="frame" x="332" y="110" width="62" height="20"/>
+                        <rect key="frame" x="319.5" y="110" width="74.5" height="20"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lcI-Fx-su4">
-                                <rect key="frame" x="0.0" y="0.0" width="15.5" height="19.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="18.5" height="19.5"/>
                                 <color key="tintColor" systemColor="systemGrayColor"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37o-O9-9hy">
-                                <rect key="frame" x="15.5" y="0.0" width="15.5" height="20"/>
+                                <rect key="frame" x="18.5" y="0.0" width="18.5" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Gzu-IL-jZ4">
-                                <rect key="frame" x="31" y="1.5" width="15.5" height="17.5"/>
+                                <rect key="frame" x="37" y="1.5" width="19" height="17.5"/>
                                 <color key="tintColor" systemColor="systemGrayColor"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3G1-bM-tHU">
-                                <rect key="frame" x="46.5" y="0.0" width="15.5" height="20"/>
+                                <rect key="frame" x="56" y="0.0" width="18.5" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -78,7 +78,7 @@
                     <constraint firstAttribute="trailing" secondItem="ReS-W5-8LI" secondAttribute="trailing" constant="20" id="aC0-er-0PB"/>
                     <constraint firstItem="U2d-wo-chN" firstAttribute="leading" secondItem="ReS-W5-8LI" secondAttribute="leading" id="ahY-Je-7Xg"/>
                     <constraint firstItem="U2d-wo-chN" firstAttribute="top" secondItem="gMM-Vh-2aN" secondAttribute="bottom" constant="5" id="bvK-SY-hfr"/>
-                    <constraint firstItem="lVw-DR-q8m" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.15" id="hdU-aq-UCE"/>
+                    <constraint firstItem="lVw-DR-q8m" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.18" id="hdU-aq-UCE"/>
                     <constraint firstItem="ReS-W5-8LI" firstAttribute="top" secondItem="Xxk-6S-jw9" secondAttribute="top" id="keB-fL-EIe"/>
                     <constraint firstItem="gMM-Vh-2aN" firstAttribute="top" secondItem="ReS-W5-8LI" secondAttribute="bottom" constant="5" id="pbh-1B-MVi"/>
                     <constraint firstItem="Xxk-6S-jw9" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="x4l-wb-YQv"/>

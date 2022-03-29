@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B314ACA27F2D8B300ABC0BF /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B314AC927F2D8B300ABC0BF /* ProductDetailViewController.swift */; };
 		4B9123F227D6030C0052D546 /* MyViewFirstSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9123F027D6030C0052D546 /* MyViewFirstSectionTableViewCell.swift */; };
 		4B9123F327D6030C0052D546 /* MyViewFirstSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B9123F127D6030C0052D546 /* MyViewFirstSectionTableViewCell.xib */; };
 		4B9123F627D6031D0052D546 /* MyViewSecondSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9123F427D6031D0052D546 /* MyViewSecondSectionTableViewCell.swift */; };
@@ -59,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		00AD4E91B3E7F1BFC09913F5 /* Pods-carrot_market_clona_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carrot_market_clona_ios.release.xcconfig"; path = "Target Support Files/Pods-carrot_market_clona_ios/Pods-carrot_market_clona_ios.release.xcconfig"; sourceTree = "<group>"; };
+		4B314AC927F2D8B300ABC0BF /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		4B9123F027D6030C0052D546 /* MyViewFirstSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewFirstSectionTableViewCell.swift; sourceTree = "<group>"; };
 		4B9123F127D6030C0052D546 /* MyViewFirstSectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyViewFirstSectionTableViewCell.xib; sourceTree = "<group>"; };
 		4B9123F427D6031D0052D546 /* MyViewSecondSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewSecondSectionTableViewCell.swift; sourceTree = "<group>"; };
@@ -124,6 +126,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B314AC827F2D89A00ABC0BF /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				4B91241F27E05E7E0052D546 /* AddProductViewController.swift */,
+				4BBE4EC327F03F4300E08165 /* SelectProductCategoryViewController.swift */,
+				4B314AC927F2D8B300ABC0BF /* ProductDetailViewController.swift */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
 		4B9123EF27D602730052D546 /* MyViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,10 +192,9 @@
 		4B91241C27E055540052D546 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				4B314AC827F2D89A00ABC0BF /* Product */,
 				4BB9657227D0BCF700E41D0C /* HomeViewController.swift */,
 				4B91241D27E055740052D546 /* SelectHomeDetailViewController.swift */,
-				4B91241F27E05E7E0052D546 /* AddProductViewController.swift */,
-				4BBE4EC327F03F4300E08165 /* SelectProductCategoryViewController.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -520,6 +531,7 @@
 				4BA63E8C27D33F27003DDEF0 /* TownViewTableViewCell.swift in Sources */,
 				4BBE4ED127F1A6D600E08165 /* LoadImageDataManager.swift in Sources */,
 				4B9123F227D6030C0052D546 /* MyViewFirstSectionTableViewCell.swift in Sources */,
+				4B314ACA27F2D8B300ABC0BF /* ProductDetailViewController.swift in Sources */,
 				4B91242027E05E7E0052D546 /* AddProductViewController.swift in Sources */,
 				4BD6D2CA27E1C718004B71B3 /* PhoneCertificationDataManager.swift in Sources */,
 				4BD6D2CE27E1D3B2004B71B3 /* PhoneCertificationConfirmResponse.swift in Sources */,

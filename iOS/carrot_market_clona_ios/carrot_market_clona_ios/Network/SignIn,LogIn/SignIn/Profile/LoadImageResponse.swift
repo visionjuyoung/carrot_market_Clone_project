@@ -7,5 +7,5 @@
 
 import Foundation
 struct LoadImageResponse: Decodable {
-    
+    var image: Data
 }

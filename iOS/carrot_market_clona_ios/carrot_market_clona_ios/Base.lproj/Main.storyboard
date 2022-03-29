@@ -723,6 +723,77 @@
             </objects>
             <point key="canvasLocation" x="2374" y="-546"/>
         </scene>
+        <!--Product Detail View Controller-->
+        <scene sceneID="7Fk-TU-Q5x">
+            <objects>
+                <viewController storyboardIdentifier="ProductDetailViewController" id="heM-OE-IZw" customClass="ProductDetailViewController" customModule="carrot_market_clona_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tmz-2K-SVm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1a6-3L-Bes">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem id="iYq-J2-NJK">
+                                        <leftBarButtonItems>
+                                            <barButtonItem image="arrow.backward" catalog="system" id="8j3-2T-haJ">
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                            </barButtonItem>
+                                            <barButtonItem image="house" catalog="system" id="dl3-hd-vre">
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                            </barButtonItem>
+                                        </leftBarButtonItems>
+                                        <rightBarButtonItems>
+                                            <barButtonItem image="line.3.horizontal.circle" catalog="system" id="z07-Jo-qsE">
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                            </barButtonItem>
+                                            <barButtonItem image="square.and.arrow.up.on.square" catalog="system" id="7wi-lL-lgE">
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PcB-8Z-Jd7">
+                                <rect key="frame" x="0.0" y="792" width="414" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dve-xP-Bli">
+                                        <rect key="frame" x="30" y="21" width="46" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="MCY-66-Iea"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="kIK-0i-WbK">
+                                <rect key="frame" x="0.0" y="88" width="414" height="704"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kVV-Ci-rYj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kIK-0i-WbK" firstAttribute="trailing" secondItem="kVV-Ci-rYj" secondAttribute="trailing" id="8cG-ks-5Ze"/>
+                            <constraint firstItem="kVV-Ci-rYj" firstAttribute="trailing" secondItem="1a6-3L-Bes" secondAttribute="trailing" id="O2T-us-3BU"/>
+                            <constraint firstItem="PcB-8Z-Jd7" firstAttribute="bottom" secondItem="kVV-Ci-rYj" secondAttribute="bottom" id="OTe-Qs-sCV"/>
+                            <constraint firstItem="kIK-0i-WbK" firstAttribute="top" secondItem="1a6-3L-Bes" secondAttribute="bottom" id="Um9-wX-RxX"/>
+                            <constraint firstItem="1a6-3L-Bes" firstAttribute="top" secondItem="kVV-Ci-rYj" secondAttribute="top" id="aal-id-B4b"/>
+                            <constraint firstItem="PcB-8Z-Jd7" firstAttribute="leading" secondItem="kVV-Ci-rYj" secondAttribute="leading" id="d4j-fy-pMT"/>
+                            <constraint firstItem="PcB-8Z-Jd7" firstAttribute="trailing" secondItem="kVV-Ci-rYj" secondAttribute="trailing" id="g0D-Mg-ZwF"/>
+                            <constraint firstItem="kIK-0i-WbK" firstAttribute="leading" secondItem="kVV-Ci-rYj" secondAttribute="leading" id="ipx-Re-Api"/>
+                            <constraint firstItem="PcB-8Z-Jd7" firstAttribute="top" secondItem="kIK-0i-WbK" secondAttribute="bottom" id="yys-Ua-lYJ"/>
+                            <constraint firstItem="1a6-3L-Bes" firstAttribute="leading" secondItem="tmz-2K-SVm" secondAttribute="leading" id="zdG-ib-ouQ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P4X-Pv-Q8y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3144.9275362318845" y="-546.42857142857144"/>
+        </scene>
         <!--동네생활-->
         <scene sceneID="zG1-EU-2g5">
             <objects>
@@ -1825,8 +1896,11 @@
         <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="chattingViewImg" width="26" height="25"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="homeViewImg" width="26" height="27"/>
+        <image name="house" catalog="system" width="128" height="106"/>
         <image name="line.3.horizontal" catalog="system" width="128" height="64"/>
+        <image name="line.3.horizontal.circle" catalog="system" width="128" height="121"/>
         <image name="linestar" width="26" height="24"/>
         <image name="location.north" catalog="system" width="108" height="128"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
@@ -1844,6 +1918,7 @@
         <image name="selectedNearbyViewImg" width="26" height="29"/>
         <image name="selectedTownViewImg" width="26" height="25"/>
         <image name="setting" width="24" height="26"/>
+        <image name="square.and.arrow.up.on.square" catalog="system" width="117" height="128"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <image name="startPage" width="860" height="1372"/>
         <image name="townViewImg" width="26" height="25"/>
@@ -1864,6 +1939,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

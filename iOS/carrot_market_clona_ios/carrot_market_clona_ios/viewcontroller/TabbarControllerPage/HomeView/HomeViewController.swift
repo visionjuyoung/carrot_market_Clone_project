@@ -51,9 +51,23 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "HomeViewTableViewCell", for: indexPath) as? HomeViewTableViewCell else {
             return UITableViewCell()
         }
-        cell.price.text = "\(tempListResult[indexPath.row].price ?? 0)"
+        cell.price.text = "\(tempListResult[indexPath.row].price ?? 0)원"
         cell.productName.text = "\(tempListResult[indexPath.row].title ?? "" )"
         cell.addressWithTime.text = "\(tempListResult[indexPath.row].address ?? "" )"
+        
+        if tempListResult[indexPath.row].likes == 0 {
+            cell.heartImage.isHidden = true
+            cell.heartCount.isHidden = true
+        } else {
+            cell.heartCount.text = "\(tempListResult[indexPath.row].likes ?? 0 )"
+        }
+        
+        if tempListResult[indexPath.row].chats == 0 {
+            cell.messageCount.isHidden = true
+            cell.messageImage.isHidden = true
+        } else {
+            cell.messageCount.text = "\(tempListResult[indexPath.row].chats ?? 0 )"
+        }
         return cell
     }
 }
@@ -61,6 +75,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 extension HomeViewController {
     func didSuccessShowList(showListResult: ShowListResponse) {
         tempListResult = showListResult.result
+        for i in tempListResult {
+            print(i)
+        }
         tableView.reloadData()
     }
 }

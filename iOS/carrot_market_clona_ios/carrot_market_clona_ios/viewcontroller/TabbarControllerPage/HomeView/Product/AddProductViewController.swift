@@ -20,11 +20,13 @@ class AddProductViewController: UIViewController {
     @IBOutlet weak var picksImageCountLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setInit()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     func setInit() {
@@ -68,11 +70,10 @@ class AddProductViewController: UIViewController {
     
     @IBAction func imagePick(_ sender: UIButton) {
         let imagePicker = ImagePickerController()
-           imagePicker.settings.selection.max = 10
-           imagePicker.settings.fetch.assets.supportedMediaTypes = [.image]
+        imagePicker.settings.selection.max = 10
+        imagePicker.settings.fetch.assets.supportedMediaTypes = [.image]
                
-        let vc = self.view.window?.rootViewController
-           vc?.presentImagePicker(imagePicker, select: { (asset) in
+        presentImagePicker(imagePicker, select: { (asset) in
                    // User selected an asset. Do something with it. Perhaps begin processing/upload?
                print("select")
            }, deselect: { (asset) in
