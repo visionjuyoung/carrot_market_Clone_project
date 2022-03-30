@@ -53,8 +53,8 @@ extension MyViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyViewFirstSectionTableViewCell", for: indexPath) as? MyViewFirstSectionTableViewCell else { return UITableViewCell() }
-            loadImageDataManager.loadImage(delegate: self, filepath: userInfoManager.imagePath)
-            cell.setData(name: userInfoManager.name, address: userInfoManager.address, code: userInfoManager.userCode , image: userInfoManager.imagePath)
+            let url = loadImageDataManager.loadImage(filepath: userInfoManager.imagePath)
+            cell.setData(name: userInfoManager.name, address: userInfoManager.address, code: userInfoManager.userCode , image: url)
             return cell
             
         case 1...5:

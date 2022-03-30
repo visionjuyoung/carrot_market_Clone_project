@@ -383,6 +383,9 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="완료" id="blu-bs-Phu">
                                             <color key="tintColor" name="carrotMarketColor"/>
+                                            <connections>
+                                                <action selector="doneButton:" destination="8S3-cQ-5CZ" id="Lab-np-Inn"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -656,11 +659,14 @@
                     <connections>
                         <outlet property="cameraImage" destination="dNo-em-g13" id="xGo-q4-tyb"/>
                         <outlet property="categoryLabel" destination="ehB-QO-ZMK" id="T6M-ku-y5N"/>
+                        <outlet property="contentTextView" destination="51N-he-dRd" id="fR0-Ec-WZE"/>
                         <outlet property="imageView1" destination="UJl-nk-5z8" id="WQe-Rf-2Nc"/>
                         <outlet property="imageView2" destination="yyj-rS-Qo0" id="gI4-t9-e5h"/>
                         <outlet property="imageView3" destination="gVe-Sf-pfg" id="nV1-1o-8nr"/>
                         <outlet property="negoButton" destination="Cws-et-C8T" id="NFS-Ul-SEM"/>
                         <outlet property="picksImageCountLabel" destination="69U-Bf-B5H" id="UsH-68-7fg"/>
+                        <outlet property="priceTextField" destination="gHc-K0-N22" id="0c2-Ii-cGz"/>
+                        <outlet property="titleTextField" destination="h1E-Ie-jAb" id="cbI-Fn-lVm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lVT-ur-C3b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -792,7 +798,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P4X-Pv-Q8y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3144.9275362318845" y="-546.42857142857144"/>
+            <point key="canvasLocation" x="3064" y="-546"/>
         </scene>
         <!--동네생활-->
         <scene sceneID="zG1-EU-2g5">

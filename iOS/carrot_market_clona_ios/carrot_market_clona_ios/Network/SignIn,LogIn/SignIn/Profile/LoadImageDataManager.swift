@@ -6,15 +6,14 @@
 //
 
 import Foundation
-import Alamofire
 
 class LoadImageDataManager {
-    func loadImage(delegate: MyViewController, filepath: String) {
+    func loadImage(filepath: String) -> URL {
         
-        let userInfoManager = UserInfo.shared
-        let url = "http://ec2-52-78-102-243.ap-northeast-2.compute.amazonaws.com:8080"
-        let headers : HTTPHeaders = [ "Authorization" : userInfoManager.jwt]
+        let urlString = "http://ec2-52-78-102-243.ap-northeast-2.compute.amazonaws.com:8080/api/img?filename=\(filepath)"
+        let encodedString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let url = URL(string: encodedString)!
                 
-        AF.request("\(url)/api/img?filename=\(filepath)", method: .get, parameters: nil, headers: headers).response
+       return url
     }
 }

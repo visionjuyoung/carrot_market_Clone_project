@@ -10,7 +10,11 @@ import BSImagePicker
 import Photos
 
 class AddProductViewController: UIViewController {
+    
+    lazy var registerProductDataManager: RegisterProductDataManager = RegisterProductDataManager()
 
+    var userInfoManager = UserInfo.shared
+    
     @IBOutlet weak var cameraImage: UIView!
     
     @IBOutlet weak var negoButton: UIButton!
@@ -19,6 +23,9 @@ class AddProductViewController: UIViewController {
     @IBOutlet weak var imageView3: UIImageView!
     @IBOutlet weak var picksImageCountLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var priceTextField: UITextField!
+    @IBOutlet weak var contentTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,9 +101,27 @@ class AddProductViewController: UIViewController {
         present(vc, animated: true)
     }
     
+    @IBAction func doneButton(_ sender: UIBarButtonItem) {
+        print("눌림")
+        let images: [UIImageView] = [imageView1, imageView2,imageView3]
+        var tempImages: [Data] = []
+        for img in images {
+            guard let picture : UIImage = img.image else {
+                print("return error")
+                return
+            }
+            tempImages.append(picture.pngData()!)
+        }
+        
+        let param = RegisterProductRequest(title: titleTextField.text!, content: contentTextView.text!, address: userInfoManager.address, price: Int(priceTextField.text!)!, phoneNumber: userInfoManager.phoneNumber, file: tempImages)
+        registerProductDataManager.signUp(delegate: self, withRequest: param)
+        print("datamanager 호출")
+    }
+    
+    
     @IBAction func closeButton(_ sender: UIBarButtonItem) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "TabbarController") else { return }
         present(vc, animated: true, completion: nil)
     }
-     
+
 }

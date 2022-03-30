@@ -9,7 +9,6 @@ import UIKit
 
 class MyViewFirstSectionTableViewCell: UITableViewCell {
     
-    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
@@ -27,13 +26,11 @@ class MyViewFirstSectionTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setData(name: String, address: String, code: String, image: String) {
+    func setData(name: String, address: String, code: String, image: URL) {
         nameLabel.text = name
         addressLabel.text = "\(address) \(code)"
         
-        let url = URL(string: "http://ec2-52-78-102-243.ap-northeast-2.compute.amazonaws.com:8080/api/img?filename=/home/ubuntu/upload/7ff4a46e-864d-4514-837a-e4789861a71f_%EC%A1%B0%EC%A1%B0%EC%A1%B0.png")
-        let xurl = URL(string: "https://tour.chungbuk.go.kr/site/www/images/common/no_img.jpg")
-        self.profileImage.load(url: url ?? xurl!)
+        self.profileImage.load(url: image )
     }
 }
 

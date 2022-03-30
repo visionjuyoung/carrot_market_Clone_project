@@ -28,6 +28,7 @@ class HomeViewTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        productImageView.image = UIImage(named: "noImage")
         messageImage.isHidden = false
         heartImage.isHidden = false
         messageCount.isHidden = false
