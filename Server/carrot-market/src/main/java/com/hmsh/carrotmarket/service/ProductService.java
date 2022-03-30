@@ -3,7 +3,7 @@ package com.hmsh.carrotmarket.service;
 import com.hmsh.carrotmarket.dto.PageRequestDTO;
 import com.hmsh.carrotmarket.dto.ProductDTO;
 import com.hmsh.carrotmarket.dto.ProductListDTO;
-import com.hmsh.carrotmarket.enumeration.Address;
+import com.hmsh.carrotmarket.enumeration.TradeStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -23,4 +23,6 @@ public interface ProductService {
     List<ProductListDTO> getLikesList(String phoneNumber);
 
     List<ProductListDTO> getMyProducts(String phoneNumber);
+
+    void changeTradeStatus(Long productId, TradeStatus tradeStatus) throws IllegalArgumentException;
 }

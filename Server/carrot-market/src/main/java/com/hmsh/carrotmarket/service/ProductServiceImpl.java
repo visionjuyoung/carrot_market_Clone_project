@@ -11,6 +11,7 @@ import com.hmsh.carrotmarket.entity.Member;
 import com.hmsh.carrotmarket.entity.Product;
 import com.hmsh.carrotmarket.entity.ProductImage;
 import com.hmsh.carrotmarket.enumeration.Address;
+import com.hmsh.carrotmarket.enumeration.TradeStatus;
 import com.hmsh.carrotmarket.repository.LikesRepository;
 import com.hmsh.carrotmarket.repository.ProductImageRepository;
 import com.hmsh.carrotmarket.repository.ProductRepository;
@@ -179,6 +180,23 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.getAllByMember(Member.builder().phoneNumber(phoneNumber).build()).stream()
                 .map(ProductConverter::entityToListDTO)
                 .collect(Collectors.toList());
+    }
+
+    /**
+     * 상품의 거래상태 변경
+     * @param productId 상품 ID
+     * @param tradeStatus 거래 상태
+     * @throws IllegalArgumentException productId를 가진 상품이 없을 때 발생
+     */
+    @Override
+    public void changeTradeStatus(Long productId, TradeStatus tradeStatus) throws IllegalArgumentException {
+        Optional<Product> optionalProduct = productRepository.findById(productId);
+        if (!optionalProduct.isPresent())
+            throw new IllegalArgumentException("해당 ID를 가진 상품이 없음 productId = " + productId);
+
+        Product product = optionalProduct.get();
+        product.setTradeStatus(tradeStatus);
+        productRepository.save(product);
     }
 
 }
