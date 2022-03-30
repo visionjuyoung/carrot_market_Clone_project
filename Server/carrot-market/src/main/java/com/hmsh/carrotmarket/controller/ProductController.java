@@ -1,7 +1,6 @@
 package com.hmsh.carrotmarket.controller;
 
 import com.hmsh.carrotmarket.CResponseEntity;
-import com.hmsh.carrotmarket.enumeration.Address;
 import com.hmsh.carrotmarket.enumeration.StatusCode;
 import com.hmsh.carrotmarket.dto.PageRequestDTO;
 import com.hmsh.carrotmarket.dto.ProductDTO;
@@ -9,6 +8,7 @@ import com.hmsh.carrotmarket.dto.ProductListDTO;
 import com.hmsh.carrotmarket.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.PropertyValueException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -32,10 +32,16 @@ public class ProductController {
     @PostMapping("")
     public CResponseEntity<Long> register(ProductDTO productDTO, MultipartFile[] files) {
         log.info("상품 등록 productDTO = {}", productDTO);
-        Long returnId = productService.register(productDTO, files);
-        boolean isSuccess = returnId != null;
-        StatusCode code = returnId != null ? StatusCode.OK : StatusCode.INTERNAL_SERVER_ERROR;
-        return new CResponseEntity<>(isSuccess, code, returnId);
+        try {
+            Long returnId = productService.register(productDTO, files);
+            return new CResponseEntity<>(true, StatusCode.OK, returnId);
+        } catch (PropertyValueException pve) {
+            log.warn("파라미터 형식이 맞지 않음", pve);
+            return new CResponseEntity<>(false, StatusCode.BAD_REQUEST, null);
+        } catch (Exception e) {
+            log.error("상품 등록 에러", e);
+            return new CResponseEntity<>(false, StatusCode.INTERNAL_SERVER_ERROR, null);
+        }
     }
 
     /**

@@ -18,7 +18,7 @@ public class ProductListDTO {
 
     private String title;
 
-    private Address address;
+    private String address;
 
     private int price;
 

@@ -23,7 +23,7 @@ public class ProductDTO {
 
     private String content;
 
-    private Address address;
+    private String address;
 
     private int views;
 
