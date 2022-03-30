@@ -39,9 +39,6 @@ public class ProductController {
         } catch (DataIntegrityViolationException dataIntegrityViolationException) {
             log.info("파라미터 형식이 맞지 않음", dataIntegrityViolationException);
             return new CResponseEntity<>(false, StatusCode.BAD_REQUEST, null);
-        } catch (Exception e) {
-            log.error("상품 등록 에러", e);
-            return new CResponseEntity<>(false, StatusCode.INTERNAL_SERVER_ERROR, null);
         }
     }
 
@@ -148,9 +145,6 @@ public class ProductController {
             log.info(ie.toString());
             return new CResponseEntity<>(false, StatusCode.BAD_REQUEST,
                     "해당 ID를 가진 상품을 찾을 수 없음", null);
-        } catch (Exception e) {
-            log.error("change trade status productId = {} tradeStatus = {}" , productId, tradeStatus, e);
-            return new CResponseEntity<>(false, StatusCode.INTERNAL_SERVER_ERROR, null);
         }
     }
 }
