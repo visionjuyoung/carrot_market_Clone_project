@@ -16,4 +16,10 @@ public class GlobalExceptionHandler {
         log.error("exception", e);
         return new CResponseEntity<>(false, StatusCode.INTERNAL_SERVER_ERROR, null);
     }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public CResponseEntity<Object> handleIllegalArgumentException(IllegalArgumentException e) {
+        log.info("IllegalArgumentException", e);
+        return new CResponseEntity<>(false, StatusCode.BAD_REQUEST, null);
+    }
 }
