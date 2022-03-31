@@ -11,4 +11,6 @@ public interface BoardService {
 
     void modify(BoardDTO boardDTO, MultipartFile[] files);
 
+    void delete(Long id);
+
 }

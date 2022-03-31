@@ -17,6 +17,7 @@ public class BoardController {
 
     private final BoardService boardService;
 
+
     /**
      * 동네생활 게시글 등록
      * @param boardDTO 게시글 정보
@@ -42,10 +43,28 @@ public class BoardController {
         return new CResponseEntity<>(true, StatusCode.OK, boardDTO);
     }
 
+    /**
+     * 동네생활 게시글 수정
+     * @param boardDTO 수정된 게시글 정보
+     * @param files 수정된 이미지 파일들
+     * @return null
+     */
     @PatchMapping("")
     public CResponseEntity<Object> modifyBoard(BoardDTO boardDTO, MultipartFile[] files) {
         log.info("게시글 수정 boardDTO = {}", boardDTO);
         boardService.modify(boardDTO, files);
+        return new CResponseEntity<>(true, StatusCode.OK, null);
+    }
+
+    /**
+     * 동네생활 게시글 삭제
+     * @param id 삭제할 게시글 ID
+     * @return null
+     */
+    @DeleteMapping("/{id}")
+    public CResponseEntity<Object> deleteBoard(@PathVariable Long id) {
+        log.info("게시글 삭제 id = {}", id);
+        boardService.delete(id);
         return new CResponseEntity<>(true, StatusCode.OK, null);
     }
 }

@@ -97,4 +97,19 @@ public class BoardServiceImpl implements BoardService {
                 .collect(Collectors.toList());
         boardImageRepository.saveAll(imageList);
     }
+
+    /**
+     * 게시글 삭제
+     * @param id 삭제할 게시글의 ID
+     */
+    @Override
+    @Transactional
+    public void delete(Long id) {
+        Optional<Board> optionalBoard = boardRepository.findById(id);
+        if (!optionalBoard.isPresent()) throw new IllegalArgumentException();
+
+        Board board = optionalBoard.get();
+        boardImageRepository.deleteAllByBoard(board);
+        boardRepository.delete(board);
+    }
 }
