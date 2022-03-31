@@ -9,4 +9,6 @@ public interface BoardService {
 
     BoardDTO get(Long id);
 
+    void modify(BoardDTO boardDTO, MultipartFile[] files);
+
 }

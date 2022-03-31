@@ -25,4 +25,10 @@ public class Board extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Member member;
+
+
+    public void modifyInfo(String content, BoardCategory boardCategory) {
+        this.content = content;
+        this.boardCategory = boardCategory;
+    }
 }

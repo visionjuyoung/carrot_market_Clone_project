@@ -31,6 +31,12 @@ public class BoardServiceImpl implements BoardService {
     private final FileService fileService;
 
 
+    /**
+     * 게시글 등록
+     * @param boardDTO 게시글 정보
+     * @param files 업로드된 이미지 파일들
+     * @return 등록된 게시글의 ID
+     */
     @Override
     @Transactional
     public Long register(BoardDTO boardDTO, MultipartFile[] files) {
@@ -50,6 +56,11 @@ public class BoardServiceImpl implements BoardService {
         return saved.getId();
     }
 
+    /**
+     * 게시글 조회
+     * @param id 조회할 게시글의 ID
+     * @return 게시글 정보
+     */
     @Override
     public BoardDTO get(Long id) {
         Optional<Board> optionalBoard = boardRepository.findById(id);
@@ -62,5 +73,28 @@ public class BoardServiceImpl implements BoardService {
                 .collect(Collectors.toList());
 
         return BoardConverter.boardToBoardDTO(board, imagePathList);
+    }
+
+    /**
+     * 게시글 수정
+     * @param boardDTO 수정된 게시글 정보
+     * @param files 수정된 이미지 파일들
+     */
+    @Override
+    @Transactional
+    public void modify(BoardDTO boardDTO, MultipartFile[] files) {
+        Optional<Board> optionalBoard = boardRepository.findById(boardDTO.getId());
+        if (!optionalBoard.isPresent()) throw new IllegalArgumentException();
+
+        Board board = optionalBoard.get();
+        board.modifyInfo(boardDTO.getContent(), boardDTO.getBoardCategory());
+        boardRepository.save(board);
+        boardImageRepository.deleteAllByBoard(board);
+
+        List<ImageDTO> imageDTOList = fileService.uploadImageFiles(files);
+        List<BoardImage> imageList = imageDTOList.stream()
+                .map(dto -> ImageConverter.imageDTOToBoardImage(dto, board))
+                .collect(Collectors.toList());
+        boardImageRepository.saveAll(imageList);
     }
 }
