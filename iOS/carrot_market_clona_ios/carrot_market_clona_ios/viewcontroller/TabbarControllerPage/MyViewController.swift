@@ -2,13 +2,19 @@ import UIKit
 
 class MyViewController: UIViewController {
     
+    lazy var loadImageDataManager: LoadImageDataManager = LoadImageDataManager()
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    var userInfoManager = UserInfo.shared
     
     let cellNamesList: MyCarrotCellList = MyCarrotCellList()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setInit()
+        print(userInfoManager.jwt)
+        print(userInfoManager.imagePath)
     }
 
     func setInit(){
@@ -46,8 +52,11 @@ extension MyViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MyViewFirstSectionTableViewCell", for: indexPath)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyViewFirstSectionTableViewCell", for: indexPath) as? MyViewFirstSectionTableViewCell else { return UITableViewCell() }
+            let url = loadImageDataManager.loadImage(filepath: userInfoManager.imagePath)
+            cell.setData(name: userInfoManager.name, address: userInfoManager.address, code: userInfoManager.userCode , image: url)
             return cell
+            
         case 1...5:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyViewSecondSectionTableViewCell", for: indexPath) as? MyViewSecondSectionTableViewCell else {
                 return UITableViewCell()
@@ -75,5 +84,11 @@ extension MyViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             return 50
         }
+    }
+}
+
+extension MyViewController {
+    func didSuccessLoadImage() {
+        print("success")
     }
 }

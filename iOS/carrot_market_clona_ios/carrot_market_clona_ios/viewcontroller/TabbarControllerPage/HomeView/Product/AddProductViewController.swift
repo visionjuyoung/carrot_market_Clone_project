@@ -10,7 +10,11 @@ import BSImagePicker
 import Photos
 
 class AddProductViewController: UIViewController {
+    
+    lazy var registerProductDataManager: RegisterProductDataManager = RegisterProductDataManager()
 
+    var userInfoManager = UserInfo.shared
+    
     @IBOutlet weak var cameraImage: UIView!
     
     @IBOutlet weak var negoButton: UIButton!
@@ -19,12 +23,17 @@ class AddProductViewController: UIViewController {
     @IBOutlet weak var imageView3: UIImageView!
     @IBOutlet weak var picksImageCountLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
-    
-    
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var priceTextField: UITextField!
+    @IBOutlet weak var contentTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setInit()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     func setInit() {
@@ -68,11 +77,10 @@ class AddProductViewController: UIViewController {
     
     @IBAction func imagePick(_ sender: UIButton) {
         let imagePicker = ImagePickerController()
-           imagePicker.settings.selection.max = 10
-           imagePicker.settings.fetch.assets.supportedMediaTypes = [.image]
+        imagePicker.settings.selection.max = 10
+        imagePicker.settings.fetch.assets.supportedMediaTypes = [.image]
                
-        let vc = self.view.window?.rootViewController
-           vc?.presentImagePicker(imagePicker, select: { (asset) in
+        presentImagePicker(imagePicker, select: { (asset) in
                    // User selected an asset. Do something with it. Perhaps begin processing/upload?
                print("select")
            }, deselect: { (asset) in
@@ -93,9 +101,22 @@ class AddProductViewController: UIViewController {
         present(vc, animated: true)
     }
     
+    @IBAction func doneButton(_ sender: UIBarButtonItem) {
+        print("눌림")
+        let images: [UIImage?] = [imageView1.image, imageView2.image,imageView3.image]
+        var tempImages: [Data] = []
+        for img in images {
+            tempImages.append((img?.pngData())!)
+        }
+        let param = RegisterProductRequest(title: titleTextField.text!, content: contentTextView.text!, address: userInfoManager.address, price: Int(priceTextField.text!)!, phoneNumber: userInfoManager.phoneNumber, file: tempImages)
+        registerProductDataManager.signUp(delegate: self, withRequest: param)
+        print("datamanager 호출")
+    }
+    
+    
     @IBAction func closeButton(_ sender: UIBarButtonItem) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "TabbarController") else { return }
         present(vc, animated: true, completion: nil)
     }
-     
+
 }

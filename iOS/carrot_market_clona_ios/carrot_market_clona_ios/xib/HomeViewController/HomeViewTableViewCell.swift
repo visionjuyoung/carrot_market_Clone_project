@@ -25,6 +25,15 @@ class HomeViewTableViewCell: UITableViewCell {
         super.awakeFromNib()
         productImageView.layer.cornerRadius = 5
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        productImageView.image = UIImage(named: "noImage")
+        messageImage.isHidden = false
+        heartImage.isHidden = false
+        messageCount.isHidden = false
+        heartCount.isHidden = false
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

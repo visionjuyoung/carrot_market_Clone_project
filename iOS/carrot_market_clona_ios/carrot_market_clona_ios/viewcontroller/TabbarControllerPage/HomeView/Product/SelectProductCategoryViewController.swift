@@ -42,8 +42,10 @@ extension SelectProductCategoryViewController: UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "AddProductViewController") as? AddProductViewController else { return }
-        vc.categoryLabel.text = category[indexPath.row]
-        present(vc, animated: true)
+        dismiss(animated: true, completion: {
+            print(self.category[indexPath.row])
+        })
+    
     }
 }
 
