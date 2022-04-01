@@ -13,7 +13,7 @@ class RegisterProductDataManager {
         print("register 시작")
         
         let userInfoManager = UserInfo.shared
-        let url = "http://ec2-52-78-102-243.ap-northeast-2.compute.amazonaws.com:8080/api/product/register"
+        let url = "http://ec2-52-78-102-243.ap-northeast-2.compute.amazonaws.com:8080/api/product"
         
         let header : HTTPHeaders = [
             "Content-Type" : "multipart/form-data",
@@ -24,22 +24,22 @@ class RegisterProductDataManager {
             multipartFormData.append(Data(withRequest.title.utf8), withName: "title")
             multipartFormData.append(Data(withRequest.content.utf8), withName: "content")
             multipartFormData.append(Data(withRequest.address.utf8), withName: "address")
-            multipartFormData.append(Data(String(withRequest.price).utf8), withName: "price")
+            multipartFormData.append("\(withRequest.price)".data(using: .utf8)!, withName: "price")
             multipartFormData.append(Data(withRequest.phoneNumber.utf8), withName: "phoneNumber")
             
-            if let images = withRequest.file {
-                var i = 0
-                for img in images {
-                    i = i+1
-                    let num = Int.random(in: 0...100)
-                    multipartFormData.append(img, withName: "file", fileName: "\(userInfoManager.userCode)\(i)\(num).png", mimeType: "image/png")
+            if let imageArray = withRequest.file {
+                for images in imageArray {
+                    let ran = Int.random(in: 0...1000)
+                    multipartFormData.append(images,withName: "files", fileName: "\(withRequest.title)\(ran)", mimeType: "image/png")
                 }
             }
-        }, to: url, usingThreshold: UInt64.init(), method: .post, headers: header).responseJSON{(response) in
+            
+        }, to: url, usingThreshold: UInt64.init(), method: .post, headers: header).responseDecodable(of: RegisterProductResponse.self){(response) in
             if let err = response.error{
                 print(err)
                 return
             }
+            print(response)
             print("상품 등록 성공")
         }
     }

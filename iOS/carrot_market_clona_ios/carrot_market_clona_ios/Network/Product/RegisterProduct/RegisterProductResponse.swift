@@ -8,8 +8,8 @@
 import Foundation
 
 struct RegisterProductResponse:Decodable {
-    var isSuccess: Bool
-    var code: Int
-    var message: String
-    var result: CLong
+    var isSuccess: Bool?
+    var code: Int?
+    var message: String?
+    var result: CLong?
 }

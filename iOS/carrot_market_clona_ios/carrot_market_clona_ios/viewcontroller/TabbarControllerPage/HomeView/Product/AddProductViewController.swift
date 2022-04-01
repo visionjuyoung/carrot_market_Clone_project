@@ -103,16 +103,11 @@ class AddProductViewController: UIViewController {
     
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
         print("눌림")
-        let images: [UIImageView] = [imageView1, imageView2,imageView3]
+        let images: [UIImage?] = [imageView1.image, imageView2.image,imageView3.image]
         var tempImages: [Data] = []
         for img in images {
-            guard let picture : UIImage = img.image else {
-                print("return error")
-                return
-            }
-            tempImages.append(picture.pngData()!)
+            tempImages.append((img?.pngData())!)
         }
-        
         let param = RegisterProductRequest(title: titleTextField.text!, content: contentTextView.text!, address: userInfoManager.address, price: Int(priceTextField.text!)!, phoneNumber: userInfoManager.phoneNumber, file: tempImages)
         registerProductDataManager.signUp(delegate: self, withRequest: param)
         print("datamanager 호출")

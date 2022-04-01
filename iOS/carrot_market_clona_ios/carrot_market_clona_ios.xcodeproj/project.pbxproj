@@ -11,6 +11,16 @@
 		4B314ACD27F44BC600ABC0BF /* RegisterProductResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B314ACC27F44BC600ABC0BF /* RegisterProductResponse.swift */; };
 		4B314ACF27F44BD600ABC0BF /* RegisterProductRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B314ACE27F44BD600ABC0BF /* RegisterProductRequest.swift */; };
 		4B314AD127F44BE500ABC0BF /* RegisterProductDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B314AD027F44BE500ABC0BF /* RegisterProductDataManager.swift */; };
+		4B314AD527F6E6A800ABC0BF /* firstProductDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B314AD327F6E6A800ABC0BF /* firstProductDetailTableViewCell.swift */; };
+		4B314AD627F6E6A800ABC0BF /* firstProductDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B314AD427F6E6A800ABC0BF /* firstProductDetailTableViewCell.xib */; };
+		4B314AD927F6E6D500ABC0BF /* secondProductDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B314AD727F6E6D500ABC0BF /* secondProductDetailTableViewCell.swift */; };
+		4B314ADA27F6E6D500ABC0BF /* secondProductDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B314AD827F6E6D500ABC0BF /* secondProductDetailTableViewCell.xib */; };
+		4B314ADD27F6E6E300ABC0BF /* thirdProductDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B314ADB27F6E6E300ABC0BF /* thirdProductDetailTableViewCell.swift */; };
+		4B314ADE27F6E6E300ABC0BF /* thirdProductDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B314ADC27F6E6E300ABC0BF /* thirdProductDetailTableViewCell.xib */; };
+		4B314AE127F6E70100ABC0BF /* firthProductDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B314ADF27F6E70100ABC0BF /* firthProductDetailTableViewCell.swift */; };
+		4B314AE227F6E70100ABC0BF /* firthProductDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B314AE027F6E70100ABC0BF /* firthProductDetailTableViewCell.xib */; };
+		4B314AE527F6E71000ABC0BF /* fifthProductDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B314AE327F6E71000ABC0BF /* fifthProductDetailTableViewCell.swift */; };
+		4B314AE627F6E71000ABC0BF /* fifthProductDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B314AE427F6E71000ABC0BF /* fifthProductDetailTableViewCell.xib */; };
 		4B9123F227D6030C0052D546 /* MyViewFirstSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9123F027D6030C0052D546 /* MyViewFirstSectionTableViewCell.swift */; };
 		4B9123F327D6030C0052D546 /* MyViewFirstSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B9123F127D6030C0052D546 /* MyViewFirstSectionTableViewCell.xib */; };
 		4B9123F627D6031D0052D546 /* MyViewSecondSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9123F427D6031D0052D546 /* MyViewSecondSectionTableViewCell.swift */; };
@@ -66,6 +76,16 @@
 		4B314ACC27F44BC600ABC0BF /* RegisterProductResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProductResponse.swift; sourceTree = "<group>"; };
 		4B314ACE27F44BD600ABC0BF /* RegisterProductRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProductRequest.swift; sourceTree = "<group>"; };
 		4B314AD027F44BE500ABC0BF /* RegisterProductDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProductDataManager.swift; sourceTree = "<group>"; };
+		4B314AD327F6E6A800ABC0BF /* firstProductDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firstProductDetailTableViewCell.swift; sourceTree = "<group>"; };
+		4B314AD427F6E6A800ABC0BF /* firstProductDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = firstProductDetailTableViewCell.xib; sourceTree = "<group>"; };
+		4B314AD727F6E6D500ABC0BF /* secondProductDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondProductDetailTableViewCell.swift; sourceTree = "<group>"; };
+		4B314AD827F6E6D500ABC0BF /* secondProductDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = secondProductDetailTableViewCell.xib; sourceTree = "<group>"; };
+		4B314ADB27F6E6E300ABC0BF /* thirdProductDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thirdProductDetailTableViewCell.swift; sourceTree = "<group>"; };
+		4B314ADC27F6E6E300ABC0BF /* thirdProductDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = thirdProductDetailTableViewCell.xib; sourceTree = "<group>"; };
+		4B314ADF27F6E70100ABC0BF /* firthProductDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firthProductDetailTableViewCell.swift; sourceTree = "<group>"; };
+		4B314AE027F6E70100ABC0BF /* firthProductDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = firthProductDetailTableViewCell.xib; sourceTree = "<group>"; };
+		4B314AE327F6E71000ABC0BF /* fifthProductDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fifthProductDetailTableViewCell.swift; sourceTree = "<group>"; };
+		4B314AE427F6E71000ABC0BF /* fifthProductDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = fifthProductDetailTableViewCell.xib; sourceTree = "<group>"; };
 		4B9123F027D6030C0052D546 /* MyViewFirstSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewFirstSectionTableViewCell.swift; sourceTree = "<group>"; };
 		4B9123F127D6030C0052D546 /* MyViewFirstSectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyViewFirstSectionTableViewCell.xib; sourceTree = "<group>"; };
 		4B9123F427D6031D0052D546 /* MyViewSecondSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewSecondSectionTableViewCell.swift; sourceTree = "<group>"; };
@@ -150,6 +170,23 @@
 			path = RegisterProduct;
 			sourceTree = "<group>";
 		};
+		4B314AD227F6E67D00ABC0BF /* ProductDetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				4B314AD327F6E6A800ABC0BF /* firstProductDetailTableViewCell.swift */,
+				4B314AD427F6E6A800ABC0BF /* firstProductDetailTableViewCell.xib */,
+				4B314AD727F6E6D500ABC0BF /* secondProductDetailTableViewCell.swift */,
+				4B314AD827F6E6D500ABC0BF /* secondProductDetailTableViewCell.xib */,
+				4B314ADB27F6E6E300ABC0BF /* thirdProductDetailTableViewCell.swift */,
+				4B314ADC27F6E6E300ABC0BF /* thirdProductDetailTableViewCell.xib */,
+				4B314ADF27F6E70100ABC0BF /* firthProductDetailTableViewCell.swift */,
+				4B314AE027F6E70100ABC0BF /* firthProductDetailTableViewCell.xib */,
+				4B314AE327F6E71000ABC0BF /* fifthProductDetailTableViewCell.swift */,
+				4B314AE427F6E71000ABC0BF /* fifthProductDetailTableViewCell.xib */,
+			);
+			path = ProductDetailCell;
+			sourceTree = "<group>";
+		};
 		4B9123EF27D602730052D546 /* MyViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +265,7 @@
 		4BA63E8427D33941003DDEF0 /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4B314AD227F6E67D00ABC0BF /* ProductDetailCell */,
 				4BA63E8527D33976003DDEF0 /* HomeViewTableViewCell.swift */,
 				4BA63E8627D33976003DDEF0 /* HomeViewTableViewCell.xib */,
 			);
@@ -467,13 +505,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B314AE227F6E70100ABC0BF /* firthProductDetailTableViewCell.xib in Resources */,
 				4BB9656A27D08F4800E41D0C /* LaunchScreen.storyboard in Resources */,
 				4BA63E8827D33976003DDEF0 /* HomeViewTableViewCell.xib in Resources */,
 				4B9123F727D6031D0052D546 /* MyViewSecondSectionTableViewCell.xib in Resources */,
+				4B314ADA27F6E6D500ABC0BF /* secondProductDetailTableViewCell.xib in Resources */,
 				4B9123F327D6030C0052D546 /* MyViewFirstSectionTableViewCell.xib in Resources */,
 				4B91241727D9E7DE0052D546 /* SetLocationViewTableViewCell.xib in Resources */,
+				4B314ADE27F6E6E300ABC0BF /* thirdProductDetailTableViewCell.xib in Resources */,
+				4B314AE627F6E71000ABC0BF /* fifthProductDetailTableViewCell.xib in Resources */,
 				4BA63E9227D35AAB003DDEF0 /* ChattingViewTableViewCell.xib in Resources */,
 				4BB9656727D08F4800E41D0C /* Assets.xcassets in Resources */,
+				4B314AD627F6E6A800ABC0BF /* firstProductDetailTableViewCell.xib in Resources */,
 				4BB9656527D08F4600E41D0C /* Main.storyboard in Resources */,
 				4BA63E8D27D33F27003DDEF0 /* TownViewTableViewCell.xib in Resources */,
 			);
@@ -530,6 +573,7 @@
 			files = (
 				4BB9657927D0BDAB00E41D0C /* ChattingViewController.swift in Sources */,
 				4BD6D2CC27E1D3A2004B71B3 /* PhoneCertificationConfirmDataManager.swift in Sources */,
+				4B314AE527F6E71000ABC0BF /* fifthProductDetailTableViewCell.swift in Sources */,
 				4B91240A27D604870052D546 /* MyCarrotCellList.swift in Sources */,
 				4BBE4EC427F03F4300E08165 /* SelectProductCategoryViewController.swift in Sources */,
 				4B91241927D9F80F0052D546 /* PhoneAutentificationSignInStateViewController.swift in Sources */,
@@ -538,6 +582,8 @@
 				4B91241627D9E7DE0052D546 /* SetLocationViewTableViewCell.swift in Sources */,
 				4B9123F627D6031D0052D546 /* MyViewSecondSectionTableViewCell.swift in Sources */,
 				4BD6D2D027E1D415004B71B3 /* PhoneCertificationConfirmRequest.swift in Sources */,
+				4B314AE127F6E70100ABC0BF /* firthProductDetailTableViewCell.swift in Sources */,
+				4B314AD927F6E6D500ABC0BF /* secondProductDetailTableViewCell.swift in Sources */,
 				4BD6D2E027E4870E004B71B3 /* SignUpDataManager.swift in Sources */,
 				4BA63E9127D35AAB003DDEF0 /* ChattingViewTableViewCell.swift in Sources */,
 				4BB9656027D08F4600E41D0C /* SceneDelegate.swift in Sources */,
@@ -561,6 +607,7 @@
 				4B91241027D9BCF00052D546 /* StartViewController.swift in Sources */,
 				4BD6D2DC27E486A6004B71B3 /* SignUpRequest.swift in Sources */,
 				4BBE4ECB27F07B4700E08165 /* ShowListDataManager.swift in Sources */,
+				4B314ADD27F6E6E300ABC0BF /* thirdProductDetailTableViewCell.swift in Sources */,
 				4B91241E27E055740052D546 /* SelectHomeDetailViewController.swift in Sources */,
 				4B91241227D9BD080052D546 /* PhoneAutentificationViewController.swift in Sources */,
 				4BB9657527D0BD8D00E41D0C /* TownViewController.swift in Sources */,
@@ -569,6 +616,7 @@
 				4BD6D2C827E1C690004B71B3 /* PhoneCertificationResponse.swift in Sources */,
 				4BB9657327D0BCF700E41D0C /* HomeViewController.swift in Sources */,
 				4BD6D2D527E32C55004B71B3 /* LogInRequest.swift in Sources */,
+				4B314AD527F6E6A800ABC0BF /* firstProductDetailTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
