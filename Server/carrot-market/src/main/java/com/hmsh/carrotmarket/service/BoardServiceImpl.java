@@ -1,12 +1,16 @@
 package com.hmsh.carrotmarket.service;
 
 import com.hmsh.carrotmarket.converter.BoardConverter;
+import com.hmsh.carrotmarket.converter.BoardReplyConverter;
 import com.hmsh.carrotmarket.converter.ImageConverter;
 import com.hmsh.carrotmarket.dto.BoardDTO;
+import com.hmsh.carrotmarket.dto.BoardReplyDTO;
 import com.hmsh.carrotmarket.dto.ImageDTO;
 import com.hmsh.carrotmarket.entity.Board;
 import com.hmsh.carrotmarket.entity.BoardImage;
+import com.hmsh.carrotmarket.entity.BoardReply;
 import com.hmsh.carrotmarket.repository.BoardImageRepository;
+import com.hmsh.carrotmarket.repository.BoardReplyRepository;
 import com.hmsh.carrotmarket.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -27,6 +31,8 @@ public class BoardServiceImpl implements BoardService {
     private final BoardRepository boardRepository;
 
     private final BoardImageRepository boardImageRepository;
+
+    private final BoardReplyRepository boardReplyRepository;
 
     private final FileService fileService;
 
@@ -111,5 +117,31 @@ public class BoardServiceImpl implements BoardService {
         Board board = optionalBoard.get();
         boardImageRepository.deleteAllByBoard(board);
         boardRepository.delete(board);
+    }
+
+    /**
+     * 게시글 댓글 등록
+     * @param replyRegistrationDTO 댓글 정보
+     * @return 등록된 댓글의 ID
+     */
+    @Override
+    public Long registerReply(BoardReplyDTO replyRegistrationDTO) {
+        BoardReply reply = BoardReplyConverter.replyDTOToReply(replyRegistrationDTO);
+        BoardReply save = boardReplyRepository.save(reply);
+        return save.getId();
+    }
+
+    /**
+     * 해당 ID를 가진 게시글의 댓글 조회
+     * @param id 조회할 댓글 ID
+     * @return ID를 가진 게시글 댓글 정보
+     */
+    @Override
+    public BoardReplyDTO getReply(Long id) {
+        Optional<BoardReply> optionalBoardReply = boardReplyRepository.findById(id);
+        if (!optionalBoardReply.isPresent()) throw new IllegalArgumentException();
+
+        BoardReply boardReply = optionalBoardReply.get();
+        return BoardReplyConverter.replyToReplyDTO(boardReply);
     }
 }

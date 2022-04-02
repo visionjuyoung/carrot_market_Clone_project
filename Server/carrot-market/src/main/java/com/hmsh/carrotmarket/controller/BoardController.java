@@ -2,9 +2,8 @@ package com.hmsh.carrotmarket.controller;
 
 import com.hmsh.carrotmarket.CResponseEntity;
 import com.hmsh.carrotmarket.dto.BoardDTO;
-import com.hmsh.carrotmarket.dto.BoardReplyRegistrationDTO;
+import com.hmsh.carrotmarket.dto.BoardReplyDTO;
 import com.hmsh.carrotmarket.enumeration.StatusCode;
-import com.hmsh.carrotmarket.service.BoardReplyService;
 import com.hmsh.carrotmarket.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,8 +17,6 @@ import org.springframework.web.multipart.MultipartFile;
 public class BoardController {
 
     private final BoardService boardService;
-
-    private final BoardReplyService boardReplyService;
 
 
     /**
@@ -72,9 +69,26 @@ public class BoardController {
         return new CResponseEntity<>(true, StatusCode.OK, null);
     }
 
+    /**
+     * 동네생활 게시글 댓글 등록
+     * @param replyRegistrationDTO 댓글 정보
+     * @return 등록된 댓글의 ID
+     */
     @PostMapping("/reply")
-    public CResponseEntity<Long> registerBoardReply(@RequestBody BoardReplyRegistrationDTO replyRegistrationDTO) {
-        Long id = boardReplyService.register(replyRegistrationDTO);
+    public CResponseEntity<Long> registerBoardReply(@RequestBody BoardReplyDTO replyRegistrationDTO) {
+        log.info("게시글 댓글 등록 replyRegDTO = {}", replyRegistrationDTO);
+        Long id = boardService.registerReply(replyRegistrationDTO);
         return new CResponseEntity<>(true, StatusCode.OK, id);
+    }
+
+    /**
+     * 동네생활 게시글 댓글 조회
+     * @param id 조회할 댓글의 ID
+     * @return 댓글 정보
+     */
+    @GetMapping("/reply/{id}")
+    public CResponseEntity<BoardReplyDTO> getBoardReply(@PathVariable Long id) {
+        BoardReplyDTO reply = boardService.getReply(id);
+        return new CResponseEntity<>(true, StatusCode.OK, reply);
     }
 }

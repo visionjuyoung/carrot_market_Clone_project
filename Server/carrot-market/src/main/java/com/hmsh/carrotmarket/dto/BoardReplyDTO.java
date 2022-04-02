@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @ToString
-public class BoardReplyRegistrationDTO {
+public class BoardReplyDTO {
 
     private Long id;
 
