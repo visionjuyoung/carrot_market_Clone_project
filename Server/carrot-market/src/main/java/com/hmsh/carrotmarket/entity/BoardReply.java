@@ -12,12 +12,13 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Builder
-public class Reply {
+public class BoardReply {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String content;
 
     @ManyToOne(fetch = FetchType.LAZY)
