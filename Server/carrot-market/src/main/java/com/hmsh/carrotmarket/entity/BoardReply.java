@@ -26,4 +26,9 @@ public class BoardReply extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Member member;
+
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 }

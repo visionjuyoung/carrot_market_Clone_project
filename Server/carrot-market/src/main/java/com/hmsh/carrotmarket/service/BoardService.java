@@ -19,9 +19,13 @@ public interface BoardService {
     void delete(Long id);
 
     // BoardReply
-    Long registerReply(BoardReplyDTO boardReplyRegistrationDTO);
+    Long registerReply(BoardReplyDTO boardReplyDTO);
 
     BoardReplyDTO getReply(Long id);
 
     List<BoardReplyListDTO> getReplyList(Long id);
+
+    void modifyReply(BoardReplyDTO boardReplyRegistrationDTO);
+
+    void deleteReply(Long id);
 }

@@ -122,12 +122,12 @@ public class BoardServiceImpl implements BoardService {
 
     /**
      * 게시글 댓글 등록
-     * @param replyRegistrationDTO 댓글 정보
+     * @param boardReplyDTO 댓글 정보
      * @return 등록된 댓글의 ID
      */
     @Override
-    public Long registerReply(BoardReplyDTO replyRegistrationDTO) {
-        BoardReply reply = BoardReplyConverter.replyDTOToReply(replyRegistrationDTO);
+    public Long registerReply(BoardReplyDTO boardReplyDTO) {
+        BoardReply reply = BoardReplyConverter.replyDTOToReply(boardReplyDTO);
         BoardReply save = boardReplyRepository.save(reply);
         return save.getId();
     }
@@ -158,4 +158,32 @@ public class BoardServiceImpl implements BoardService {
                 .map(BoardReplyConverter::replyToReplyListDTO)
                 .collect(Collectors.toList());
     }
+
+    /**
+     * 게시글의 댓글 수정
+     * @param boardReplyDTO 수정한 댓글 정보
+     */
+    @Override
+    public void modifyReply(BoardReplyDTO boardReplyDTO) {
+        Optional<BoardReply> optionalBoardReply = boardReplyRepository.findById(boardReplyDTO.getId());
+        if (!optionalBoardReply.isPresent()) throw new IllegalArgumentException();
+
+        BoardReply boardReply = optionalBoardReply.get();
+        boardReply.setContent(boardReplyDTO.getContent());
+
+        boardReplyRepository.save(boardReply);
+    }
+
+    /**
+     * 게시글의 댓글 삭제
+     * @param id 삭제할 댓글의 id
+     */
+    @Override
+    public void deleteReply(Long id) {
+        Optional<BoardReply> optionalBoardReply = boardReplyRepository.findById(id);
+        if (!optionalBoardReply.isPresent()) throw new IllegalArgumentException();
+
+        boardReplyRepository.delete(optionalBoardReply.get());
+    }
+
 }

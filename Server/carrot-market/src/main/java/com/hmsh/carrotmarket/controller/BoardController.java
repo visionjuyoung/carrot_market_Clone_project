@@ -72,15 +72,16 @@ public class BoardController {
         return new CResponseEntity<>(true, StatusCode.OK, null);
     }
 
+
     /**
      * 동네생활 게시글 댓글 등록
-     * @param replyRegistrationDTO 댓글 정보
+     * @param boardReplyDTO 댓글 정보
      * @return 등록된 댓글의 ID
      */
     @PostMapping("/reply")
-    public CResponseEntity<Long> registerBoardReply(@RequestBody BoardReplyDTO replyRegistrationDTO) {
-        log.info("게시글 댓글 등록 replyRegDTO = {}", replyRegistrationDTO);
-        Long id = boardService.registerReply(replyRegistrationDTO);
+    public CResponseEntity<Long> registerBoardReply(@RequestBody BoardReplyDTO boardReplyDTO) {
+        log.info("게시글 댓글 등록 boardReplyDTO = {}", boardReplyDTO);
+        Long id = boardService.registerReply(boardReplyDTO);
         return new CResponseEntity<>(true, StatusCode.OK, id);
     }
 
@@ -92,6 +93,7 @@ public class BoardController {
     @GetMapping("/reply/{id}")
     public CResponseEntity<BoardReplyDTO> getBoardReply(@PathVariable Long id) {
         BoardReplyDTO reply = boardService.getReply(id);
+        log.info("게시글 댓글 조회 reply = {}", reply);
         return new CResponseEntity<>(true, StatusCode.OK, reply);
     }
 
@@ -104,5 +106,29 @@ public class BoardController {
     public CResponseEntity<List<BoardReplyListDTO>> getBoardReplies(@PathVariable Long id) {
         List<BoardReplyListDTO> replyList = boardService.getReplyList(id);
         return new CResponseEntity<>(true, StatusCode.OK, replyList);
+    }
+
+    /**
+     * 동네생활 게시글 댓글 수정
+     * @param boardReplyDTO 수정한 댓글 정보
+     * @return null
+     */
+    @PatchMapping("/reply")
+    public CResponseEntity<Object> modifyBoardReply(@RequestBody BoardReplyDTO boardReplyDTO) {
+        log.info("게시글 댓글 수정 boardReplyDTO = {}", boardReplyDTO);
+        boardService.modifyReply(boardReplyDTO);
+        return new CResponseEntity<>(true, StatusCode.OK, null);
+    }
+
+    /**
+     * 동네생활 게시글 삭제
+     * @param id 삭제할 댓글의 ID
+     * @return null
+     */
+    @DeleteMapping("reply/{id}")
+    public CResponseEntity<Object> deleteBoardReply(@PathVariable Long id) {
+        log.info("게시글 댓글 삭제 id = {}", id);
+        boardService.deleteReply(id);
+        return new CResponseEntity<>(true, StatusCode.OK, null);
     }
 }
