@@ -2,7 +2,10 @@ package com.hmsh.carrotmarket.service;
 
 import com.hmsh.carrotmarket.dto.BoardDTO;
 import com.hmsh.carrotmarket.dto.BoardReplyDTO;
+import com.hmsh.carrotmarket.dto.BoardReplyListDTO;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 public interface BoardService {
 
@@ -19,4 +22,6 @@ public interface BoardService {
     Long registerReply(BoardReplyDTO boardReplyRegistrationDTO);
 
     BoardReplyDTO getReply(Long id);
+
+    List<BoardReplyListDTO> getReplyList(Long id);
 }

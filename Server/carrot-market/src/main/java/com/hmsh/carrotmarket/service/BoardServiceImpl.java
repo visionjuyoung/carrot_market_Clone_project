@@ -5,6 +5,7 @@ import com.hmsh.carrotmarket.converter.BoardReplyConverter;
 import com.hmsh.carrotmarket.converter.ImageConverter;
 import com.hmsh.carrotmarket.dto.BoardDTO;
 import com.hmsh.carrotmarket.dto.BoardReplyDTO;
+import com.hmsh.carrotmarket.dto.BoardReplyListDTO;
 import com.hmsh.carrotmarket.dto.ImageDTO;
 import com.hmsh.carrotmarket.entity.Board;
 import com.hmsh.carrotmarket.entity.BoardImage;
@@ -143,5 +144,18 @@ public class BoardServiceImpl implements BoardService {
 
         BoardReply boardReply = optionalBoardReply.get();
         return BoardReplyConverter.replyToReplyDTO(boardReply);
+    }
+
+    /**
+     * 게시글의 댓글 리스트 조회
+     * @param id Board(게시글) ID
+     * @return 게시글의 댓글 리스트
+     */
+    @Override
+    public List<BoardReplyListDTO> getReplyList(Long id) {
+        List<BoardReply> replyList = boardReplyRepository.findAllByBoard(Board.builder().id(id).build());
+        return replyList.stream()
+                .map(BoardReplyConverter::replyToReplyListDTO)
+                .collect(Collectors.toList());
     }
 }

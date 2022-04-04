@@ -3,12 +3,15 @@ package com.hmsh.carrotmarket.controller;
 import com.hmsh.carrotmarket.CResponseEntity;
 import com.hmsh.carrotmarket.dto.BoardDTO;
 import com.hmsh.carrotmarket.dto.BoardReplyDTO;
+import com.hmsh.carrotmarket.dto.BoardReplyListDTO;
 import com.hmsh.carrotmarket.enumeration.StatusCode;
 import com.hmsh.carrotmarket.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @RestController
 @Slf4j
@@ -90,5 +93,16 @@ public class BoardController {
     public CResponseEntity<BoardReplyDTO> getBoardReply(@PathVariable Long id) {
         BoardReplyDTO reply = boardService.getReply(id);
         return new CResponseEntity<>(true, StatusCode.OK, reply);
+    }
+
+    /**
+     * 동네생활 게시글 댓글 리스트 조회
+     * @param id 게시글 ID
+     * @return 게시글의 댓글 리스트
+     */
+    @GetMapping("/{id}/replies")
+    public CResponseEntity<List<BoardReplyListDTO>> getBoardReplies(@PathVariable Long id) {
+        List<BoardReplyListDTO> replyList = boardService.getReplyList(id);
+        return new CResponseEntity<>(true, StatusCode.OK, replyList);
     }
 }
