@@ -2,10 +2,7 @@ package com.hmsh.carrotmarket.service;
 
 import com.hmsh.carrotmarket.converter.ImageConverter;
 import com.hmsh.carrotmarket.converter.ProductConverter;
-import com.hmsh.carrotmarket.dto.ImageDTO;
-import com.hmsh.carrotmarket.dto.PageRequestDTO;
-import com.hmsh.carrotmarket.dto.ProductDTO;
-import com.hmsh.carrotmarket.dto.ProductListDTO;
+import com.hmsh.carrotmarket.dto.*;
 import com.hmsh.carrotmarket.entity.Likes;
 import com.hmsh.carrotmarket.entity.Member;
 import com.hmsh.carrotmarket.entity.Product;
@@ -196,6 +193,51 @@ public class ProductServiceImpl implements ProductService {
 
         Product product = optionalProduct.get();
         product.setTradeStatus(tradeStatus);
+        productRepository.save(product);
+    }
+
+    /**
+     * 좋아요 등록
+     * @param likesDTO 좋아요 등록 멤버와 상품 정보
+     * @return 좋아요 등록 ID
+     */
+    @Override
+    @Transactional
+    public Long registerLikes(LikesDTO likesDTO) {
+        Likes likes = Likes.builder()
+                .member(Member.builder().phoneNumber(likesDTO.getPhoneNumber()).build())
+                .product(Product.builder().id(likesDTO.getProductId()).build())
+                .build();
+
+        Likes save = likesRepository.save(likes);
+
+        Optional<Product> optionalProduct = productRepository.findById(likesDTO.getProductId());
+        if (!optionalProduct.isPresent()) throw new IllegalArgumentException();
+
+        Product product = optionalProduct.get();
+        product.setLikes(product.getLikes() + 1);
+        productRepository.save(product);
+
+        return save.getId();
+    }
+
+    /**
+     * 좋아요 삭제
+     * @param likesDTO 좋아요 등록 멤버와 상품 정보
+     */
+    @Override
+    @Transactional
+    public void removeLikes(LikesDTO likesDTO) {
+        likesRepository.deleteLikesByMemberAndProduct(
+                Member.builder().phoneNumber(likesDTO.getPhoneNumber()).build(),
+                Product.builder().id(likesDTO.getProductId()).build()
+        );
+
+        Optional<Product> optionalProduct = productRepository.findById(likesDTO.getProductId());
+        if (!optionalProduct.isPresent()) throw new IllegalArgumentException();
+
+        Product product = optionalProduct.get();
+        product.setLikes(product.getLikes() - 1);
         productRepository.save(product);
     }
 

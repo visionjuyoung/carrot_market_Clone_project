@@ -1,5 +1,6 @@
 package com.hmsh.carrotmarket.service;
 
+import com.hmsh.carrotmarket.dto.LikesDTO;
 import com.hmsh.carrotmarket.dto.PageRequestDTO;
 import com.hmsh.carrotmarket.dto.ProductDTO;
 import com.hmsh.carrotmarket.dto.ProductListDTO;
@@ -25,4 +26,8 @@ public interface ProductService {
     List<ProductListDTO> getMyProducts(String phoneNumber);
 
     void changeTradeStatus(Long productId, TradeStatus tradeStatus) throws IllegalArgumentException;
+
+    Long registerLikes(LikesDTO likesDTO);
+
+    void removeLikes(LikesDTO likesDTO);
 }
