@@ -1,6 +1,7 @@
 package com.hmsh.carrotmarket.controller;
 
 import com.hmsh.carrotmarket.CResponseEntity;
+import com.hmsh.carrotmarket.dto.LikesDTO;
 import com.hmsh.carrotmarket.enumeration.StatusCode;
 import com.hmsh.carrotmarket.dto.PageRequestDTO;
 import com.hmsh.carrotmarket.dto.ProductDTO;
@@ -33,13 +34,8 @@ public class ProductController {
     @PostMapping("")
     public CResponseEntity<Long> register(ProductDTO productDTO, MultipartFile[] files) {
         log.info("상품 등록 productDTO = {}", productDTO);
-        try {
-            Long returnId = productService.register(productDTO, files);
-            return new CResponseEntity<>(true, StatusCode.OK, returnId);
-        } catch (DataIntegrityViolationException dataIntegrityViolationException) {
-            log.info("파라미터 형식이 맞지 않음", dataIntegrityViolationException);
-            return new CResponseEntity<>(false, StatusCode.BAD_REQUEST, null);
-        }
+        Long returnId = productService.register(productDTO, files);
+        return new CResponseEntity<>(true, StatusCode.OK, returnId);
     }
 
     /**
@@ -67,7 +63,8 @@ public class ProductController {
      * @return 상품 리스트
      */
     @GetMapping("/list")
-    public CResponseEntity<List<ProductListDTO>> getList(@RequestParam String address, PageRequestDTO pageRequestDTO) {
+    public CResponseEntity<List<ProductListDTO>> getList(@RequestParam String address,
+                                                         PageRequestDTO pageRequestDTO) {
         log.info("상품 리스트 조회 address = {}", address);
         List<ProductListDTO> list = productService.getList(pageRequestDTO, address);
         return new CResponseEntity<>(true, StatusCode.OK, list);
@@ -105,18 +102,6 @@ public class ProductController {
     }
 
     /**
-     * 좋아요 상품 조회
-     * @param phoneNumber 회원 전화번호
-     * @return 좋아요 상품 리스트
-     */
-    @GetMapping("/likes/{phoneNumber}")
-    public CResponseEntity<List<ProductListDTO>> getLikesProducts(@PathVariable String phoneNumber) {
-        log.info("좋아요 상품 리스트 phoneNumber = {}", phoneNumber);
-        List<ProductListDTO> likesList = productService.getLikesList(phoneNumber);
-        return new CResponseEntity<>(true, StatusCode.OK, likesList);
-    }
-
-    /**
      * 나의 판매목록 조회
      * @param phoneNumber 조회할 회원 전화번호
      * @return 나의 판매 상품 리스트
@@ -138,13 +123,43 @@ public class ProductController {
     public CResponseEntity<Object> changeTradeStatus(@PathVariable Long productId,
                                                      @PathVariable TradeStatus tradeStatus) {
         log.info("상품 상태 변경 productId = {}, tradeStatus = {}", productId, tradeStatus);
-        try {
-            productService.changeTradeStatus(productId, tradeStatus);
-            return new CResponseEntity<>(true, StatusCode.OK, null);
-        } catch (IllegalArgumentException ie) {
-            log.info(ie.toString());
-            return new CResponseEntity<>(false, StatusCode.BAD_REQUEST,
-                    "해당 ID를 가진 상품을 찾을 수 없음", null);
-        }
+        productService.changeTradeStatus(productId, tradeStatus);
+        return new CResponseEntity<>(true, StatusCode.OK, null);
+    }
+
+    /**
+     * 좋아요 상품 조회
+     * @param phoneNumber 회원 전화번호
+     * @return 좋아요 상품 리스트
+     */
+    @GetMapping("/likes/{phoneNumber}")
+    public CResponseEntity<List<ProductListDTO>> getLikesProducts(@PathVariable String phoneNumber) {
+        log.info("좋아요 상품 리스트 phoneNumber = {}", phoneNumber);
+        List<ProductListDTO> likesList = productService.getLikesList(phoneNumber);
+        return new CResponseEntity<>(true, StatusCode.OK, likesList);
+    }
+
+    /**
+     * 좋아요 등록
+     * @param likesDTO 좋아요 등록 멤버와 상품 정보
+     * @return 좋아요 등록 ID
+     */
+    @PostMapping("/likes")
+    public CResponseEntity<Long> register(@RequestBody LikesDTO likesDTO) {
+        log.info("좋아요 등록 likesDTO = {}", likesDTO);
+        Long savedId = productService.registerLikes(likesDTO);
+        return new CResponseEntity<>(true, StatusCode.OK, savedId);
+    }
+
+    /**
+     * 좋아요 삭제
+     * @param likesDTO 좋아요 등록 멤버와 상품 정보
+     * @return responseEntity
+     */
+    @DeleteMapping("/likes")
+    public CResponseEntity<Object> remove(@RequestBody LikesDTO likesDTO) {
+        log.info("좋아요 삭제 likesDTO = {}", likesDTO);
+        productService.removeLikes(likesDTO);
+        return new CResponseEntity<>(true, StatusCode.OK, null);
     }
 }
