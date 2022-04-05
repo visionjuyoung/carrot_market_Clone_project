@@ -9,6 +9,8 @@ import UIKit
 
 class firstProductDetailTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var prodcutImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

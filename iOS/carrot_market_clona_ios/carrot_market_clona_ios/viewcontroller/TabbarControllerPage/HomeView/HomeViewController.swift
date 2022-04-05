@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
     lazy var showListDataManager: ShowListDataManager = ShowListDataManager()
     lazy var loadImageDataManager: LoadImageDataManager = LoadImageDataManager()
     
+    @IBOutlet weak var addressLabel: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addProductButton: UIButton!
     
@@ -22,6 +23,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(userInfoManager.jwt)
+        addressLabel.titleLabel?.text = userInfoManager.address
         setInit()
     }
     
@@ -76,14 +78,17 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "ProductDetailViewController") as? ProductDetailViewController else { return }
+        vc.tempProductResult = tempListResult[indexPath.row]
+        present(vc, animated: true)
+    }
 }
 
 extension HomeViewController {
     func didSuccessShowList(showListResult: ShowListResponse) {
         tempListResult = showListResult.result
-        for i in tempListResult {
-            print(i)
-        }
         tableView.reloadData()
     }
 }

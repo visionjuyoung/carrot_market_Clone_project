@@ -51,16 +51,27 @@
                             <constraint firstAttribute="width" secondItem="LCM-xl-odV" secondAttribute="height" multiplier="1:1" id="jsk-oB-d2n"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7P6-M6-3Ud">
+                        <rect key="frame" x="292" y="170" width="68" height="96"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="68" id="2Y9-hK-t4U"/>
+                            <constraint firstAttribute="height" constant="96" id="59b-cB-BFk"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="y06-fW-Gsd" firstAttribute="height" secondItem="qOr-BK-pfE" secondAttribute="height" multiplier="0.100503" id="7fd-z2-d9R"/>
                     <constraint firstItem="h4z-53-qyN" firstAttribute="bottom" secondItem="Ohg-Tp-gk8" secondAttribute="bottom" constant="-7" id="8ho-dv-qZ8"/>
                     <constraint firstItem="LCM-xl-odV" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.05" id="9Yr-U7-BII"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="7P6-M6-3Ud" secondAttribute="trailing" constant="34" id="9dI-xl-iKG"/>
                     <constraint firstItem="qOr-BK-pfE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="HCY-1E-rpF"/>
                     <constraint firstItem="Ohg-Tp-gk8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="HiZ-HF-HmU"/>
                     <constraint firstItem="Ohg-Tp-gk8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="I3P-Xf-4b4"/>
                     <constraint firstItem="LCM-xl-odV" firstAttribute="centerY" secondItem="Ohg-Tp-gk8" secondAttribute="centerY" id="IZZ-Fu-Pqi"/>
                     <constraint firstItem="qOr-BK-pfE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Juw-pF-YRA"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="7P6-M6-3Ud" secondAttribute="bottom" constant="7" id="LZd-3l-rBK"/>
                     <constraint firstItem="qOr-BK-pfE" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.663333" id="QlZ-zF-7MZ"/>
                     <constraint firstItem="gZH-mY-mmr" firstAttribute="top" secondItem="Ohg-Tp-gk8" secondAttribute="top" constant="8" id="Tqq-ry-dza"/>
                     <constraint firstAttribute="bottom" secondItem="qOr-BK-pfE" secondAttribute="bottom" id="ZYR-ke-Xkq"/>
@@ -79,6 +90,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="addressLabel" destination="h4z-53-qyN" id="wCO-eR-Yag"/>
+                <outlet property="heartButton" destination="7P6-M6-3Ud" id="7R5-5M-ev4"/>
                 <outlet property="nameLabel" destination="gZH-mY-mmr" id="ZHg-FS-732"/>
                 <outlet property="profileImage" destination="Ohg-Tp-gk8" id="ZuO-RW-cq7"/>
             </connections>

@@ -51,6 +51,13 @@
 		4BB9657727D0BD9800E41D0C /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9657627D0BD9800E41D0C /* NearbyViewController.swift */; };
 		4BB9657927D0BDAB00E41D0C /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9657827D0BDAB00E41D0C /* ChattingViewController.swift */; };
 		4BB9657B27D0BDBB00E41D0C /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB9657A27D0BDBB00E41D0C /* MyViewController.swift */; };
+		4BBAD4ED27FBFD6A00B7381A /* ProductDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAD4EC27FBFD6A00B7381A /* ProductDetailResponse.swift */; };
+		4BBAD4F127FBFD8A00B7381A /* ProductDetailDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAD4F027FBFD8A00B7381A /* ProductDetailDataManager.swift */; };
+		4BBAD4F427FC2A2C00B7381A /* HeartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAD4F327FC2A2C00B7381A /* HeartViewController.swift */; };
+		4BBAD4F827FC2C8F00B7381A /* LoadHeartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAD4F727FC2C8F00B7381A /* LoadHeartResponse.swift */; };
+		4BBAD4FC27FC2D7300B7381A /* HeartDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAD4FB27FC2D7300B7381A /* HeartDataManager.swift */; };
+		4BBAD50027FC304400B7381A /* HeartListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAD4FE27FC304400B7381A /* HeartListTableViewCell.swift */; };
+		4BBAD50127FC304400B7381A /* HeartListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BBAD4FF27FC304400B7381A /* HeartListTableViewCell.xib */; };
 		4BBE4EC427F03F4300E08165 /* SelectProductCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE4EC327F03F4300E08165 /* SelectProductCategoryViewController.swift */; };
 		4BBE4EC927F07B3A00E08165 /* ShowListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE4EC827F07B3A00E08165 /* ShowListResponse.swift */; };
 		4BBE4ECB27F07B4700E08165 /* ShowListDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE4ECA27F07B4700E08165 /* ShowListDataManager.swift */; };
@@ -118,6 +125,13 @@
 		4BB9657627D0BD9800E41D0C /* NearbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyViewController.swift; sourceTree = "<group>"; };
 		4BB9657827D0BDAB00E41D0C /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
 		4BB9657A27D0BDBB00E41D0C /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		4BBAD4EC27FBFD6A00B7381A /* ProductDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailResponse.swift; sourceTree = "<group>"; };
+		4BBAD4F027FBFD8A00B7381A /* ProductDetailDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailDataManager.swift; sourceTree = "<group>"; };
+		4BBAD4F327FC2A2C00B7381A /* HeartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartViewController.swift; sourceTree = "<group>"; };
+		4BBAD4F727FC2C8F00B7381A /* LoadHeartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadHeartResponse.swift; sourceTree = "<group>"; };
+		4BBAD4FB27FC2D7300B7381A /* HeartDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartDataManager.swift; sourceTree = "<group>"; };
+		4BBAD4FE27FC304400B7381A /* HeartListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartListTableViewCell.swift; sourceTree = "<group>"; };
+		4BBAD4FF27FC304400B7381A /* HeartListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeartListTableViewCell.xib; sourceTree = "<group>"; };
 		4BBE4EC327F03F4300E08165 /* SelectProductCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProductCategoryViewController.swift; sourceTree = "<group>"; };
 		4BBE4EC827F07B3A00E08165 /* ShowListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListResponse.swift; sourceTree = "<group>"; };
 		4BBE4ECA27F07B4700E08165 /* ShowListDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListDataManager.swift; sourceTree = "<group>"; };
@@ -194,6 +208,7 @@
 				4B9123F127D6030C0052D546 /* MyViewFirstSectionTableViewCell.xib */,
 				4B9123F427D6031D0052D546 /* MyViewSecondSectionTableViewCell.swift */,
 				4B9123F527D6031D0052D546 /* MyViewSecondSectionTableViewCell.xib */,
+				4BBAD4FD27FC300A00B7381A /* HeartViewController */,
 			);
 			path = MyViewController;
 			sourceTree = "<group>";
@@ -214,7 +229,7 @@
 				4BB9657427D0BD8D00E41D0C /* TownViewController.swift */,
 				4BB9657627D0BD9800E41D0C /* NearbyViewController.swift */,
 				4BB9657827D0BDAB00E41D0C /* ChattingViewController.swift */,
-				4BB9657A27D0BDBB00E41D0C /* MyViewController.swift */,
+				4BBAD4F227FC2A0800B7381A /* MyView */,
 			);
 			path = TabbarControllerPage;
 			sourceTree = "<group>";
@@ -334,6 +349,50 @@
 			path = viewcontroller;
 			sourceTree = "<group>";
 		};
+		4BBAD4EB27FBFD5700B7381A /* ProductDetail */ = {
+			isa = PBXGroup;
+			children = (
+				4BBAD4EC27FBFD6A00B7381A /* ProductDetailResponse.swift */,
+				4BBAD4F027FBFD8A00B7381A /* ProductDetailDataManager.swift */,
+			);
+			path = ProductDetail;
+			sourceTree = "<group>";
+		};
+		4BBAD4F227FC2A0800B7381A /* MyView */ = {
+			isa = PBXGroup;
+			children = (
+				4BB9657A27D0BDBB00E41D0C /* MyViewController.swift */,
+				4BBAD4F327FC2A2C00B7381A /* HeartViewController.swift */,
+			);
+			path = MyView;
+			sourceTree = "<group>";
+		};
+		4BBAD4F527FC2C5E00B7381A /* My */ = {
+			isa = PBXGroup;
+			children = (
+				4BBAD4F627FC2C7900B7381A /* Heart */,
+			);
+			path = My;
+			sourceTree = "<group>";
+		};
+		4BBAD4F627FC2C7900B7381A /* Heart */ = {
+			isa = PBXGroup;
+			children = (
+				4BBAD4F727FC2C8F00B7381A /* LoadHeartResponse.swift */,
+				4BBAD4FB27FC2D7300B7381A /* HeartDataManager.swift */,
+			);
+			path = Heart;
+			sourceTree = "<group>";
+		};
+		4BBAD4FD27FC300A00B7381A /* HeartViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4BBAD4FE27FC304400B7381A /* HeartListTableViewCell.swift */,
+				4BBAD4FF27FC304400B7381A /* HeartListTableViewCell.xib */,
+			);
+			path = HeartViewController;
+			sourceTree = "<group>";
+		};
 		4BBE4EC227F027DD00E08165 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +404,7 @@
 		4BBE4EC527F07ABB00E08165 /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				4BBAD4EB27FBFD5700B7381A /* ProductDetail */,
 				4B314ACB27F44BA200ABC0BF /* RegisterProduct */,
 				4BBE4EC727F07B1600E08165 /* ShowList */,
 			);
@@ -363,6 +423,7 @@
 		4BD6D2C327E1C5D6004B71B3 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				4BBAD4F527FC2C5E00B7381A /* My */,
 				4BBE4EC527F07ABB00E08165 /* Product */,
 				4BD6D2C427E1C60E004B71B3 /* SignIn,LogIn */,
 			);
@@ -511,6 +572,7 @@
 				4B9123F727D6031D0052D546 /* MyViewSecondSectionTableViewCell.xib in Resources */,
 				4B314ADA27F6E6D500ABC0BF /* secondProductDetailTableViewCell.xib in Resources */,
 				4B9123F327D6030C0052D546 /* MyViewFirstSectionTableViewCell.xib in Resources */,
+				4BBAD50127FC304400B7381A /* HeartListTableViewCell.xib in Resources */,
 				4B91241727D9E7DE0052D546 /* SetLocationViewTableViewCell.xib in Resources */,
 				4B314ADE27F6E6E300ABC0BF /* thirdProductDetailTableViewCell.xib in Resources */,
 				4B314AE627F6E71000ABC0BF /* fifthProductDetailTableViewCell.xib in Resources */,
@@ -583,6 +645,7 @@
 				4B9123F627D6031D0052D546 /* MyViewSecondSectionTableViewCell.swift in Sources */,
 				4BD6D2D027E1D415004B71B3 /* PhoneCertificationConfirmRequest.swift in Sources */,
 				4B314AE127F6E70100ABC0BF /* firthProductDetailTableViewCell.swift in Sources */,
+				4BBAD4FC27FC2D7300B7381A /* HeartDataManager.swift in Sources */,
 				4B314AD927F6E6D500ABC0BF /* secondProductDetailTableViewCell.swift in Sources */,
 				4BD6D2E027E4870E004B71B3 /* SignUpDataManager.swift in Sources */,
 				4BA63E9127D35AAB003DDEF0 /* ChattingViewTableViewCell.swift in Sources */,
@@ -596,6 +659,7 @@
 				4B314ACD27F44BC600ABC0BF /* RegisterProductResponse.swift in Sources */,
 				4B314ACA27F2D8B300ABC0BF /* ProductDetailViewController.swift in Sources */,
 				4B91242027E05E7E0052D546 /* AddProductViewController.swift in Sources */,
+				4BBAD50027FC304400B7381A /* HeartListTableViewCell.swift in Sources */,
 				4BD6D2CA27E1C718004B71B3 /* PhoneCertificationDataManager.swift in Sources */,
 				4BD6D2CE27E1D3B2004B71B3 /* PhoneCertificationConfirmResponse.swift in Sources */,
 				4B91241B27DF26180052D546 /* SetProfileViewController.swift in Sources */,
@@ -604,6 +668,7 @@
 				4BD6D2D927E32C72004B71B3 /* LogInDataManager.swift in Sources */,
 				4BD6D2DE27E486EF004B71B3 /* SignUpResponse.swift in Sources */,
 				4BD6D2D727E32C60004B71B3 /* LogInResponse.swift in Sources */,
+				4BBAD4F127FBFD8A00B7381A /* ProductDetailDataManager.swift in Sources */,
 				4B91241027D9BCF00052D546 /* StartViewController.swift in Sources */,
 				4BD6D2DC27E486A6004B71B3 /* SignUpRequest.swift in Sources */,
 				4BBE4ECB27F07B4700E08165 /* ShowListDataManager.swift in Sources */,
@@ -611,8 +676,11 @@
 				4B91241E27E055740052D546 /* SelectHomeDetailViewController.swift in Sources */,
 				4B91241227D9BD080052D546 /* PhoneAutentificationViewController.swift in Sources */,
 				4BB9657527D0BD8D00E41D0C /* TownViewController.swift in Sources */,
+				4BBAD4F427FC2A2C00B7381A /* HeartViewController.swift in Sources */,
+				4BBAD4ED27FBFD6A00B7381A /* ProductDetailResponse.swift in Sources */,
 				4BD6D2E227E9DF3C004B71B3 /* UserInfo.swift in Sources */,
 				4B91240C27D746EA0052D546 /* SetLocationViewController.swift in Sources */,
+				4BBAD4F827FC2C8F00B7381A /* LoadHeartResponse.swift in Sources */,
 				4BD6D2C827E1C690004B71B3 /* PhoneCertificationResponse.swift in Sources */,
 				4BB9657327D0BCF700E41D0C /* HomeViewController.swift in Sources */,
 				4BD6D2D527E32C55004B71B3 /* LogInRequest.swift in Sources */,

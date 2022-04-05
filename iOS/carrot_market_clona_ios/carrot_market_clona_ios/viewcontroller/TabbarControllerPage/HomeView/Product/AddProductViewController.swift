@@ -102,7 +102,6 @@ class AddProductViewController: UIViewController {
     }
     
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
-        print("눌림")
         let images: [UIImage?] = [imageView1.image, imageView2.image,imageView3.image]
         var tempImages: [Data] = []
         for img in images {
@@ -110,7 +109,6 @@ class AddProductViewController: UIViewController {
         }
         let param = RegisterProductRequest(title: titleTextField.text!, content: contentTextView.text!, address: userInfoManager.address, price: Int(priceTextField.text!)!, phoneNumber: userInfoManager.phoneNumber, file: tempImages)
         registerProductDataManager.signUp(delegate: self, withRequest: param)
-        print("datamanager 호출")
     }
     
     
@@ -119,4 +117,11 @@ class AddProductViewController: UIViewController {
         present(vc, animated: true, completion: nil)
     }
 
+}
+
+extension AddProductViewController {
+    func didSuccessRegistProduct() {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController else { return }
+        present(vc, animated: true)
+    }
 }

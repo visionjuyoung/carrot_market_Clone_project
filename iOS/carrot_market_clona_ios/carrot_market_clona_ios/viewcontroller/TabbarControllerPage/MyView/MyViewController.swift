@@ -55,6 +55,7 @@ extension MyViewController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyViewFirstSectionTableViewCell", for: indexPath) as? MyViewFirstSectionTableViewCell else { return UITableViewCell() }
             let url = loadImageDataManager.loadImage(filepath: userInfoManager.imagePath)
             cell.setData(name: userInfoManager.name, address: userInfoManager.address, code: userInfoManager.userCode , image: url)
+            cell.heartButton.addTarget(self, action: #selector(pressBtn(_button:)), for: .touchUpInside)
             return cell
             
         case 1...5:
@@ -90,5 +91,14 @@ extension MyViewController: UITableViewDelegate, UITableViewDataSource {
 extension MyViewController {
     func didSuccessLoadImage() {
         print("success")
+    }
+}
+
+extension MyViewController {
+    @objc func pressBtn(_button: UIButton) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "HeartViewController") as? HeartViewController else {
+            return
+        }
+        present(vc, animated: true)
     }
 }
