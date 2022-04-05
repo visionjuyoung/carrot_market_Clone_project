@@ -15,13 +15,11 @@ public class Chat {
     @Id
     private String id;
 
-    private String roomId;
-
     private Long productId;
 
-    private String sender;
+    private String sellerId;
 
-    private String receiver;
+    private String senderId;
 
     private String message;
 

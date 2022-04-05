@@ -17,50 +17,21 @@ public class ChatService {
 
     private final ChatRepository chatRepository;
 
-    private final RoomRepository roomRepository;
 
-
-    public Flux<Chat> getMessage(Long productId, String user1, String user2) {
-        return chatRepository.getChatsBySenderAndReceiver(productId, user1, user2)
-                .subscribeOn(Schedulers.boundedElastic());
-    }
-
-    @Transactional
     public Mono<Chat> saveMessage(ChatDTO chatDTO) {
-        return Mono.just(chatDTO)
-                .map(this::convertToChat)
-                .flatMap(this::setRoomId)
-                .flatMap(chatRepository::save)
-                .subscribeOn(Schedulers.boundedElastic());
+        Chat chat = convertToChat(chatDTO);
+        return chatRepository.save(chat);
     }
 
-    public Flux<Chat> getUserChats(String user) {
-        return chatRepository.getChatsByUser(user)
-                .subscribeOn(Schedulers.boundedElastic());
-    }
-
-
-    private Mono<Chat> setRoomId(Chat chat) {
-        return roomRepository
-                .findRoomByProductIdAndBuyerOrSeller(chat.getProductId(), chat.getSender())
-                .defaultIfEmpty(Room.builder()
-                        .productId(chat.getProductId())
-                        .seller(chat.getReceiver())
-                        .buyer(chat.getSender())
-                        .productId(chat.getProductId())
-                        .build())
-                .flatMap(roomRepository::save)
-                .map((room -> {
-                    chat.setRoomId(room.getId());
-                    return chat;
-                }));
+    public Flux<Chat> getChatList(Long productId) {
+        return chatRepository.getAllByProductId(productId);
     }
 
     private Chat convertToChat(ChatDTO chatDTO) {
         return Chat.builder()
                 .productId(chatDTO.getProductId())
-                .sender(chatDTO.getSender())
-                .receiver(chatDTO.getReceiver())
+                .sellerId(chatDTO.getSellerId())
+                .senderId(chatDTO.getSenderId())
                 .message(chatDTO.getMessage())
                 .createdAt(LocalDateTime.now())
                 .build();

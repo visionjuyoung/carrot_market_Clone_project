@@ -12,7 +12,6 @@ public interface ChatRepository extends ReactiveMongoRepository<Chat, String> {
     Flux<Chat> getChatsBySenderAndReceiver(Long productId, String user1, String user2);
 
     @Tailable
-    @Query(value = "{$or: [{sender: ?0}, {receiver: ?0}]}")
-    Flux<Chat> getChatsByUser(String user);
+    Flux<Chat> getAllByProductId(Long productId);
 
 }
