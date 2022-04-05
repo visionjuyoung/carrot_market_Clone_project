@@ -117,6 +117,7 @@ public class BoardServiceImpl implements BoardService {
 
         Board board = optionalBoard.get();
         boardImageRepository.deleteAllByBoard(board);
+        boardReplyRepository.deleteAllByBoard(board);
         boardRepository.delete(board);
     }
 

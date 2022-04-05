@@ -3,6 +3,7 @@ package com.hmsh.carrotmarket.handler;
 import com.hmsh.carrotmarket.CResponseEntity;
 import com.hmsh.carrotmarket.enumeration.StatusCode;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.client.HttpServerErrorException;
@@ -20,6 +21,12 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(IllegalArgumentException.class)
     public CResponseEntity<Object> handleIllegalArgumentException(IllegalArgumentException e) {
         log.info("IllegalArgumentException", e);
+        return new CResponseEntity<>(false, StatusCode.BAD_REQUEST, null);
+    }
+
+    @ExceptionHandler(InvalidDataAccessApiUsageException.class)
+    public CResponseEntity<Object> handleInvalidDataAccessApiUsageException(InvalidDataAccessApiUsageException e) {
+        log.info("handleInvalidDataAccessApiUsageException", e);
         return new CResponseEntity<>(false, StatusCode.BAD_REQUEST, null);
     }
 }
