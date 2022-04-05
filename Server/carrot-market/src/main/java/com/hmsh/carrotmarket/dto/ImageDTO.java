@@ -12,6 +12,7 @@ import java.nio.charset.StandardCharsets;
 @Getter
 @Setter
 @Builder
+@ToString
 public class ImageDTO {
 
     private String uuid;

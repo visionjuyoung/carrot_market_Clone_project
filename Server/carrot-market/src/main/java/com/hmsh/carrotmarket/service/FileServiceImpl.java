@@ -59,8 +59,8 @@ public class FileServiceImpl implements FileService {
     public List<ImageDTO> uploadImageFiles(MultipartFile[] uploadFiles) {
 
         List<ImageDTO> imgDTOList = new ArrayList<>();
-
         for (MultipartFile multipartFile : uploadFiles) {
+            if (multipartFile.isEmpty()) continue;
 
             if (!Objects.requireNonNull(multipartFile.getContentType()).startsWith("image")) {
                 log.warn("업로드한 파일이 이미지 파일이 아님");

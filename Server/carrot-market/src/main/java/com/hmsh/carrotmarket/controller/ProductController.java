@@ -5,10 +5,11 @@ import com.hmsh.carrotmarket.enumeration.StatusCode;
 import com.hmsh.carrotmarket.dto.PageRequestDTO;
 import com.hmsh.carrotmarket.dto.ProductDTO;
 import com.hmsh.carrotmarket.dto.ProductListDTO;
+import com.hmsh.carrotmarket.enumeration.TradeStatus;
 import com.hmsh.carrotmarket.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.PropertyValueException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -35,12 +36,9 @@ public class ProductController {
         try {
             Long returnId = productService.register(productDTO, files);
             return new CResponseEntity<>(true, StatusCode.OK, returnId);
-        } catch (PropertyValueException pve) {
-            log.warn("파라미터 형식이 맞지 않음", pve);
+        } catch (DataIntegrityViolationException dataIntegrityViolationException) {
+            log.info("파라미터 형식이 맞지 않음", dataIntegrityViolationException);
             return new CResponseEntity<>(false, StatusCode.BAD_REQUEST, null);
-        } catch (Exception e) {
-            log.error("상품 등록 에러", e);
-            return new CResponseEntity<>(false, StatusCode.INTERNAL_SERVER_ERROR, null);
         }
     }
 
@@ -128,5 +126,25 @@ public class ProductController {
         log.info("나의 판매목록 조회 phoneNumber = {}", phoneNumber);
         List<ProductListDTO> myProductList = productService.getMyProducts(phoneNumber);
         return new CResponseEntity<>(true, StatusCode.OK, myProductList);
+    }
+
+    /**
+     * 상품의 거래상태 변경
+     * @param productId 상품 ID
+     * @param tradeStatus 거래 상태
+     * @return 작업 처리 결과
+     */
+    @PatchMapping("/{productId}/status/{tradeStatus}")
+    public CResponseEntity<Object> changeTradeStatus(@PathVariable Long productId,
+                                                     @PathVariable TradeStatus tradeStatus) {
+        log.info("상품 상태 변경 productId = {}, tradeStatus = {}", productId, tradeStatus);
+        try {
+            productService.changeTradeStatus(productId, tradeStatus);
+            return new CResponseEntity<>(true, StatusCode.OK, null);
+        } catch (IllegalArgumentException ie) {
+            log.info(ie.toString());
+            return new CResponseEntity<>(false, StatusCode.BAD_REQUEST,
+                    "해당 ID를 가진 상품을 찾을 수 없음", null);
+        }
     }
 }
