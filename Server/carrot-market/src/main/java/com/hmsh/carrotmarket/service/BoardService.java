@@ -19,7 +19,7 @@ public interface BoardService {
     void delete(Long id);
 
     // BoardReply
-    Long registerReply(BoardReplyDTO boardReplyDTO);
+    Long registerReply(BoardReplyDTO boardReplyDTO, MultipartFile[] files);
 
     BoardReplyDTO getReply(Long id);
 

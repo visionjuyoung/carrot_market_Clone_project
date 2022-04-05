@@ -10,6 +10,7 @@ import com.hmsh.carrotmarket.dto.ImageDTO;
 import com.hmsh.carrotmarket.entity.Board;
 import com.hmsh.carrotmarket.entity.BoardImage;
 import com.hmsh.carrotmarket.entity.BoardReply;
+import com.hmsh.carrotmarket.entity.ProductImage;
 import com.hmsh.carrotmarket.repository.BoardImageRepository;
 import com.hmsh.carrotmarket.repository.BoardReplyRepository;
 import com.hmsh.carrotmarket.repository.BoardRepository;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -127,8 +129,19 @@ public class BoardServiceImpl implements BoardService {
      * @return 등록된 댓글의 ID
      */
     @Override
-    public Long registerReply(BoardReplyDTO boardReplyDTO) {
+    public Long registerReply(BoardReplyDTO boardReplyDTO, MultipartFile[] uploadFiles) {
         BoardReply reply = BoardReplyConverter.replyDTOToReply(boardReplyDTO);
+
+        if (!Objects.isNull(uploadFiles)) {
+            List<ImageDTO> imageDTOList = fileService.uploadImageFiles(uploadFiles);
+            List<BoardImage> boardImageList = imageDTOList.stream()
+                    .map(imageDTO -> ImageConverter.imageDTOToBoardReplyImage(imageDTO, reply))
+                    .collect(Collectors.toList());
+
+            log.info("save images = {}", imageDTOList);
+            boardImageRepository.saveAll(boardImageList);
+        }
+
         BoardReply save = boardReplyRepository.save(reply);
         return save.getId();
     }
@@ -144,7 +157,11 @@ public class BoardServiceImpl implements BoardService {
         if (!optionalBoardReply.isPresent()) throw new IllegalArgumentException();
 
         BoardReply boardReply = optionalBoardReply.get();
-        return BoardReplyConverter.replyToReplyDTO(boardReply);
+        List<String> imagePathList = boardImageRepository.findAllByBoardReply(boardReply).stream()
+                .map(ImageConverter::imageToImageDTO)
+                .map(ImageDTO::getImageURL)
+                .collect(Collectors.toList());
+        return BoardReplyConverter.replyToReplyDTO(boardReply, imagePathList);
     }
 
     /**
@@ -155,9 +172,17 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public List<BoardReplyListDTO> getReplyList(Long id) {
         List<BoardReply> replyList = boardReplyRepository.findAllByBoard(Board.builder().id(id).build());
-        return replyList.stream()
-                .map(BoardReplyConverter::replyToReplyListDTO)
-                .collect(Collectors.toList());
+        List<BoardReplyListDTO> boardReplyListDTO = new ArrayList<>();
+
+        for(BoardReply boardReply:replyList){
+            List<String> imagePathList = boardImageRepository.findAllByBoardReply(boardReply).stream()
+                    .map(ImageConverter::imageToImageDTO)
+                    .map(ImageDTO::getImageURL)
+                    .collect(Collectors.toList());
+            boardReplyListDTO.add(BoardReplyConverter.replyToReplyListDTO(boardReply, imagePathList));
+        }
+
+        return boardReplyListDTO;
     }
 
     /**

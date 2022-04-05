@@ -79,9 +79,9 @@ public class BoardController {
      * @return 등록된 댓글의 ID
      */
     @PostMapping("/reply")
-    public CResponseEntity<Long> registerBoardReply(@RequestBody BoardReplyDTO boardReplyDTO) {
+    public CResponseEntity<Long> registerBoardReply(@RequestBody BoardReplyDTO boardReplyDTO, MultipartFile[] file) {
         log.info("게시글 댓글 등록 boardReplyDTO = {}", boardReplyDTO);
-        Long id = boardService.registerReply(boardReplyDTO);
+        Long id = boardService.registerReply(boardReplyDTO, file);
         return new CResponseEntity<>(true, StatusCode.OK, id);
     }
 

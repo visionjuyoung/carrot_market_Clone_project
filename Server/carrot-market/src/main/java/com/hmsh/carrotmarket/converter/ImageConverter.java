@@ -23,6 +23,15 @@ public class ImageConverter {
                 .build();
     }
 
+    public static BoardImage imageDTOToBoardReplyImage(ImageDTO imageDTO, BoardReply board) {
+        return BoardImage.builder()
+                .boardReply(board)
+                .imgName(imageDTO.getImgName())
+                .path(imageDTO.getPath())
+                .uuid(imageDTO.getUuid())
+                .build();
+    }
+
     public static ImageDTO productImageToImageDTO(ProductImage productImage) {
         return ImageDTO.builder()
                 .imgName(productImage.getImgName())
