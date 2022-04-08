@@ -10,7 +10,6 @@ import Alamofire
 
 class RegisterProductDataManager {
     func signUp(delegate: AddProductViewController, withRequest: RegisterProductRequest) {
-        print("register 시작")
         
         let userInfoManager = UserInfo.shared
         let url = "http://ec2-52-78-102-243.ap-northeast-2.compute.amazonaws.com:8080/api/product"
@@ -39,8 +38,7 @@ class RegisterProductDataManager {
                 print(err)
                 return
             }
-            print(response)
-            print("상품 등록 성공")
+            delegate.didSuccessRegistProduct()
         }
     }
 }

@@ -8,10 +8,16 @@
 import UIKit
 
 class secondProductDetailTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        profileImageView.layer.cornerRadius = 20
+        profileImageView.layer.borderWidth = 1
+        profileImageView.layer.borderColor = UIColor.systemGray4.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
