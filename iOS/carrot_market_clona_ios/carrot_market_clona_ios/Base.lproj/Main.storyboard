@@ -768,13 +768,16 @@
                                 <rect key="frame" x="0.0" y="802" width="414" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dve-xP-Bli">
-                                        <rect key="frame" x="10" y="14.5" width="46" height="31"/>
+                                        <rect key="frame" x="10" y="14.5" width="45.5" height="31"/>
                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                                        <connections>
+                                            <action selector="pressHeart:" destination="heM-OE-IZw" eventType="touchUpInside" id="mTT-d4-JHp"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gph-6u-WG7">
-                                        <rect key="frame" x="66" y="10" width="1" height="40"/>
+                                        <rect key="frame" x="65.5" y="10" width="1" height="40"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.47660246350000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -782,13 +785,13 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ga5-eb-xbz">
-                                        <rect key="frame" x="87" y="10" width="45" height="21"/>
+                                        <rect key="frame" x="86.5" y="10" width="45" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가격 제안하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcT-pc-jML">
-                                        <rect key="frame" x="87" y="30.5" width="87.5" height="19.5"/>
+                                        <rect key="frame" x="86.5" y="30.5" width="87.5" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" name="carrotMarketColor"/>
                                         <nil key="highlightedColor"/>
@@ -843,6 +846,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="heartButton" destination="dve-xP-Bli" id="5A7-ht-QcK"/>
                         <outlet property="orderButton" destination="oAW-m0-2PX" id="zHz-nX-uhf"/>
                         <outlet property="priceLabel" destination="Ga5-eb-xbz" id="8rc-9b-jXV"/>
                         <outlet property="tableView" destination="kIK-0i-WbK" id="dEh-q4-oAO"/>

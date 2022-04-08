@@ -11,12 +11,15 @@ class ProductDetailViewController: UIViewController {
     
     lazy var loadImageDataManager = LoadImageDataManager()
     lazy var productDetailDataManager = ProductDetailDataManager()
+    lazy var heartDataManager = HeartDataManager()
     
     var userInfoManager = UserInfo.shared
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var orderButton: UIButton!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var heartButton: UIButton!
+    
     
     var tempProductResult: ShowListResult = ShowListResult()
     var tempDetailResult: ProductDetailResult = ProductDetailResult()
@@ -37,6 +40,20 @@ class ProductDetailViewController: UIViewController {
         tableView.register(UINib(nibName: "thirdProductDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "thirdProductDetailTableViewCell")
         tableView.register(UINib(nibName: "firthProductDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "firthProductDetailTableViewCell")
         tableView.register(UINib(nibName: "fifthProductDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "fifthProductDetailTableViewCell")
+    }
+    
+    @IBAction func pressHeart(_ sender: UIButton) {
+        if heartButton.isSelected == true {
+            heartButton.imageView?.image = UIImage(named: "heart")
+            heartButton.isSelected = false
+            let param = DeleteHeartRequest(phoneNumber: userInfoManager.phoneNumber, productId: tempDetailResult.id!)
+            heartDataManager.deleteHeart(delegate: self, parameter: param)
+        } else {
+            heartButton.imageView?.image = UIImage(named: "heart.fill")
+            heartButton.isSelected = true
+            let param = AddHeartRequest(phoneNumber: userInfoManager.phoneNumber, productId: tempDetailResult.id!)
+            heartDataManager.addHeart(delegate: self, parameter: param)
+        }
     }
     
     @IBAction func close(_ sender: UIBarButtonItem) {
@@ -103,7 +120,10 @@ extension ProductDetailViewController: UITableViewDelegate, UITableViewDataSourc
 extension ProductDetailViewController {
     func didSuccessLoadProductInfo(result: ProductDetailResult?) {
         tempDetailResult = result!
-        print(" 디테일 결과 : \(tempDetailResult)")
         tableView.reloadData()
+    }
+    
+    func didSuccessAddHeart(response: AddHeartResponse) {
+        print(response)
     }
 }

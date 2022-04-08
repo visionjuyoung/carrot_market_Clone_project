@@ -58,6 +58,10 @@
 		4BBAD4FC27FC2D7300B7381A /* HeartDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAD4FB27FC2D7300B7381A /* HeartDataManager.swift */; };
 		4BBAD50027FC304400B7381A /* HeartListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAD4FE27FC304400B7381A /* HeartListTableViewCell.swift */; };
 		4BBAD50127FC304400B7381A /* HeartListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BBAD4FF27FC304400B7381A /* HeartListTableViewCell.xib */; };
+		4BBAD50327FC398900B7381A /* AddHeartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAD50227FC398900B7381A /* AddHeartRequest.swift */; };
+		4BBAD50527FC39E100B7381A /* AddHeartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAD50427FC39E100B7381A /* AddHeartResponse.swift */; };
+		4BBAD507280007FE00B7381A /* DeleteHeartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAD506280007FE00B7381A /* DeleteHeartResponse.swift */; };
+		4BBAD5092800088000B7381A /* DeleteHeartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAD5082800088000B7381A /* DeleteHeartRequest.swift */; };
 		4BBE4EC427F03F4300E08165 /* SelectProductCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE4EC327F03F4300E08165 /* SelectProductCategoryViewController.swift */; };
 		4BBE4EC927F07B3A00E08165 /* ShowListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE4EC827F07B3A00E08165 /* ShowListResponse.swift */; };
 		4BBE4ECB27F07B4700E08165 /* ShowListDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE4ECA27F07B4700E08165 /* ShowListDataManager.swift */; };
@@ -132,6 +136,10 @@
 		4BBAD4FB27FC2D7300B7381A /* HeartDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartDataManager.swift; sourceTree = "<group>"; };
 		4BBAD4FE27FC304400B7381A /* HeartListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartListTableViewCell.swift; sourceTree = "<group>"; };
 		4BBAD4FF27FC304400B7381A /* HeartListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeartListTableViewCell.xib; sourceTree = "<group>"; };
+		4BBAD50227FC398900B7381A /* AddHeartRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHeartRequest.swift; sourceTree = "<group>"; };
+		4BBAD50427FC39E100B7381A /* AddHeartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHeartResponse.swift; sourceTree = "<group>"; };
+		4BBAD506280007FE00B7381A /* DeleteHeartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteHeartResponse.swift; sourceTree = "<group>"; };
+		4BBAD5082800088000B7381A /* DeleteHeartRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteHeartRequest.swift; sourceTree = "<group>"; };
 		4BBE4EC327F03F4300E08165 /* SelectProductCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProductCategoryViewController.swift; sourceTree = "<group>"; };
 		4BBE4EC827F07B3A00E08165 /* ShowListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListResponse.swift; sourceTree = "<group>"; };
 		4BBE4ECA27F07B4700E08165 /* ShowListDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListDataManager.swift; sourceTree = "<group>"; };
@@ -380,6 +388,10 @@
 			children = (
 				4BBAD4F727FC2C8F00B7381A /* LoadHeartResponse.swift */,
 				4BBAD4FB27FC2D7300B7381A /* HeartDataManager.swift */,
+				4BBAD50227FC398900B7381A /* AddHeartRequest.swift */,
+				4BBAD50427FC39E100B7381A /* AddHeartResponse.swift */,
+				4BBAD506280007FE00B7381A /* DeleteHeartResponse.swift */,
+				4BBAD5082800088000B7381A /* DeleteHeartRequest.swift */,
 			);
 			path = Heart;
 			sourceTree = "<group>";
@@ -639,11 +651,14 @@
 				4B91240A27D604870052D546 /* MyCarrotCellList.swift in Sources */,
 				4BBE4EC427F03F4300E08165 /* SelectProductCategoryViewController.swift in Sources */,
 				4B91241927D9F80F0052D546 /* PhoneAutentificationSignInStateViewController.swift in Sources */,
+				4BBAD507280007FE00B7381A /* DeleteHeartResponse.swift in Sources */,
 				4BB9655E27D08F4600E41D0C /* AppDelegate.swift in Sources */,
 				4B314AD127F44BE500ABC0BF /* RegisterProductDataManager.swift in Sources */,
 				4B91241627D9E7DE0052D546 /* SetLocationViewTableViewCell.swift in Sources */,
 				4B9123F627D6031D0052D546 /* MyViewSecondSectionTableViewCell.swift in Sources */,
+				4BBAD5092800088000B7381A /* DeleteHeartRequest.swift in Sources */,
 				4BD6D2D027E1D415004B71B3 /* PhoneCertificationConfirmRequest.swift in Sources */,
+				4BBAD50527FC39E100B7381A /* AddHeartResponse.swift in Sources */,
 				4B314AE127F6E70100ABC0BF /* firthProductDetailTableViewCell.swift in Sources */,
 				4BBAD4FC27FC2D7300B7381A /* HeartDataManager.swift in Sources */,
 				4B314AD927F6E6D500ABC0BF /* secondProductDetailTableViewCell.swift in Sources */,
@@ -658,6 +673,7 @@
 				4B9123F227D6030C0052D546 /* MyViewFirstSectionTableViewCell.swift in Sources */,
 				4B314ACD27F44BC600ABC0BF /* RegisterProductResponse.swift in Sources */,
 				4B314ACA27F2D8B300ABC0BF /* ProductDetailViewController.swift in Sources */,
+				4BBAD50327FC398900B7381A /* AddHeartRequest.swift in Sources */,
 				4B91242027E05E7E0052D546 /* AddProductViewController.swift in Sources */,
 				4BBAD50027FC304400B7381A /* HeartListTableViewCell.swift in Sources */,
 				4BD6D2CA27E1C718004B71B3 /* PhoneCertificationDataManager.swift in Sources */,

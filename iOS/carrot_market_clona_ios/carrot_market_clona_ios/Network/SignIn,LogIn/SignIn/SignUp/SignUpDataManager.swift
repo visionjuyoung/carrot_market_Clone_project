@@ -10,7 +10,6 @@ import Alamofire
 
 class SignUpDataManager {
     func signUp(delegate: SetProfileViewController, withRequest: SignUpRequest) {
-        print("회원가입 api 시작")
         let url = "http://ec2-52-78-102-243.ap-northeast-2.compute.amazonaws.com:8080/api/auth/signup"
         
         let header : HTTPHeaders = [
@@ -29,7 +28,6 @@ class SignUpDataManager {
                 return
             }
             delegate.didSuccessSignUp()
-            print("회원가입 성공")
         }
     }
 }
