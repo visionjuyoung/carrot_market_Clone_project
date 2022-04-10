@@ -103,23 +103,24 @@ pipeline {
                 echo 'Run Service'
 
                 sshagent(['ssh-key']) {
+                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker stop carrot-market'
+                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker stop carrot-chat'
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker stop nginx'
+
+                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker rm carrot-market'
+                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker rm carrot-chat'
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker rm nginx'
+                    
+                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker rmi hohoprince/carrot-market:latest'
+                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker rmi hohoprince/carrot-chat:latest'
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker rmi hohoprince/nginx:latest'
+                    
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker pull hohoprince/nginx'
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker run --restart always --name nginx -p 80:80 -d hohoprince/nginx'
-
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker stop carrot-market'
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker rm carrot-market'
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker rmi hohoprince/carrot-market:latest'
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker pull hohoprince/carrot-market'
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker run --restart always --name carrot-market -p 8080:8080 -d hohoprince/carrot-market'
-
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker stop carrot-chat'
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker rm carrot-chat'
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker rmi hohoprince/carrot-chat:latest'
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker pull hohoprince/carrot-chat'
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker run --restart always --name carrot-chat -p 8080:8080 -d hohoprince/carrot-chat'
+                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker run --restart always --name carrot-chat -p 8888:8888 -d hohoprince/carrot-chat'
                 }
             }
         }
