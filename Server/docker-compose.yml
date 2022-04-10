@@ -10,16 +10,23 @@ services:
       - "80:80"
       depends_on:
       - carrot-market
+      - carrot-chat
 
   carrot-market:
     container_name: carrot-market
     build:
-      args:
-        JAR_FILE: build/libs/carrot-market-0.0.1-SNAPSHOT.jar
       dockerfile: Dockerfile
       context: ./carrot-market
     ports:
     - "8080:8080"
+  
+  carrot-chat:
+    container_name: carrot-chat
+    build:
+      dockerfile: Dockerfile
+      context: ./carrot-chat
+    ports:
+    - "8888:8888"
     
 
   
