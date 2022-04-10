@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  nginx:
+      restart: always
+      build:
+        dockerfile: Dockerfile
+        context: ./nginx
+      ports:
+      - "80:80"
+      depends_on:
+      - carrot-market
+
+  carrot-market:
+    container_name: carrot-market
+    build:
+      args:
+        JAR_FILE: build/libs/carrot-market-0.0.1-SNAPSHOT.jar
+      dockerfile: Dockerfile
+      context: ./carrot-market
+    ports:
+    - "8080:8080"
+    
+
+  
