@@ -2,21 +2,23 @@ version: "3"
 
 services:
   nginx:
-      restart: always
-      build:
-        dockerfile: Dockerfile
-        context: ./nginx
-      ports:
-      - "80:80"
-      depends_on:
-      - carrot-market
-      - carrot-chat
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    image: hohoprince/nginx
+    ports:
+    - "80:80"
+    depends_on:
+    - carrot-market
+    - carrot-chat
 
   carrot-market:
     container_name: carrot-market
     build:
       dockerfile: Dockerfile
       context: ./carrot-market
+    image: hohoprince/carrot-market
     ports:
     - "8080:8080"
   
@@ -25,6 +27,7 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./carrot-chat
+    image: hohoprince/carrot-chat
     ports:
     - "8888:8888"
     
