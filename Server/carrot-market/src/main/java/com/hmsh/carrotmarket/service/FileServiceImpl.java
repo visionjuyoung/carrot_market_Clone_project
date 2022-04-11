@@ -44,7 +44,7 @@ public class FileServiceImpl implements FileService {
             result = FileCopyUtils.copyToByteArray(file);
 
         } catch (IOException e) {
-            log.warn("이미지 변환 실패 {}", e.getMessage());
+            log.warn("이미지 변환 실패", e);
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
