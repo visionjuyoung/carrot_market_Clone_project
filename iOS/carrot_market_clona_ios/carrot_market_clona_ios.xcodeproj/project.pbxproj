@@ -62,6 +62,14 @@
 		4BBAD50527FC39E100B7381A /* AddHeartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAD50427FC39E100B7381A /* AddHeartResponse.swift */; };
 		4BBAD507280007FE00B7381A /* DeleteHeartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAD506280007FE00B7381A /* DeleteHeartResponse.swift */; };
 		4BBAD5092800088000B7381A /* DeleteHeartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAD5082800088000B7381A /* DeleteHeartRequest.swift */; };
+		4BBAD5152804176400B7381A /* SoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAD5142804176400B7381A /* SoldViewController.swift */; };
+		4BBAD5172804177000B7381A /* firstSoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAD5162804177000B7381A /* firstSoldViewController.swift */; };
+		4BBAD5192804178000B7381A /* secondSoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAD5182804178000B7381A /* secondSoldViewController.swift */; };
+		4BBAD51B2804178D00B7381A /* thirdSoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAD51A2804178D00B7381A /* thirdSoldViewController.swift */; };
+		4BBAD52028041E6500B7381A /* SellProductResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAD51F28041E6500B7381A /* SellProductResponse.swift */; };
+		4BBAD522280421C000B7381A /* SellProductDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAD521280421C000B7381A /* SellProductDataManager.swift */; };
+		4BBAD5262804232500B7381A /* SellProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAD5242804232500B7381A /* SellProductTableViewCell.swift */; };
+		4BBAD5272804232500B7381A /* SellProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BBAD5252804232500B7381A /* SellProductTableViewCell.xib */; };
 		4BBE4EC427F03F4300E08165 /* SelectProductCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE4EC327F03F4300E08165 /* SelectProductCategoryViewController.swift */; };
 		4BBE4EC927F07B3A00E08165 /* ShowListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE4EC827F07B3A00E08165 /* ShowListResponse.swift */; };
 		4BBE4ECB27F07B4700E08165 /* ShowListDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE4ECA27F07B4700E08165 /* ShowListDataManager.swift */; };
@@ -140,6 +148,14 @@
 		4BBAD50427FC39E100B7381A /* AddHeartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHeartResponse.swift; sourceTree = "<group>"; };
 		4BBAD506280007FE00B7381A /* DeleteHeartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteHeartResponse.swift; sourceTree = "<group>"; };
 		4BBAD5082800088000B7381A /* DeleteHeartRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteHeartRequest.swift; sourceTree = "<group>"; };
+		4BBAD5142804176400B7381A /* SoldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoldViewController.swift; sourceTree = "<group>"; };
+		4BBAD5162804177000B7381A /* firstSoldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firstSoldViewController.swift; sourceTree = "<group>"; };
+		4BBAD5182804178000B7381A /* secondSoldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondSoldViewController.swift; sourceTree = "<group>"; };
+		4BBAD51A2804178D00B7381A /* thirdSoldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thirdSoldViewController.swift; sourceTree = "<group>"; };
+		4BBAD51F28041E6500B7381A /* SellProductResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellProductResponse.swift; sourceTree = "<group>"; };
+		4BBAD521280421C000B7381A /* SellProductDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellProductDataManager.swift; sourceTree = "<group>"; };
+		4BBAD5242804232500B7381A /* SellProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellProductTableViewCell.swift; sourceTree = "<group>"; };
+		4BBAD5252804232500B7381A /* SellProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SellProductTableViewCell.xib; sourceTree = "<group>"; };
 		4BBE4EC327F03F4300E08165 /* SelectProductCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProductCategoryViewController.swift; sourceTree = "<group>"; };
 		4BBE4EC827F07B3A00E08165 /* ShowListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListResponse.swift; sourceTree = "<group>"; };
 		4BBE4ECA27F07B4700E08165 /* ShowListDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListDataManager.swift; sourceTree = "<group>"; };
@@ -288,6 +304,7 @@
 		4BA63E8427D33941003DDEF0 /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4BBAD5232804230100B7381A /* SellProductCell */,
 				4B314AD227F6E67D00ABC0BF /* ProductDetailCell */,
 				4BA63E8527D33976003DDEF0 /* HomeViewTableViewCell.swift */,
 				4BA63E8627D33976003DDEF0 /* HomeViewTableViewCell.xib */,
@@ -369,6 +386,7 @@
 		4BBAD4F227FC2A0800B7381A /* MyView */ = {
 			isa = PBXGroup;
 			children = (
+				4BBAD5132804173300B7381A /* soldList */,
 				4BB9657A27D0BDBB00E41D0C /* MyViewController.swift */,
 				4BBAD4F327FC2A2C00B7381A /* HeartViewController.swift */,
 			);
@@ -378,6 +396,7 @@
 		4BBAD4F527FC2C5E00B7381A /* My */ = {
 			isa = PBXGroup;
 			children = (
+				4BBAD51C28041E2200B7381A /* SoldProduct */,
 				4BBAD4F627FC2C7900B7381A /* Heart */,
 			);
 			path = My;
@@ -403,6 +422,35 @@
 				4BBAD4FF27FC304400B7381A /* HeartListTableViewCell.xib */,
 			);
 			path = HeartViewController;
+			sourceTree = "<group>";
+		};
+		4BBAD5132804173300B7381A /* soldList */ = {
+			isa = PBXGroup;
+			children = (
+				4BBAD5142804176400B7381A /* SoldViewController.swift */,
+				4BBAD5162804177000B7381A /* firstSoldViewController.swift */,
+				4BBAD5182804178000B7381A /* secondSoldViewController.swift */,
+				4BBAD51A2804178D00B7381A /* thirdSoldViewController.swift */,
+			);
+			path = soldList;
+			sourceTree = "<group>";
+		};
+		4BBAD51C28041E2200B7381A /* SoldProduct */ = {
+			isa = PBXGroup;
+			children = (
+				4BBAD51F28041E6500B7381A /* SellProductResponse.swift */,
+				4BBAD521280421C000B7381A /* SellProductDataManager.swift */,
+			);
+			path = SoldProduct;
+			sourceTree = "<group>";
+		};
+		4BBAD5232804230100B7381A /* SellProductCell */ = {
+			isa = PBXGroup;
+			children = (
+				4BBAD5242804232500B7381A /* SellProductTableViewCell.swift */,
+				4BBAD5252804232500B7381A /* SellProductTableViewCell.xib */,
+			);
+			path = SellProductCell;
 			sourceTree = "<group>";
 		};
 		4BBE4EC227F027DD00E08165 /* Profile */ = {
@@ -579,6 +627,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B314AE227F6E70100ABC0BF /* firthProductDetailTableViewCell.xib in Resources */,
+				4BBAD5272804232500B7381A /* SellProductTableViewCell.xib in Resources */,
 				4BB9656A27D08F4800E41D0C /* LaunchScreen.storyboard in Resources */,
 				4BA63E8827D33976003DDEF0 /* HomeViewTableViewCell.xib in Resources */,
 				4B9123F727D6031D0052D546 /* MyViewSecondSectionTableViewCell.xib in Resources */,
@@ -649,6 +698,7 @@
 				4BD6D2CC27E1D3A2004B71B3 /* PhoneCertificationConfirmDataManager.swift in Sources */,
 				4B314AE527F6E71000ABC0BF /* fifthProductDetailTableViewCell.swift in Sources */,
 				4B91240A27D604870052D546 /* MyCarrotCellList.swift in Sources */,
+				4BBAD51B2804178D00B7381A /* thirdSoldViewController.swift in Sources */,
 				4BBE4EC427F03F4300E08165 /* SelectProductCategoryViewController.swift in Sources */,
 				4B91241927D9F80F0052D546 /* PhoneAutentificationSignInStateViewController.swift in Sources */,
 				4BBAD507280007FE00B7381A /* DeleteHeartResponse.swift in Sources */,
@@ -672,10 +722,12 @@
 				4BBE4ED127F1A6D600E08165 /* LoadImageDataManager.swift in Sources */,
 				4B9123F227D6030C0052D546 /* MyViewFirstSectionTableViewCell.swift in Sources */,
 				4B314ACD27F44BC600ABC0BF /* RegisterProductResponse.swift in Sources */,
+				4BBAD5172804177000B7381A /* firstSoldViewController.swift in Sources */,
 				4B314ACA27F2D8B300ABC0BF /* ProductDetailViewController.swift in Sources */,
 				4BBAD50327FC398900B7381A /* AddHeartRequest.swift in Sources */,
 				4B91242027E05E7E0052D546 /* AddProductViewController.swift in Sources */,
 				4BBAD50027FC304400B7381A /* HeartListTableViewCell.swift in Sources */,
+				4BBAD52028041E6500B7381A /* SellProductResponse.swift in Sources */,
 				4BD6D2CA27E1C718004B71B3 /* PhoneCertificationDataManager.swift in Sources */,
 				4BD6D2CE27E1D3B2004B71B3 /* PhoneCertificationConfirmResponse.swift in Sources */,
 				4B91241B27DF26180052D546 /* SetProfileViewController.swift in Sources */,
@@ -683,8 +735,10 @@
 				4BA63E8727D33976003DDEF0 /* HomeViewTableViewCell.swift in Sources */,
 				4BD6D2D927E32C72004B71B3 /* LogInDataManager.swift in Sources */,
 				4BD6D2DE27E486EF004B71B3 /* SignUpResponse.swift in Sources */,
+				4BBAD522280421C000B7381A /* SellProductDataManager.swift in Sources */,
 				4BD6D2D727E32C60004B71B3 /* LogInResponse.swift in Sources */,
 				4BBAD4F127FBFD8A00B7381A /* ProductDetailDataManager.swift in Sources */,
+				4BBAD5152804176400B7381A /* SoldViewController.swift in Sources */,
 				4B91241027D9BCF00052D546 /* StartViewController.swift in Sources */,
 				4BD6D2DC27E486A6004B71B3 /* SignUpRequest.swift in Sources */,
 				4BBE4ECB27F07B4700E08165 /* ShowListDataManager.swift in Sources */,
@@ -695,12 +749,14 @@
 				4BBAD4F427FC2A2C00B7381A /* HeartViewController.swift in Sources */,
 				4BBAD4ED27FBFD6A00B7381A /* ProductDetailResponse.swift in Sources */,
 				4BD6D2E227E9DF3C004B71B3 /* UserInfo.swift in Sources */,
+				4BBAD5262804232500B7381A /* SellProductTableViewCell.swift in Sources */,
 				4B91240C27D746EA0052D546 /* SetLocationViewController.swift in Sources */,
 				4BBAD4F827FC2C8F00B7381A /* LoadHeartResponse.swift in Sources */,
 				4BD6D2C827E1C690004B71B3 /* PhoneCertificationResponse.swift in Sources */,
 				4BB9657327D0BCF700E41D0C /* HomeViewController.swift in Sources */,
 				4BD6D2D527E32C55004B71B3 /* LogInRequest.swift in Sources */,
 				4B314AD527F6E6A800ABC0BF /* firstProductDetailTableViewCell.swift in Sources */,
+				4BBAD5192804178000B7381A /* secondSoldViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

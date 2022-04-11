@@ -178,16 +178,14 @@ code_sign_if_enabled() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BSImagePicker/BSImagePicker.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/PryntTrimmerView/PryntTrimmerView.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/SteviaLayout/Stevia.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/YPImagePicker/YPImagePicker.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Pageboy/Pageboy.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Tabman/Tabman.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BSImagePicker/BSImagePicker.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/PryntTrimmerView/PryntTrimmerView.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/SteviaLayout/Stevia.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/YPImagePicker/YPImagePicker.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Pageboy/Pageboy.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Tabman/Tabman.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

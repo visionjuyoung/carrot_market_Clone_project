@@ -769,9 +769,9 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dve-xP-Bli">
                                         <rect key="frame" x="10" y="14.5" width="45.5" height="31"/>
-                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system"/>
                                         <connections>
                                             <action selector="pressHeart:" destination="heM-OE-IZw" eventType="touchUpInside" id="mTT-d4-JHp"/>
                                         </connections>
@@ -1801,6 +1801,158 @@
             </objects>
             <point key="canvasLocation" x="3063.768115942029" y="883.92857142857144"/>
         </scene>
+        <!--Sold View Controller-->
+        <scene sceneID="grS-YY-h3X">
+            <objects>
+                <viewController storyboardIdentifier="SoldViewController" modalPresentationStyle="fullScreen" id="8vV-4X-o40" customClass="SoldViewController" customModule="carrot_market_clona_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FFB-7f-ahj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWF-EI-pWP">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="판매내역" id="DLh-Gn-aBT">
+                                        <barButtonItem key="leftBarButtonItem" image="arrow.left" catalog="system" id="2cC-Mt-Lwv">
+                                            <color key="tintColor" systemColor="labelColor"/>
+                                            <connections>
+                                                <action selector="close:" destination="8vV-4X-o40" id="af9-Oy-fY0"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BJ3-be-58J">
+                                <rect key="frame" x="0.0" y="88" width="414" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4tj-JF-IOx"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lKs-4e-ZVP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pWF-EI-pWP" firstAttribute="leading" secondItem="FFB-7f-ahj" secondAttribute="leading" id="2B7-Es-MJd"/>
+                            <constraint firstItem="pWF-EI-pWP" firstAttribute="top" secondItem="lKs-4e-ZVP" secondAttribute="top" id="8Tv-DM-WGk"/>
+                            <constraint firstItem="lKs-4e-ZVP" firstAttribute="trailing" secondItem="pWF-EI-pWP" secondAttribute="trailing" id="BsG-e2-d72"/>
+                            <constraint firstItem="BJ3-be-58J" firstAttribute="top" secondItem="pWF-EI-pWP" secondAttribute="bottom" id="jLc-ir-0AT"/>
+                            <constraint firstItem="BJ3-be-58J" firstAttribute="leading" secondItem="lKs-4e-ZVP" secondAttribute="leading" id="qac-Vl-gjP"/>
+                            <constraint firstItem="lKs-4e-ZVP" firstAttribute="trailing" secondItem="BJ3-be-58J" secondAttribute="trailing" id="vqA-Ff-xDN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tabmanView" destination="BJ3-be-58J" id="iyY-KM-Vfn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vib-oG-ShZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4496" y="825"/>
+        </scene>
+        <!--First Sold View Controller-->
+        <scene sceneID="gG5-RY-jF6">
+            <objects>
+                <viewController storyboardIdentifier="firstSoldViewController" id="ftO-QP-uv9" customClass="firstSoldViewController" customModule="carrot_market_clona_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xLL-hY-GjN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lH5-Kp-KRf">
+                                <rect key="frame" x="0.0" y="138" width="414" height="724"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="판매중없음" translatesAutoresizingMaskIntoConstraints="NO" id="cCx-0I-9RZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="724"/>
+                                    </imageView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xe1-Eg-GVG">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="724"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="cCx-0I-9RZ" firstAttribute="leading" secondItem="lH5-Kp-KRf" secondAttribute="leading" id="0xy-kK-Cp0"/>
+                                    <constraint firstAttribute="bottom" secondItem="cCx-0I-9RZ" secondAttribute="bottom" id="FCK-lV-yhc"/>
+                                    <constraint firstItem="cCx-0I-9RZ" firstAttribute="top" secondItem="lH5-Kp-KRf" secondAttribute="top" id="Lje-7M-Cxh"/>
+                                    <constraint firstItem="xe1-Eg-GVG" firstAttribute="leading" secondItem="lH5-Kp-KRf" secondAttribute="leading" id="c5i-yf-rzw"/>
+                                    <constraint firstAttribute="bottom" secondItem="xe1-Eg-GVG" secondAttribute="bottom" id="qKb-YM-edc"/>
+                                    <constraint firstAttribute="trailing" secondItem="xe1-Eg-GVG" secondAttribute="trailing" id="qee-Mz-Gtb"/>
+                                    <constraint firstItem="xe1-Eg-GVG" firstAttribute="top" secondItem="lH5-Kp-KRf" secondAttribute="top" id="tGp-2D-KhC"/>
+                                    <constraint firstAttribute="trailing" secondItem="cCx-0I-9RZ" secondAttribute="trailing" id="xSA-JT-Ao3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pCZ-rG-WV6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lH5-Kp-KRf" firstAttribute="top" secondItem="pCZ-rG-WV6" secondAttribute="top" constant="94" id="YDy-jS-Zu3"/>
+                            <constraint firstItem="lH5-Kp-KRf" firstAttribute="leading" secondItem="pCZ-rG-WV6" secondAttribute="leading" id="c43-pp-oJa"/>
+                            <constraint firstItem="pCZ-rG-WV6" firstAttribute="bottom" secondItem="lH5-Kp-KRf" secondAttribute="bottom" id="t4j-0a-c21"/>
+                            <constraint firstItem="pCZ-rG-WV6" firstAttribute="trailing" secondItem="lH5-Kp-KRf" secondAttribute="trailing" id="vHo-Tt-84f"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="noProductImageView" destination="cCx-0I-9RZ" id="3A4-te-1AT"/>
+                        <outlet property="tableView" destination="xe1-Eg-GVG" id="vdB-Gt-RlX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cbR-b9-eOq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5133" y="825"/>
+        </scene>
+        <!--Second Sold View Controller-->
+        <scene sceneID="fli-6s-hSW">
+            <objects>
+                <viewController storyboardIdentifier="secondSoldViewController" id="ELD-M6-qLf" customClass="secondSoldViewController" customModule="carrot_market_clona_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="njG-Dq-9fl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="um9-Xk-n7r">
+                                <rect key="frame" x="0.0" y="138" width="414" height="724"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6wg-Eu-PjA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="um9-Xk-n7r" firstAttribute="leading" secondItem="6wg-Eu-PjA" secondAttribute="leading" id="Zmo-pe-zI2"/>
+                            <constraint firstItem="6wg-Eu-PjA" firstAttribute="bottom" secondItem="um9-Xk-n7r" secondAttribute="bottom" id="hOK-zD-C3T"/>
+                            <constraint firstItem="6wg-Eu-PjA" firstAttribute="trailing" secondItem="um9-Xk-n7r" secondAttribute="trailing" id="mwH-9P-Xew"/>
+                            <constraint firstItem="um9-Xk-n7r" firstAttribute="top" secondItem="6wg-Eu-PjA" secondAttribute="top" constant="94" id="r0g-ps-Yl2"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CfH-hw-pLb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5771" y="825"/>
+        </scene>
+        <!--Third Sold View Controller-->
+        <scene sceneID="Zpi-5Q-b8S">
+            <objects>
+                <viewController storyboardIdentifier="thirdSoldViewController" id="2Wc-eC-FFp" customClass="thirdSoldViewController" customModule="carrot_market_clona_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y0K-rf-Ynw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06M-rO-rjH">
+                                <rect key="frame" x="0.0" y="138" width="414" height="724"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5KA-cp-4g7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="06M-rO-rjH" firstAttribute="leading" secondItem="5KA-cp-4g7" secondAttribute="leading" id="gt2-Ac-vzd"/>
+                            <constraint firstItem="5KA-cp-4g7" firstAttribute="bottom" secondItem="06M-rO-rjH" secondAttribute="bottom" id="tIZ-ml-14N"/>
+                            <constraint firstItem="5KA-cp-4g7" firstAttribute="trailing" secondItem="06M-rO-rjH" secondAttribute="trailing" id="ypQ-oL-CTS"/>
+                            <constraint firstItem="06M-rO-rjH" firstAttribute="top" secondItem="5KA-cp-4g7" secondAttribute="top" constant="94" id="zJd-xs-0fd"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GBy-pd-GFN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6425" y="825"/>
+        </scene>
         <!--Phone Autentification View Controller-->
         <scene sceneID="Xwj-IY-sdv">
             <objects>
@@ -2014,7 +2166,7 @@
         <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="chattingViewImg" width="26" height="25"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
-        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="homeViewImg" width="26" height="27"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="line.3.horizontal" catalog="system" width="128" height="64"/>
@@ -2046,6 +2198,7 @@
         <image name="스크린샷 2022-03-15 오후 2.32.00" width="30" height="29"/>
         <image name="스크린샷 2022-03-15 오후 2.32.06" width="30" height="25"/>
         <image name="스크린샷 2022-03-15 오후 2.32.13" width="30" height="31"/>
+        <image name="판매중없음" width="1170" height="2136"/>
         <namedColor name="carrotMarketColor">
             <color red="0.92699998617172241" green="0.51700001955032349" blue="0.28200000524520874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

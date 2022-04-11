@@ -13,6 +13,7 @@ class MyViewFirstSectionTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var heartButton: UIButton!
+    @IBOutlet weak var soldButton: UIButton!
     
     
     override func awakeFromNib() {

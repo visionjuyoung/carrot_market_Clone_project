@@ -30,8 +30,8 @@
             filePath = "carrot_market_clona_ios/viewcontroller/TabbarControllerPage/HomeView/Product/ProductDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "setInit()"
             landmarkType = "7">
          </BreakpointContent>

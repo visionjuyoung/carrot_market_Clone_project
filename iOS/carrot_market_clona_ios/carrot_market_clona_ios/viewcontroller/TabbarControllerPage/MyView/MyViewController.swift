@@ -56,6 +56,7 @@ extension MyViewController: UITableViewDelegate, UITableViewDataSource {
             let url = loadImageDataManager.loadImage(filepath: userInfoManager.imagePath)
             cell.setData(name: userInfoManager.name, address: userInfoManager.address, code: userInfoManager.userCode , image: url)
             cell.heartButton.addTarget(self, action: #selector(pressBtn(_button:)), for: .touchUpInside)
+            cell.soldButton.addTarget(self, action: #selector(pressSoldBtn(_button:)), for: .touchUpInside)
             return cell
             
         case 1...5:
@@ -97,6 +98,13 @@ extension MyViewController {
 extension MyViewController {
     @objc func pressBtn(_button: UIButton) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "HeartViewController") as? HeartViewController else {
+            return
+        }
+        present(vc, animated: true)
+    }
+    
+    @objc func pressSoldBtn(_button: UIButton) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "SoldViewController") as? SoldViewController else {
             return
         }
         present(vc, animated: true)
