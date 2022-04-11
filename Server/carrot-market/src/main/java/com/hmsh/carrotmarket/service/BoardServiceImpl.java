@@ -166,7 +166,7 @@ public class BoardServiceImpl implements BoardService {
         if (!optionalBoardReply.isPresent()) throw new IllegalArgumentException();
 
         BoardReply boardReply = optionalBoardReply.get();
-        List<String> imagePathList = boardImageRepository.findAllByBoardReply(boardReply).stream()
+        List<String> imagePathList = boardReplyImageRepository.findAllByBoardReply(boardReply).stream()
                 .map(ImageConverter::imageToImageDTO)
                 .map(ImageDTO::getImageURL)
                 .collect(Collectors.toList());
@@ -184,7 +184,7 @@ public class BoardServiceImpl implements BoardService {
         List<BoardReplyListDTO> boardReplyListDTO = new ArrayList<>();
 
         for(BoardReply boardReply:replyList){
-            List<String> imagePathList = boardImageRepository.findAllByBoardReply(boardReply).stream()
+            List<String> imagePathList = boardReplyImageRepository.findAllByBoardReply(boardReply).stream()
                     .map(ImageConverter::imageToImageDTO)
                     .map(ImageDTO::getImageURL)
                     .collect(Collectors.toList());
