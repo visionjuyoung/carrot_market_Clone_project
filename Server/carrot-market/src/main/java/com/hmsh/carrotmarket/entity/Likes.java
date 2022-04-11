@@ -23,4 +23,7 @@ public class Likes extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Product product;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private BoardReply boardReply;
 }

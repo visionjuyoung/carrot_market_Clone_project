@@ -1,5 +1,6 @@
 package com.hmsh.carrotmarket.repository;
 
+import com.hmsh.carrotmarket.entity.BoardReply;
 import com.hmsh.carrotmarket.entity.Likes;
 import com.hmsh.carrotmarket.entity.Member;
 import com.hmsh.carrotmarket.entity.Product;
@@ -12,4 +13,6 @@ public interface LikesRepository extends JpaRepository<Likes, Long> {
     void deleteLikesByMemberAndProduct(Member member, Product product);
 
     Optional<Likes> getLikesByMemberAndProduct(Member member, Product product);
+
+    Likes getLikesByMemberAndBoardReply(Member member, BoardReply boardReply);
 }

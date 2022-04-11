@@ -1,23 +1,25 @@
 package com.hmsh.carrotmarket.entity;
 
-import lombok.*;
-import lombok.experimental.SuperBuilder;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@SuperBuilder
-@ToString(exclude = "board")
-public class BoardImage extends BaseImage {
-
+@Builder
+public class BoardLikes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Board board;
+    private Member member;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private BoardReply boardReply;
 }

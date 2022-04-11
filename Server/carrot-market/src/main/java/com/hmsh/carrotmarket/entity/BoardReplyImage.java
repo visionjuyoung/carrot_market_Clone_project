@@ -1,5 +1,6 @@
 package com.hmsh.carrotmarket.entity;
 
+
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -11,13 +12,12 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-@ToString(exclude = "board")
-public class BoardImage extends BaseImage {
-
+@ToString(exclude = "boardReply")
+public class BoardReplyImage extends BaseImage{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Board board;
+    private BoardReply boardReply;
 }

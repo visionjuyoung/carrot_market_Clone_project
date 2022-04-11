@@ -3,6 +3,7 @@ package com.hmsh.carrotmarket.service;
 import com.hmsh.carrotmarket.dto.BoardDTO;
 import com.hmsh.carrotmarket.dto.BoardReplyDTO;
 import com.hmsh.carrotmarket.dto.BoardReplyListDTO;
+import com.hmsh.carrotmarket.dto.LikesDTO;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -28,4 +29,6 @@ public interface BoardService {
     void modifyReply(BoardReplyDTO boardReplyRegistrationDTO);
 
     void deleteReply(Long id);
+
+    int clickLike(LikesDTO likesDTO);
 }

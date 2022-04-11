@@ -23,8 +23,8 @@ public class ImageConverter {
                 .build();
     }
 
-    public static BoardImage imageDTOToBoardReplyImage(ImageDTO imageDTO, BoardReply board) {
-        return BoardImage.builder()
+    public static BoardReplyImage imageDTOToBoardReplyImage(ImageDTO imageDTO, BoardReply board) {
+        return BoardReplyImage.builder()
                 .boardReply(board)
                 .imgName(imageDTO.getImgName())
                 .path(imageDTO.getPath())

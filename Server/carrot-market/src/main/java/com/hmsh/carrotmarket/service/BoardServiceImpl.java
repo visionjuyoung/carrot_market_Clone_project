@@ -3,17 +3,9 @@ package com.hmsh.carrotmarket.service;
 import com.hmsh.carrotmarket.converter.BoardConverter;
 import com.hmsh.carrotmarket.converter.BoardReplyConverter;
 import com.hmsh.carrotmarket.converter.ImageConverter;
-import com.hmsh.carrotmarket.dto.BoardDTO;
-import com.hmsh.carrotmarket.dto.BoardReplyDTO;
-import com.hmsh.carrotmarket.dto.BoardReplyListDTO;
-import com.hmsh.carrotmarket.dto.ImageDTO;
-import com.hmsh.carrotmarket.entity.Board;
-import com.hmsh.carrotmarket.entity.BoardImage;
-import com.hmsh.carrotmarket.entity.BoardReply;
-import com.hmsh.carrotmarket.entity.ProductImage;
-import com.hmsh.carrotmarket.repository.BoardImageRepository;
-import com.hmsh.carrotmarket.repository.BoardReplyRepository;
-import com.hmsh.carrotmarket.repository.BoardRepository;
+import com.hmsh.carrotmarket.dto.*;
+import com.hmsh.carrotmarket.entity.*;
+import com.hmsh.carrotmarket.repository.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -30,10 +22,13 @@ import java.util.stream.Collectors;
 @Slf4j
 @RequiredArgsConstructor
 public class BoardServiceImpl implements BoardService {
+    private final LikesRepository likesRepository;
 
     private final BoardRepository boardRepository;
 
     private final BoardImageRepository boardImageRepository;
+
+    private final BoardReplyImageRepository boardReplyImageRepository;
 
     private final BoardReplyRepository boardReplyRepository;
 
@@ -132,14 +127,28 @@ public class BoardServiceImpl implements BoardService {
     public Long registerReply(BoardReplyDTO boardReplyDTO, MultipartFile[] uploadFiles) {
         BoardReply reply = BoardReplyConverter.replyDTOToReply(boardReplyDTO);
 
+//        Board board = BoardConverter.dtoToBoard(boardDTO);
+//
+//        if (!Objects.isNull(files)) {
+//            List<ImageDTO> imageDTOList = fileService.uploadImageFiles(files);
+//            List<BoardImage> boardImageList = imageDTOList.stream()
+//                    .map(imageDTO -> ImageConverter.imageDTOToBoardImage(imageDTO, board))
+//                    .collect(Collectors.toList());
+//
+//            log.info("save images = {}", imageDTOList);
+//            boardImageRepository.saveAll(boardImageList);
+//        }
+//
+//        Board saved = boardRepository.save(board);
+
         if (!Objects.isNull(uploadFiles)) {
             List<ImageDTO> imageDTOList = fileService.uploadImageFiles(uploadFiles);
-            List<BoardImage> boardImageList = imageDTOList.stream()
+            List<BoardReplyImage> boardImageList = imageDTOList.stream()
                     .map(imageDTO -> ImageConverter.imageDTOToBoardReplyImage(imageDTO, reply))
                     .collect(Collectors.toList());
 
             log.info("save images = {}", imageDTOList);
-            boardImageRepository.saveAll(boardImageList);
+            boardReplyImageRepository.saveAll(boardImageList);
         }
 
         BoardReply save = boardReplyRepository.save(reply);
@@ -212,4 +221,41 @@ public class BoardServiceImpl implements BoardService {
         boardReplyRepository.delete(optionalBoardReply.get());
     }
 
+    @Override
+    public int clickLike(LikesDTO likesDTO) {
+        Optional<BoardReply> optionalBoardReply = boardReplyRepository.findById(likesDTO.getProductId());
+        if (!optionalBoardReply.isPresent()) throw new IllegalArgumentException();
+
+        BoardReply boardReply = optionalBoardReply.get();
+
+        Likes optionalLikes = likesRepository
+                .getLikesByMemberAndBoardReply(Member.builder().phoneNumber(likesDTO.getPhoneNumber()).build(), boardReply);
+
+        if(optionalLikes.getMember().isClickedLike()){
+            boardReply.setLikes(boardReply.getLikes() + 1);
+            boardReplyRepository.save(boardReply);
+            Likes likes = Likes.builder()
+                    .member(Member.builder()
+                            .phoneNumber(likesDTO.getPhoneNumber())
+                            .clickedLike(true)
+                            .build())
+                    .boardReply(BoardReply.builder().id(likesDTO.getProductId()).build())
+                    .build();
+            Likes save = likesRepository.save(likes);
+        }
+        else{
+            boardReply.setLikes(boardReply.getLikes() - 1);
+            boardReplyRepository.save(boardReply);
+            Likes likes = Likes.builder()
+                    .member(Member.builder()
+                            .phoneNumber(likesDTO.getPhoneNumber())
+                            .clickedLike(false)
+                            .build())
+                    .boardReply(BoardReply.builder().id(likesDTO.getProductId()).build())
+                    .build();
+            Likes save = likesRepository.save(likes);
+        }
+
+        return boardReply.getLikes();
+    }
 }

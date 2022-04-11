@@ -4,6 +4,7 @@ import com.hmsh.carrotmarket.CResponseEntity;
 import com.hmsh.carrotmarket.dto.BoardDTO;
 import com.hmsh.carrotmarket.dto.BoardReplyDTO;
 import com.hmsh.carrotmarket.dto.BoardReplyListDTO;
+import com.hmsh.carrotmarket.dto.LikesDTO;
 import com.hmsh.carrotmarket.enumeration.StatusCode;
 import com.hmsh.carrotmarket.service.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -79,7 +80,7 @@ public class BoardController {
      * @return 등록된 댓글의 ID
      */
     @PostMapping("/reply")
-    public CResponseEntity<Long> registerBoardReply(@RequestBody BoardReplyDTO boardReplyDTO, MultipartFile[] file) {
+    public CResponseEntity<Long> registerBoardReply(BoardReplyDTO boardReplyDTO, MultipartFile[] file) {
         log.info("게시글 댓글 등록 boardReplyDTO = {}", boardReplyDTO);
         Long id = boardService.registerReply(boardReplyDTO, file);
         return new CResponseEntity<>(true, StatusCode.OK, id);
@@ -125,10 +126,18 @@ public class BoardController {
      * @param id 삭제할 댓글의 ID
      * @return null
      */
-    @DeleteMapping("reply/{id}")
+    @DeleteMapping("/reply/{id}")
     public CResponseEntity<Object> deleteBoardReply(@PathVariable Long id) {
         log.info("게시글 댓글 삭제 id = {}", id);
         boardService.deleteReply(id);
         return new CResponseEntity<>(true, StatusCode.OK, null);
+    }
+
+    @PostMapping("/reply/like")
+    public CResponseEntity clickLike(@RequestBody LikesDTO likesDTO) {
+        int likes = boardService.clickLike(likesDTO);
+
+        log.info("댓글 좋아요 수 = {}", likes);
+        return new CResponseEntity<>(true, StatusCode.OK, likes);
     }
 }
