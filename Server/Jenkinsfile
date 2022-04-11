@@ -58,7 +58,9 @@ pipeline {
                 echo 'Build Docker Image'
 
                 script {
-                    sh 'sudo docker-compose build'
+                    dir('./Server') {
+                        sh 'sudo docker-compose build'
+                    }
                 }
             }
 
@@ -79,12 +81,13 @@ pipeline {
                 echo 'Push Docker Image'
 
                 script {
-                    sh 'sudo docker push hohoprince/nginx'
-                    sh 'sudo docker rmi hohoprince/nginx:latest'
                     sh 'sudo docker push hohoprince/carrot-market'
-                    sh 'sudo docker rmi hohoprince/carrot-market:latest'
                     sh 'sudo docker push hohoprince/carrot-chat'
+                    sh 'sudo docker push hohoprince/nginx'
+
+                    sh 'sudo docker rmi hohoprince/nginx:latest'
                     sh 'sudo docker rmi hohoprince/carrot-chat:latest'
+                    sh 'sudo docker rmi hohoprince/carrot-market:latest'
                 }
             }
 
@@ -116,11 +119,12 @@ pipeline {
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker rmi hohoprince/nginx:latest'
                     
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker pull hohoprince/nginx'
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker run --restart always --name nginx -p 80:80 -d hohoprince/nginx'
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker pull hohoprince/carrot-market'
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker run --restart always --name carrot-market -p 8080:8080 -d hohoprince/carrot-market'
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker pull hohoprince/carrot-chat'
+                    
+                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker run --restart always --name carrot-market -p 8080:8080 -d hohoprince/carrot-market'    
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker run --restart always --name carrot-chat -p 8888:8888 -d hohoprince/carrot-chat'
+                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker run --restart always --name nginx -p 80:80 -d --link carrot-chat:carrot-chat --link carrot-market:carrot-market hohoprince/nginx'
                 }
             }
         }
