@@ -6,8 +6,8 @@ target 'carrot_market_clona_ios' do
   use_frameworks!
 
   pod 'Alamofire', '~> 5.5'
-  pod 'YPImagePicker'  
-  pod 'BSImagePicker', '~> 3.1' 
+  pod 'Tabman', '~> 2.12'
+  pod "BSImagePicker", "~> 3.1"
  # Pods for carrot_market_clona_ios
 
 end
