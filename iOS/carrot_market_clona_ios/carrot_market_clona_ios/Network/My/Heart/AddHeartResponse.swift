@@ -7,8 +7,8 @@
 
 import Foundation
 struct AddHeartResponse: Decodable {
-    var isSuccess: String
-    var code: Int
-    var message: String
-    var result: CLong
+    var isSuccess: Bool?
+    var code: Int?
+    var message: String?
+    var result: CLong?
 }

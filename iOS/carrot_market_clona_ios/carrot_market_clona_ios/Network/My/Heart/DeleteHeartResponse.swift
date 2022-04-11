@@ -7,7 +7,7 @@
 
 import Foundation
 struct DeleteHeartResponse : Decodable {
-    var isSucess: Bool
-    var code: Int
-    var message: String
+    var isSucess: Bool?
+    var code: Int?
+    var message: String?
 }

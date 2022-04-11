@@ -23,11 +23,14 @@ class ProductDetailViewController: UIViewController {
     
     var tempProductResult: ShowListResult = ShowListResult()
     var tempDetailResult: ProductDetailResult = ProductDetailResult()
+    var tempHeartList: [LoadHeartResult] = []
+    var heartIdList: [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         priceLabel.text = "\(tempProductResult.price!)원"
         productDetailDataManager.loadProductInfo(delegate: self, id: tempProductResult.id!, phoneNum: userInfoManager.phoneNumber)
+        heartDataManager.loadHeart(delegate: self, phoneNum: userInfoManager.phoneNumber)
         setInit()
     }
     
@@ -43,15 +46,14 @@ class ProductDetailViewController: UIViewController {
     }
     
     @IBAction func pressHeart(_ sender: UIButton) {
-        if heartButton.isSelected == true {
-            heartButton.imageView?.image = UIImage(named: "heart")
-            heartButton.isSelected = false
-            let param = DeleteHeartRequest(phoneNumber: userInfoManager.phoneNumber, productId: tempDetailResult.id!)
+        
+        if heartButton.tintColor == UIColor.red {
+            heartButton.tintColor = UIColor.systemGray
+            let param = DeleteHeartRequest(phoneNumber: userInfoManager.phoneNumber, productId: tempProductResult.id!)
             heartDataManager.deleteHeart(delegate: self, parameter: param)
         } else {
-            heartButton.imageView?.image = UIImage(named: "heart.fill")
-            heartButton.isSelected = true
-            let param = AddHeartRequest(phoneNumber: userInfoManager.phoneNumber, productId: tempDetailResult.id!)
+            heartButton.tintColor = UIColor.red
+            let param = AddHeartRequest(phoneNumber: userInfoManager.phoneNumber, productId: tempProductResult.id!)
             heartDataManager.addHeart(delegate: self, parameter: param)
         }
     }
@@ -120,10 +122,24 @@ extension ProductDetailViewController: UITableViewDelegate, UITableViewDataSourc
 extension ProductDetailViewController {
     func didSuccessLoadProductInfo(result: ProductDetailResult?) {
         tempDetailResult = result!
+        print(tempDetailResult)
         tableView.reloadData()
     }
     
+    func didSucessLoadHeart(reseponse: [LoadHeartResult]) {
+        tempHeartList = reseponse
+        for i in tempHeartList {
+            heartIdList.append(i.id)
+        }
+        
+        for i in heartIdList {
+            if i == tempProductResult.id! {
+                heartButton.tintColor = UIColor.red
+            }
+        }
+    }
+    
     func didSuccessAddHeart(response: AddHeartResponse) {
-        print(response)
+        print("찜추가 성공")
     }
 }
