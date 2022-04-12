@@ -13,6 +13,7 @@ class SellProductTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel! // 나중에 지울 것
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var modifyButton: UIButton!
     
 
     override func awakeFromNib() {
@@ -29,6 +30,5 @@ class SellProductTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
 }

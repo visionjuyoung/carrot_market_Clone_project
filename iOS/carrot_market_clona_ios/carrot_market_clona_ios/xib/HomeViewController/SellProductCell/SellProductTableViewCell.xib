@@ -25,7 +25,7 @@
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igo-IM-DAf">
-                        <rect key="frame" x="381" y="8.5" width="23" height="31"/>
+                        <rect key="frame" x="381" y="8.5" width="23" height="34"/>
                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain">
@@ -147,6 +147,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="addressLabel" destination="J6c-5d-he0" id="Phk-pZ-9HG"/>
+                <outlet property="modifyButton" destination="igo-IM-DAf" id="TmB-8r-hxf"/>
                 <outlet property="priceLabel" destination="A1r-gk-AVi" id="LNu-aG-uZC"/>
                 <outlet property="productImageView" destination="L1D-NK-iti" id="fma-S9-KDL"/>
                 <outlet property="titleLabel" destination="JGB-Wg-bUZ" id="0Re-XC-vQ0"/>

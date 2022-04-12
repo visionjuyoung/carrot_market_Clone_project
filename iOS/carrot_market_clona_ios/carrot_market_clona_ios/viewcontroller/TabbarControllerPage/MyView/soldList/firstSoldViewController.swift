@@ -11,6 +11,7 @@ class firstSoldViewController: UIViewController {
     
     lazy var sellProductDataManager: SellProductDataManager = SellProductDataManager()
     lazy var loadImageDataManager: LoadImageDataManager = LoadImageDataManager()
+    lazy var productModifyDataManager: ProductModifyDataManager = ProductModifyDataManager()
     var userInfoManger = UserInfo.shared
 
     var tempSellList : [SellProductResult] = []
@@ -21,8 +22,11 @@ class firstSoldViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setInit()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         sellProductDataManager.loadHeart(delegate: self, phoneNum: userInfoManger.phoneNumber)
-        
     }
     
     func setInit() {
@@ -44,6 +48,8 @@ extension firstSoldViewController: UITableViewDelegate, UITableViewDataSource {
         cell.productImageView.load(url: url)
         cell.addressLabel.text = tempSellList[indexPath.row].address
         cell.priceLabel.text = "\(tempSellList[indexPath.row].price)원"
+        cell.modifyButton.addTarget(self, action: #selector(pressModifyBtn(_button:)), for: .touchUpInside)
+        cell.modifyButton.tag = tempSellList[indexPath.row].id
         return cell
     }
     
@@ -57,9 +63,36 @@ extension firstSoldViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension firstSoldViewController {
+    @objc func pressModifyBtn(_button: UIButton) {
+        let actionSheetController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let actionDefault = UIAlertAction(title: "게시글 수정", style: .default, handler: { action in
+            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProductModifyViewController") as? ProductModifyViewController else {
+                return
+            }
+            vc.tempID = _button.tag
+            self.present(vc, animated: true)
+        })
+        let actionDelete = UIAlertAction(title: "삭제", style: .destructive, handler: { action in
+            self.productModifyDataManager.deleteProduct(delegate: self, id: _button.tag)
+        })
+        let actionCancle = UIAlertAction(title: "닫기", style: .cancel, handler: nil)
+        actionSheetController.addAction(actionDefault)
+        actionSheetController.addAction(actionDelete)
+        actionSheetController.addAction(actionCancle)
+        self.present(actionSheetController, animated: true)
+
+    }
+}
+
+extension firstSoldViewController {
     func didSucessLoadSellProductList(result: [SellProductResult]?) {
         tempSellList = result!
         tableView.reloadData()
         print(tempSellList)
+    }
+    
+    func didSuccessDeleteProduct() {
+        sellProductDataManager.loadHeart(delegate: self, phoneNum: userInfoManger.phoneNumber)
+        tableView.reloadData()
     }
 }
