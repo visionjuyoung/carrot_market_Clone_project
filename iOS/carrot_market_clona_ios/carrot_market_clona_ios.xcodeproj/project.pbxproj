@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B0AE0BC2805796900EEAD11 /* DeleteProductResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0AE0BB2805796900EEAD11 /* DeleteProductResponse.swift */; };
 		4B314ACA27F2D8B300ABC0BF /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B314AC927F2D8B300ABC0BF /* ProductDetailViewController.swift */; };
 		4B314ACD27F44BC600ABC0BF /* RegisterProductResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B314ACC27F44BC600ABC0BF /* RegisterProductResponse.swift */; };
 		4B314ACF27F44BD600ABC0BF /* RegisterProductRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B314ACE27F44BD600ABC0BF /* RegisterProductRequest.swift */; };
@@ -74,6 +75,10 @@
 		4BBE4EC927F07B3A00E08165 /* ShowListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE4EC827F07B3A00E08165 /* ShowListResponse.swift */; };
 		4BBE4ECB27F07B4700E08165 /* ShowListDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE4ECA27F07B4700E08165 /* ShowListDataManager.swift */; };
 		4BBE4ED127F1A6D600E08165 /* LoadImageDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE4ED027F1A6D600E08165 /* LoadImageDataManager.swift */; };
+		4BC6768A280546CE0067D68D /* ProductModifyDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC67689280546CE0067D68D /* ProductModifyDataManager.swift */; };
+		4BC6768C280546EF0067D68D /* ProductModifyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC6768B280546EF0067D68D /* ProductModifyRequest.swift */; };
+		4BC6768E2805474A0067D68D /* ProductModifyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC6768D2805474A0067D68D /* ProductModifyResponse.swift */; };
+		4BC67690280562CE0067D68D /* ProductModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC6768F280562CE0067D68D /* ProductModifyViewController.swift */; };
 		4BD6D2C827E1C690004B71B3 /* PhoneCertificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2C727E1C690004B71B3 /* PhoneCertificationResponse.swift */; };
 		4BD6D2CA27E1C718004B71B3 /* PhoneCertificationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2C927E1C718004B71B3 /* PhoneCertificationDataManager.swift */; };
 		4BD6D2CC27E1D3A2004B71B3 /* PhoneCertificationConfirmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2CB27E1D3A2004B71B3 /* PhoneCertificationConfirmDataManager.swift */; };
@@ -91,6 +96,7 @@
 
 /* Begin PBXFileReference section */
 		00AD4E91B3E7F1BFC09913F5 /* Pods-carrot_market_clona_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carrot_market_clona_ios.release.xcconfig"; path = "Target Support Files/Pods-carrot_market_clona_ios/Pods-carrot_market_clona_ios.release.xcconfig"; sourceTree = "<group>"; };
+		4B0AE0BB2805796900EEAD11 /* DeleteProductResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProductResponse.swift; sourceTree = "<group>"; };
 		4B314AC927F2D8B300ABC0BF /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		4B314ACC27F44BC600ABC0BF /* RegisterProductResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProductResponse.swift; sourceTree = "<group>"; };
 		4B314ACE27F44BD600ABC0BF /* RegisterProductRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProductRequest.swift; sourceTree = "<group>"; };
@@ -160,6 +166,10 @@
 		4BBE4EC827F07B3A00E08165 /* ShowListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListResponse.swift; sourceTree = "<group>"; };
 		4BBE4ECA27F07B4700E08165 /* ShowListDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListDataManager.swift; sourceTree = "<group>"; };
 		4BBE4ED027F1A6D600E08165 /* LoadImageDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImageDataManager.swift; sourceTree = "<group>"; };
+		4BC67689280546CE0067D68D /* ProductModifyDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModifyDataManager.swift; sourceTree = "<group>"; };
+		4BC6768B280546EF0067D68D /* ProductModifyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModifyRequest.swift; sourceTree = "<group>"; };
+		4BC6768D2805474A0067D68D /* ProductModifyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModifyResponse.swift; sourceTree = "<group>"; };
+		4BC6768F280562CE0067D68D /* ProductModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModifyViewController.swift; sourceTree = "<group>"; };
 		4BD6D2C727E1C690004B71B3 /* PhoneCertificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationResponse.swift; sourceTree = "<group>"; };
 		4BD6D2C927E1C718004B71B3 /* PhoneCertificationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationDataManager.swift; sourceTree = "<group>"; };
 		4BD6D2CB27E1D3A2004B71B3 /* PhoneCertificationConfirmDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationConfirmDataManager.swift; sourceTree = "<group>"; };
@@ -389,6 +399,7 @@
 				4BBAD5132804173300B7381A /* soldList */,
 				4BB9657A27D0BDBB00E41D0C /* MyViewController.swift */,
 				4BBAD4F327FC2A2C00B7381A /* HeartViewController.swift */,
+				4BC6768F280562CE0067D68D /* ProductModifyViewController.swift */,
 			);
 			path = MyView;
 			sourceTree = "<group>";
@@ -464,6 +475,7 @@
 		4BBE4EC527F07ABB00E08165 /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				4BC676882805467C0067D68D /* ProductManagement */,
 				4BBAD4EB27FBFD5700B7381A /* ProductDetail */,
 				4B314ACB27F44BA200ABC0BF /* RegisterProduct */,
 				4BBE4EC727F07B1600E08165 /* ShowList */,
@@ -478,6 +490,17 @@
 				4BBE4ECA27F07B4700E08165 /* ShowListDataManager.swift */,
 			);
 			path = ShowList;
+			sourceTree = "<group>";
+		};
+		4BC676882805467C0067D68D /* ProductManagement */ = {
+			isa = PBXGroup;
+			children = (
+				4BC67689280546CE0067D68D /* ProductModifyDataManager.swift */,
+				4BC6768B280546EF0067D68D /* ProductModifyRequest.swift */,
+				4BC6768D2805474A0067D68D /* ProductModifyResponse.swift */,
+				4B0AE0BB2805796900EEAD11 /* DeleteProductResponse.swift */,
+			);
+			path = ProductManagement;
 			sourceTree = "<group>";
 		};
 		4BD6D2C327E1C5D6004B71B3 /* Network */ = {
@@ -705,6 +728,7 @@
 				4BB9655E27D08F4600E41D0C /* AppDelegate.swift in Sources */,
 				4B314AD127F44BE500ABC0BF /* RegisterProductDataManager.swift in Sources */,
 				4B91241627D9E7DE0052D546 /* SetLocationViewTableViewCell.swift in Sources */,
+				4BC6768C280546EF0067D68D /* ProductModifyRequest.swift in Sources */,
 				4B9123F627D6031D0052D546 /* MyViewSecondSectionTableViewCell.swift in Sources */,
 				4BBAD5092800088000B7381A /* DeleteHeartRequest.swift in Sources */,
 				4BD6D2D027E1D415004B71B3 /* PhoneCertificationConfirmRequest.swift in Sources */,
@@ -732,6 +756,7 @@
 				4BD6D2CE27E1D3B2004B71B3 /* PhoneCertificationConfirmResponse.swift in Sources */,
 				4B91241B27DF26180052D546 /* SetProfileViewController.swift in Sources */,
 				4BB9657727D0BD9800E41D0C /* NearbyViewController.swift in Sources */,
+				4BC67690280562CE0067D68D /* ProductModifyViewController.swift in Sources */,
 				4BA63E8727D33976003DDEF0 /* HomeViewTableViewCell.swift in Sources */,
 				4BD6D2D927E32C72004B71B3 /* LogInDataManager.swift in Sources */,
 				4BD6D2DE27E486EF004B71B3 /* SignUpResponse.swift in Sources */,
@@ -743,14 +768,17 @@
 				4BD6D2DC27E486A6004B71B3 /* SignUpRequest.swift in Sources */,
 				4BBE4ECB27F07B4700E08165 /* ShowListDataManager.swift in Sources */,
 				4B314ADD27F6E6E300ABC0BF /* thirdProductDetailTableViewCell.swift in Sources */,
+				4BC6768E2805474A0067D68D /* ProductModifyResponse.swift in Sources */,
 				4B91241E27E055740052D546 /* SelectHomeDetailViewController.swift in Sources */,
 				4B91241227D9BD080052D546 /* PhoneAutentificationViewController.swift in Sources */,
 				4BB9657527D0BD8D00E41D0C /* TownViewController.swift in Sources */,
 				4BBAD4F427FC2A2C00B7381A /* HeartViewController.swift in Sources */,
 				4BBAD4ED27FBFD6A00B7381A /* ProductDetailResponse.swift in Sources */,
 				4BD6D2E227E9DF3C004B71B3 /* UserInfo.swift in Sources */,
+				4BC6768A280546CE0067D68D /* ProductModifyDataManager.swift in Sources */,
 				4BBAD5262804232500B7381A /* SellProductTableViewCell.swift in Sources */,
 				4B91240C27D746EA0052D546 /* SetLocationViewController.swift in Sources */,
+				4B0AE0BC2805796900EEAD11 /* DeleteProductResponse.swift in Sources */,
 				4BBAD4F827FC2C8F00B7381A /* LoadHeartResponse.swift in Sources */,
 				4BD6D2C827E1C690004B71B3 /* PhoneCertificationResponse.swift in Sources */,
 				4BB9657327D0BCF700E41D0C /* HomeViewController.swift in Sources */,
