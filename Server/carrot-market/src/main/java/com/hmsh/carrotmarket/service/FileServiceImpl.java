@@ -44,7 +44,7 @@ public class FileServiceImpl implements FileService {
             result = FileCopyUtils.copyToByteArray(file);
 
         } catch (IOException e) {
-            log.warn("이미지 변환 실패 {}", e.getMessage());
+            log.warn("이미지 변환 실패", e);
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
@@ -59,35 +59,36 @@ public class FileServiceImpl implements FileService {
     public List<ImageDTO> uploadImageFiles(MultipartFile[] uploadFiles) {
 
         List<ImageDTO> imgDTOList = new ArrayList<>();
-        for (MultipartFile multipartFile : uploadFiles) {
-            if (multipartFile.isEmpty()) continue;
 
-            if (!Objects.requireNonNull(multipartFile.getContentType()).startsWith("image")) {
-                log.warn("업로드한 파일이 이미지 파일이 아님");
+        if (!Objects.isNull(uploadFiles)) {
+            for (MultipartFile multipartFile : uploadFiles) {
+
+                if (!Objects.requireNonNull(multipartFile.getContentType()).startsWith("image")) {
+                    log.warn("업로드한 파일이 이미지 파일이 아님");
+                }
+
+                String originalFilename = multipartFile.getOriginalFilename();
+                String filename = originalFilename.substring(originalFilename.lastIndexOf("\\") + 1);
+
+                String uuid = UUID.randomUUID().toString();
+                String saveName = uploadPath + File.separator + uuid + "_" + filename;
+
+                Path savePath = Paths.get(saveName);
+
+                try {
+                    multipartFile.transferTo(savePath);
+
+                    imgDTOList.add(ImageDTO.builder()
+                            .imgName(filename)
+                            .path(uploadPath)
+                            .uuid(uuid)
+                            .build());
+
+                } catch (IOException e) {
+                    log.error("이미지 저장 에러 imgName = {}", filename);
+                    e.printStackTrace();
+                }
             }
-
-            String originalFilename = multipartFile.getOriginalFilename();
-            String filename = originalFilename.substring(originalFilename.lastIndexOf("\\") + 1);
-
-            String uuid = UUID.randomUUID().toString();
-            String saveName = uploadPath + File.separator + uuid + "_" + filename;
-
-            Path savePath = Paths.get(saveName);
-
-            try {
-                multipartFile.transferTo(savePath);
-
-                imgDTOList.add(ImageDTO.builder()
-                        .imgName(filename)
-                        .path(uploadPath)
-                        .uuid(uuid)
-                        .build());
-
-            } catch (IOException e) {
-                log.error("이미지 저장 에러 imgName = {}", filename);
-                e.printStackTrace();
-            }
-
         }
 
         return imgDTOList;

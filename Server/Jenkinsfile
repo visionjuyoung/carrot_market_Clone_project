@@ -122,7 +122,7 @@ pipeline {
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker pull hohoprince/carrot-market'
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker pull hohoprince/carrot-chat'
                     
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker run --restart always --name carrot-market -p 8080:8080 -d hohoprince/carrot-market'    
+                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker run --restart always --name carrot-market -p 8080:8080 -d -v /home/ubuntu/upload:/home/ubuntu/upload hohoprince/carrot-market'    
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker run --restart always --name carrot-chat -p 8888:8888 -d hohoprince/carrot-chat'
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.78.102.243 sudo docker run --restart always --name nginx -p 80:80 -d --link carrot-chat:carrot-chat --link carrot-market:carrot-market hohoprince/nginx'
                 }
