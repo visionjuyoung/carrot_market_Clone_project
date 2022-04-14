@@ -3,6 +3,7 @@ package com.hmsh.carrotmarket.controller;
 
 import com.hmsh.carrotmarket.CResponseEntity;
 import com.hmsh.carrotmarket.dto.EditUserDTO;
+import com.hmsh.carrotmarket.dto.MemberDTO;
 import com.hmsh.carrotmarket.enumeration.StatusCode;
 import com.hmsh.carrotmarket.service.SignUpService;
 import com.hmsh.carrotmarket.util.FileUtil;
@@ -28,7 +29,7 @@ public class EditProfileController {
     private boolean result;
 
     @PatchMapping("/edit")
-    public CResponseEntity editProfile (EditUserDTO dto,
+    public CResponseEntity<MemberDTO> editProfile (EditUserDTO dto,
                                         MultipartFile file) throws Exception{
         File newFileName = null;
 
@@ -40,12 +41,9 @@ public class EditProfileController {
 
         log.info("phoneNumber={}, address={}, name={}", dto.getPhoneNumber(), dto.getAddress(), dto.getName());
 
-        boolean result = signUpService.editMember(dto, newFileName);
+        MemberDTO result = signUpService.editMember(dto, newFileName);
 
-        if (result) {
-            return new CResponseEntity<>(true, StatusCode.OK, "회원정보 수정 성공");
-        } else {
-            return new CResponseEntity<>(false, StatusCode.UNAUTHORIZED, null);
-        }
+        return new CResponseEntity<MemberDTO>(true, StatusCode.OK, result);
+
     }
 }

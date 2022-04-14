@@ -34,4 +34,14 @@ public class SignUpConverter {
                 .filePath(Objects.isNull(file) ? null : file.getPath())
                 .build();
     }
+
+    public static MemberDTO EntityToMemberDTO(Member member) {
+        return MemberDTO.builder()
+                .phoneNumber(member.getPhoneNumber())
+                .name(member.getName())
+                .address(((Address) member.getAddress()).getRegion())
+                .uniqueNumber(member.getUniqueNumber())
+                .filePath(Objects.isNull(member.getFilePath()) ? null : member.getFilePath())
+                .build();
+    }
 }

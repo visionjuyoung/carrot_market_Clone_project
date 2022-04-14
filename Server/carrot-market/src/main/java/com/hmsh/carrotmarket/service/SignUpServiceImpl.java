@@ -3,6 +3,7 @@ package com.hmsh.carrotmarket.service;
 
 import com.hmsh.carrotmarket.converter.SignUpConverter;
 import com.hmsh.carrotmarket.dto.EditUserDTO;
+import com.hmsh.carrotmarket.dto.MemberDTO;
 import com.hmsh.carrotmarket.dto.SignUpDTO;
 import com.hmsh.carrotmarket.entity.Member;
 import com.hmsh.carrotmarket.entity.MemberRole;
@@ -64,8 +65,10 @@ public class SignUpServiceImpl implements SignUpService{
     }
 
     @Override
-    public boolean editMember(EditUserDTO dto, File file) {
+    public MemberDTO editMember(EditUserDTO dto, File file) {
         Optional<Member> signUpMember = memberRepository.findById(dto.getPhoneNumber());
+
+        MemberDTO memberDTO = new MemberDTO();
 
         try {
             if (signUpMember.isPresent()){
@@ -74,11 +77,11 @@ public class SignUpServiceImpl implements SignUpService{
 
                 newMember.addMemberRole(MemberRole.USER);
                 memberRepository.save(newMember);
-                return true;
+                return SignUpConverter.EntityToMemberDTO(newMember);
             }
         }catch (NullPointerException e){
-            return false;
+            return memberDTO;
         }
-        return false;
+        return memberDTO;
     }
 }
