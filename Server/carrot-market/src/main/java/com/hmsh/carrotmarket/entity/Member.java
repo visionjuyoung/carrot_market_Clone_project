@@ -29,8 +29,6 @@ public class Member {
 
     private String filePath;
 
-    private boolean clickedLike = false;
-
     @ElementCollection(fetch = FetchType.LAZY)
     @Builder.Default
     private Set<MemberRole> roleSet = new HashSet<>();

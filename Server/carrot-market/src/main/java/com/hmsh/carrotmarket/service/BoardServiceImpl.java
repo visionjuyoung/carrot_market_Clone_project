@@ -29,6 +29,8 @@ public class BoardServiceImpl implements BoardService {
 
     private final BoardImageRepository boardImageRepository;
 
+    private final ReplyLikesRepository replyLikesRepository;
+
     private final BoardReplyImageRepository boardReplyImageRepository;
 
     private final BoardReplyRepository boardReplyRepository;
@@ -208,26 +210,32 @@ public class BoardServiceImpl implements BoardService {
         boardReplyRepository.delete(optionalBoardReply.get());
     }
 
+
+    /**
+     * 좋아요 누른 댓글 리스트 조회
+     * @param phoneNumber 로그인한 사용자 ID
+     * @return 좋아요 누른 댓글 리스트
+     */
     @Override
     public List<BoardReplyDTO> getLikesReplyList(String phoneNumber) {
-        return boardReplyRepository.getBoardByLikes(Member.builder().phoneNumber(phoneNumber).build()).stream()
+        return boardReplyRepository.getBoardReplyByReplyLikes(Member.builder().phoneNumber(phoneNumber).build()).stream()
                 .map(BoardReplyConverter::replyToLikeReplyDTO)
                 .collect(Collectors.toList());
     }
 
     /**
-     * 좋아요 등록
+     * 댓글 좋아요 등록
      * @param likesDTO 좋아요 등록 멤버와 댓글 정보
      * @return 좋아요 등록 댓글 ID
      */
     @Override
-    public long registLike(LikesDTO likesDTO) {
-        Likes likes = Likes.builder()
+    public long registReplyLike(LikesDTO likesDTO) {
+        ReplyLikes replyLikes = ReplyLikes.builder()
                 .member(Member.builder().phoneNumber(likesDTO.getPhoneNumber()).build())
                 .boardReply(BoardReply.builder().id(likesDTO.getBoardId()).build())
                 .build();
 
-        Likes save = likesRepository.save(likes);
+        ReplyLikes save = replyLikesRepository.save(replyLikes);
 
         Optional<BoardReply> optionalBoardReply = boardReplyRepository.findById(likesDTO.getBoardId());
         if (!optionalBoardReply.isPresent()) throw new IllegalArgumentException();
@@ -240,14 +248,14 @@ public class BoardServiceImpl implements BoardService {
     }
 
     /**
-     * 좋아요 등록
+     * 댓글 좋아요 취소
      * @param likesDTO 댓글 좋아요 등록 멤버와 댓글 정보
      */
     @Override
     public void removeReplyLikes(LikesDTO likesDTO) {
-        likesRepository.deleteLikesByMemberAndReply(
+        replyLikesRepository.deleteReplyLikesByMemberAndBoardReply(
                 Member.builder().phoneNumber(likesDTO.getPhoneNumber()).build(),
-                BoardReply.builder().id(likesDTO.getBoardId()).build()
+                BoardReply.builder().id(likesDTO.getBoardReplyId()).build()
         );
 
         Optional<BoardReply> optionalBoardReply = boardReplyRepository.findById(likesDTO.getBoardId());

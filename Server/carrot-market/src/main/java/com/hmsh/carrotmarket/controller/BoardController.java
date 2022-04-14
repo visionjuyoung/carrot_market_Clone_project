@@ -132,7 +132,7 @@ public class BoardController {
 
 
     /**
-     * 좋아요 상품 조회
+     * 좋아요 누른 댓글 상품 조회
      * @param phoneNumber 회원 전화번호
      * @return 좋아요 누른 댓글 리스트
      */
@@ -148,9 +148,9 @@ public class BoardController {
      * @param likesDTO 좋아요 등록 멤버와 댓글 정보
      * @return 좋아요 등록 댓글 ID
      */
-    @PostMapping("/reply/like")
+    @PostMapping("/reply/likes")
     public CResponseEntity clickLike(@RequestBody LikesDTO likesDTO) {
-        long likes = boardService.registLike(likesDTO);
+        long likes = boardService.registReplyLike(likesDTO);
 
         log.info("댓글 좋아요 수 = {}", likes);
         return new CResponseEntity<>(true, StatusCode.OK, likes);
@@ -161,7 +161,7 @@ public class BoardController {
      * @param likesDTO 좋아요 등록 멤버와 댓글 정보
      * @return responseEntity
      */
-    @DeleteMapping("/likes")
+    @DeleteMapping("/reply/likes")
     public CResponseEntity<Object> remove(@RequestBody LikesDTO likesDTO) {
         log.info("좋아요 삭제 likesDTO = {}", likesDTO);
         boardService.removeReplyLikes(likesDTO);

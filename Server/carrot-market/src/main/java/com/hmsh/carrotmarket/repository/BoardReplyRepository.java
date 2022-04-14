@@ -5,6 +5,7 @@ import com.hmsh.carrotmarket.entity.BoardReply;
 import com.hmsh.carrotmarket.entity.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -14,10 +15,10 @@ public interface BoardReplyRepository extends JpaRepository<BoardReply, Long> {
 
     void deleteAllByBoard(Board board);
 
-    @Query("select p.id, p.content, p.board_id, p.modDate, p.likes" +
+    @Query(value = "select p.id, p.content, p.boardId, p.modDate, p.likes " +
             "from BoardReply p " +
-            "left outer join Likes l on p = l.boardReply " +
+            "left outer join ReplyLikes l on p = l.boardReply " +
             "where l.member = :member " +
-            "group by p")
-    List<Object[]> getBoardByLikes(Member member);
+            "group by p", nativeQuery = true)
+    List<Object[]> getBoardReplyByReplyLikes(@Param("member") Member member);
 }

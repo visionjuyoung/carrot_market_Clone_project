@@ -30,7 +30,7 @@ public class EditProfileController {
 
     @PatchMapping("/edit")
     public CResponseEntity<MemberDTO> editProfile (EditUserDTO dto,
-                                        MultipartFile file) throws Exception{
+                                                   MultipartFile file) throws Exception{
         File newFileName = null;
 
         if (!Objects.isNull(file) && !file.isEmpty()) {

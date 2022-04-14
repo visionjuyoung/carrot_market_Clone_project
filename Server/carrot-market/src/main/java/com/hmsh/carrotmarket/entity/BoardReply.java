@@ -22,12 +22,15 @@ public class BoardReply extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     private Board board;
 
+
     @Column(nullable = false)
     private int likes;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Member member;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private ReplyLikes replyLikes;
 
     public void setContent(String content) {
         this.content = content;

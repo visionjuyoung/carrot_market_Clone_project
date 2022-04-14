@@ -30,7 +30,7 @@ public interface BoardService {
 
     void deleteReply(Long id);
 
-    long registLike(LikesDTO likesDTO);
+    long registReplyLike(LikesDTO likesDTO);
 
     List<BoardReplyDTO> getLikesReplyList(String phoneNumber);
 

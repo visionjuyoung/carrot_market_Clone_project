@@ -12,8 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Likes extends BaseEntity {
-
+public class ReplyLikes extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,6 +21,5 @@ public class Likes extends BaseEntity {
     private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Product product;
-
+    private BoardReply boardReply;
 }

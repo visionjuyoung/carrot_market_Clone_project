@@ -15,4 +15,6 @@ public class LikesDTO {
     private Long productId;
 
     private Long boardId;
+
+    private Long boardReplyId;
 }
