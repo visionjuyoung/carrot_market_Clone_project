@@ -68,8 +68,15 @@
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain"/>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgN-r1-UJq">
+                        <rect key="frame" x="20" y="20" width="374" height="66"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain"/>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="jgN-r1-UJq" secondAttribute="trailing" constant="20" symbolic="YES" id="3XO-Ao-3tc"/>
+                    <constraint firstItem="qOr-BK-pfE" firstAttribute="top" secondItem="jgN-r1-UJq" secondAttribute="bottom" constant="9.5" id="6Ta-fx-QG8"/>
                     <constraint firstItem="y06-fW-Gsd" firstAttribute="height" secondItem="qOr-BK-pfE" secondAttribute="height" multiplier="0.100503" id="7fd-z2-d9R"/>
                     <constraint firstItem="h4z-53-qyN" firstAttribute="bottom" secondItem="Ohg-Tp-gk8" secondAttribute="bottom" constant="-7" id="8ho-dv-qZ8"/>
                     <constraint firstItem="LCM-xl-odV" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.05" id="9Yr-U7-BII"/>
@@ -86,12 +93,14 @@
                     <constraint firstItem="gZH-mY-mmr" firstAttribute="top" secondItem="Ohg-Tp-gk8" secondAttribute="top" constant="8" id="Tqq-ry-dza"/>
                     <constraint firstAttribute="bottom" secondItem="qOr-BK-pfE" secondAttribute="bottom" id="ZYR-ke-Xkq"/>
                     <constraint firstItem="y06-fW-Gsd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="adh-ha-l3w"/>
+                    <constraint firstItem="jgN-r1-UJq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="ciT-Wb-tBf"/>
                     <constraint firstItem="EAw-cg-kNT" firstAttribute="top" secondItem="Ohg-Tp-gk8" secondAttribute="bottom" constant="88" id="e6e-8E-SHL"/>
                     <constraint firstAttribute="trailing" secondItem="qOr-BK-pfE" secondAttribute="trailing" id="fJz-0N-Ngh"/>
                     <constraint firstItem="gZH-mY-mmr" firstAttribute="leading" secondItem="Ohg-Tp-gk8" secondAttribute="trailing" constant="20" id="fLK-SW-lbP"/>
                     <constraint firstAttribute="trailing" secondItem="LCM-xl-odV" secondAttribute="trailing" constant="20" id="gxL-pm-KM6"/>
                     <constraint firstAttribute="trailing" secondItem="qOr-BK-pfE" secondAttribute="trailing" id="iOm-9b-2wY"/>
                     <constraint firstAttribute="bottom" secondItem="qOr-BK-pfE" secondAttribute="bottom" id="j6k-1N-SM7"/>
+                    <constraint firstItem="jgN-r1-UJq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="mta-L6-N3l"/>
                     <constraint firstAttribute="trailing" secondItem="y06-fW-Gsd" secondAttribute="trailing" id="oKS-4j-RLc"/>
                     <constraint firstItem="Ohg-Tp-gk8" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.16" id="pn3-hK-Bu9"/>
                     <constraint firstAttribute="bottom" secondItem="y06-fW-Gsd" secondAttribute="bottom" id="sCE-0A-5aF"/>
@@ -101,6 +110,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="addressLabel" destination="h4z-53-qyN" id="wCO-eR-Yag"/>
+                <outlet property="editButton" destination="jgN-r1-UJq" id="oiD-yA-7YQ"/>
                 <outlet property="heartButton" destination="7P6-M6-3Ud" id="7R5-5M-ev4"/>
                 <outlet property="nameLabel" destination="gZH-mY-mmr" id="ZHg-FS-732"/>
                 <outlet property="profileImage" destination="Ohg-Tp-gk8" id="ZuO-RW-cq7"/>

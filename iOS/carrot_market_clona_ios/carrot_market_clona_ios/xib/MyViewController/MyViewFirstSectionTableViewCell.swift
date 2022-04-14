@@ -14,6 +14,7 @@ class MyViewFirstSectionTableViewCell: UITableViewCell {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var heartButton: UIButton!
     @IBOutlet weak var soldButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
     
     
     override func awakeFromNib() {

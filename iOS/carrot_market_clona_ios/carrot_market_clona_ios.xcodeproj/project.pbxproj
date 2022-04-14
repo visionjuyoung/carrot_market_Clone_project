@@ -79,6 +79,10 @@
 		4BC6768C280546EF0067D68D /* ProductModifyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC6768B280546EF0067D68D /* ProductModifyRequest.swift */; };
 		4BC6768E2805474A0067D68D /* ProductModifyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC6768D2805474A0067D68D /* ProductModifyResponse.swift */; };
 		4BC67690280562CE0067D68D /* ProductModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC6768F280562CE0067D68D /* ProductModifyViewController.swift */; };
+		4BD1938A2807DD6300C9CE9A /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD193892807DD6300C9CE9A /* EditProfileViewController.swift */; };
+		4BD1938D2807E01E00C9CE9A /* EditProfileDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD1938C2807E01E00C9CE9A /* EditProfileDataManager.swift */; };
+		4BD1938F2807E02B00C9CE9A /* EditProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD1938E2807E02B00C9CE9A /* EditProfileResponse.swift */; };
+		4BD193912807E03800C9CE9A /* EditProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD193902807E03800C9CE9A /* EditProfileRequest.swift */; };
 		4BD6D2C827E1C690004B71B3 /* PhoneCertificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2C727E1C690004B71B3 /* PhoneCertificationResponse.swift */; };
 		4BD6D2CA27E1C718004B71B3 /* PhoneCertificationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2C927E1C718004B71B3 /* PhoneCertificationDataManager.swift */; };
 		4BD6D2CC27E1D3A2004B71B3 /* PhoneCertificationConfirmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD6D2CB27E1D3A2004B71B3 /* PhoneCertificationConfirmDataManager.swift */; };
@@ -170,6 +174,10 @@
 		4BC6768B280546EF0067D68D /* ProductModifyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModifyRequest.swift; sourceTree = "<group>"; };
 		4BC6768D2805474A0067D68D /* ProductModifyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModifyResponse.swift; sourceTree = "<group>"; };
 		4BC6768F280562CE0067D68D /* ProductModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModifyViewController.swift; sourceTree = "<group>"; };
+		4BD193892807DD6300C9CE9A /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		4BD1938C2807E01E00C9CE9A /* EditProfileDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileDataManager.swift; sourceTree = "<group>"; };
+		4BD1938E2807E02B00C9CE9A /* EditProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileResponse.swift; sourceTree = "<group>"; };
+		4BD193902807E03800C9CE9A /* EditProfileRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileRequest.swift; sourceTree = "<group>"; };
 		4BD6D2C727E1C690004B71B3 /* PhoneCertificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationResponse.swift; sourceTree = "<group>"; };
 		4BD6D2C927E1C718004B71B3 /* PhoneCertificationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationDataManager.swift; sourceTree = "<group>"; };
 		4BD6D2CB27E1D3A2004B71B3 /* PhoneCertificationConfirmDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCertificationConfirmDataManager.swift; sourceTree = "<group>"; };
@@ -400,6 +408,7 @@
 				4BB9657A27D0BDBB00E41D0C /* MyViewController.swift */,
 				4BBAD4F327FC2A2C00B7381A /* HeartViewController.swift */,
 				4BC6768F280562CE0067D68D /* ProductModifyViewController.swift */,
+				4BD193892807DD6300C9CE9A /* EditProfileViewController.swift */,
 			);
 			path = MyView;
 			sourceTree = "<group>";
@@ -407,6 +416,7 @@
 		4BBAD4F527FC2C5E00B7381A /* My */ = {
 			isa = PBXGroup;
 			children = (
+				4BD1938B2807DE3200C9CE9A /* EditProfile */,
 				4BBAD51C28041E2200B7381A /* SoldProduct */,
 				4BBAD4F627FC2C7900B7381A /* Heart */,
 			);
@@ -501,6 +511,16 @@
 				4B0AE0BB2805796900EEAD11 /* DeleteProductResponse.swift */,
 			);
 			path = ProductManagement;
+			sourceTree = "<group>";
+		};
+		4BD1938B2807DE3200C9CE9A /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				4BD1938C2807E01E00C9CE9A /* EditProfileDataManager.swift */,
+				4BD1938E2807E02B00C9CE9A /* EditProfileResponse.swift */,
+				4BD193902807E03800C9CE9A /* EditProfileRequest.swift */,
+			);
+			path = EditProfile;
 			sourceTree = "<group>";
 		};
 		4BD6D2C327E1C5D6004B71B3 /* Network */ = {
@@ -752,6 +772,7 @@
 				4B91242027E05E7E0052D546 /* AddProductViewController.swift in Sources */,
 				4BBAD50027FC304400B7381A /* HeartListTableViewCell.swift in Sources */,
 				4BBAD52028041E6500B7381A /* SellProductResponse.swift in Sources */,
+				4BD193912807E03800C9CE9A /* EditProfileRequest.swift in Sources */,
 				4BD6D2CA27E1C718004B71B3 /* PhoneCertificationDataManager.swift in Sources */,
 				4BD6D2CE27E1D3B2004B71B3 /* PhoneCertificationConfirmResponse.swift in Sources */,
 				4B91241B27DF26180052D546 /* SetProfileViewController.swift in Sources */,
@@ -773,6 +794,9 @@
 				4B91241227D9BD080052D546 /* PhoneAutentificationViewController.swift in Sources */,
 				4BB9657527D0BD8D00E41D0C /* TownViewController.swift in Sources */,
 				4BBAD4F427FC2A2C00B7381A /* HeartViewController.swift in Sources */,
+				4BD1938F2807E02B00C9CE9A /* EditProfileResponse.swift in Sources */,
+				4BD1938A2807DD6300C9CE9A /* EditProfileViewController.swift in Sources */,
+				4BD1938D2807E01E00C9CE9A /* EditProfileDataManager.swift in Sources */,
 				4BBAD4ED27FBFD6A00B7381A /* ProductDetailResponse.swift in Sources */,
 				4BD6D2E227E9DF3C004B71B3 /* UserInfo.swift in Sources */,
 				4BC6768A280546CE0067D68D /* ProductModifyDataManager.swift in Sources */,
