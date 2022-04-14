@@ -13,4 +13,6 @@ public class LikesDTO {
     private String phoneNumber;
 
     private Long productId;
+
+    private Long boardId;
 }

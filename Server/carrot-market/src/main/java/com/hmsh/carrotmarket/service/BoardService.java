@@ -30,5 +30,10 @@ public interface BoardService {
 
     void deleteReply(Long id);
 
-    int clickLike(LikesDTO likesDTO);
+    long registLike(LikesDTO likesDTO);
+
+    List<BoardReplyDTO> getLikesReplyList(String phoneNumber);
+
+    void removeReplyLikes (LikesDTO likesDTO);
+
 }

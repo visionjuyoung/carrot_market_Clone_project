@@ -3,6 +3,7 @@ package com.hmsh.carrotmarket.service;
 import com.hmsh.carrotmarket.converter.BoardConverter;
 import com.hmsh.carrotmarket.converter.BoardReplyConverter;
 import com.hmsh.carrotmarket.converter.ImageConverter;
+import com.hmsh.carrotmarket.converter.ProductConverter;
 import com.hmsh.carrotmarket.dto.*;
 import com.hmsh.carrotmarket.entity.*;
 import com.hmsh.carrotmarket.repository.*;
@@ -127,20 +128,6 @@ public class BoardServiceImpl implements BoardService {
     public Long registerReply(BoardReplyDTO boardReplyDTO, MultipartFile[] uploadFiles) {
         BoardReply reply = BoardReplyConverter.replyDTOToReply(boardReplyDTO);
 
-//        Board board = BoardConverter.dtoToBoard(boardDTO);
-//
-//        if (!Objects.isNull(files)) {
-//            List<ImageDTO> imageDTOList = fileService.uploadImageFiles(files);
-//            List<BoardImage> boardImageList = imageDTOList.stream()
-//                    .map(imageDTO -> ImageConverter.imageDTOToBoardImage(imageDTO, board))
-//                    .collect(Collectors.toList());
-//
-//            log.info("save images = {}", imageDTOList);
-//            boardImageRepository.saveAll(boardImageList);
-//        }
-//
-//        Board saved = boardRepository.save(board);
-
         if (!Objects.isNull(uploadFiles)) {
             List<ImageDTO> imageDTOList = fileService.uploadImageFiles(uploadFiles);
             List<BoardReplyImage> boardImageList = imageDTOList.stream()
@@ -222,40 +209,52 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public int clickLike(LikesDTO likesDTO) {
-        Optional<BoardReply> optionalBoardReply = boardReplyRepository.findById(likesDTO.getProductId());
+    public List<BoardReplyDTO> getLikesReplyList(String phoneNumber) {
+        return boardReplyRepository.getBoardByLikes(Member.builder().phoneNumber(phoneNumber).build()).stream()
+                .map(BoardReplyConverter::replyToLikeReplyDTO)
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * 좋아요 등록
+     * @param likesDTO 좋아요 등록 멤버와 댓글 정보
+     * @return 좋아요 등록 댓글 ID
+     */
+    @Override
+    public long registLike(LikesDTO likesDTO) {
+        Likes likes = Likes.builder()
+                .member(Member.builder().phoneNumber(likesDTO.getPhoneNumber()).build())
+                .boardReply(BoardReply.builder().id(likesDTO.getBoardId()).build())
+                .build();
+
+        Likes save = likesRepository.save(likes);
+
+        Optional<BoardReply> optionalBoardReply = boardReplyRepository.findById(likesDTO.getBoardId());
         if (!optionalBoardReply.isPresent()) throw new IllegalArgumentException();
 
         BoardReply boardReply = optionalBoardReply.get();
+        boardReply.setLikes(boardReply.getLikes() + 1);
+        boardReplyRepository.save(boardReply);
 
-        Likes optionalLikes = likesRepository
-                .getLikesByMemberAndBoardReply(Member.builder().phoneNumber(likesDTO.getPhoneNumber()).build(), boardReply);
+        return save.getId();
+    }
 
-        if(optionalLikes.getMember().isClickedLike()){
-            boardReply.setLikes(boardReply.getLikes() + 1);
-            boardReplyRepository.save(boardReply);
-            Likes likes = Likes.builder()
-                    .member(Member.builder()
-                            .phoneNumber(likesDTO.getPhoneNumber())
-                            .clickedLike(true)
-                            .build())
-                    .boardReply(BoardReply.builder().id(likesDTO.getProductId()).build())
-                    .build();
-            Likes save = likesRepository.save(likes);
-        }
-        else{
-            boardReply.setLikes(boardReply.getLikes() - 1);
-            boardReplyRepository.save(boardReply);
-            Likes likes = Likes.builder()
-                    .member(Member.builder()
-                            .phoneNumber(likesDTO.getPhoneNumber())
-                            .clickedLike(false)
-                            .build())
-                    .boardReply(BoardReply.builder().id(likesDTO.getProductId()).build())
-                    .build();
-            Likes save = likesRepository.save(likes);
-        }
+    /**
+     * 좋아요 등록
+     * @param likesDTO 댓글 좋아요 등록 멤버와 댓글 정보
+     */
+    @Override
+    public void removeReplyLikes(LikesDTO likesDTO) {
+        likesRepository.deleteLikesByMemberAndReply(
+                Member.builder().phoneNumber(likesDTO.getPhoneNumber()).build(),
+                BoardReply.builder().id(likesDTO.getBoardId()).build()
+        );
 
-        return boardReply.getLikes();
+        Optional<BoardReply> optionalBoardReply = boardReplyRepository.findById(likesDTO.getBoardId());
+        if (!optionalBoardReply.isPresent()) throw new IllegalArgumentException();
+
+        BoardReply boardReply = optionalBoardReply.get();
+        boardReply.setLikes(boardReply.getLikes() - 1);
+        boardReplyRepository.save(boardReply);
     }
 }

@@ -1,10 +1,7 @@
 package com.hmsh.carrotmarket.controller;
 
 import com.hmsh.carrotmarket.CResponseEntity;
-import com.hmsh.carrotmarket.dto.BoardDTO;
-import com.hmsh.carrotmarket.dto.BoardReplyDTO;
-import com.hmsh.carrotmarket.dto.BoardReplyListDTO;
-import com.hmsh.carrotmarket.dto.LikesDTO;
+import com.hmsh.carrotmarket.dto.*;
 import com.hmsh.carrotmarket.enumeration.StatusCode;
 import com.hmsh.carrotmarket.service.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -133,11 +130,41 @@ public class BoardController {
         return new CResponseEntity<>(true, StatusCode.OK, null);
     }
 
+
+    /**
+     * 좋아요 상품 조회
+     * @param phoneNumber 회원 전화번호
+     * @return 좋아요 누른 댓글 리스트
+     */
+    @GetMapping("/reply/likes/{phoneNumber}")
+    public CResponseEntity<List<BoardReplyDTO>> getLikesProducts(@PathVariable String phoneNumber) {
+        log.info("좋아요 상품 리스트 phoneNumber = {}", phoneNumber);
+        List<BoardReplyDTO> likesList = boardService.getLikesReplyList(phoneNumber);
+        return new CResponseEntity<List<BoardReplyDTO>>(true, StatusCode.OK, likesList);
+    }
+
+    /**
+     * 댓글 좋아요 등록
+     * @param likesDTO 좋아요 등록 멤버와 댓글 정보
+     * @return 좋아요 등록 댓글 ID
+     */
     @PostMapping("/reply/like")
     public CResponseEntity clickLike(@RequestBody LikesDTO likesDTO) {
-        int likes = boardService.clickLike(likesDTO);
+        long likes = boardService.registLike(likesDTO);
 
         log.info("댓글 좋아요 수 = {}", likes);
         return new CResponseEntity<>(true, StatusCode.OK, likes);
+    }
+
+    /**
+     * 댓글 좋아요 삭제
+     * @param likesDTO 좋아요 등록 멤버와 댓글 정보
+     * @return responseEntity
+     */
+    @DeleteMapping("/likes")
+    public CResponseEntity<Object> remove(@RequestBody LikesDTO likesDTO) {
+        log.info("좋아요 삭제 likesDTO = {}", likesDTO);
+        boardService.removeReplyLikes(likesDTO);
+        return new CResponseEntity<>(true, StatusCode.OK, null);
     }
 }
