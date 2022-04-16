@@ -218,9 +218,14 @@ public class BoardServiceImpl implements BoardService {
      */
     @Override
     public List<BoardReplyDTO> getLikesReplyList(String phoneNumber) {
-        return boardReplyRepository.getBoardReplyByReplyLikes(Member.builder().phoneNumber(phoneNumber).build()).stream()
+        List<BoardReplyDTO> boardReplyDTOList =boardReplyRepository.getBoardReplyByReplyLikes(Member.builder().phoneNumber(phoneNumber).build()).stream()
                 .map(BoardReplyConverter::replyToLikeReplyDTO)
                 .collect(Collectors.toList());
+
+        if (boardReplyDTOList.isEmpty())
+            throw new IllegalArgumentException("좋아요를 누른 댓글이 없음");
+
+        return boardReplyDTOList;
     }
 
     /**
