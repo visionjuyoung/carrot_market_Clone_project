@@ -238,7 +238,7 @@ public class BoardServiceImpl implements BoardService {
 
         ReplyLikes save = replyLikesRepository.save(replyLikes);
 
-        Optional<BoardReply> optionalBoardReply = boardReplyRepository.findById(likesDTO.getBoardId());
+        Optional<BoardReply> optionalBoardReply = boardReplyRepository.findById(likesDTO.getBoardReplyId());
         if (!optionalBoardReply.isPresent()) throw new IllegalArgumentException();
 
         BoardReply boardReply = optionalBoardReply.get();
@@ -256,10 +256,11 @@ public class BoardServiceImpl implements BoardService {
     public void removeReplyLikes(LikesDTO likesDTO) {
         replyLikesRepository.deleteReplyLikesByMemberAndBoardReply(
                 Member.builder().phoneNumber(likesDTO.getPhoneNumber()).build(),
-                BoardReply.builder().id(likesDTO.getBoardReplyId()).build()
+                BoardReply.builder().id(likesDTO.getBoardReplyId()).build(),
+                Board.builder().id(likesDTO.getBoardId()).build()
         );
 
-        Optional<BoardReply> optionalBoardReply = boardReplyRepository.findById(likesDTO.getBoardId());
+        Optional<BoardReply> optionalBoardReply = boardReplyRepository.findById(likesDTO.getBoardReplyId());
         if (!optionalBoardReply.isPresent()) throw new IllegalArgumentException();
 
         BoardReply boardReply = optionalBoardReply.get();
