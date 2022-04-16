@@ -38,10 +38,17 @@ public class BoardReplyConverter {
 
     public static BoardReplyDTO replyToLikeReplyDTO(Object[] objects) {
 
+        Long boardId = null;
+        Board board = (Board) objects[2];
+
+        if (!Objects.isNull(board)) {
+            boardId = board.getId();
+        }
+
         return BoardReplyDTO.builder()
                 .id((Long) objects[0])
                 .content((String) objects[1])
-                .boardId(((Long) objects[2]))
+                .boardId(boardId)
                 .modDate((LocalDateTime) objects[3])
                 .like((Long) objects[4])
                 .build();

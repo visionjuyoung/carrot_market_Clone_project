@@ -218,7 +218,7 @@ public class BoardServiceImpl implements BoardService {
      */
     @Override
     public List<BoardReplyDTO> getLikesReplyList(String phoneNumber) {
-        List<BoardReplyDTO> boardReplyDTOList =boardReplyRepository.getBoardReplyByReplyLikes(Member.builder().phoneNumber(phoneNumber).build()).stream()
+        List<BoardReplyDTO> boardReplyDTOList =replyLikesRepository.getBoardReplyByReplyLikes(Member.builder().phoneNumber(phoneNumber).build()).stream()
                 .map(BoardReplyConverter::replyToLikeReplyDTO)
                 .collect(Collectors.toList());
 
@@ -259,7 +259,7 @@ public class BoardServiceImpl implements BoardService {
      */
     @Override
     public void removeReplyLikes(LikesDTO likesDTO) {
-        replyLikesRepository.deleteReplyLikesByMemberAndBoardReply(
+        replyLikesRepository.deleteReplyLikesByMemberAndBoardReplyAndBoard(
                 Member.builder().phoneNumber(likesDTO.getPhoneNumber()).build(),
                 BoardReply.builder().id(likesDTO.getBoardReplyId()).build(),
                 Board.builder().id(likesDTO.getBoardId()).build()
