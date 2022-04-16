@@ -22,4 +22,7 @@ public class ReplyLikes extends BaseEntity{
 
     @ManyToOne(fetch = FetchType.LAZY)
     private BoardReply boardReply;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Board board;
 }

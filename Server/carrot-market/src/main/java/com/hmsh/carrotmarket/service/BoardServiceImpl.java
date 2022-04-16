@@ -232,7 +232,8 @@ public class BoardServiceImpl implements BoardService {
     public long registReplyLike(LikesDTO likesDTO) {
         ReplyLikes replyLikes = ReplyLikes.builder()
                 .member(Member.builder().phoneNumber(likesDTO.getPhoneNumber()).build())
-                .boardReply(BoardReply.builder().id(likesDTO.getBoardId()).build())
+                .boardReply(BoardReply.builder().id(likesDTO.getBoardReplyId()).build())
+                .board(Board.builder().id(likesDTO.getBoardId()).build())
                 .build();
 
         ReplyLikes save = replyLikesRepository.save(replyLikes);
@@ -244,7 +245,7 @@ public class BoardServiceImpl implements BoardService {
         boardReply.setLikes(boardReply.getLikes() + 1);
         boardReplyRepository.save(boardReply);
 
-        return save.getId();
+        return save.getBoardReply().getId();
     }
 
     /**

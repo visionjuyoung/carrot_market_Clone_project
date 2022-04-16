@@ -140,7 +140,7 @@ public class BoardController {
     public CResponseEntity<List<BoardReplyDTO>> getLikesProducts(@PathVariable String phoneNumber) {
         log.info("좋아요 상품 리스트 phoneNumber = {}", phoneNumber);
         List<BoardReplyDTO> likesList = boardService.getLikesReplyList(phoneNumber);
-        return new CResponseEntity<List<BoardReplyDTO>>(true, StatusCode.OK, likesList);
+        return new CResponseEntity<>(true, StatusCode.OK, likesList);
     }
 
     /**
