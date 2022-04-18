@@ -1,5 +1,6 @@
 package com.hmsh.carrotmarket.entity;
 
+import com.hmsh.carrotmarket.dto.EditUserDTO;
 import com.hmsh.carrotmarket.enumeration.Address;
 import lombok.*;
 
@@ -36,5 +37,14 @@ public class Member {
 
     public void addMemberRole(MemberRole memberRole) {
         roleSet.add(memberRole);
+    }
+
+    public void editMember(EditUserDTO dto) {
+        this.name = dto.getName();
+        this.address = Address.getByRegion(dto.getAddress());
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
     }
 }

@@ -72,12 +72,13 @@ public class SignUpServiceImpl implements SignUpService{
 
         try {
             if (signUpMember.isPresent()){
-                String password = passwordEncoder.encode(dto.getPhoneNumber());
-                Member newMember = SignUpConverter.dtoToEntityEdit(dto, file, password);
+                Member member = signUpMember.get();
 
-                newMember.addMemberRole(MemberRole.USER);
-                memberRepository.save(newMember);
-                return SignUpConverter.EntityToMemberDTO(newMember);
+                member.editMember(dto);
+                member.setFilePath(Objects.isNull(file) ? null : file.getPath());
+                
+                memberRepository.save(member);
+                return SignUpConverter.EntityToMemberDTO(member);
             }
         }catch (NullPointerException e){
             return memberDTO;
