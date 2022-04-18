@@ -22,6 +22,7 @@
 		4B314AE227F6E70100ABC0BF /* firthProductDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B314AE027F6E70100ABC0BF /* firthProductDetailTableViewCell.xib */; };
 		4B314AE527F6E71000ABC0BF /* fifthProductDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B314AE327F6E71000ABC0BF /* fifthProductDetailTableViewCell.swift */; };
 		4B314AE627F6E71000ABC0BF /* fifthProductDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B314AE427F6E71000ABC0BF /* fifthProductDetailTableViewCell.xib */; };
+		4B6854A2280D515300097B50 /* TownLifeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6854A1280D515300097B50 /* TownLifeViewController.swift */; };
 		4B9123F227D6030C0052D546 /* MyViewFirstSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9123F027D6030C0052D546 /* MyViewFirstSectionTableViewCell.swift */; };
 		4B9123F327D6030C0052D546 /* MyViewFirstSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B9123F127D6030C0052D546 /* MyViewFirstSectionTableViewCell.xib */; };
 		4B9123F627D6031D0052D546 /* MyViewSecondSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9123F427D6031D0052D546 /* MyViewSecondSectionTableViewCell.swift */; };
@@ -115,6 +116,7 @@
 		4B314AE027F6E70100ABC0BF /* firthProductDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = firthProductDetailTableViewCell.xib; sourceTree = "<group>"; };
 		4B314AE327F6E71000ABC0BF /* fifthProductDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fifthProductDetailTableViewCell.swift; sourceTree = "<group>"; };
 		4B314AE427F6E71000ABC0BF /* fifthProductDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = fifthProductDetailTableViewCell.xib; sourceTree = "<group>"; };
+		4B6854A1280D515300097B50 /* TownLifeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TownLifeViewController.swift; sourceTree = "<group>"; };
 		4B9123F027D6030C0052D546 /* MyViewFirstSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewFirstSectionTableViewCell.swift; sourceTree = "<group>"; };
 		4B9123F127D6030C0052D546 /* MyViewFirstSectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyViewFirstSectionTableViewCell.xib; sourceTree = "<group>"; };
 		4B9123F427D6031D0052D546 /* MyViewSecondSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewSecondSectionTableViewCell.swift; sourceTree = "<group>"; };
@@ -241,6 +243,14 @@
 				4B314AE427F6E71000ABC0BF /* fifthProductDetailTableViewCell.xib */,
 			);
 			path = ProductDetailCell;
+			sourceTree = "<group>";
+		};
+		4B68549E280D511000097B50 /* TownViewControllerPage */ = {
+			isa = PBXGroup;
+			children = (
+				4B6854A1280D515300097B50 /* TownLifeViewController.swift */,
+			);
+			path = TownViewControllerPage;
 			sourceTree = "<group>";
 		};
 		4B9123EF27D602730052D546 /* MyViewController */ = {
@@ -386,6 +396,7 @@
 		4BB9657127D0BC3B00E41D0C /* viewcontroller */ = {
 			isa = PBXGroup;
 			children = (
+				4B68549E280D511000097B50 /* TownViewControllerPage */,
 				4B91240D27D9BC900052D546 /* TabbarControllerPage */,
 				4B91240E27D9BCAA0052D546 /* StartPage */,
 			);
@@ -800,6 +811,7 @@
 				4BBAD4ED27FBFD6A00B7381A /* ProductDetailResponse.swift in Sources */,
 				4BD6D2E227E9DF3C004B71B3 /* UserInfo.swift in Sources */,
 				4BC6768A280546CE0067D68D /* ProductModifyDataManager.swift in Sources */,
+				4B6854A2280D515300097B50 /* TownLifeViewController.swift in Sources */,
 				4BBAD5262804232500B7381A /* SellProductTableViewCell.swift in Sources */,
 				4B91240C27D746EA0052D546 /* SetLocationViewController.swift in Sources */,
 				4B0AE0BC2805796900EEAD11 /* DeleteProductResponse.swift in Sources */,
