@@ -32,7 +32,7 @@ public interface BoardService {
 
     long registReplyLike(LikesDTO likesDTO);
 
-    List<BoardReplyDTO> getLikesReplyList(String phoneNumber);
+    // List<BoardReplyDTO> getLikesReplyList(String phoneNumber);
 
     void removeReplyLikes (LikesDTO likesDTO);
 

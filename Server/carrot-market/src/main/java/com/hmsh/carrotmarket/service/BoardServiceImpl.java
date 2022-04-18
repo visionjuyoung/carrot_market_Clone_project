@@ -216,17 +216,18 @@ public class BoardServiceImpl implements BoardService {
      * @param phoneNumber 로그인한 사용자 ID
      * @return 좋아요 누른 댓글 리스트
      */
-    @Override
-    public List<BoardReplyDTO> getLikesReplyList(String phoneNumber) {
-        List<BoardReplyDTO> boardReplyDTOList =replyLikesRepository.getBoardReplyByReplyLikes(Member.builder().phoneNumber(phoneNumber).build()).stream()
-                .map(BoardReplyConverter::replyToLikeReplyDTO)
-                .collect(Collectors.toList());
-
-        if (boardReplyDTOList.isEmpty())
-            throw new IllegalArgumentException("좋아요를 누른 댓글이 없음");
-
-        return boardReplyDTOList;
-    }
+//    @Override
+//    public List<BoardReplyDTO> getLikesReplyList(String phoneNumber) {
+//        List<BoardReplyDTO> boardReplyDTOList = replyLikesRepository
+//                .getBoardReplyByReplyLikes(Member.builder().phoneNumber(phoneNumber).build()).stream()
+//                .map(BoardReplyConverter::replyToLikeReplyDTO)
+//                .collect(Collectors.toList());
+//
+//        if (boardReplyDTOList.isEmpty())
+//            throw new IllegalArgumentException("좋아요를 누른 댓글이 없음");
+//
+//        return boardReplyDTOList;
+//    }
 
     /**
      * 댓글 좋아요 등록
