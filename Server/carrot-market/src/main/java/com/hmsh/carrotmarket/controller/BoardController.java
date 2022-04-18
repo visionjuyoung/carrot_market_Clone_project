@@ -132,16 +132,16 @@ public class BoardController {
 
 
     /**
-     * 좋아요 누른 댓글 상품 조회
+     * 좋아요 누른 댓글 조회
      * @param phoneNumber 회원 전화번호
      * @return 좋아요 누른 댓글 리스트
      */
-    @GetMapping("/reply/likes/{phoneNumber}")
-    public CResponseEntity<List<BoardReplyDTO>> getLikesProducts(@PathVariable String phoneNumber) {
-        log.info("좋아요 상품 리스트 phoneNumber = {}", phoneNumber);
-        List<BoardReplyDTO> likesList = boardService.getLikesReplyList(phoneNumber);
-        return new CResponseEntity<>(true, StatusCode.OK, likesList);
-    }
+//    @GetMapping("/reply/likes/{phoneNumber}")
+//    public CResponseEntity<List<BoardReplyDTO>> getLikesProducts(@PathVariable String phoneNumber) {
+//        log.info("좋아요 댓글 리스트 phoneNumber = {}", phoneNumber);
+//        List<BoardReplyDTO> likesList = boardService.getLikesReplyList(phoneNumber);
+//        return new CResponseEntity<>(true, StatusCode.OK, likesList);
+//    }
 
     /**
      * 댓글 좋아요 등록
