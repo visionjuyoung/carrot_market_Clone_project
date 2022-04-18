@@ -16,6 +16,11 @@ class MyViewController: UIViewController {
         print(userInfoManager.jwt)
         print(userInfoManager.imagePath)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
 
     func setInit(){
         tableView.delegate = self
@@ -57,6 +62,7 @@ extension MyViewController: UITableViewDelegate, UITableViewDataSource {
             cell.setData(name: userInfoManager.name, address: userInfoManager.address, code: userInfoManager.userCode , image: url)
             cell.heartButton.addTarget(self, action: #selector(pressBtn(_button:)), for: .touchUpInside)
             cell.soldButton.addTarget(self, action: #selector(pressSoldBtn(_button:)), for: .touchUpInside)
+            cell.editButton.addTarget(self, action: #selector(pressEditBtn(_button:)), for: .touchUpInside)
             return cell
             
         case 1...5:
@@ -105,6 +111,13 @@ extension MyViewController {
     
     @objc func pressSoldBtn(_button: UIButton) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "SoldViewController") as? SoldViewController else {
+            return
+        }
+        present(vc, animated: true)
+    }
+    
+    @objc func pressEditBtn(_button: UIButton) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "EditProfileViewController") as? EditProfileViewController else {
             return
         }
         present(vc, animated: true)
