@@ -4,7 +4,6 @@ import com.hmsh.carrotmarket.CResponseEntity;
 import com.hmsh.carrotmarket.enumeration.StatusCode;
 import com.hmsh.carrotmarket.dto.CertificationNumberDTO;
 import com.hmsh.carrotmarket.entity.Member;
-import com.hmsh.carrotmarket.entity.SignUpMember;
 import com.hmsh.carrotmarket.service.CertificationNumberService;
 import com.hmsh.carrotmarket.service.SignUpService;
 import lombok.RequiredArgsConstructor;

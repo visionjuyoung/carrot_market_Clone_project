@@ -63,10 +63,11 @@ public class ProductController {
      * @return 상품 리스트
      */
     @GetMapping("/list")
-    public CResponseEntity<List<ProductListDTO>> getList(@RequestParam String address,
+    public CResponseEntity<List<ProductListDTO>> getList(@RequestParam(required = false) String address,
+                                                         @RequestParam(required = false) String keyword,
                                                          PageRequestDTO pageRequestDTO) {
-        log.info("상품 리스트 조회 address = {}", address);
-        List<ProductListDTO> list = productService.getList(pageRequestDTO, address);
+        log.info("상품 리스트 조회 address = {}, keyword = {}", address, keyword);
+        List<ProductListDTO> list = productService.getList(pageRequestDTO, address, keyword);
         return new CResponseEntity<>(true, StatusCode.OK, list);
     }
 

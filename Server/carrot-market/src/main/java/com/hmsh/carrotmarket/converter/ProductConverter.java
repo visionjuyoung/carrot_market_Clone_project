@@ -9,6 +9,7 @@ import com.hmsh.carrotmarket.entity.Product;
 import com.hmsh.carrotmarket.entity.ProductImage;
 import com.hmsh.carrotmarket.enumeration.Address;
 import com.hmsh.carrotmarket.enumeration.TradeStatus;
+import com.querydsl.core.Tuple;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -66,6 +67,27 @@ public class ProductConverter {
                 .price((int) objects[5])
                 .likes((int) objects[6])
                 .tradeStatus((TradeStatus) objects[8])
+                .imagePath(imageURL)
+                .build();
+    }
+
+    public static ProductListDTO tupleToListDTO(Tuple tuple) {
+        String imageURL = null;
+        ProductImage productImage = tuple.get(7, ProductImage.class);
+        if (!Objects.isNull(productImage)) {
+            ImageDTO imageDTO = ImageConverter.productImageToImageDTO(productImage);
+            imageURL = imageDTO.getImageURL();
+        }
+
+        return ProductListDTO.builder()
+                .id(tuple.get(0, Long.class))
+                .title(tuple.get(1, String.class))
+                .address((tuple.get(2, Address.class)).getRegion())
+                .chats(tuple.get(3, Integer.class))
+                .modDate(tuple.get(4, LocalDateTime.class))
+                .price(tuple.get(5, Integer.class))
+                .likes(tuple.get(6, Integer.class))
+                .tradeStatus(tuple.get(8, TradeStatus.class))
                 .imagePath(imageURL)
                 .build();
     }

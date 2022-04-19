@@ -15,7 +15,7 @@ public interface ProductService {
 
     ProductDTO get(Long id, String phoneNumber);
 
-    List<ProductListDTO> getList(PageRequestDTO pageRequestDTO, String address);
+    List<ProductListDTO> getList(PageRequestDTO pageRequestDTO, String address, String keyword);
 
     Boolean modify(ProductDTO productDTO, MultipartFile[] uploadFiles);
 
