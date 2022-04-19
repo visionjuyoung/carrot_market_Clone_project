@@ -3,22 +3,26 @@ package com.hmsh.carrotmarket.service;
 import com.hmsh.carrotmarket.converter.ImageConverter;
 import com.hmsh.carrotmarket.converter.ProductConverter;
 import com.hmsh.carrotmarket.dto.*;
-import com.hmsh.carrotmarket.entity.Likes;
-import com.hmsh.carrotmarket.entity.Member;
-import com.hmsh.carrotmarket.entity.Product;
-import com.hmsh.carrotmarket.entity.ProductImage;
+import com.hmsh.carrotmarket.entity.*;
 import com.hmsh.carrotmarket.enumeration.Address;
 import com.hmsh.carrotmarket.enumeration.TradeStatus;
 import com.hmsh.carrotmarket.repository.LikesRepository;
 import com.hmsh.carrotmarket.repository.ProductImageRepository;
 import com.hmsh.carrotmarket.repository.ProductRepository;
+import com.querydsl.core.BooleanBuilder;
+import com.querydsl.core.types.dsl.BooleanExpression;
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -36,6 +40,9 @@ public class ProductServiceImpl implements ProductService {
     private final LikesRepository likesRepository;
 
     private final FileService fileService;
+
+    @PersistenceContext
+    private EntityManager em;
 
 
     /**
@@ -99,11 +106,48 @@ public class ProductServiceImpl implements ProductService {
      * @return 상품 정보 리스트
      */
     @Override
-    public List<ProductListDTO> getList(PageRequestDTO pageRequestDTO, String address) {
-        return productRepository.getProductsListByAddress(
-                pageRequestDTO.getPageable(Sort.by("modDate").descending()), Address.getByRegion(address)).stream()
-                .map(ProductConverter::entityToListDTO)
+    public List<ProductListDTO> getList(PageRequestDTO pageRequestDTO, String address, String keyword) {
+        BooleanBuilder booleanBuilder = searchProduct(address, keyword);
+        JPAQueryFactory queryFactory = new JPAQueryFactory(em);
+        QProduct qProduct = QProduct.product;
+        QProductImage qProductImage = QProductImage.productImage;
+
+        Pageable pageable = pageRequestDTO.getPageable(Sort.unsorted());
+
+        return queryFactory
+                .select(qProduct.id, qProduct.title, qProduct.address, qProduct.chats, qProduct.modDate,
+                        qProduct.price, qProduct.likes, qProductImage, qProduct.tradeStatus)
+                .from(qProduct)
+                .leftJoin(qProductImage)
+                .on(qProduct.eq(qProductImage.product))
+                .where(booleanBuilder)
+                .orderBy(qProduct.modDate.desc())
+                .groupBy(qProduct)
+                .offset(pageable.getOffset())
+                .limit(pageable.getPageSize())
+                .fetch()
+                .stream()
+                .map(ProductConverter::tupleToListDTO)
                 .collect(Collectors.toList());
+    }
+
+
+    private BooleanBuilder searchProduct(String address, String keyword) {
+        BooleanBuilder booleanBuilder = new BooleanBuilder();
+        QProduct qProduct = QProduct.product;
+
+        if (!Objects.isNull(address)) {
+            booleanBuilder.and(qProduct.address.eq(Address.getByRegion(address)));
+        }
+
+        if (!Objects.isNull(keyword)) {
+            BooleanBuilder keywordBooleanBuilder = new BooleanBuilder();
+            keywordBooleanBuilder.and(qProduct.content.contains(keyword));
+            keywordBooleanBuilder.or(qProduct.title.contains(keyword));
+            booleanBuilder.and(keywordBooleanBuilder);
+        }
+
+        return booleanBuilder;
     }
 
     /**
