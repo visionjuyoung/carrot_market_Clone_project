@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		4B0AE0BC2805796900EEAD11 /* DeleteProductResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0AE0BB2805796900EEAD11 /* DeleteProductResponse.swift */; };
+		4B0D3B42281D41C300FA1C23 /* RegistBoardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0D3B41281D41C300FA1C23 /* RegistBoardResponse.swift */; };
+		4B0D3B44281D427D00FA1C23 /* RegistBoardRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0D3B43281D427D00FA1C23 /* RegistBoardRequest.swift */; };
+		4B0D3B46281D42D500FA1C23 /* ViewBoardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0D3B45281D42D500FA1C23 /* ViewBoardResponse.swift */; };
+		4B0D3B48281D43E800FA1C23 /* UpdateBoardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0D3B47281D43E800FA1C23 /* UpdateBoardResponse.swift */; };
+		4B0D3B4A281D441F00FA1C23 /* UpdateBoardRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0D3B49281D441F00FA1C23 /* UpdateBoardRequest.swift */; };
+		4B0D3B4C281D446000FA1C23 /* DeleteBoardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0D3B4B281D446000FA1C23 /* DeleteBoardResponse.swift */; };
+		4B0D3B4E281D448A00FA1C23 /* BoardDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0D3B4D281D448A00FA1C23 /* BoardDataManager.swift */; };
 		4B314ACA27F2D8B300ABC0BF /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B314AC927F2D8B300ABC0BF /* ProductDetailViewController.swift */; };
 		4B314ACD27F44BC600ABC0BF /* RegisterProductResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B314ACC27F44BC600ABC0BF /* RegisterProductResponse.swift */; };
 		4B314ACF27F44BD600ABC0BF /* RegisterProductRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B314ACE27F44BD600ABC0BF /* RegisterProductRequest.swift */; };
@@ -102,6 +109,13 @@
 /* Begin PBXFileReference section */
 		00AD4E91B3E7F1BFC09913F5 /* Pods-carrot_market_clona_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carrot_market_clona_ios.release.xcconfig"; path = "Target Support Files/Pods-carrot_market_clona_ios/Pods-carrot_market_clona_ios.release.xcconfig"; sourceTree = "<group>"; };
 		4B0AE0BB2805796900EEAD11 /* DeleteProductResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProductResponse.swift; sourceTree = "<group>"; };
+		4B0D3B41281D41C300FA1C23 /* RegistBoardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistBoardResponse.swift; sourceTree = "<group>"; };
+		4B0D3B43281D427D00FA1C23 /* RegistBoardRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistBoardRequest.swift; sourceTree = "<group>"; };
+		4B0D3B45281D42D500FA1C23 /* ViewBoardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBoardResponse.swift; sourceTree = "<group>"; };
+		4B0D3B47281D43E800FA1C23 /* UpdateBoardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBoardResponse.swift; sourceTree = "<group>"; };
+		4B0D3B49281D441F00FA1C23 /* UpdateBoardRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBoardRequest.swift; sourceTree = "<group>"; };
+		4B0D3B4B281D446000FA1C23 /* DeleteBoardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteBoardResponse.swift; sourceTree = "<group>"; };
+		4B0D3B4D281D448A00FA1C23 /* BoardDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardDataManager.swift; sourceTree = "<group>"; };
 		4B314AC927F2D8B300ABC0BF /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		4B314ACC27F44BC600ABC0BF /* RegisterProductResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProductResponse.swift; sourceTree = "<group>"; };
 		4B314ACE27F44BD600ABC0BF /* RegisterProductRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProductRequest.swift; sourceTree = "<group>"; };
@@ -208,6 +222,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B0D3B40281D418F00FA1C23 /* MyTown */ = {
+			isa = PBXGroup;
+			children = (
+				4B0D3B41281D41C300FA1C23 /* RegistBoardResponse.swift */,
+				4B0D3B43281D427D00FA1C23 /* RegistBoardRequest.swift */,
+				4B0D3B45281D42D500FA1C23 /* ViewBoardResponse.swift */,
+				4B0D3B47281D43E800FA1C23 /* UpdateBoardResponse.swift */,
+				4B0D3B49281D441F00FA1C23 /* UpdateBoardRequest.swift */,
+				4B0D3B4B281D446000FA1C23 /* DeleteBoardResponse.swift */,
+				4B0D3B4D281D448A00FA1C23 /* BoardDataManager.swift */,
+			);
+			path = MyTown;
+			sourceTree = "<group>";
+		};
 		4B314AC827F2D89A00ABC0BF /* Product */ = {
 			isa = PBXGroup;
 			children = (
@@ -537,6 +565,7 @@
 		4BD6D2C327E1C5D6004B71B3 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				4B0D3B40281D418F00FA1C23 /* MyTown */,
 				4BBAD4F527FC2C5E00B7381A /* My */,
 				4BBE4EC527F07ABB00E08165 /* Product */,
 				4BD6D2C427E1C60E004B71B3 /* SignIn,LogIn */,
@@ -757,6 +786,7 @@
 				4B91241927D9F80F0052D546 /* PhoneAutentificationSignInStateViewController.swift in Sources */,
 				4BBAD507280007FE00B7381A /* DeleteHeartResponse.swift in Sources */,
 				4BB9655E27D08F4600E41D0C /* AppDelegate.swift in Sources */,
+				4B0D3B42281D41C300FA1C23 /* RegistBoardResponse.swift in Sources */,
 				4B314AD127F44BE500ABC0BF /* RegisterProductDataManager.swift in Sources */,
 				4B91241627D9E7DE0052D546 /* SetLocationViewTableViewCell.swift in Sources */,
 				4BC6768C280546EF0067D68D /* ProductModifyRequest.swift in Sources */,
@@ -772,9 +802,12 @@
 				4BB9656027D08F4600E41D0C /* SceneDelegate.swift in Sources */,
 				4BBE4EC927F07B3A00E08165 /* ShowListResponse.swift in Sources */,
 				4BB9657B27D0BDBB00E41D0C /* MyViewController.swift in Sources */,
+				4B0D3B48281D43E800FA1C23 /* UpdateBoardResponse.swift in Sources */,
 				4B314ACF27F44BD600ABC0BF /* RegisterProductRequest.swift in Sources */,
 				4BA63E8C27D33F27003DDEF0 /* TownViewTableViewCell.swift in Sources */,
 				4BBE4ED127F1A6D600E08165 /* LoadImageDataManager.swift in Sources */,
+				4B0D3B46281D42D500FA1C23 /* ViewBoardResponse.swift in Sources */,
+				4B0D3B4E281D448A00FA1C23 /* BoardDataManager.swift in Sources */,
 				4B9123F227D6030C0052D546 /* MyViewFirstSectionTableViewCell.swift in Sources */,
 				4B314ACD27F44BC600ABC0BF /* RegisterProductResponse.swift in Sources */,
 				4BBAD5172804177000B7381A /* firstSoldViewController.swift in Sources */,
@@ -786,6 +819,7 @@
 				4BD193912807E03800C9CE9A /* EditProfileRequest.swift in Sources */,
 				4BD6D2CA27E1C718004B71B3 /* PhoneCertificationDataManager.swift in Sources */,
 				4BD6D2CE27E1D3B2004B71B3 /* PhoneCertificationConfirmResponse.swift in Sources */,
+				4B0D3B4A281D441F00FA1C23 /* UpdateBoardRequest.swift in Sources */,
 				4B91241B27DF26180052D546 /* SetProfileViewController.swift in Sources */,
 				4BB9657727D0BD9800E41D0C /* NearbyViewController.swift in Sources */,
 				4BC67690280562CE0067D68D /* ProductModifyViewController.swift in Sources */,
@@ -805,6 +839,7 @@
 				4B91241227D9BD080052D546 /* PhoneAutentificationViewController.swift in Sources */,
 				4BB9657527D0BD8D00E41D0C /* TownViewController.swift in Sources */,
 				4BBAD4F427FC2A2C00B7381A /* HeartViewController.swift in Sources */,
+				4B0D3B44281D427D00FA1C23 /* RegistBoardRequest.swift in Sources */,
 				4BD1938F2807E02B00C9CE9A /* EditProfileResponse.swift in Sources */,
 				4BD1938A2807DD6300C9CE9A /* EditProfileViewController.swift in Sources */,
 				4BD1938D2807E01E00C9CE9A /* EditProfileDataManager.swift in Sources */,
@@ -817,6 +852,7 @@
 				4B0AE0BC2805796900EEAD11 /* DeleteProductResponse.swift in Sources */,
 				4BBAD4F827FC2C8F00B7381A /* LoadHeartResponse.swift in Sources */,
 				4BD6D2C827E1C690004B71B3 /* PhoneCertificationResponse.swift in Sources */,
+				4B0D3B4C281D446000FA1C23 /* DeleteBoardResponse.swift in Sources */,
 				4BB9657327D0BCF700E41D0C /* HomeViewController.swift in Sources */,
 				4BD6D2D527E32C55004B71B3 /* LogInRequest.swift in Sources */,
 				4B314AD527F6E6A800ABC0BF /* firstProductDetailTableViewCell.swift in Sources */,
