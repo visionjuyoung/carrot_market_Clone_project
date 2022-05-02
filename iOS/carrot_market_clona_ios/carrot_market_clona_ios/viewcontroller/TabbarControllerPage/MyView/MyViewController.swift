@@ -48,7 +48,7 @@ extension MyViewController: UITableViewDelegate, UITableViewDataSource {
         } else if section == 4 {
             return 3
         } else if section == 5 {
-            return 5
+            return 4
         } else {
             return 0
         }
@@ -70,14 +70,19 @@ extension MyViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             if indexPath.section == 1 {
+                cell.cellMenuImageView.image = UIImage(named: "\(cellNamesList.imageName1[indexPath.row])")
                 cell.cellMenuTitleLabel.text = cellNamesList.firstSection[indexPath.row]
             } else if indexPath.section == 2 {
+                cell.cellMenuImageView.image = UIImage(named: "\(cellNamesList.imageName2[indexPath.row])")
                 cell.cellMenuTitleLabel.text = cellNamesList.secondSection[indexPath.row]
             } else if indexPath.section == 3 {
+                cell.cellMenuImageView.image = UIImage(named: "\(cellNamesList.imageName3[indexPath.row])")
                 cell.cellMenuTitleLabel.text = cellNamesList.thirdSection[indexPath.row]
             } else if indexPath.section == 4 {
+                cell.cellMenuImageView.image = UIImage(named: "\(cellNamesList.imageName4[indexPath.row])")
                 cell.cellMenuTitleLabel.text = cellNamesList.firthSection[indexPath.row]
             } else if indexPath.section == 5 {
+                cell.cellMenuImageView.image = UIImage(named: "\(cellNamesList.imageName5[indexPath.row])")
                 cell.cellMenuTitleLabel.text = cellNamesList.fifthSection[indexPath.row]
             }
             return cell
