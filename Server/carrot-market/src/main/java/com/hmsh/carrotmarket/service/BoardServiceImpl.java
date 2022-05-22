@@ -49,7 +49,7 @@ public class BoardServiceImpl implements BoardService {
     public Long register(BoardDTO boardDTO, MultipartFile[] files) {
         Board board = BoardConverter.dtoToBoard(boardDTO);
 
-        if (!Objects.isNull(files)) {
+        if (!Objects.isNull(files) && files.length > 0) {
             List<ImageDTO> imageDTOList = fileService.uploadImageFiles(files);
             List<BoardImage> boardImageList = imageDTOList.stream()
                     .map(imageDTO -> ImageConverter.imageDTOToBoardImage(imageDTO, board))
@@ -130,7 +130,7 @@ public class BoardServiceImpl implements BoardService {
     public Long registerReply(BoardReplyDTO boardReplyDTO, MultipartFile[] uploadFiles) {
         BoardReply reply = BoardReplyConverter.replyDTOToReply(boardReplyDTO);
 
-        if (!Objects.isNull(uploadFiles)) {
+        if (!Objects.isNull(uploadFiles) && uploadFiles.length > 0) {
             List<ImageDTO> imageDTOList = fileService.uploadImageFiles(uploadFiles);
             List<BoardReplyImage> boardImageList = imageDTOList.stream()
                     .map(imageDTO -> ImageConverter.imageDTOToBoardReplyImage(imageDTO, reply))
